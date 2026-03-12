@@ -237,7 +237,7 @@ function CompareContent() {
         Back to all plugins
       </Link>
 
-      <h1 className="text-3xl font-semibold tracking-tight text-[var(--heading)] mb-2">
+      <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--heading)] mb-2">
         Compare Plugins
       </h1>
       <p className="text-[var(--muted)] mb-8">

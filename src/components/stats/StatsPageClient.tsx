@@ -55,48 +55,48 @@ export function StatsPageClient() {
         Back to registry
       </Link>
 
-      <h1 className="text-3xl font-semibold text-[var(--heading)] mb-2">Registry Statistics</h1>
-      <p className="text-[var(--muted)] mb-10">Overview of the Flyte plugin ecosystem.</p>
+      <h1 className="text-2xl sm:text-3xl font-semibold text-[var(--heading)] mb-2">Registry Statistics</h1>
+      <p className="text-sm sm:text-base text-[var(--muted)] mb-8 sm:mb-10">Overview of the Flyte plugin ecosystem.</p>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <Package className="w-5 h-5 text-[var(--accent)]" />
-            <span className="text-sm text-[var(--muted)]">Total Plugins</span>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-12">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-4 sm:p-5">
+          <div className="flex items-center gap-2 sm:gap-3 mb-2">
+            <Package className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--accent)]" />
+            <span className="text-xs sm:text-sm text-[var(--muted)]">Total Plugins</span>
           </div>
-          <p className="text-2xl font-semibold text-[var(--heading)]">{typedPlugins.length}</p>
-          <p className="text-xs text-[var(--muted)] mt-1">{flytekitCount} flytekit, {flyteSdkCount} flyte-sdk</p>
+          <p className="text-xl sm:text-2xl font-semibold text-[var(--heading)]">{typedPlugins.length}</p>
+          <p className="text-[10px] sm:text-xs text-[var(--muted)] mt-1">{flytekitCount} flytekit, {flyteSdkCount} flyte-sdk</p>
         </div>
-        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <Boxes className="w-5 h-5 text-[var(--accent)]" />
-            <span className="text-sm text-[var(--muted)]">Total Modules</span>
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-4 sm:p-5">
+          <div className="flex items-center gap-2 sm:gap-3 mb-2">
+            <Boxes className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--accent)]" />
+            <span className="text-xs sm:text-sm text-[var(--muted)]">Total Modules</span>
           </div>
-          <p className="text-2xl font-semibold text-[var(--heading)]">{totalModules}</p>
+          <p className="text-xl sm:text-2xl font-semibold text-[var(--heading)]">{totalModules}</p>
         </div>
-        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <Download className="w-5 h-5 text-[var(--accent)]" />
-            <span className="text-sm text-[var(--muted)]">Monthly Downloads</span>
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-4 sm:p-5">
+          <div className="flex items-center gap-2 sm:gap-3 mb-2">
+            <Download className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--accent)]" />
+            <span className="text-xs sm:text-sm text-[var(--muted)]">Monthly Downloads</span>
           </div>
-          <p className="text-2xl font-semibold text-[var(--heading)]">{formatNumber(totalDownloads)}</p>
+          <p className="text-xl sm:text-2xl font-semibold text-[var(--heading)]">{formatNumber(totalDownloads)}</p>
         </div>
-        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
-          <div className="flex items-center gap-3 mb-2">
-            <Package className="w-5 h-5 text-[var(--accent)]" />
-            <span className="text-sm text-[var(--muted)]">Categories</span>
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-4 sm:p-5">
+          <div className="flex items-center gap-2 sm:gap-3 mb-2">
+            <Package className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--accent)]" />
+            <span className="text-xs sm:text-sm text-[var(--muted)]">Categories</span>
           </div>
-          <p className="text-2xl font-semibold text-[var(--heading)]">{CATEGORIES.length}</p>
+          <p className="text-xl sm:text-2xl font-semibold text-[var(--heading)]">{CATEGORIES.length}</p>
         </div>
       </div>
 
       {/* Module type breakdown */}
       <div className="mb-12">
         <h2 className="text-xl font-semibold text-[var(--heading)] mb-4">Module Types</h2>
-        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-6">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-4 sm:p-6">
           {/* Bar */}
-          <div className="flex w-full h-4 rounded-full overflow-hidden mb-5">
+          <div className="flex w-full h-3 sm:h-4 rounded-full overflow-hidden mb-4 sm:mb-5">
             {typeEntries.map(([type, count]) => (
               <div
                 key={type}
@@ -109,7 +109,7 @@ export function StatsPageClient() {
             ))}
           </div>
           {/* Legend */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 sm:grid sm:grid-cols-3 lg:grid-cols-6 sm:gap-3">
             {typeEntries.map(([type, count]) => (
               <div key={type} className="flex items-center gap-2">
                 <div

@@ -178,16 +178,17 @@ export function ExplorePageClient() {
       </motion.div>
 
       {/* Filter + view bar */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="flex flex-wrap items-center gap-2 mb-5 pb-4 border-b-2 border-[var(--border)]">
-        {/* Module types - multi select */}
-        <div className="flex flex-wrap items-center gap-1">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mb-5 pb-4 border-b-2 border-[var(--border)] space-y-3">
+        {/* Module types + SDK filters */}
+        <div className="flex flex-wrap items-center gap-1.5">
+          {/* Module types - multi select */}
           {MODULE_TYPES.map((type) => {
             const isSelected = selectedTypes.has(type);
             return (
               <button
                 key={type}
                 onClick={() => toggleType(type)}
-                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium capitalize transition-all duration-150 ${
+                className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md text-[11px] font-medium capitalize transition-all duration-150 ${
                   isSelected
                     ? "text-white"
                     : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
@@ -202,77 +203,74 @@ export function ExplorePageClient() {
               </button>
             );
           })}
-        </div>
 
-        {/* SDK */}
-        <div className="h-4 w-px bg-[var(--border)]" />
-        {(["flytekit", "flyte-sdk"] as const).map((sdk) => (
-          <button
-            key={sdk}
-            onClick={() => setSelectedSdk(selectedSdk === sdk ? null : sdk)}
-            className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-all duration-150 ${
-              selectedSdk === sdk
-                ? "bg-[var(--brand)] text-white shadow-sm shadow-[var(--brand)]/20"
-                : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
-            }`}
-          >
-            {sdk === "flytekit" ? "Flytekit" : "Flyte SDK"}
-          </button>
-        ))}
-
-        {/* Spacer */}
-        <div className="flex-1" />
-
-        {/* Clear */}
-        <AnimatePresence>
-          {hasActiveFilters && (
-            <motion.button
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: "auto" }}
-              exit={{ opacity: 0, width: 0 }}
-              onClick={clearAll}
-              className="text-[11px] font-medium text-[var(--brand)] hover:underline whitespace-nowrap overflow-hidden"
-            >
-              Clear all
-            </motion.button>
-          )}
-        </AnimatePresence>
-
-        <div className="h-4 w-px bg-[var(--border)]" />
-
-        {/* Sort */}
-        <select
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as SortOption)}
-          className="text-[11px] font-medium bg-transparent text-[var(--muted)] cursor-pointer focus:outline-none border-none"
-        >
-          <option value="name">A-Z</option>
-          <option value="modules">Modules</option>
-          <option value="downloads">Downloads</option>
-        </select>
-
-        <div className="h-4 w-px bg-[var(--border)]" />
-
-        {/* View toggle */}
-        <div className="flex items-center gap-0.5 p-0.5 rounded-lg bg-[var(--surface)]">
-          {([
-            { mode: "grid" as const, icon: LayoutGrid, title: "Grid" },
-            { mode: "rows" as const, icon: Rows3, title: "Rows" },
-            { mode: "list" as const, icon: List, title: "Table" },
-          ]).map(({ mode, icon: Icon, title }) => (
+          {/* SDK */}
+          <div className="h-4 w-px bg-[var(--border)] hidden sm:block" />
+          {(["flytekit", "flyte-sdk"] as const).map((sdk) => (
             <button
-              key={mode}
-              onClick={() => setViewMode(mode)}
-              title={title}
-              className={`p-1.5 rounded-md transition-all duration-150 ${
-                viewMode === mode
-                  ? "bg-[var(--card-bg)] text-[var(--heading)] shadow-sm"
-                  : "text-[var(--muted)] hover:text-[var(--heading)]"
+              key={sdk}
+              onClick={() => setSelectedSdk(selectedSdk === sdk ? null : sdk)}
+              className={`px-2.5 py-1.5 rounded-md text-[11px] font-medium transition-all duration-150 ${
+                selectedSdk === sdk
+                  ? "bg-[var(--brand)] text-white shadow-sm shadow-[var(--brand)]/20"
+                  : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
               }`}
             >
-              <Icon className="w-3.5 h-3.5" />
+              {sdk === "flytekit" ? "Flytekit" : "Flyte SDK"}
             </button>
           ))}
+
+          {/* Clear */}
+          <AnimatePresence>
+            {hasActiveFilters && (
+              <motion.button
+                initial={{ opacity: 0, width: 0 }}
+                animate={{ opacity: 1, width: "auto" }}
+                exit={{ opacity: 0, width: 0 }}
+                onClick={clearAll}
+                className="text-[11px] font-medium text-[var(--brand)] hover:underline whitespace-nowrap overflow-hidden ml-1"
+              >
+                Clear all
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Sort + view controls */}
+        <div className="flex items-center gap-2">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as SortOption)}
+            className="text-[11px] font-medium bg-transparent text-[var(--muted)] cursor-pointer focus:outline-none border-none"
+          >
+            <option value="name">A-Z</option>
+            <option value="modules">Modules</option>
+            <option value="downloads">Downloads</option>
+          </select>
+
+          <div className="h-4 w-px bg-[var(--border)]" />
+
+          {/* View toggle */}
+          <div className="flex items-center gap-0.5 p-0.5 rounded-lg bg-[var(--surface)]">
+            {([
+              { mode: "grid" as const, icon: LayoutGrid, title: "Grid" },
+              { mode: "rows" as const, icon: Rows3, title: "Rows" },
+              { mode: "list" as const, icon: List, title: "Table" },
+            ]).map(({ mode, icon: Icon, title }) => (
+              <button
+                key={mode}
+                onClick={() => setViewMode(mode)}
+                title={title}
+                className={`p-1.5 rounded-md transition-all duration-150 ${
+                  viewMode === mode
+                    ? "bg-[var(--card-bg)] text-[var(--heading)] shadow-sm"
+                    : "text-[var(--muted)] hover:text-[var(--heading)]"
+                }`}
+              >
+                <Icon className="w-3.5 h-3.5" />
+              </button>
+            ))}
+          </div>
         </div>
       </motion.div>
 
@@ -363,7 +361,7 @@ export function ExplorePageClient() {
                 >
                   <Link
                     href={`/plugins/${plugin.slug}`}
-                    className="group flex items-center gap-3 px-4 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--card-bg)] hover:bg-[var(--surface)] hover:border-[var(--accent-interactive)]/30 transition-all duration-150"
+                    className="group flex items-center gap-3 px-3 sm:px-4 py-2.5 rounded-lg border border-[var(--border)] bg-[var(--card-bg)] hover:bg-[var(--surface)] hover:border-[var(--accent-interactive)]/30 transition-all duration-150"
                   >
                     <div className="w-1 h-6 rounded-full flex-shrink-0 opacity-40 group-hover:opacity-100 transition-opacity" style={{ backgroundColor: accent }} />
                     <PluginIcon slug={plugin.slug} name={plugin.name} className="w-7 h-7 flex-shrink-0" />
@@ -380,16 +378,16 @@ export function ExplorePageClient() {
                       </div>
                       <p className="text-[11px] text-[var(--muted)] truncate leading-tight">{plugin.description}</p>
                     </div>
-                    <div className="w-20 flex-shrink-0 overflow-visible relative">
+                    <div className="w-20 flex-shrink-0 overflow-visible relative hidden sm:block">
                       <ModuleBar modules={plugin.modules} />
                     </div>
                     <span className="text-[10px] text-[var(--muted)] w-8 text-right tabular-nums flex-shrink-0">{plugin.modules.length}m</span>
                     {stats && stats.lastMonth > 0 ? (
-                      <span className="flex items-center gap-0.5 text-[10px] text-[var(--muted)] w-14 justify-end tabular-nums">
+                      <span className="hidden sm:flex items-center gap-0.5 text-[10px] text-[var(--muted)] w-14 justify-end tabular-nums">
                         <Download className="w-2.5 h-2.5" />
                         {fmt(stats.lastMonth)}
                       </span>
-                    ) : <span className="w-14" />}
+                    ) : <span className="hidden sm:block w-14" />}
                     <ChevronRight className="w-3.5 h-3.5 text-[var(--muted)] opacity-0 group-hover:opacity-60 transition-opacity flex-shrink-0" />
                   </Link>
                 </motion.div>
@@ -401,9 +399,9 @@ export function ExplorePageClient() {
 
       {/* Results - Table/List */}
       {viewMode === "list" && (
-        <div className="rounded-xl border border-[var(--border)] overflow-hidden">
+        <div className="rounded-xl border border-[var(--border)] overflow-hidden overflow-x-auto">
           {/* Table header */}
-          <div className="grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] gap-2 px-4 py-2 bg-[var(--surface)] text-[10px] font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
+          <div className="grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] min-w-[40rem] gap-2 px-4 py-2 bg-[var(--surface)] text-[10px] font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
             <span>Plugin</span>
             <span>Description</span>
             <span>Category</span>
@@ -426,7 +424,7 @@ export function ExplorePageClient() {
                 >
                   <Link
                     href={`/plugins/${plugin.slug}`}
-                    className={`group grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] gap-2 items-center px-4 py-2 hover:bg-[var(--surface)] transition-colors duration-100 ${
+                    className={`group grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] min-w-[40rem] gap-2 items-center px-4 py-2 hover:bg-[var(--surface)] transition-colors duration-100 ${
                       i < filtered.length - 1 ? "border-b border-[var(--border)]" : ""
                     }`}
                   >

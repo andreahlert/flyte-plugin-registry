@@ -4,9 +4,9 @@ import { FlyteLogo } from "@/components/ui/FlyteLogo";
 export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] bg-[var(--surface)]">
-      <div className="px-6 sm:px-10 lg:px-16 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2">
+      <div className="px-6 sm:px-10 lg:px-16 py-10 sm:py-14">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+          <div className="col-span-2">
             <div className="flex items-center gap-2.5 mb-4">
               <FlyteLogo className="w-6 h-6 text-[#6f2aef]" />
               <span className="tracking-tight text-[var(--heading)]">

@@ -204,7 +204,7 @@ export function PluginDetailClient({ plugin, allPlugins = [] }: { plugin: Plugin
 
       <AlternativeVersionBanner plugin={plugin} allPlugins={allPlugins} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         <div className="lg:col-span-2 space-y-8">
           <div>
             <div className="flex items-center gap-3 mb-3">
@@ -212,7 +212,7 @@ export function PluginDetailClient({ plugin, allPlugins = [] }: { plugin: Plugin
                 <PluginIcon slug={plugin.slug} name={plugin.name} className="w-8 h-8" />
               </div>
               <div>
-                <h1 className="text-3xl font-semibold tracking-tight text-[var(--heading)]">
+                <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--heading)]">
                   {plugin.name}
                 </h1>
                 <p className="text-sm text-[var(--muted)]" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>

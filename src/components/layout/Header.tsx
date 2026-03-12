@@ -120,10 +120,11 @@ export function Header({ onSearchOpen }: HeaderProps) {
           </nav>
 
           {/* Right side */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-1.5 sm:gap-2.5">
             <button
               onClick={onSearchOpen}
-              className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border-2 border-[var(--border)] text-sm text-[var(--muted)] hover:border-[var(--accent-interactive)] hover:text-[var(--foreground)] transition-all"
+              className="flex items-center gap-2 p-2 sm:px-3.5 sm:py-1.5 rounded-full border-2 border-[var(--border)] text-sm text-[var(--muted)] hover:border-[var(--accent-interactive)] hover:text-[var(--foreground)] transition-all"
+              aria-label="Search"
             >
               <Search className="w-4 h-4" />
               <span className="hidden sm:inline">Search...</span>
@@ -138,7 +139,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
               href="https://slack.flyte.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary !py-1.5 !px-4 !text-sm"
+              className="hidden sm:inline-flex btn-primary !py-1.5 !px-4 !text-sm"
             >
               Join
             </a>
@@ -158,32 +159,32 @@ export function Header({ onSearchOpen }: HeaderProps) {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden border-t border-[var(--border)] py-4 space-y-3">
+          <div className="md:hidden border-t border-[var(--border)] py-2 space-y-0.5">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface)] px-3 py-2.5 rounded-lg transition-colors"
             >
               Plugins
             </Link>
             <Link
               href="/explore"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface)] px-3 py-2.5 rounded-lg transition-colors"
             >
               Explore
             </Link>
             <Link
               href="/stats"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface)] px-3 py-2.5 rounded-lg transition-colors"
             >
               Stats
             </Link>
             <Link
               href="/compare"
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface)] px-3 py-2.5 rounded-lg transition-colors"
             >
               Compare
             </Link>
@@ -191,7 +192,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
               href="https://www.union.ai/docs/flyte/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface)] px-3 py-2.5 rounded-lg transition-colors"
             >
               Docs
             </a>
@@ -199,18 +200,20 @@ export function Header({ onSearchOpen }: HeaderProps) {
               href="https://github.com/flyteorg/flyte"
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] hover:bg-[var(--surface)] px-3 py-2.5 rounded-lg transition-colors"
             >
               GitHub
             </a>
-            <a
-              href="https://slack.flyte.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-sm font-medium text-[var(--accent)]"
-            >
-              Join Slack
-            </a>
+            <div className="pt-2 px-3">
+              <a
+                href="https://slack.flyte.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center text-sm font-medium text-white bg-[var(--accent)] hover:bg-[var(--accent)]/90 px-4 py-2.5 rounded-lg transition-colors"
+              >
+                Join Slack
+              </a>
+            </div>
           </div>
         )}
       </div>
