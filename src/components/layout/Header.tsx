@@ -64,7 +64,19 @@ export function Header({ onSearchOpen }: HeaderProps) {
               href="/"
               className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
-              Integrations
+              Plugins
+            </Link>
+            <Link
+              href="/explore"
+              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            >
+              Explore
+            </Link>
+            <Link
+              href="/stats"
+              className="text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            >
+              Stats
             </Link>
             <a
               href="https://docs.flyte.org"
@@ -121,7 +133,21 @@ export function Header({ onSearchOpen }: HeaderProps) {
               onClick={() => setMobileMenuOpen(false)}
               className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
             >
-              Integrations
+              Plugins
+            </Link>
+            <Link
+              href="/explore"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            >
+              Explore
+            </Link>
+            <Link
+              href="/stats"
+              onClick={() => setMobileMenuOpen(false)}
+              className="block text-sm text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
+            >
+              Stats
             </Link>
             <a
               href="https://docs.flyte.org"
