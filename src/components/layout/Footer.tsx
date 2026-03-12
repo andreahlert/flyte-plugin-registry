@@ -58,9 +58,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-[var(--border)]">
+        <div className="mt-10 pt-8 border-t border-[var(--border)] space-y-2">
           <p className="text-sm text-[var(--muted)]">
             &copy; {new Date().getFullYear()} Flyte Authors. Apache 2.0 License.
+          </p>
+          <p className="text-xs text-[var(--muted)]/60">
+            Community project, not officially affiliated with Flyte or Union.ai.
+            Flyte is a trademark of its respective owners.
           </p>
         </div>
       </div>

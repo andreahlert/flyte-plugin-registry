@@ -33,12 +33,9 @@ function readCache(packageName: string): PyPIMetadata | null {
 }
 
 export function usePyPIMetadata(packageName: string): PyPIMetadataState {
-  const [state, setState] = useState<PyPIMetadataState>(() => {
-    if (!packageName) return { metadata: null, loading: false };
-    const cached = readCache(packageName);
-    if (cached) return { metadata: cached, loading: false };
-    return { metadata: null, loading: true };
-  });
+  const [state, setState] = useState<PyPIMetadataState>(
+    packageName ? { metadata: null, loading: true } : { metadata: null, loading: false }
+  );
 
   useEffect(() => {
     if (!packageName) {

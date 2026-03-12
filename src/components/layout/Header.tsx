@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, startTransition } from "react";
 import Link from "next/link";
 import { Search, Menu, X, ExternalLink } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
@@ -31,10 +31,11 @@ function readStarsCache(): { stars: string | null; fresh: boolean } {
 }
 
 function GitHubStars() {
-  const [stars, setStars] = useState<string | null>(() => readStarsCache().stars);
+  const [stars, setStars] = useState<string | null>(null);
 
   useEffect(() => {
-    const { fresh } = readStarsCache();
+    const { stars: cached, fresh } = readStarsCache();
+    if (cached) startTransition(() => setStars(cached));
     if (fresh) return;
 
     fetch("https://api.github.com/repos/flyteorg/flyte")

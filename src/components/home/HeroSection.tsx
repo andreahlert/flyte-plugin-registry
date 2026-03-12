@@ -15,12 +15,12 @@ const quickLinks = [
 ];
 
 const terminalLines = [
-  { text: "pip install flytekit", type: "command" as const },
-  { text: "Successfully installed flytekit-1.15.0", type: "success" as const, delay: 600 },
-  { text: "pip install flytekitplugins-spark", type: "command" as const, delay: 400 },
-  { text: "Successfully installed flytekitplugins-spark", type: "success" as const, delay: 500 },
-  { text: "pyflyte run workflow.py", type: "command" as const, delay: 400 },
-  { text: "Running Spark task on Flyte...", type: "info" as const, delay: 300 },
+  { text: "pip install flyte", type: "command" as const },
+  { text: "Successfully installed flyte-2.0.6", type: "success" as const, delay: 600 },
+  { text: "pip install flyteplugins-anthropic", type: "command" as const, delay: 400 },
+  { text: "Successfully installed flyteplugins-anthropic-2.0.6", type: "success" as const, delay: 500 },
+  { text: "flyte run workflow.py my_workflow", type: "command" as const, delay: 400 },
+  { text: "Running workflow on Flyte...", type: "info" as const, delay: 300 },
   { text: "Workflow completed successfully!", type: "success" as const, delay: 800 },
 ];
 

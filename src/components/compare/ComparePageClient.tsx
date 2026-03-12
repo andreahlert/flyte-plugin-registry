@@ -12,6 +12,7 @@ import { PluginIcon } from "@/components/ui/PluginIcon";
 import { ModuleBar } from "@/components/plugins/PluginCard";
 import { MODULE_TYPE_COLORS } from "@/lib/constants";
 import { formatDownloads } from "@/lib/utils";
+import { PluginCombobox } from "@/components/ui/PluginCombobox";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
@@ -65,10 +66,10 @@ function CompareDownloadChart({ pluginA, pluginB }: { pluginA: Plugin; pluginB: 
 
   const series = [];
   if (histA && histA.length > 7) {
-    series.push({ label: pluginA.name, data: histA, color: "#7c3aed" });
+    series.push({ label: pluginA.name, data: histA, color: "#7c3aed", isV2: pluginA.sdk === "flyte-sdk" });
   }
   if (histB && histB.length > 7) {
-    series.push({ label: pluginB.name, data: histB, color: "#3b82f6" });
+    series.push({ label: pluginB.name, data: histB, color: "#3b82f6", isV2: pluginB.sdk === "flyte-sdk" });
   }
 
   if (series.length === 0) return null;
@@ -245,26 +246,28 @@ function CompareContent() {
 
       {/* Selectors */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-        {(["a", "b"] as const).map((key) => (
-          <div key={key}>
-            <label className="block text-xs font-medium text-[var(--muted)] mb-1.5 uppercase tracking-wider">
-              Plugin {key.toUpperCase()}
-            </label>
-            <select
-              value={key === "a" ? slugA : slugB}
-              onChange={(e) => updateParam(key, e.target.value)}
-              className="w-full rounded-xl border-2 border-[var(--border)] bg-[var(--card-bg)] text-[var(--heading)] px-4 py-2.5 text-sm focus:outline-none focus:border-[var(--accent-interactive)] transition-colors appearance-none cursor-pointer"
-              style={{ fontFamily: "var(--font-instrument-sans), system-ui, sans-serif" }}
-            >
-              <option value="">Select a plugin...</option>
-              {allPlugins.map((p) => (
-                <option key={p.slug} value={p.slug} disabled={p.slug === (key === "a" ? slugB : slugA)}>
-                  {p.name}
-                </option>
-              ))}
-            </select>
-          </div>
-        ))}
+        <div>
+          <label className="block text-xs font-medium text-[var(--muted)] mb-1.5 uppercase tracking-wider">
+            Plugin A
+          </label>
+          <PluginCombobox
+            plugins={allPlugins}
+            value={slugA}
+            onChange={(slug) => updateParam("a", slug)}
+            disabledSlug={slugB}
+          />
+        </div>
+        <div>
+          <label className="block text-xs font-medium text-[var(--muted)] mb-1.5 uppercase tracking-wider">
+            Plugin B
+          </label>
+          <PluginCombobox
+            plugins={allPlugins}
+            value={slugB}
+            onChange={(slug) => updateParam("b", slug)}
+            disabledSlug={slugA}
+          />
+        </div>
       </div>
 
       {/* Comparison */}

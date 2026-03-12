@@ -195,3 +195,7 @@ To **improve the registry itself**, fork this repo and open a PR. Please run `np
 ## License
 
 Apache 2.0, same as [Flyte](https://github.com/flyteorg/flyte/blob/master/LICENSE).
+
+## Disclaimer
+
+This is an independent community project, not officially affiliated with or endorsed by [Flyte](https://github.com/flyteorg/flyte) or [Union.ai](https://union.ai). The Flyte name and logo are trademarks of their respective owners and are used here solely to describe the origin of the plugins cataloged.
