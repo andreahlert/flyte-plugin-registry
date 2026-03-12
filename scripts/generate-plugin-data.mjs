@@ -14,7 +14,8 @@ import { join, dirname, basename } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const FLYTEKIT_PLUGINS_DIR = join(__dirname, "../../flytekit/plugins");
+const FLYTEKIT_PLUGINS_DIR = process.env.FLYTEKIT_PATH || join(__dirname, "../../flytekit/plugins");
+const FLYTE_SDK_PLUGINS_DIR = process.env.FLYTE_SDK_PATH || join(__dirname, "../../flyte-sdk/plugins");
 const OUTPUT_PATH = join(__dirname, "../src/data/plugins.json");
 
 // Category mapping based on plugin slug
@@ -125,6 +126,37 @@ const TAGS_MAP = {
   "identity-aware-proxy": ["gcp", "iap", "authentication"],
 };
 
+// flyte-sdk specific mappings (slug prefix: v2-)
+const V2_CATEGORY_MAP = {
+  bigquery: "databases-warehouses",
+  dask: "ml-training",
+  databricks: "cloud-infrastructure",
+  openai: "model-serving",
+  polars: "data-dataframe",
+  pytorch: "ml-training",
+  ray: "ml-training",
+  sglang: "model-serving",
+  snowflake: "databases-warehouses",
+  spark: "ml-training",
+  vllm: "model-serving",
+  wandb: "experiment-tracking",
+};
+
+const V2_TAGS_MAP = {
+  bigquery: ["bigquery", "google", "sql", "warehouse", "connector"],
+  dask: ["dask", "distributed", "parallel", "dataframe"],
+  databricks: ["databricks", "spark", "cloud", "connector"],
+  openai: ["openai", "llm", "agents", "ai"],
+  polars: ["polars", "dataframe", "type"],
+  pytorch: ["pytorch", "deep-learning", "distributed", "elastic"],
+  ray: ["ray", "distributed", "parallel"],
+  sglang: ["sglang", "inference", "llm", "serving", "gpu"],
+  snowflake: ["snowflake", "sql", "warehouse", "connector"],
+  spark: ["spark", "pyspark", "distributed", "big-data"],
+  vllm: ["vllm", "inference", "llm", "serving", "gpu"],
+  wandb: ["wandb", "experiment-tracking", "logging", "sweeps"],
+};
+
 function parseSetupPy(content) {
   const result = {
     title: null,
@@ -181,8 +213,10 @@ function extractDependencies(requires) {
 
 function parseInitPy(content) {
   const modules = [];
-  // Match "from .xxx import Yyy, Zzz" patterns
-  const importRegex = /from\s+\.[a-z_.]+\s+import\s+([^#\n]+)/g;
+
+  // Match "from .xxx import Yyy, Zzz" (relative imports)
+  // and "from flytekitplugins.xxx import Yyy" or "from flyteplugins.xxx import Yyy" (absolute imports)
+  const importRegex = /from\s+(?:\.|flyte(?:kit)?plugins\.)[a-z_.]+\s+import\s+([^#\n]+)/g;
   let match;
   while ((match = importRegex.exec(content)) !== null) {
     const names = match[1]
@@ -198,6 +232,21 @@ function parseInitPy(content) {
       }
     }
   }
+
+  // Also parse __all__ if no imports were found
+  if (modules.length === 0) {
+    const allMatch = content.match(/__all__\s*=\s*\[([\s\S]*?)\]/);
+    if (allMatch) {
+      const names = allMatch[1].match(/"([^"]+)"/g);
+      if (names) {
+        for (const n of names) {
+          const clean = n.replace(/"/g, "");
+          if (clean && !clean.startsWith("_")) modules.push(clean);
+        }
+      }
+    }
+  }
+
   return [...new Set(modules)];
 }
 
@@ -321,6 +370,119 @@ function main() {
 
     plugins.push(plugin);
     console.log(`  ${slug}: ${modules.length} modules, ${dependencies.length} deps`);
+  }
+
+  // Mark all flytekit plugins
+  for (const p of plugins) {
+    p.sdk = "flytekit";
+  }
+
+  // ── flyte-sdk plugins ───────────────────────────────────────────
+  if (existsSync(FLYTE_SDK_PLUGINS_DIR)) {
+    const v2Dirs = readdirSync(FLYTE_SDK_PLUGINS_DIR)
+      .filter((d) => {
+        const full = join(FLYTE_SDK_PLUGINS_DIR, d);
+        return statSync(full).isDirectory() && !d.startsWith("__");
+      });
+
+    console.log(`\nFound ${v2Dirs.length} flyte-sdk plugin directories`);
+
+    for (const dirName of v2Dirs) {
+      const dir = join(FLYTE_SDK_PLUGINS_DIR, dirName);
+      const pyprojectPath = join(dir, "pyproject.toml");
+
+      if (!existsSync(pyprojectPath)) {
+        console.warn(`  Skipping v2-${dirName}: no pyproject.toml`);
+        continue;
+      }
+
+      const pyproject = readFileSync(pyprojectPath, "utf-8");
+
+      // Parse name from pyproject.toml
+      const nameMatch = pyproject.match(/name\s*=\s*"([^"]+)"/);
+      const packageName = nameMatch ? nameMatch[1] : `flyteplugins-${dirName}`;
+
+      // Parse description
+      const descMatch = pyproject.match(/description\s*=\s*"([^"]+)"/);
+      const description = descMatch ? descMatch[1] : `${dirName} plugin for Flyte SDK`;
+
+      // Parse dependencies
+      const depsMatch = pyproject.match(/dependencies\s*=\s*\[([\s\S]*?)\]/);
+      let deps = [];
+      if (depsMatch) {
+        const depStrings = depsMatch[1].match(/"([^"]+)"/g);
+        if (depStrings) {
+          deps = depStrings
+            .map((d) => d.replace(/"/g, ""))
+            .filter((d) => !d.startsWith("flyte"))
+            .map((d) => d.replace(/[><=!~\[].*$/, "").trim())
+            .filter(Boolean);
+        }
+      }
+
+      // Parse modules from __init__.py
+      const initDir = join(dir, "src", "flyteplugins", dirName);
+      const initPath = join(initDir, "__init__.py");
+      let moduleNames = [];
+      let modulePath = `flyteplugins.${dirName}`;
+
+      if (existsSync(initPath)) {
+        const initContent = readFileSync(initPath, "utf-8");
+        moduleNames = parseInitPy(initContent);
+      }
+
+      // Check subdirectories for more modules
+      if (moduleNames.length === 0 && existsSync(initDir)) {
+        const subDirs = readdirSync(initDir).filter((f) => {
+          const p = join(initDir, f);
+          return statSync(p).isDirectory() && !f.startsWith("_");
+        });
+        for (const sub of subDirs) {
+          const subInit = join(initDir, sub, "__init__.py");
+          if (existsSync(subInit)) {
+            const content = readFileSync(subInit, "utf-8");
+            const subModules = parseInitPy(content);
+            moduleNames.push(...subModules);
+            if (!modulePath.includes(sub)) modulePath = `flyteplugins.${dirName}.${sub}`;
+          }
+        }
+      }
+
+      const readmeDesc = getReadmeDescription(dir);
+      const slug = `v2-${dirName}`;
+      const category = V2_CATEGORY_MAP[dirName] || "developer-tools";
+      const tags = V2_TAGS_MAP[dirName] || [dirName];
+
+      const modules = moduleNames.map((name) => ({
+        name,
+        type: classifyModule(name),
+        importPath: modulePath,
+        description: `${name} from ${dirName} plugin`,
+      }));
+
+      const plugin = {
+        slug,
+        name: descMatch ? descMatch[1].replace(/ plugin for [Ff]lyte.*/, "") : dirName.charAt(0).toUpperCase() + dirName.slice(1),
+        packageName,
+        description: readmeDesc || description,
+        category,
+        tags,
+        dependencies: deps,
+        installCommand: `pip install ${packageName}`,
+        githubUrl: `https://github.com/flyteorg/flyte-sdk/tree/main/plugins/${dirName}`,
+        docsUrl: "https://docs.flyte.org",
+        pypiUrl: `https://pypi.org/project/${packageName}/`,
+        minFlytekitVersion: "",
+        modules,
+        isDeprecated: false,
+        sdk: "flyte-sdk",
+      };
+
+      plugins.push(plugin);
+      console.log(`  v2-${dirName}: ${modules.length} modules, ${deps.length} deps`);
+    }
+  } else {
+    console.log("\nflyte-sdk plugins directory not found, skipping");
   }
 
   // Sort by name
