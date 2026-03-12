@@ -6,13 +6,13 @@
   --accent: #6f2aef;
   --accent-hover: #5b1ed4;
   --accent-light: #f0eafd;
-  --surface: #f7f7fa;
+  --surface: #f5f5fa;
   --surface-hover: #eeedf3;
   --border: #e4e4ec;
-  --muted: #6b6b80;
+  --muted: #71717a;
   --heading: #1a1a2e;
   --card-bg: #ffffff;
-  --header-bg: rgba(255, 255, 255, 0.85);
+  --header-bg: rgba(255, 255, 255, 0.88);
   --code-bg: #f4f3f8;
 }
 
@@ -28,7 +28,7 @@
   --muted: #8888a0;
   --heading: #f0f0f8;
   --card-bg: #151525;
-  --header-bg: rgba(13, 13, 26, 0.85);
+  --header-bg: rgba(13, 13, 26, 0.88);
   --code-bg: #1a1a2e;
 }
 
@@ -52,12 +52,24 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  letter-spacing: -0.02em;
 }
 
 .line-clamp-2 {
@@ -72,7 +84,7 @@ body {
   color: white;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+:focus-visible {
+  outline: 0.125rem solid var(--accent);
+  outline-offset: 0.125rem;
 }

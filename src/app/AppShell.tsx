@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import { AnnouncementBanner } from "@/components/layout/AnnouncementBanner";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SearchModal } from "@/components/layout/SearchModal";
@@ -28,6 +29,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <AnnouncementBanner />
       <Header onSearchOpen={openSearch} />
       <main>
         {children}
