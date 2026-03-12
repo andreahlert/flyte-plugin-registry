@@ -2,9 +2,9 @@ import { ExternalLink } from "lucide-react";
 
 export function AnnouncementBanner() {
   return (
-    <div className="w-full bg-[#6f2aef] text-white text-center py-2.5 px-4 text-sm">
+    <div className="w-full bg-[var(--banner-bg)] text-white text-center py-2.5 px-4 text-sm">
       <a
-        href="https://www.union.ai/try-flyte-2"
+        href="https://www.union.ai/"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 hover:opacity-90 transition-opacity"

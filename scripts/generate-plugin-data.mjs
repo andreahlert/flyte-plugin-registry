@@ -1,78 +1,63 @@
 /**
- * Generates plugins.json by reading the actual flytekit plugin source code.
+ * Single source of truth for plugins.json generation.
  *
- * For each plugin it extracts:
- *   - name, packageName, description from setup.py
- *   - dependencies from install_requires
- *   - min flytekit version from the flytekit requirement
- *   - exported modules from __init__.py
- *   - description from README.md (first paragraph)
+ * This script does EVERYTHING in one pass:
+ *   1. Reads plugin source code from local flytekit/flyte-sdk clones
+ *   2. Merges curated fields from existing plugins.json (docsUrl, addedDate, snacksUrl)
+ *   3. Fetches docstrings from GitHub API for module descriptions
+ *   4. Fetches contributors from GitHub API
+ *   5. Writes plugins.json ONCE at the end
+ *
+ * Usage:
+ *   node scripts/generate-plugin-data.mjs
+ *
+ * Environment variables:
+ *   FLYTEKIT_PATH    - path to flytekit/plugins dir (default: ../flytekit/plugins)
+ *   FLYTE_SDK_PATH   - path to flyte-sdk/plugins dir (default: ../flyte-sdk/plugins)
+ *   SKIP_DOCSTRINGS  - set to "1" to skip GitHub API calls for docstrings
+ *   SKIP_CONTRIBUTORS - set to "1" to skip GitHub API calls for contributors
+ *   GH_TOKEN         - GitHub token for API calls (set automatically in CI)
  */
 
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync } from "fs";
 import { join, dirname, basename } from "path";
 import { fileURLToPath } from "url";
+import { execSync } from "child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FLYTEKIT_PLUGINS_DIR = process.env.FLYTEKIT_PATH || join(__dirname, "../../flytekit/plugins");
 const FLYTE_SDK_PLUGINS_DIR = process.env.FLYTE_SDK_PATH || join(__dirname, "../../flyte-sdk/plugins");
 const OUTPUT_PATH = join(__dirname, "../src/data/plugins.json");
 
-// Category mapping based on plugin slug
+// ── Static mappings ─────────────────────────────────────────────
+
 const CATEGORY_MAP = {
-  polars: "data-dataframe",
-  vaex: "data-dataframe",
-  modin: "data-dataframe",
-  geopandas: "data-dataframe",
-  huggingface: "data-dataframe",
-  "async-fsspec": "data-dataframe",
-  "data-fsspec": "data-dataframe",
-  bigquery: "databases-warehouses",
-  snowflake: "databases-warehouses",
-  duckdb: "databases-warehouses",
-  hive: "databases-warehouses",
-  sqlalchemy: "databases-warehouses",
-  dolt: "databases-warehouses",
-  "aws-batch": "cloud-infrastructure",
-  "aws-athena": "cloud-infrastructure",
-  "aws-sagemaker": "cloud-infrastructure",
-  "k8s-pod": "cloud-infrastructure",
-  k8sdataservice: "cloud-infrastructure",
-  mmcloud: "cloud-infrastructure",
-  perian: "cloud-infrastructure",
-  slurm: "cloud-infrastructure",
-  "kf-pytorch": "ml-training",
-  "kf-tensorflow": "ml-training",
-  "kf-mpi": "ml-training",
-  spark: "ml-training",
-  ray: "ml-training",
-  dask: "ml-training",
-  inference: "model-serving",
-  openai: "model-serving",
-  "dgxc-lepton": "model-serving",
-  "onnx-pytorch": "model-serving",
-  "onnx-scikitlearn": "model-serving",
+  polars: "data-dataframe", vaex: "data-dataframe", modin: "data-dataframe",
+  geopandas: "data-dataframe", huggingface: "data-dataframe",
+  "async-fsspec": "data-dataframe", "data-fsspec": "data-dataframe",
+  bigquery: "databases-warehouses", snowflake: "databases-warehouses",
+  duckdb: "databases-warehouses", hive: "databases-warehouses",
+  sqlalchemy: "databases-warehouses", dolt: "databases-warehouses",
+  "aws-batch": "cloud-infrastructure", "aws-athena": "cloud-infrastructure",
+  "aws-sagemaker": "cloud-infrastructure", "k8s-pod": "cloud-infrastructure",
+  k8sdataservice: "cloud-infrastructure", mmcloud: "cloud-infrastructure",
+  perian: "cloud-infrastructure", slurm: "cloud-infrastructure",
+  "kf-pytorch": "ml-training", "kf-tensorflow": "ml-training",
+  "kf-mpi": "ml-training", spark: "ml-training", ray: "ml-training", dask: "ml-training",
+  inference: "model-serving", openai: "model-serving", "dgxc-lepton": "model-serving",
+  "onnx-pytorch": "model-serving", "onnx-scikitlearn": "model-serving",
   "onnx-tensorflow": "model-serving",
-  wandb: "experiment-tracking",
-  mlflow: "experiment-tracking",
-  "comet-ml": "experiment-tracking",
-  neptune: "experiment-tracking",
-  greatexpectations: "data-validation",
-  pandera: "data-validation",
+  wandb: "experiment-tracking", mlflow: "experiment-tracking",
+  "comet-ml": "experiment-tracking", neptune: "experiment-tracking",
+  greatexpectations: "data-validation", pandera: "data-validation",
   whylogs: "data-validation",
-  airflow: "workflow",
-  dbt: "workflow",
-  papermill: "workflow",
-  flyteinteractive: "developer-tools",
-  envd: "developer-tools",
-  memray: "developer-tools",
-  "deck-standard": "developer-tools",
-  optuna: "developer-tools",
-  omegaconf: "developer-tools",
+  airflow: "workflow", dbt: "workflow", papermill: "workflow",
+  flyteinteractive: "developer-tools", envd: "developer-tools",
+  memray: "developer-tools", "deck-standard": "developer-tools",
+  optuna: "developer-tools", omegaconf: "developer-tools",
   "identity-aware-proxy": "developer-tools",
 };
 
-// Tags per plugin
 const TAGS_MAP = {
   spark: ["spark", "pyspark", "distributed", "big-data"],
   bigquery: ["bigquery", "google", "sql", "warehouse"],
@@ -126,20 +111,13 @@ const TAGS_MAP = {
   "identity-aware-proxy": ["gcp", "iap", "authentication"],
 };
 
-// flyte-sdk specific mappings (slug prefix: v2-)
 const V2_CATEGORY_MAP = {
-  bigquery: "databases-warehouses",
-  dask: "ml-training",
-  databricks: "cloud-infrastructure",
-  openai: "model-serving",
-  polars: "data-dataframe",
-  pytorch: "ml-training",
-  ray: "ml-training",
-  sglang: "model-serving",
-  snowflake: "databases-warehouses",
-  spark: "ml-training",
-  vllm: "model-serving",
-  wandb: "experiment-tracking",
+  bigquery: "databases-warehouses", dask: "ml-training",
+  databricks: "cloud-infrastructure", openai: "model-serving",
+  polars: "data-dataframe", pytorch: "ml-training",
+  ray: "ml-training", sglang: "model-serving",
+  snowflake: "databases-warehouses", spark: "ml-training",
+  vllm: "model-serving", wandb: "experiment-tracking",
 };
 
 const V2_TAGS_MAP = {
@@ -157,42 +135,26 @@ const V2_TAGS_MAP = {
   wandb: ["wandb", "experiment-tracking", "logging", "sweeps"],
 };
 
-function parseSetupPy(content) {
-  const result = {
-    title: null,
-    name: null,
-    description: null,
-    installRequires: [],
-  };
+// ── Parsing helpers ─────────────────────────────────────────────
 
-  // Extract title
+function parseSetupPy(content) {
+  const result = { title: null, name: null, description: null, installRequires: [] };
   const titleMatch = content.match(/title\s*=\s*"([^"]+)"/);
   if (titleMatch) result.title = titleMatch[1];
-
-  // Extract name
   const nameMatch = content.match(/name\s*=\s*(?:microlib_name|f?"([^"]*)")/);
   if (nameMatch && nameMatch[1]) result.name = nameMatch[1];
-
-  // Try to extract microlib_name pattern
   const microlibMatch = content.match(/microlib_name\s*=\s*f"([^"]+)"/);
   const pluginNameMatch = content.match(/PLUGIN_NAME\s*=\s*"([^"]+)"/);
   if (microlibMatch && pluginNameMatch) {
     result.name = microlibMatch[1].replace("{PLUGIN_NAME}", pluginNameMatch[1]);
   }
-
-  // Extract description
   const descMatch = content.match(/description\s*=\s*"([^"]+)"/);
   if (descMatch) result.description = descMatch[1];
-
-  // Extract install_requires
   const reqMatch = content.match(/plugin_requires\s*=\s*\[([\s\S]*?)\]/);
   if (reqMatch) {
     const reqs = reqMatch[1].match(/"([^"]+)"/g);
-    if (reqs) {
-      result.installRequires = reqs.map((r) => r.replace(/"/g, ""));
-    }
+    if (reqs) result.installRequires = reqs.map((r) => r.replace(/"/g, ""));
   }
-
   return result;
 }
 
@@ -213,10 +175,7 @@ function extractDependencies(requires) {
 
 function parseInitPy(content) {
   const modules = [];
-
-  // Match "from .xxx import Yyy, Zzz" (relative imports)
-  // and "from flytekitplugins.xxx import Yyy" or "from flyteplugins.xxx import Yyy" (absolute imports)
-  const importRegex = /from\s+(?:\.|flyte(?:kit)?plugins\.)[a-z_.]+\s+import\s+([^#\n]+)/g;
+  const importRegex = /from\s+(?:\.|flyte(?:kit)?plugins\.)[a-z0-9_.]+\s+import\s+([^#\n]+)/g;
   let match;
   while ((match = importRegex.exec(content)) !== null) {
     const names = match[1]
@@ -224,16 +183,11 @@ function parseInitPy(content) {
       .split(",")
       .map((n) => n.replace(/#.*$/, "").trim())
       .filter((n) => n && !n.startsWith("_") && n !== "noqa");
-
     for (const name of names) {
       const cleanName = name.replace(/\s+#.*$/, "").trim();
-      if (cleanName && /^[A-Za-z]/.test(cleanName)) {
-        modules.push(cleanName);
-      }
+      if (cleanName && /^[A-Za-z]/.test(cleanName)) modules.push(cleanName);
     }
   }
-
-  // Also parse __all__ if no imports were found
   if (modules.length === 0) {
     const allMatch = content.match(/__all__\s*=\s*\[([\s\S]*?)\]/);
     if (allMatch) {
@@ -246,19 +200,20 @@ function parseInitPy(content) {
       }
     }
   }
-
   return [...new Set(modules)];
 }
 
 function classifyModule(name) {
   const lower = name.toLowerCase();
-  if (lower.includes("task") || lower.includes("job") || lower === "spark" || lower === "dask" || lower.includes("databricks")) return "task";
+  if (lower.includes("task") || lower.includes("job")) return "task";
   if (lower.includes("connector") || lower.includes("agent")) return "agent";
   if (lower.includes("sensor")) return "sensor";
-  if (lower.includes("config") || lower.includes("transformer") || lower.includes("handler") || lower.includes("renderer") || lower.includes("schema") || lower.includes("secret") || lower.includes("model") || lower.includes("policy")) return "type";
-  // Decorators and functions
-  if (lower.startsWith("new_") || lower.endsWith("_init") || lower === "mlflow_autolog" || lower === "wandb_init" || lower === "comet_ml_init" || lower === "neptune_init_run" || lower === "vscode" || lower === "jupyter" || lower === "memray_profiling") return "task";
-  return "other";
+  if (lower.includes("workflow")) return "workflow";
+  if (lower.includes("config") || lower.includes("transformer") || lower.includes("handler") ||
+      lower.includes("renderer") || lower.includes("schema") || lower.includes("secret") ||
+      lower.includes("model") || lower.includes("policy")) return "type";
+  if (/^[a-z]/.test(name)) return "task";
+  return "type";
 }
 
 function getReadmeDescription(pluginDir) {
@@ -266,183 +221,270 @@ function getReadmeDescription(pluginDir) {
   if (!existsSync(readmePath)) return null;
   const content = readFileSync(readmePath, "utf-8");
   const lines = content.split("\n");
-  // Skip title line and blank lines, get first paragraph
   let desc = "";
   let foundContent = false;
   for (const line of lines) {
-    if (line.startsWith("#")) {
-      foundContent = true;
-      continue;
-    }
+    if (line.startsWith("#")) { foundContent = true; continue; }
     if (foundContent && line.trim()) {
+      // Skip markdown blockquotes and callouts
+      if (line.trim().startsWith(">")) continue;
+      // Skip badges/images
+      if (line.trim().startsWith("[![") || line.trim().startsWith("![")) continue;
       desc = line.trim();
       break;
     }
   }
-  // Clean up markdown links and formatting
   desc = desc.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
   desc = desc.replace(/`/g, "");
+  desc = desc.replace(/\*\*/g, "");
   return desc || null;
 }
 
 function findInitPy(pluginDir) {
   const pluginsDir = join(pluginDir, "flytekitplugins");
   if (!existsSync(pluginsDir)) return null;
-
   const subdirs = readdirSync(pluginsDir).filter((f) => {
     const fullPath = join(pluginsDir, f);
     return statSync(fullPath).isDirectory() && !f.startsWith("__");
   });
-
   for (const sub of subdirs) {
     const initPath = join(pluginsDir, sub, "__init__.py");
-    if (existsSync(initPath)) {
-      return { path: initPath, modulePath: `flytekitplugins.${sub}` };
-    }
+    if (existsSync(initPath)) return { path: initPath, modulePath: `flytekitplugins.${sub}` };
   }
   return null;
 }
 
+// ── GitHub API helpers ──────────────────────────────────────────
+
+function sleep(ms) {
+  const end = Date.now() + ms;
+  while (Date.now() < end);
+}
+
+function ghFetchFile(repo, path) {
+  try {
+    const cmd = `gh api "repos/${repo}/contents/${path}" --jq '.content'`;
+    const b64 = execSync(cmd, { encoding: "utf-8", timeout: 15000 }).trim();
+    return Buffer.from(b64, "base64").toString("utf-8");
+  } catch { return null; }
+}
+
+function ghListPyFiles(repo, dirPath) {
+  try {
+    const cmd = `gh api "repos/${repo}/contents/${dirPath}" --jq '[.[] | {name: .name, type: .type}]'`;
+    const entries = JSON.parse(execSync(cmd, { encoding: "utf-8", timeout: 15000 }));
+    const pyFiles = entries.filter((e) => e.type === "file" && e.name.endsWith(".py")).map((e) => e.name);
+    // Also list .py files in immediate subdirectories
+    const subdirs = entries.filter((e) => e.type === "dir" && !e.name.startsWith("_"));
+    for (const sub of subdirs) {
+      try {
+        const subCmd = `gh api "repos/${repo}/contents/${dirPath}/${sub.name}" --jq '[.[] | select(.name | endswith(".py")) | .name]'`;
+        const subFiles = JSON.parse(execSync(subCmd, { encoding: "utf-8", timeout: 15000 }));
+        pyFiles.push(...subFiles.map((f) => `${sub.name}/${f}`));
+        sleep(100);
+      } catch {}
+    }
+    return pyFiles;
+  } catch { return []; }
+}
+
+// Map Python base classes to module subtypes
+const BASE_CLASS_MAP = {
+  // Transformers
+  "TypeTransformer": "transformer",
+  "TypeEngine": "transformer",
+  "BatchDecodingHandler": "handler",
+  "BatchEncodingHandler": "handler",
+  // Tasks
+  "PythonTask": "task",
+  "PythonFunctionTask": "task",
+  "PythonAutoContainerTask": "task",
+  "PythonCustomizedContainerTask": "task",
+  "ShellTask": "task",
+  "SQLTask": "task",
+  // Sensors
+  "SensorTask": "sensor",
+  "BaseSensor": "sensor",
+  // Agents / Connectors
+  "AgentBase": "agent",
+  "AsyncAgentBase": "agent",
+  "SyncAgentBase": "agent",
+  "Connector": "connector",
+  "DefaultConnector": "connector",
+  "AsyncAgentExecutorMixin": "agent",
+  // Workflows
+  "WorkflowBase": "workflow",
+  // Renderers
+  "Renderer": "renderer",
+  "TopFrameRenderer": "renderer",
+  // Config / data types
+  "Enum": "enum",
+  "IntEnum": "enum",
+  "StrEnum": "enum",
+};
+
+function extractBaseClass(source, name) {
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  // Check for class with base classes
+  const classRegex = new RegExp(`class\\s+${escaped}\\s*\\(([^)]+)\\)`, "m");
+  const classMatch = source.match(classRegex);
+  if (classMatch) {
+    const bases = classMatch[1].split(",").map((b) => b.replace(/\[.*$/, "").trim());
+    for (const base of bases) {
+      const clean = base.split(".").pop();
+      if (BASE_CLASS_MAP[clean]) return { baseClass: clean, subtype: BASE_CLASS_MAP[clean] };
+    }
+  }
+
+  // Check for @dataclass decorator → config subtype
+  const dcRegex = new RegExp(`@dataclass[^\\n]*\\nclass\\s+${escaped}`, "m");
+  if (dcRegex.test(source)) return { baseClass: "dataclass", subtype: "config" };
+
+  // Check for NamedTuple
+  const ntRegex = new RegExp(`class\\s+${escaped}\\s*\\(.*NamedTuple.*\\)`, "m");
+  if (ntRegex.test(source)) return { baseClass: "NamedTuple", subtype: "config" };
+
+  // Check for plain class (no base) with @dataclass-like patterns
+  const plainRegex = new RegExp(`class\\s+${escaped}\\s*[:(]`, "m");
+  if (plainRegex.test(source)) {
+    // Check if it's a simple class with no interesting base
+    const noBaseRegex = new RegExp(`class\\s+${escaped}\\s*:`, "m");
+    if (noBaseRegex.test(source)) return { baseClass: "class", subtype: "config" };
+  }
+
+  return null;
+}
+
+function extractDocstring(source, name) {
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const regex = new RegExp(
+    `(?:class|def)\\s+${escaped}[^:]*:[\\s]*\\n\\s+(?:"""|\\'\\'\\'|""")([\\s\\S]*?)(?:"""|\\'\\'\\'|""")`,
+    "m"
+  );
+  const match = source.match(regex);
+  if (!match) return null;
+  const doc = match[1].trim();
+  const firstLine = doc
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l && !l.startsWith(":") && !l.startsWith(".."))
+    .join(" ")
+    .split(". ")[0]
+    .trim();
+  if (firstLine.length < 5) return null;
+  return firstLine.endsWith(".") ? firstLine : firstLine + ".";
+}
+
+// ── Main ────────────────────────────────────────────────────────
+
 function main() {
+  // Load existing data for merging curated fields
+  let existingMap = new Map();
+  if (existsSync(OUTPUT_PATH)) {
+    const existing = JSON.parse(readFileSync(OUTPUT_PATH, "utf-8"));
+    existingMap = new Map(existing.map((p) => [p.slug, p]));
+    console.log(`Loaded ${existingMap.size} existing plugins for merge`);
+  }
+
+  const plugins = [];
+
+  // ── Step 1: Parse flytekit plugins ──────────────────────────
+
   const pluginDirs = readdirSync(FLYTEKIT_PLUGINS_DIR)
     .filter((d) => d.startsWith("flytekit-"))
     .map((d) => join(FLYTEKIT_PLUGINS_DIR, d))
     .filter((d) => statSync(d).isDirectory());
 
-  console.log(`Found ${pluginDirs.length} plugin directories`);
-
-  const plugins = [];
+  console.log(`\nFound ${pluginDirs.length} flytekit plugin directories`);
 
   for (const dir of pluginDirs) {
     const slug = basename(dir).replace("flytekit-", "");
     const setupPath = join(dir, "setup.py");
+    if (!existsSync(setupPath)) { console.warn(`  Skipping ${slug}: no setup.py`); continue; }
 
-    if (!existsSync(setupPath)) {
-      console.warn(`  Skipping ${slug}: no setup.py`);
-      continue;
-    }
-
-    const setupContent = readFileSync(setupPath, "utf-8");
-    const setup = parseSetupPy(setupContent);
-
+    const setup = parseSetupPy(readFileSync(setupPath, "utf-8"));
     const initInfo = findInitPy(dir);
     let moduleNames = [];
     let modulePath = "";
-
     if (initInfo) {
-      const initContent = readFileSync(initInfo.path, "utf-8");
-      moduleNames = parseInitPy(initContent);
+      moduleNames = parseInitPy(readFileSync(initInfo.path, "utf-8"));
       modulePath = initInfo.modulePath;
     }
 
     const readmeDesc = getReadmeDescription(dir);
-    const description = readmeDesc || setup.description || `Flytekit ${setup.title || slug} plugin`;
-    const minFlytekitVersion = extractMinFlytekitVersion(setup.installRequires);
-    const dependencies = extractDependencies(setup.installRequires);
-    const category = CATEGORY_MAP[slug] || "developer-tools";
-    const tags = TAGS_MAP[slug] || [slug];
-
-    const modules = moduleNames.map((name) => ({
-      name,
-      type: classifyModule(name),
-      importPath: modulePath,
-      description: `${name} from ${setup.title || slug} plugin`,
-    }));
-
     const packageName = setup.name || `flytekitplugins-${slug}`;
+    const prev = existingMap.get(slug);
 
-    const plugin = {
+    plugins.push({
       slug,
       name: setup.title || slug.charAt(0).toUpperCase() + slug.slice(1),
       packageName,
-      description,
-      category,
-      tags,
-      dependencies,
+      description: readmeDesc || setup.description || `Flytekit ${setup.title || slug} plugin`,
+      category: CATEGORY_MAP[slug] || "developer-tools",
+      tags: TAGS_MAP[slug] || [slug],
+      dependencies: extractDependencies(setup.installRequires),
       installCommand: `pip install ${packageName}`,
       githubUrl: `https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-${slug}`,
-      docsUrl: `https://docs.flyte.org/en/latest/flytesnacks/examples/${slug.replace(/-/g, "_")}_plugin/index.html`,
+      docsUrl: prev?.docsUrl || `https://www.union.ai/docs/flyte/integrations/`,
       pypiUrl: `https://pypi.org/project/${packageName}/`,
-      minFlytekitVersion,
-      modules,
+      minFlytekitVersion: extractMinFlytekitVersion(setup.installRequires),
+      modules: moduleNames.map((name) => ({
+        name,
+        type: classifyModule(name),
+        importPath: modulePath,
+        description: null, // filled later by docstring fetch or merge
+      })),
       isDeprecated: false,
-    };
-
-    plugins.push(plugin);
-    console.log(`  ${slug}: ${modules.length} modules, ${dependencies.length} deps`);
+      sdk: "flytekit",
+      addedDate: prev?.addedDate || null,
+      snacksUrl: prev?.snacksUrl || null,
+      maintainers: [], // filled later
+    });
+    console.log(`  ${slug}: ${moduleNames.length} modules`);
   }
 
-  // Mark all flytekit plugins
-  for (const p of plugins) {
-    p.sdk = "flytekit";
-  }
+  // ── Step 2: Parse flyte-sdk plugins ─────────────────────────
 
-  // ── flyte-sdk plugins ───────────────────────────────────────────
   if (existsSync(FLYTE_SDK_PLUGINS_DIR)) {
     const v2Dirs = readdirSync(FLYTE_SDK_PLUGINS_DIR)
-      .filter((d) => {
-        const full = join(FLYTE_SDK_PLUGINS_DIR, d);
-        return statSync(full).isDirectory() && !d.startsWith("__");
-      });
+      .filter((d) => statSync(join(FLYTE_SDK_PLUGINS_DIR, d)).isDirectory() && !d.startsWith("__"));
 
     console.log(`\nFound ${v2Dirs.length} flyte-sdk plugin directories`);
 
     for (const dirName of v2Dirs) {
       const dir = join(FLYTE_SDK_PLUGINS_DIR, dirName);
       const pyprojectPath = join(dir, "pyproject.toml");
-
-      if (!existsSync(pyprojectPath)) {
-        console.warn(`  Skipping v2-${dirName}: no pyproject.toml`);
-        continue;
-      }
+      if (!existsSync(pyprojectPath)) { console.warn(`  Skipping v2-${dirName}: no pyproject.toml`); continue; }
 
       const pyproject = readFileSync(pyprojectPath, "utf-8");
-
-      // Parse name from pyproject.toml
       const nameMatch = pyproject.match(/name\s*=\s*"([^"]+)"/);
       const packageName = nameMatch ? nameMatch[1] : `flyteplugins-${dirName}`;
-
-      // Parse description
       const descMatch = pyproject.match(/description\s*=\s*"([^"]+)"/);
       const description = descMatch ? descMatch[1] : `${dirName} plugin for Flyte SDK`;
 
-      // Parse dependencies
       const depsMatch = pyproject.match(/dependencies\s*=\s*\[([\s\S]*?)\]/);
       let deps = [];
       if (depsMatch) {
         const depStrings = depsMatch[1].match(/"([^"]+)"/g);
         if (depStrings) {
-          deps = depStrings
-            .map((d) => d.replace(/"/g, ""))
+          deps = depStrings.map((d) => d.replace(/"/g, ""))
             .filter((d) => !d.startsWith("flyte"))
             .map((d) => d.replace(/[><=!~\[].*$/, "").trim())
             .filter(Boolean);
         }
       }
 
-      // Parse modules from __init__.py
       const initDir = join(dir, "src", "flyteplugins", dirName);
       const initPath = join(initDir, "__init__.py");
       let moduleNames = [];
       let modulePath = `flyteplugins.${dirName}`;
-
-      if (existsSync(initPath)) {
-        const initContent = readFileSync(initPath, "utf-8");
-        moduleNames = parseInitPy(initContent);
-      }
-
-      // Check subdirectories for more modules
+      if (existsSync(initPath)) moduleNames = parseInitPy(readFileSync(initPath, "utf-8"));
       if (moduleNames.length === 0 && existsSync(initDir)) {
-        const subDirs = readdirSync(initDir).filter((f) => {
-          const p = join(initDir, f);
-          return statSync(p).isDirectory() && !f.startsWith("_");
-        });
-        for (const sub of subDirs) {
+        for (const sub of readdirSync(initDir).filter((f) => statSync(join(initDir, f)).isDirectory() && !f.startsWith("_"))) {
           const subInit = join(initDir, sub, "__init__.py");
           if (existsSync(subInit)) {
-            const content = readFileSync(subInit, "utf-8");
-            const subModules = parseInitPy(content);
-            moduleNames.push(...subModules);
+            moduleNames.push(...parseInitPy(readFileSync(subInit, "utf-8")));
             if (!modulePath.includes(sub)) modulePath = `flyteplugins.${dirName}.${sub}`;
           }
         }
@@ -450,46 +492,224 @@ function main() {
 
       const readmeDesc = getReadmeDescription(dir);
       const slug = `v2-${dirName}`;
-      const category = V2_CATEGORY_MAP[dirName] || "developer-tools";
-      const tags = V2_TAGS_MAP[dirName] || [dirName];
+      const prev = existingMap.get(slug);
 
-      const modules = moduleNames.map((name) => ({
-        name,
-        type: classifyModule(name),
-        importPath: modulePath,
-        description: `${name} from ${dirName} plugin`,
-      }));
-
-      const plugin = {
+      plugins.push({
         slug,
         name: descMatch ? descMatch[1].replace(/ plugin for [Ff]lyte.*/, "") : dirName.charAt(0).toUpperCase() + dirName.slice(1),
         packageName,
         description: readmeDesc || description,
-        category,
-        tags,
+        category: V2_CATEGORY_MAP[dirName] || "developer-tools",
+        tags: V2_TAGS_MAP[dirName] || [dirName],
         dependencies: deps,
         installCommand: `pip install ${packageName}`,
         githubUrl: `https://github.com/flyteorg/flyte-sdk/tree/main/plugins/${dirName}`,
-        docsUrl: "https://docs.flyte.org",
+        docsUrl: prev?.docsUrl || `https://www.union.ai/docs/flyte/integrations/`,
         pypiUrl: `https://pypi.org/project/${packageName}/`,
         minFlytekitVersion: "",
-        modules,
+        modules: moduleNames.map((name) => ({
+          name, type: classifyModule(name), importPath: modulePath, description: null,
+        })),
         isDeprecated: false,
         sdk: "flyte-sdk",
-      };
-
-      plugins.push(plugin);
-      console.log(`  v2-${dirName}: ${modules.length} modules, ${deps.length} deps`);
+        addedDate: prev?.addedDate || null,
+        snacksUrl: prev?.snacksUrl || null,
+        maintainers: [],
+      });
+      console.log(`  v2-${dirName}: ${moduleNames.length} modules`);
     }
   } else {
     console.log("\nflyte-sdk plugins directory not found, skipping");
   }
 
-  // Sort by name
   plugins.sort((a, b) => a.name.localeCompare(b.name));
 
-  writeFileSync(OUTPUT_PATH, JSON.stringify(plugins, null, 2));
-  console.log(`\nGenerated ${plugins.length} plugins to ${OUTPUT_PATH}`);
+  // ── Step 3: Merge module descriptions from existing data ────
+  // This preserves docstrings fetched in previous runs so they
+  // survive even if SKIP_DOCSTRINGS=1 or the API is down.
+
+  let mergedDescriptions = 0;
+  let mergedBaseClasses = 0;
+  for (const plugin of plugins) {
+    const prev = existingMap.get(plugin.slug);
+    if (!prev?.modules) continue;
+    const prevModMap = new Map(prev.modules.map((m) => [m.name, m]));
+    for (const mod of plugin.modules) {
+      const prevMod = prevModMap.get(mod.name);
+      if (!prevMod) continue;
+      if (prevMod.description && !isGenericDescription(prevMod.description)) {
+        mod.description = prevMod.description;
+        mergedDescriptions++;
+      }
+      if (prevMod.baseClass) {
+        mod.baseClass = prevMod.baseClass;
+        mod.subtype = prevMod.subtype;
+        mergedBaseClasses++;
+      }
+    }
+  }
+  console.log(`\nMerged ${mergedDescriptions} descriptions, ${mergedBaseClasses} base classes from existing data`);
+
+  // ── Step 4: Fetch docstrings + base classes from GitHub ─────
+  // Reads source files to extract docstrings and class hierarchy.
+
+  if (process.env.SKIP_DOCSTRINGS !== "1") {
+    console.log("\nFetching docstrings and base classes from GitHub...");
+    let fetchedDocs = 0;
+    let fetchedBases = 0;
+
+    for (const plugin of plugins) {
+      const needsDocstring = plugin.modules.filter(
+        (m) => !m.description || isGenericDescription(m.description)
+      );
+      const needsBaseClass = plugin.modules.filter((m) => !m.baseClass);
+      if (needsDocstring.length === 0 && needsBaseClass.length === 0) continue;
+
+      let repo, basePath;
+      if (plugin.slug.startsWith("v2-")) {
+        repo = "flyteorg/flyte-sdk";
+        const name = plugin.slug.replace("v2-", "");
+        basePath = `plugins/${name}/src/flyteplugins/${name}`;
+      } else {
+        repo = "flyteorg/flytekit";
+        const modParts = plugin.modules[0]?.importPath.replace("flytekitplugins.", "").split(".") || [];
+        basePath = `plugins/flytekit-${plugin.slug}/flytekitplugins/${modParts[0] || plugin.slug}`;
+      }
+
+      const pyFiles = ghListPyFiles(repo, basePath);
+      sleep(100);
+      if (pyFiles.length === 0) continue;
+
+      const docNameSet = new Set(needsDocstring.map((m) => m.name));
+      const baseNameSet = new Set(needsBaseClass.map((m) => m.name));
+      const allNeeded = new Set([...docNameSet, ...baseNameSet]);
+
+      for (const file of pyFiles) {
+        if (allNeeded.size === 0) break;
+        const source = ghFetchFile(repo, `${basePath}/${file}`);
+        sleep(100);
+        if (!source) continue;
+
+        for (const mod of plugin.modules) {
+          if (!allNeeded.has(mod.name)) continue;
+
+          // Extract docstring
+          if (docNameSet.has(mod.name)) {
+            const doc = extractDocstring(source, mod.name);
+            if (doc) {
+              mod.description = doc;
+              docNameSet.delete(mod.name);
+              fetchedDocs++;
+              console.log(`  ${plugin.slug}/${mod.name}: ${doc}`);
+            }
+          }
+
+          // Extract base class
+          if (baseNameSet.has(mod.name)) {
+            const baseInfo = extractBaseClass(source, mod.name);
+            if (baseInfo) {
+              mod.baseClass = baseInfo.baseClass;
+              mod.subtype = baseInfo.subtype;
+              baseNameSet.delete(mod.name);
+              fetchedBases++;
+            }
+          }
+
+          if (!docNameSet.has(mod.name) && !baseNameSet.has(mod.name)) {
+            allNeeded.delete(mod.name);
+          }
+        }
+      }
+    }
+    console.log(`Fetched ${fetchedDocs} docstrings, ${fetchedBases} base classes from source code`);
+  } else {
+    console.log("\nSkipping docstring fetch (SKIP_DOCSTRINGS=1)");
+  }
+
+  // ── Step 5: Fill remaining empty descriptions ───────────────
+
+  for (const plugin of plugins) {
+    for (const mod of plugin.modules) {
+      if (!mod.description || isGenericDescription(mod.description)) {
+        const typeLabel = {
+          task: "Task for", type: "Configuration type for",
+          agent: "Backend connector for", sensor: "Sensor for",
+          workflow: "Workflow component for",
+        };
+        mod.description = `${typeLabel[mod.type] || "Component from"} ${plugin.name}.`;
+      }
+    }
+  }
+
+  // ── Step 6: Fetch contributors from GitHub ──────────────────
+
+  if (process.env.SKIP_CONTRIBUTORS !== "1") {
+    console.log("\nFetching contributors from GitHub...");
+    for (const plugin of plugins) {
+      let repo, path;
+      if (plugin.slug.startsWith("v2-")) {
+        repo = "flyteorg/flyte-sdk";
+        path = `plugins/${plugin.slug.replace("v2-", "")}`;
+      } else {
+        repo = "flyteorg/flytekit";
+        path = `plugins/flytekit-${plugin.slug}`;
+      }
+      try {
+        const cmd = `gh api "repos/${repo}/commits?path=${path}&per_page=100" --jq "[.[] | {login: .author.login, avatar: .author.avatar_url}]"`;
+        const commits = JSON.parse(execSync(cmd, { encoding: "utf-8", timeout: 15000 }));
+        const counts = {};
+        commits.forEach((c) => {
+          if (!c.login || c.login.endsWith("[bot]")) return;
+          if (!counts[c.login]) counts[c.login] = { login: c.login, avatar: c.avatar, commits: 0 };
+          counts[c.login].commits++;
+        });
+        const sorted = Object.values(counts).sort((a, b) => b.commits - a.commits);
+        const top3 = sorted.slice(0, 3);
+        // Ensure the original author (oldest commit) is always included
+        const oldest = commits.filter((c) => c.login && !c.login.endsWith("[bot]")).at(-1);
+        if (oldest && !top3.some((t) => t.login === oldest.login)) {
+          const original = counts[oldest.login];
+          if (original) {
+            top3.pop();
+            top3.push(original);
+          }
+        }
+        plugin.maintainers = top3.map((c) => ({ login: c.login, avatarUrl: c.avatar }));
+        console.log(`  ${plugin.slug}: ${plugin.maintainers.map((m) => m.login).join(", ")}`);
+      } catch {
+        // Preserve existing contributors if API fails
+        const prev = existingMap.get(plugin.slug);
+        plugin.maintainers = prev?.maintainers || [];
+        console.warn(`  ${plugin.slug}: API failed, preserved existing`);
+      }
+    }
+  } else {
+    console.log("\nSkipping contributor fetch (SKIP_CONTRIBUTORS=1)");
+    // Preserve existing contributors
+    for (const plugin of plugins) {
+      const prev = existingMap.get(plugin.slug);
+      plugin.maintainers = prev?.maintainers || [];
+    }
+  }
+
+  // ── Step 7: Write output ────────────────────────────────────
+
+  // Clean up null fields before writing
+  for (const plugin of plugins) {
+    if (!plugin.addedDate) delete plugin.addedDate;
+    if (!plugin.snacksUrl) delete plugin.snacksUrl;
+  }
+
+  writeFileSync(OUTPUT_PATH, JSON.stringify(plugins, null, 2) + "\n");
+  console.log(`\nDone! Generated ${plugins.length} plugins to ${OUTPUT_PATH}`);
+}
+
+function isGenericDescription(desc) {
+  if (!desc) return true;
+  // "X from Y plugin" or "Task for Y." or "Configuration type for Y."
+  if (desc.includes(" from ") && desc.includes(" plugin")) return true;
+  if (/^(Task for|Configuration type for|Backend connector for|Sensor for|Workflow component for|Component from) /.test(desc)) return true;
+  return false;
 }
 
 main();

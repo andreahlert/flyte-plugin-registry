@@ -1,6 +1,11 @@
 {
-  "fetchedAt": "2026-03-12T03:08:43.083Z",
+  "fetchedAt": "2026-03-12T10:36:50.942Z",
   "stats": {
+    "flyteplugins-anthropic": {
+      "lastDay": 53,
+      "lastWeek": 121,
+      "lastMonth": 121
+    },
     "flytekitplugins-airflow": {
       "lastDay": 74,
       "lastWeek": 212,
@@ -21,10 +26,20 @@
       "lastWeek": 317,
       "lastMonth": 1768
     },
+    "flytekitplugins-awssagemaker": {
+      "lastDay": 101,
+      "lastWeek": 618,
+      "lastMonth": 2907
+    },
     "flytekitplugins-bigquery": {
       "lastDay": 140,
       "lastWeek": 774,
       "lastMonth": 3309
+    },
+    "flyteplugins-bigquery": {
+      "lastDay": 72,
+      "lastWeek": 189,
+      "lastMonth": 751
     },
     "flytekitplugins-comet-ml": {
       "lastDay": 139,
@@ -35,6 +50,16 @@
       "lastDay": 94,
       "lastWeek": 425,
       "lastMonth": 2145
+    },
+    "flyteplugins-dask": {
+      "lastDay": 53,
+      "lastWeek": 489,
+      "lastMonth": 1646
+    },
+    "flyteplugins-databricks": {
+      "lastDay": 68,
+      "lastWeek": 130,
+      "lastMonth": 699
     },
     "flytekitplugins-dbt": {
       "lastDay": 84,
@@ -71,6 +96,11 @@
       "lastWeek": 1316,
       "lastMonth": 6782
     },
+    "flytekitplugins-data-fsspec": {
+      "lastDay": 63,
+      "lastWeek": 372,
+      "lastMonth": 2852
+    },
     "flytekitplugins-geopandas": {
       "lastDay": 97,
       "lastWeek": 114,
@@ -86,15 +116,30 @@
       "lastWeek": 642,
       "lastMonth": 2416
     },
+    "flytekitplugins-hive": {
+      "lastDay": 76,
+      "lastWeek": 877,
+      "lastMonth": 2939
+    },
     "flytekitplugins-huggingface": {
       "lastDay": 120,
       "lastWeek": 563,
       "lastMonth": 2558
     },
+    "flyteplugins-hitl": {
+      "lastDay": 52,
+      "lastWeek": 52,
+      "lastMonth": 52
+    },
     "flytekitplugins-inference": {
       "lastDay": 94,
       "lastWeek": 452,
       "lastMonth": 1232
+    },
+    "flyteplugins-jsonl": {
+      "lastDay": 49,
+      "lastWeek": 110,
+      "lastMonth": 110
     },
     "flytekitplugins-kfmpi": {
       "lastDay": 622,
@@ -120,6 +165,11 @@
       "lastDay": 85,
       "lastWeek": 135,
       "lastMonth": 749
+    },
+    "flyteplugins-codegen": {
+      "lastDay": 55,
+      "lastWeek": 55,
+      "lastMonth": 55
     },
     "flytekitplugins-mmcloud": {
       "lastDay": 85,
@@ -171,6 +221,11 @@
       "lastWeek": 295,
       "lastMonth": 1413
     },
+    "flyteplugins-openai": {
+      "lastDay": 110,
+      "lastWeek": 294,
+      "lastMonth": 1097
+    },
     "flytekitplugins-optuna": {
       "lastDay": 119,
       "lastWeek": 348,
@@ -191,15 +246,35 @@
       "lastWeek": 219,
       "lastMonth": 954
     },
+    "flyteplugins-polars": {
+      "lastDay": 52,
+      "lastWeek": 191,
+      "lastMonth": 788
+    },
     "flytekitplugins-polars": {
       "lastDay": 190,
       "lastWeek": 806,
       "lastMonth": 3284
     },
+    "flyteplugins-pytorch": {
+      "lastDay": 4,
+      "lastWeek": 159,
+      "lastMonth": 960
+    },
     "flytekitplugins-ray": {
       "lastDay": 1519,
       "lastWeek": 19930,
       "lastMonth": 138937
+    },
+    "flyteplugins-ray": {
+      "lastDay": 125,
+      "lastWeek": 603,
+      "lastMonth": 1979
+    },
+    "flyteplugins-sglang": {
+      "lastDay": 50,
+      "lastWeek": 225,
+      "lastMonth": 844
     },
     "flytekitplugins-slurm": {
       "lastDay": 88,
@@ -211,25 +286,35 @@
       "lastWeek": 579,
       "lastMonth": 2433
     },
+    "flyteplugins-snowflake": {
+      "lastDay": 71,
+      "lastWeek": 191,
+      "lastMonth": 822
+    },
     "flytekitplugins-spark": {
       "lastDay": 3541,
       "lastWeek": 19150,
       "lastMonth": 76071
     },
-    "flytekitplugins-sqlalchemy": {
-      "lastDay": 95,
-      "lastWeek": 771,
-      "lastMonth": 3425
+    "flyteplugins-spark": {
+      "lastDay": 143,
+      "lastWeek": 683,
+      "lastMonth": 4276
     },
     "flytekitplugins-vaex": {
       "lastDay": 80,
       "lastWeek": 277,
       "lastMonth": 1795
     },
-    "flytekitplugins-wandb": {
-      "lastDay": 127,
-      "lastWeek": 588,
-      "lastMonth": 2583
+    "flyteplugins-vllm": {
+      "lastDay": 73,
+      "lastWeek": 219,
+      "lastMonth": 832
+    },
+    "flyteplugins-wandb": {
+      "lastDay": 50,
+      "lastWeek": 227,
+      "lastMonth": 747
     },
     "flytekitplugins-whylogs": {
       "lastDay": 177,

@@ -3,9 +3,16 @@ export interface PluginModule {
   type: "task" | "type" | "agent" | "sensor" | "workflow" | "other";
   importPath: string;
   description?: string;
+  subtype?: string;   // e.g. "transformer", "connector", "config" - derived from base class
+  baseClass?: string; // e.g. "TypeTransformer", "PythonTask" - actual Python base class
 }
 
 export type SDK = "flytekit" | "flyte-sdk";
+
+export interface Maintainer {
+  login: string;
+  avatarUrl: string;
+}
 
 export interface Plugin {
   slug: string;
@@ -23,7 +30,9 @@ export interface Plugin {
   modules: PluginModule[];
   isDeprecated: boolean;
   addedDate?: string;
+  snacksUrl?: string;
   sdk?: SDK;
+  maintainers?: Maintainer[];
 }
 
 export type Category =

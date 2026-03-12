@@ -6,21 +6,8 @@ import { Plugin, PluginModule } from "@/lib/types";
 import { SDKBadge } from "@/components/ui/Badge";
 import { PluginIcon } from "@/components/ui/PluginIcon";
 import { usePyPIStats } from "@/hooks/usePyPIStats";
-
-function formatDownloads(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
-  return n.toString();
-}
-
-const MODULE_TYPE_COLORS: Record<string, string> = {
-  task: "#22c55e",
-  agent: "#6f2aef",
-  type: "#3b82f6",
-  sensor: "#f59e0b",
-  workflow: "#ec4899",
-  other: "#94a3b8",
-};
+import { formatDownloads } from "@/lib/utils";
+import { MODULE_TYPE_COLORS } from "@/lib/constants";
 
 function ModuleBar({ modules }: { modules: PluginModule[] }) {
   if (modules.length === 0) return null;
@@ -34,16 +21,28 @@ function ModuleBar({ modules }: { modules: PluginModule[] }) {
   const segments = Object.entries(counts).sort((a, b) => b[1] - a[1]);
 
   return (
-    <div className="flex w-full h-2 rounded-full overflow-hidden bg-[var(--surface)]">
-      {segments.map(([type, count]) => (
+    <div className="flex w-full h-2 rounded-full bg-[var(--surface)] overflow-visible">
+      {segments.map(([type, count], i) => (
         <div
           key={type}
+          className="module-bar-segment cursor-default"
           style={{
             width: `${(count / total) * 100}%`,
             backgroundColor: MODULE_TYPE_COLORS[type] || MODULE_TYPE_COLORS.other,
+            borderRadius:
+              segments.length === 1
+                ? "9999px"
+                : i === 0
+                  ? "9999px 0 0 9999px"
+                  : i === segments.length - 1
+                    ? "0 9999px 9999px 0"
+                    : "0",
           }}
-          title={`${count} ${type}${count !== 1 ? "s" : ""}`}
-        />
+        >
+          <span className="module-bar-tooltip">
+            {count} {type}{count !== 1 ? "s" : ""}
+          </span>
+        </div>
       ))}
     </div>
   );
@@ -55,7 +54,7 @@ export function PluginCard({ plugin }: { plugin: Plugin }) {
   return (
     <Link
       href={`/plugins/${plugin.slug}`}
-      className="group flex items-center gap-5 rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-5 hover:border-[var(--accent)]/40 hover:shadow-md transition-all"
+      className="group flex items-center gap-5 rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5 hover:border-[var(--accent-interactive)]/40 hover:shadow-md hover:-translate-y-0.5 hover:bg-[var(--surface)] transition-all duration-200"
     >
       {/* Icon */}
       <div className="flex-shrink-0 p-1.5 rounded-xl bg-[var(--accent-light)]">
@@ -68,10 +67,15 @@ export function PluginCard({ plugin }: { plugin: Plugin }) {
           <h3 className="font-semibold text-[var(--heading)] group-hover:text-[var(--accent)] transition-colors truncate">
             {plugin.name}
           </h3>
+          {plugin.sdk === "flyte-sdk" && (
+            <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
+              v2
+            </span>
+          )}
           <SDKBadge sdk={plugin.sdk} />
         </div>
 
-        <p className="text-xs text-[var(--muted)] mb-1" style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}>
+        <p className="text-xs text-[var(--muted)] mb-1" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>
           {plugin.packageName}
         </p>
 
@@ -80,7 +84,7 @@ export function PluginCard({ plugin }: { plugin: Plugin }) {
         </p>
 
         {/* Module bar */}
-        <div className="mb-2.5">
+        <div className="mb-2.5 overflow-visible relative">
           <ModuleBar modules={plugin.modules} />
         </div>
 
@@ -109,4 +113,4 @@ export function PluginCard({ plugin }: { plugin: Plugin }) {
   );
 }
 
-export { ModuleBar, MODULE_TYPE_COLORS };
+export { ModuleBar };

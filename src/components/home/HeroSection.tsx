@@ -3,7 +3,7 @@
 import { Search } from "lucide-react";
 import Link from "next/link";
 import { Plugin } from "@/lib/types";
-import { FlyteLogo } from "@/components/ui/FlyteLogo";
+import { AnimatedTerminal } from "@/components/ui/AnimatedTerminal";
 
 const quickLinks = [
   { label: "Spark", slug: "spark" },
@@ -12,6 +12,16 @@ const quickLinks = [
   { label: "W&B", slug: "wandb" },
   { label: "PyTorch", slug: "kf-pytorch" },
   { label: "Airflow", slug: "airflow" },
+];
+
+const terminalLines = [
+  { text: "pip install flytekit", type: "command" as const },
+  { text: "Successfully installed flytekit-1.15.0", type: "success" as const, delay: 600 },
+  { text: "pip install flytekitplugins-spark", type: "command" as const, delay: 400 },
+  { text: "Successfully installed flytekitplugins-spark", type: "success" as const, delay: 500 },
+  { text: "pyflyte run workflow.py", type: "command" as const, delay: 400 },
+  { text: "Running Spark task on Flyte...", type: "info" as const, delay: 300 },
+  { text: "Workflow completed successfully!", type: "success" as const, delay: 800 },
 ];
 
 interface HeroSectionProps {
@@ -23,53 +33,57 @@ export function HeroSection({ plugins, onSearchOpen }: HeroSectionProps) {
   const totalModules = plugins.reduce((sum, p) => sum + p.modules.length, 0);
 
   return (
-    <section className="relative w-full bg-[var(--surface)] border-b border-[var(--border)]">
+    <section className="relative w-full bg-[var(--surface)] border-b border-[var(--border)] overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-32 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--accent)]/8 blur-[120px]" />
-        <div className="absolute -bottom-32 left-[10%] w-[400px] h-[400px] rounded-full bg-[var(--accent)]/5 blur-[100px]" />
+        <div className="absolute -top-32 right-[10%] w-[500px] h-[500px] rounded-full bg-[var(--accent)]/6 blur-[120px]" />
+        <div className="absolute -bottom-32 left-[10%] w-[400px] h-[400px] rounded-full bg-[var(--accent)]/4 blur-[100px]" />
       </div>
 
-      <div className="relative px-6 sm:px-10 lg:px-16 py-20 sm:py-28">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="flex justify-center mb-8">
-            <FlyteLogo className="w-16 h-16 text-[var(--accent)]" />
+      <div className="relative px-6 sm:px-10 lg:px-16 py-14 sm:py-20">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+          {/* Left: Text */}
+          <div className="flex-1 min-w-0 max-w-2xl">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-[var(--heading)] mb-4 leading-tight text-center lg:text-left">
+              Discover {plugins.length}+ Plugins
+              <br />
+              <span className="text-[var(--muted)]">and {totalModules}+ Modules</span>
+            </h1>
+
+            <p className="text-base sm:text-lg text-[var(--muted)] mb-6 leading-relaxed max-w-lg text-center lg:text-left">
+              Extend your Flyte workflows with community-built integrations for data
+              processing, ML training, experiment tracking, and more.
+            </p>
+
+            <div className="flex justify-center lg:justify-start">
+              <button
+                onClick={onSearchOpen}
+                className="btn-secondary w-full max-w-md text-[var(--muted)]"
+              >
+                <Search className="w-4 h-4" />
+                <span>Search plugins...</span>
+                <kbd className="ml-auto hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-[var(--surface)] border border-[var(--border)]">
+                  ⌘K
+                </kbd>
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2 mt-4 flex-wrap justify-center lg:justify-start">
+              <span className="text-xs text-[var(--muted)]">Popular:</span>
+              {quickLinks.map((link) => (
+                <Link
+                  key={link.slug}
+                  href={`/plugins/${link.slug}`}
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[var(--heading)] mb-5 leading-tight">
-            Discover{" "}
-            <span className="text-[var(--accent)]">{plugins.length}+ Plugins</span>
-            <br />
-            and{" "}
-            <span className="text-[var(--accent)]">{totalModules}+ Modules</span>
-          </h1>
-
-          <p className="text-lg sm:text-xl text-[var(--muted)] max-w-2xl mx-auto mb-10 leading-relaxed">
-            Extend your Flyte workflows with community-built integrations for data
-            processing, ML training, experiment tracking, and more.
-          </p>
-
-          <button
-            onClick={onSearchOpen}
-            className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-[var(--border)] bg-[var(--card-bg)] text-[var(--muted)] hover:border-[var(--accent)]/50 hover:shadow-xl shadow-lg transition-all w-full max-w-lg mx-auto"
-          >
-            <Search className="w-5 h-5" />
-            <span className="text-base">Search plugins...</span>
-            <kbd className="ml-auto hidden sm:inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-[var(--surface)] border border-[var(--border)]">
-              ⌘K
-            </kbd>
-          </button>
-
-          <div className="flex items-center justify-center gap-2.5 mt-8 flex-wrap">
-            <span className="text-sm text-[var(--muted)]">Popular:</span>
-            {quickLinks.map((link) => (
-              <Link
-                key={link.slug}
-                href={`/plugins/${link.slug}`}
-                className="px-3.5 py-1.5 rounded-full text-sm font-medium bg-[var(--accent)]/10 text-[var(--accent)] hover:bg-[var(--accent)]/20 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
+          {/* Right: Terminal */}
+          <div className="flex-1 w-full min-w-0 hidden sm:block">
+            <AnimatedTerminal lines={terminalLines} className="w-full" />
           </div>
         </div>
       </div>

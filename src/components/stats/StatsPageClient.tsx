@@ -6,8 +6,7 @@ import plugins from "@/data/plugins.json";
 import { Plugin } from "@/lib/types";
 import { useMultiplePyPIStats } from "@/hooks/usePyPIStats";
 import { PluginIcon } from "@/components/ui/PluginIcon";
-import { MODULE_TYPE_COLORS } from "@/components/plugins/PluginCard";
-import { CATEGORIES } from "@/lib/constants";
+import { CATEGORIES, MODULE_TYPE_COLORS } from "@/lib/constants";
 import { useMemo, useState } from "react";
 
 const typedPlugins = plugins as Plugin[];
@@ -56,46 +55,46 @@ export function StatsPageClient() {
         Back to registry
       </Link>
 
-      <h1 className="text-3xl font-bold text-[var(--heading)] mb-2">Registry Statistics</h1>
+      <h1 className="text-3xl font-semibold text-[var(--heading)] mb-2">Registry Statistics</h1>
       <p className="text-[var(--muted)] mb-10">Overview of the Flyte plugin ecosystem.</p>
 
       {/* Summary cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-5">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
           <div className="flex items-center gap-3 mb-2">
             <Package className="w-5 h-5 text-[var(--accent)]" />
             <span className="text-sm text-[var(--muted)]">Total Plugins</span>
           </div>
-          <p className="text-2xl font-bold text-[var(--heading)]">{typedPlugins.length}</p>
+          <p className="text-2xl font-semibold text-[var(--heading)]">{typedPlugins.length}</p>
           <p className="text-xs text-[var(--muted)] mt-1">{flytekitCount} flytekit, {flyteSdkCount} flyte-sdk</p>
         </div>
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-5">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
           <div className="flex items-center gap-3 mb-2">
             <Boxes className="w-5 h-5 text-[var(--accent)]" />
             <span className="text-sm text-[var(--muted)]">Total Modules</span>
           </div>
-          <p className="text-2xl font-bold text-[var(--heading)]">{totalModules}</p>
+          <p className="text-2xl font-semibold text-[var(--heading)]">{totalModules}</p>
         </div>
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-5">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
           <div className="flex items-center gap-3 mb-2">
             <Download className="w-5 h-5 text-[var(--accent)]" />
             <span className="text-sm text-[var(--muted)]">Monthly Downloads</span>
           </div>
-          <p className="text-2xl font-bold text-[var(--heading)]">{formatNumber(totalDownloads)}</p>
+          <p className="text-2xl font-semibold text-[var(--heading)]">{formatNumber(totalDownloads)}</p>
         </div>
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-5">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
           <div className="flex items-center gap-3 mb-2">
             <Package className="w-5 h-5 text-[var(--accent)]" />
             <span className="text-sm text-[var(--muted)]">Categories</span>
           </div>
-          <p className="text-2xl font-bold text-[var(--heading)]">{CATEGORIES.length}</p>
+          <p className="text-2xl font-semibold text-[var(--heading)]">{CATEGORIES.length}</p>
         </div>
       </div>
 
       {/* Module type breakdown */}
       <div className="mb-12">
         <h2 className="text-xl font-semibold text-[var(--heading)] mb-4">Module Types</h2>
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-6">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-6">
           {/* Bar */}
           <div className="flex w-full h-4 rounded-full overflow-hidden mb-5">
             {typeEntries.map(([type, count]) => (
@@ -130,7 +129,7 @@ export function StatsPageClient() {
       <div>
         <div className="flex items-center gap-4 mb-4">
           <h2 className="text-xl font-semibold text-[var(--heading)]">Top 10</h2>
-          <div className="flex rounded-full border border-[var(--border)] overflow-hidden">
+          <div className="flex rounded-full border-2 border-[var(--border)] overflow-hidden">
             <button
               onClick={() => setRankBy("downloads")}
               className={`px-4 py-1.5 text-sm font-medium transition-colors ${
@@ -154,7 +153,7 @@ export function StatsPageClient() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] overflow-hidden">
+        <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] overflow-hidden">
           {(rankBy === "downloads" ? topByDownloads : topByModules.map((p) => ({ plugin: p, downloads: 0 }))).map(
             ({ plugin }, i) => (
               <Link
@@ -166,7 +165,7 @@ export function StatsPageClient() {
                 <PluginIcon slug={plugin.slug} name={plugin.name} className="w-7 h-7 flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-[var(--heading)] truncate">{plugin.name}</p>
-                  <p className="text-xs text-[var(--muted)] truncate" style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}>
+                  <p className="text-xs text-[var(--muted)] truncate" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>
                     {plugin.packageName}
                   </p>
                 </div>

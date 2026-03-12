@@ -59,8 +59,17 @@ export const CATEGORIES: CategoryInfo[] = [
 
 export const PYPI_STATS_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
 
+export const MODULE_TYPE_COLORS: Record<string, string> = {
+  task: "#22c55e",
+  agent: "#7c3aed",
+  type: "#3b82f6",
+  sensor: "#f59e0b",
+  workflow: "#ec4899",
+  other: "#94a3b8",
+};
+
 export const SITE_CONFIG = {
   name: "Flyte Plugin Registry",
-  description: "Discover and explore 50+ plugins for the Flyte ecosystem",
+  description: "Discover and explore 60+ plugins for the Flyte ecosystem",
   url: "https://plugins.flyte.org",
 };

@@ -7,6 +7,8 @@ const fuseOptions: IFuseOptions<Plugin> = {
     { name: "packageName", weight: 1.5 },
     { name: "description", weight: 1 },
     { name: "tags", weight: 0.8 },
+    { name: "modules.name", weight: 1.2 },
+    { name: "modules.importPath", weight: 0.6 },
   ],
   threshold: 0.3,
   includeScore: true,

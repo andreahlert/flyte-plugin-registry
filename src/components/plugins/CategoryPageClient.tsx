@@ -30,7 +30,7 @@ export function CategoryPageClient({ category, plugins }: Props) {
           />
         </div>
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-[var(--heading)]">
+          <h1 className="text-3xl font-semibold tracking-tight text-[var(--heading)]">
             {category.name}
           </h1>
           <p className="text-[var(--muted)]">

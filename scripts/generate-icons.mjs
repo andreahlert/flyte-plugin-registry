@@ -7,7 +7,7 @@
  * 3. Auto-generated initial letter SVG (last resort)
  */
 
-import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
+import { writeFileSync, mkdirSync, readFileSync } from "fs";
 import { join } from "path";
 
 const ICONS_DIR = join(import.meta.dirname, "../public/icons/plugins");
@@ -51,6 +51,8 @@ const SIMPLE_ICONS_MAP = {
   "v2-snowflake": "snowflake",
   "v2-spark": "apachespark",
   "v2-wandb": "weightsandbiases",
+  "v2-anthropic": "anthropic",
+  "v2-gemini": "googlegemini",
 };
 
 // ── Mapping: plugin slug → GitHub org (for avatar fallback) ─────────
@@ -120,24 +122,6 @@ async function getSimpleIcon(siSlug) {
   }
 }
 
-// ── Generate SVG from simple-icons data ─────────────────────────────
-function simpleIconSVG(icon) {
-  const bg = `#${icon.hex}`;
-  // Determine if bg is light (need dark icon) or dark (need white icon)
-  const r = parseInt(icon.hex.slice(0, 2), 16);
-  const g = parseInt(icon.hex.slice(2, 4), 16);
-  const b = parseInt(icon.hex.slice(4, 6), 16);
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-  const fg = luminance > 0.6 ? "#1a1a2e" : "#ffffff";
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
-  <rect width="40" height="40" rx="8" fill="${bg}"/>
-  <g transform="translate(8,8) scale(0.04167)" fill="${fg}">
-    <path d="${icon.path}"/>
-  </g>
-</svg>`;
-}
-
 // ── Fetch GitHub org avatar and save as SVG wrapper ─────────────────
 async function fetchGitHubAvatar(org) {
   const url = `https://github.com/${org}.png?size=80`;
@@ -181,6 +165,51 @@ function initialSVG(name, color = "#6f2aef") {
 </svg>`;
 }
 
+// ── Auto-discovery helpers ───────────────────────────────────────────
+
+/**
+ * Try to find a simple-icons match for a plugin automatically.
+ * Attempts several slug variations derived from the plugin slug/name.
+ */
+async function autoDiscoverSimpleIcon(plugin) {
+  const baseSlug = plugin.slug.replace(/^v2-/, "");
+  const candidates = [
+    baseSlug,                                          // e.g. "anthropic"
+    baseSlug.replace(/-/g, ""),                        // e.g. "comet-ml" → "cometml"
+    plugin.name.toLowerCase().replace(/[\s-]+/g, ""),  // e.g. "Google Gemini" → "googlegemini"
+  ];
+
+  // Also try main dependency name (first non-flyte dep)
+  if (plugin.dependencies?.length > 0) {
+    const mainDep = plugin.dependencies[0].toLowerCase().replace(/[-_]/g, "");
+    candidates.push(mainDep);
+  }
+
+  for (const candidate of [...new Set(candidates)]) {
+    const icon = await getSimpleIcon(candidate);
+    if (icon) return icon;
+  }
+  return null;
+}
+
+/**
+ * Try to find a GitHub org for avatar, derived from plugin dependencies.
+ * e.g. dependency "anthropic" → try github.com/anthropic
+ */
+function autoDiscoverGitHubOrg(plugin) {
+  const baseSlug = plugin.slug.replace(/^v2-/, "");
+  const candidates = [baseSlug];
+
+  if (plugin.dependencies?.length > 0) {
+    for (const dep of plugin.dependencies.slice(0, 3)) {
+      const clean = dep.toLowerCase().replace(/[-_]/g, "");
+      if (clean !== baseSlug) candidates.push(dep.toLowerCase());
+    }
+  }
+
+  return [...new Set(candidates)];
+}
+
 // ── Main ────────────────────────────────────────────────────────────
 async function main() {
   let fromSimpleIcons = 0;
@@ -191,21 +220,22 @@ async function main() {
     const slug = plugin.slug;
     const outPath = join(ICONS_DIR, `${slug}.svg`);
 
-    // 1. Try simple-icons
+    // 1. Try simple-icons (manual map first, then auto-discover if no GitHub map override)
     const siSlug = SIMPLE_ICONS_MAP[slug];
-    if (siSlug) {
-      const icon = await getSimpleIcon(siSlug);
-      if (icon) {
-        // Scale the 24x24 path to fit inside 40x40 with padding
-        const bg = `#${icon.hex}`;
-        const r = parseInt(icon.hex.slice(0, 2), 16);
-        const g = parseInt(icon.hex.slice(2, 4), 16);
-        const b = parseInt(icon.hex.slice(4, 6), 16);
-        const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-        const fg = luminance > 0.6 ? "#1a1a2e" : "#ffffff";
+    const hasGitHubOverride = slug in GITHUB_ORG_MAP;
+    const icon = siSlug
+      ? await getSimpleIcon(siSlug)
+      : hasGitHubOverride ? null : await autoDiscoverSimpleIcon(plugin);
 
-        // simple-icons paths are in a 24x24 viewBox, scale to fit 24px area centered in 40px
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+    if (icon) {
+      const bg = `#${icon.hex}`;
+      const r = parseInt(icon.hex.slice(0, 2), 16);
+      const g = parseInt(icon.hex.slice(2, 4), 16);
+      const b = parseInt(icon.hex.slice(4, 6), 16);
+      const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      const fg = luminance > 0.6 ? "#1a1a2e" : "#ffffff";
+
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
   <rect width="40" height="40" rx="8" fill="${bg}"/>
   <g transform="translate(8,8)">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="${fg}">
@@ -213,25 +243,31 @@ async function main() {
     </svg>
   </g>
 </svg>`;
-        writeFileSync(outPath, svg);
-        fromSimpleIcons++;
-        console.log(`✓ [simple-icons] ${slug} → ${icon.title}`);
-        continue;
-      }
+      writeFileSync(outPath, svg);
+      fromSimpleIcons++;
+      const source = siSlug ? "simple-icons" : "simple-icons:auto";
+      console.log(`✓ [${source}] ${slug} → ${icon.title}`);
+      continue;
     }
 
-    // 2. Try GitHub org avatar
-    const githubOrg = GITHUB_ORG_MAP[slug];
-    if (githubOrg) {
-      console.log(`  [github] Fetching ${githubOrg} avatar for ${slug}...`);
-      const svg = await fetchGitHubAvatar(githubOrg);
+    // 2. Try GitHub org avatar (manual map first, then auto-discover)
+    const manualOrg = GITHUB_ORG_MAP[slug];
+    const orgCandidates = manualOrg ? [manualOrg] : autoDiscoverGitHubOrg(plugin);
+
+    let resolved = false;
+    for (const org of orgCandidates) {
+      console.log(`  [github] Trying ${org} avatar for ${slug}...`);
+      const svg = await fetchGitHubAvatar(org);
       if (svg) {
         writeFileSync(outPath, svg);
         fromGitHub++;
-        console.log(`✓ [github] ${slug} → github.com/${githubOrg}`);
-        continue;
+        const source = manualOrg ? "github" : "github:auto";
+        console.log(`✓ [${source}] ${slug} → github.com/${org}`);
+        resolved = true;
+        break;
       }
     }
+    if (resolved) continue;
 
     // 3. Fallback to initials
     const color = FALLBACK_COLORS[slug] || "#6f2aef";

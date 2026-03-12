@@ -7,7 +7,7 @@ interface StatCardProps {
 
 export function StatCard({ label, value, icon, loading }: StatCardProps) {
   return (
-    <div className="flex items-center gap-4 rounded-2xl border border-[var(--border)] bg-[var(--card-bg)] p-5 shadow-sm">
+    <div className="flex items-center gap-4 rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5 shadow-sm">
       <div className="flex-shrink-0 p-3 rounded-xl bg-[var(--accent-light)] text-[var(--accent)]">
         {icon}
       </div>
@@ -15,7 +15,7 @@ export function StatCard({ label, value, icon, loading }: StatCardProps) {
         {loading ? (
           <div className="h-8 w-20 bg-[var(--surface)] rounded animate-pulse" />
         ) : (
-          <p className="text-2xl font-bold text-[var(--heading)]">
+          <p className="text-2xl font-semibold text-[var(--heading)]">
             {typeof value === "number" ? value.toLocaleString() : value}
           </p>
         )}

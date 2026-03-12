@@ -1,5 +1,61 @@
 [
   {
+    "slug": "v2-anthropic",
+    "name": "Anthropic Claude",
+    "packageName": "flyteplugins-anthropic",
+    "description": "This plugin provides integration between Flyte and Anthropic's Claude API, enabling you to use Flyte tasks as tools for Claude agents.",
+    "category": "developer-tools",
+    "tags": [
+      "anthropic"
+    ],
+    "dependencies": [
+      "anthropic"
+    ],
+    "installCommand": "pip install flyteplugins-anthropic",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/anthropic",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-anthropic/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Agent",
+        "type": "agent",
+        "importPath": "flyteplugins.anthropic",
+        "description": "A Claude agent configuration.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "function_tool",
+        "type": "task",
+        "importPath": "flyteplugins.anthropic",
+        "description": "Task for Anthropic Claude."
+      },
+      {
+        "name": "run_agent",
+        "type": "agent",
+        "importPath": "flyteplugins.anthropic",
+        "description": "Backend connector for Anthropic Claude."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "andreahlert",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/180008227?v=4"
+      }
+    ]
+  },
+  {
     "slug": "airflow",
     "name": "Apache Airflow",
     "packageName": "flytekitplugins-airflow",
@@ -18,7 +74,7 @@
     ],
     "installCommand": "pip install flytekitplugins-airflow",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-airflow",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/airflow_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flyte-operators/airflow-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-airflow/",
     "minFlytekitVersion": "1.10.7",
     "modules": [
@@ -26,23 +82,43 @@
         "name": "AirflowConnector",
         "type": "agent",
         "importPath": "flytekitplugins.airflow",
-        "description": "AirflowConnector from Apache Airflow plugin"
+        "description": "It is used to run Airflow tasks."
       },
       {
         "name": "AirflowObj",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.airflow",
-        "description": "AirflowObj from Apache Airflow plugin"
+        "description": "This class is used to store the Airflow task configuration.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "AirflowTask",
         "type": "task",
         "importPath": "flytekitplugins.airflow",
-        "description": "AirflowTask from Apache Airflow plugin"
+        "description": "This class is used to resolve an Airflow task.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-10-11",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/airflow_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "Future-Outlier",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/76461262?v=4"
+      },
+      {
+        "login": "machichima",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/60069744?v=4"
+      }
+    ]
   },
   {
     "slug": "async-fsspec",
@@ -58,12 +134,34 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-async-fsspec",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-async-fsspec",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/async_fsspec_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/async-fsspec/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-async-fsspec/",
     "minFlytekitVersion": "1.0.0",
-    "modules": [],
+    "modules": [
+      {
+        "name": "AsyncS3FileSystem",
+        "type": "type",
+        "importPath": "flytekitplugins.async_fsspec",
+        "description": "Configuration type for Async FSSpec."
+      }
+    ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-12-21",
+    "maintainers": [
+      {
+        "login": "ggydush",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/35151789?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "troychiu",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/114708546?v=4"
+      }
+    ]
   },
   {
     "slug": "aws-athena",
@@ -80,7 +178,7 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-athena",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-athena",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/aws_athena_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/external-service-backend-plugins/athena-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-athena/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -88,17 +186,37 @@
         "name": "AthenaConfig",
         "type": "type",
         "importPath": "flytekitplugins.athena",
-        "description": "AthenaConfig from AWS Athena plugin"
+        "description": "AthenaConfig should be used to configure a Athena Task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "AthenaTask",
         "type": "task",
         "importPath": "flytekitplugins.athena",
-        "description": "AthenaTask from AWS Athena plugin"
+        "description": "This is the simplest form of a Athena Task, that can be used even for tasks that do not produce any output.",
+        "baseClass": "SQLTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/athena_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "aws-batch",
@@ -115,7 +233,7 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-awsbatch",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-batch",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/aws_batch_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/external-service-backend-plugins/aws-batch-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-awsbatch/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -123,11 +241,29 @@
         "name": "AWSBatchConfig",
         "type": "type",
         "importPath": "flytekitplugins.awsbatch",
-        "description": "AWSBatchConfig from AWS Batch plugin"
+        "description": "Use this to configure SubmitJobInput for a AWS batch job.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-02-17",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/aws_batch_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      }
+    ]
   },
   {
     "slug": "aws-sagemaker",
@@ -147,31 +283,69 @@
     ],
     "installCommand": "pip install flytekitplugins-awssagemaker",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-sagemaker",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/aws_sagemaker_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/sagemaker-inference-connector",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-awssagemaker/",
     "minFlytekitVersion": "1.14.6",
     "modules": [
       {
+        "name": "BotoConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.awssagemaker_inference",
+        "description": "A general purpose boto3 connector that can be used to call any boto3 method."
+      },
+      {
+        "name": "BotoConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.awssagemaker_inference",
+        "description": "Configuration type for AWS SageMaker.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "BotoTask",
+        "type": "task",
+        "importPath": "flytekitplugins.awssagemaker_inference",
+        "description": "Task for AWS SageMaker.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
+      },
+      {
         "name": "SageMakerEndpointConnector",
         "type": "agent",
         "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "SageMakerEndpointConnector from AWS SageMaker plugin"
+        "description": "This connector creates an endpoint."
       },
       {
         "name": "create_sagemaker_deployment",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "create_sagemaker_deployment from AWS SageMaker plugin"
+        "description": "Task for AWS SageMaker."
       },
       {
         "name": "delete_sagemaker_deployment",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "delete_sagemaker_deployment from AWS SageMaker plugin"
+        "description": "Task for AWS SageMaker."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/sagemaker_inference_agent",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "bigquery",
@@ -191,7 +365,7 @@
     ],
     "installCommand": "pip install flytekitplugins-bigquery",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-bigquery",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/bigquery_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/bigquery-connector",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-bigquery/",
     "minFlytekitVersion": "1.10.7",
     "modules": [
@@ -199,23 +373,43 @@
         "name": "BigQueryConnector",
         "type": "agent",
         "importPath": "flytekitplugins.bigquery",
-        "description": "BigQueryConnector from Bigquery plugin"
+        "description": "Backend connector for Bigquery."
       },
       {
         "name": "BigQueryConfig",
         "type": "type",
         "importPath": "flytekitplugins.bigquery",
-        "description": "BigQueryConfig from Bigquery plugin"
+        "description": "BigQueryConfig should be used to configure a BigQuery Task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "BigQueryTask",
         "type": "task",
         "importPath": "flytekitplugins.bigquery",
-        "description": "BigQueryTask from Bigquery plugin"
+        "description": "This is the simplest form of a BigQuery Task, that can be used even for tasks that do not produce any output.",
+        "baseClass": "SQLTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-01-17",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/bigquery_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "Future-Outlier",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/76461262?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-bigquery",
@@ -233,31 +427,49 @@
     "dependencies": [],
     "installCommand": "pip install flyteplugins-bigquery",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/bigquery",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/bigquery-connector",
     "pypiUrl": "https://pypi.org/project/flyteplugins-bigquery/",
     "minFlytekitVersion": "",
     "modules": [
       {
-        "name": "BigQueryConnector",
-        "type": "agent",
-        "importPath": "flyteplugins.bigquery",
-        "description": "BigQueryConnector from bigquery plugin"
-      },
-      {
         "name": "BigQueryConfig",
         "type": "type",
         "importPath": "flyteplugins.bigquery",
-        "description": "BigQueryConfig from bigquery plugin"
+        "description": "Configuration for a BigQuery task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "BigQueryTask",
         "type": "task",
         "importPath": "flyteplugins.bigquery",
-        "description": "BigQueryTask from bigquery plugin"
+        "description": "Task for BigQuery."
+      },
+      {
+        "name": "BigQueryConnector",
+        "type": "agent",
+        "importPath": "flyteplugins.bigquery",
+        "description": "Backend connector for BigQuery."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2026-02-03",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/bigquery_agent",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      }
+    ]
   },
   {
     "slug": "comet-ml",
@@ -275,19 +487,35 @@
     ],
     "installCommand": "pip install flytekitplugins-comet-ml",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-comet-ml",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/comet_ml_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/comet-ml-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-comet-ml/",
     "minFlytekitVersion": "1.12.3",
     "modules": [
       {
         "name": "comet_ml_login",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.comet_ml",
-        "description": "comet_ml_login from Comet ML plugin"
+        "description": "Task for Comet ML."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-07-17",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/comet_ml_plugin",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "thomasjpfan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
+      }
+    ]
   },
   {
     "slug": "dask",
@@ -304,31 +532,53 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-dask",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dask",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dask_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/k8s-dask-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-dask/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
       {
         "name": "Dask",
-        "type": "task",
+        "type": "type",
         "importPath": "flytekitplugins.dask",
-        "description": "Dask from Dask plugin"
+        "description": "Configuration for the custom dask job to run.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Scheduler",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dask",
-        "description": "Scheduler from Dask plugin"
+        "description": "Configuration for the scheduler pod.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "WorkerGroup",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dask",
-        "description": "WorkerGroup from Dask plugin"
+        "description": "Configuration for a dask worker group.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-01-12",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/k8s_dask_plugin",
+    "maintainers": [
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "Terryhung",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/4417105?v=4"
+      },
+      {
+        "login": "bstadlbauer",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/11799671?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-dask",
@@ -345,31 +595,53 @@
     "dependencies": [],
     "installCommand": "pip install flyteplugins-dask",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/dask",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/k8s-dask-plugin",
     "pypiUrl": "https://pypi.org/project/flyteplugins-dask/",
     "minFlytekitVersion": "",
     "modules": [
       {
         "name": "Dask",
-        "type": "task",
+        "type": "type",
         "importPath": "flyteplugins.dask",
-        "description": "Dask from dask plugin"
+        "description": "Configuration for the dask task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Scheduler",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.dask",
-        "description": "Scheduler from dask plugin"
+        "description": "Configuration for the scheduler pod defaults to None.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "WorkerGroup",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.dask",
-        "description": "WorkerGroup from dask plugin"
+        "description": "Configuration for a group of dask worker pods defaults to None.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2025-08-15",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/k8s_dask_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-databricks",
@@ -386,25 +658,43 @@
     "dependencies": [],
     "installCommand": "pip install flyteplugins-databricks",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/databricks",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/databricks-connector",
     "pypiUrl": "https://pypi.org/project/flyteplugins-databricks/",
     "minFlytekitVersion": "",
     "modules": [
       {
-        "name": "DatabricksConnector",
-        "type": "task",
+        "name": "Databricks",
+        "type": "type",
         "importPath": "flyteplugins.databricks",
-        "description": "DatabricksConnector from databricks plugin"
+        "description": "Configuration for a Databricks task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
-        "name": "Databricks",
-        "type": "task",
+        "name": "DatabricksConnector",
+        "type": "agent",
         "importPath": "flyteplugins.databricks",
-        "description": "Databricks from databricks plugin"
+        "description": "Backend connector for Databricks."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2026-02-03",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/databricks_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      }
+    ]
   },
   {
     "slug": "dbt",
@@ -423,61 +713,93 @@
     ],
     "installCommand": "pip install flytekitplugins-dbt",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dbt",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dbt_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/dbt-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-dbt/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
       {
         "name": "BaseDBTInput",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "BaseDBTInput from DBT plugin"
+        "description": "Base class for DBT Task Input.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "BaseDBTOutput",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "BaseDBTOutput from DBT plugin"
+        "description": "Base class for output of DBT task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DBTRunInput",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "DBTRunInput from DBT plugin"
+        "description": "Input to DBT Run task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DBTRunOutput",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "DBTRunOutput from DBT plugin"
+        "description": "Output of DBT run task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DBTTestInput",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "DBTTestInput from DBT plugin"
+        "description": "Input to DBT Test task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DBTTestOutput",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "DBTTestOutput from DBT plugin"
+        "description": "Output of DBT test task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DBTRun",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "DBTRun from DBT plugin"
+        "description": "Input to DBT Run task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DBTTest",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dbt",
-        "description": "DBTTest from DBT plugin"
+        "description": "Input to DBT Test task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-09-17",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/dbt_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "kiliangojek",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/116700206?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      }
+    ]
   },
   {
     "slug": "deck-standard",
@@ -493,12 +815,27 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-deck-standard",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-deck-standard",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/deck_standard_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/deck-standard/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-deck-standard/",
     "minFlytekitVersion": "1.0.0",
     "modules": [],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-04-04",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "thomasjpfan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
+      }
+    ]
   },
   {
     "slug": "dgxc-lepton",
@@ -517,7 +854,7 @@
     ],
     "installCommand": "pip install flytekitplugins-dgxc-lepton",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dgxc-lepton",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dgxc_lepton_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-dgxc-lepton/",
     "minFlytekitVersion": "1.9.1",
     "modules": [
@@ -525,71 +862,96 @@
         "name": "lepton_endpoint_deployment_task",
         "type": "task",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "lepton_endpoint_deployment_task from dgxc-lepton plugin"
+        "description": "Task for Dgxc-lepton."
       },
       {
         "name": "lepton_endpoint_deletion_task",
         "type": "task",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "lepton_endpoint_deletion_task from dgxc-lepton plugin"
+        "description": "Task for Dgxc-lepton."
       },
       {
         "name": "LeptonEndpointConfig",
         "type": "type",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "LeptonEndpointConfig from dgxc-lepton plugin"
+        "description": "Complete configuration for Lepton AI endpoint deployment.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "LeptonEndpointDeploymentTask",
         "type": "task",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "LeptonEndpointDeploymentTask from dgxc-lepton plugin"
+        "description": "Task for Dgxc-lepton.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       },
       {
         "name": "LeptonEndpointDeletionTask",
         "type": "task",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "LeptonEndpointDeletionTask from dgxc-lepton plugin"
+        "description": "Task for Dgxc-lepton.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       },
       {
         "name": "EndpointType",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "EndpointType from dgxc-lepton plugin"
+        "description": "Supported endpoint types for Lepton AI.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "EnvironmentConfig",
         "type": "type",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "EnvironmentConfig from dgxc-lepton plugin"
+        "description": "Unified environment variable configuration for Lepton deployments.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "MountReader",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "MountReader from dgxc-lepton plugin"
+        "description": "Mount configuration for Lepton deployments.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "ScalingConfig",
         "type": "type",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "ScalingConfig from dgxc-lepton plugin"
+        "description": "Unified scaling configuration that enforces only one scaling type.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "ScalingType",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "ScalingType from dgxc-lepton plugin"
+        "description": "Supported scaling types for Lepton AI.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "EndpointEngineConfig",
         "type": "type",
         "importPath": "flytekitplugins.dgxc_lepton",
-        "description": "EndpointEngineConfig from dgxc-lepton plugin"
+        "description": "Unified endpoint configuration that enforces only one endpoint type.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2025-10-03",
+    "maintainers": [
+      {
+        "login": "ansjindal",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/170848644?v=4"
+      }
+    ]
   },
   {
     "slug": "dolt",
@@ -608,7 +970,7 @@
     ],
     "installCommand": "pip install flytekitplugins-dolt",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dolt",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dolt_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/dolt-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-dolt/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -616,23 +978,45 @@
         "name": "DoltConfig",
         "type": "type",
         "importPath": "flytekitplugins.dolt",
-        "description": "DoltConfig from Dolt plugin"
+        "description": "Configuration type for Dolt.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DoltTable",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.dolt",
-        "description": "DoltTable from Dolt plugin"
+        "description": "Configuration type for Dolt.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DoltTableNameTransformer",
         "type": "type",
         "importPath": "flytekitplugins.dolt",
-        "description": "DoltTableNameTransformer from Dolt plugin"
+        "description": "Configuration type for Dolt.",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-05-12",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/dolt_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "max-hoffman",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/18337807?v=4"
+      }
+    ]
   },
   {
     "slug": "duckdb",
@@ -652,25 +1036,43 @@
     ],
     "installCommand": "pip install flytekitplugins-duckdb",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-duckdb",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/duckdb_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/duckdb-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-duckdb/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
       {
         "name": "DuckDBProvider",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.duckdb",
-        "description": "DuckDBProvider from DuckDB plugin"
+        "description": "Configuration type for DuckDB.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "DuckDBQuery",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.duckdb",
-        "description": "DuckDBQuery from DuckDB plugin"
+        "description": "Configuration type for DuckDB."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-02-27",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/duckdb_plugin",
+    "maintainers": [
+      {
+        "login": "dansola",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/40698988?v=4"
+      },
+      {
+        "login": "thomasjpfan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
   },
   {
     "slug": "envd",
@@ -688,25 +1090,40 @@
     ],
     "installCommand": "pip install flytekitplugins-envd",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-envd",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/envd_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/envd/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-envd/",
     "minFlytekitVersion": "1.12.0",
     "modules": [
       {
         "name": "EnvdImageSpecBuilder",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.envd",
-        "description": "EnvdImageSpecBuilder from Envd plugin"
+        "description": "This class is used to build a docker image using envd."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-04-15",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "thomasjpfan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      }
+    ]
   },
   {
     "slug": "flyteinteractive",
     "name": "Flyte Interactive",
     "packageName": "flytekitplugins-flyteinteractive",
-    "description": "> FlyteInteractive = Develop Flyte with the speed of flying",
+    "description": "FlyteInteractive plugin provides users' favorite interface to develop and debug a flyte task interactively. We support vscode, jupyter (WIP), and neovim (WIP).",
     "category": "developer-tools",
     "tags": [
       "interactive",
@@ -718,7 +1135,7 @@
     ],
     "installCommand": "pip install flytekitplugins-flyteinteractive",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-flyteinteractive",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/flyteinteractive_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/external-service-backend-plugins/flyteinteractive-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-flyteinteractive/",
     "minFlytekitVersion": "1.1.0",
     "modules": [
@@ -726,23 +1143,39 @@
         "name": "jupyter",
         "type": "task",
         "importPath": "flytekitplugins.flyteinteractive",
-        "description": "jupyter from Flyte Interactive plugin"
+        "description": "Task for Flyte Interactive."
       },
       {
         "name": "get_task_inputs",
         "type": "task",
         "importPath": "flytekitplugins.flyteinteractive",
-        "description": "get_task_inputs from Flyte Interactive plugin"
+        "description": "Task for Flyte Interactive."
       },
       {
         "name": "vscode",
         "type": "task",
         "importPath": "flytekitplugins.flyteinteractive",
-        "description": "vscode from Flyte Interactive plugin"
+        "description": "Task for Flyte Interactive."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-02-05",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/flyteinteractive_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "MortalHappiness",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/47914085?v=4"
+      },
+      {
+        "login": "pmahindrakar-oss",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/77798312?v=4"
+      }
+    ]
   },
   {
     "slug": "data-fsspec",
@@ -758,12 +1191,27 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-data-fsspec",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-data-fsspec",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/data_fsspec_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/data-fsspec/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-data-fsspec/",
     "minFlytekitVersion": "1.0.0",
     "modules": [],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-08-19",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "geopandas",
@@ -782,7 +1230,7 @@
     ],
     "installCommand": "pip install flytekitplugins-geopandas",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-geopandas",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/geopandas_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-geopandas/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -790,17 +1238,80 @@
         "name": "GeoPandasDecodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.geopandas",
-        "description": "GeoPandasDecodingHandler from geopandas plugin"
+        "description": "Configuration type for Geopandas."
       },
       {
         "name": "GeoPandasEncodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.geopandas",
-        "description": "GeoPandasEncodingHandler from geopandas plugin"
+        "description": "Configuration type for Geopandas."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2025-03-19",
+    "maintainers": [
+      {
+        "login": "ljstrnadiii",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/3171991?v=4"
+      },
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-gemini",
+    "name": "Google Gemini",
+    "packageName": "flyteplugins-gemini",
+    "description": "This plugin provides integration between Flyte and Google's Gemini API, enabling you to use Flyte tasks as tools for Gemini agents.",
+    "category": "developer-tools",
+    "tags": [
+      "gemini"
+    ],
+    "dependencies": [
+      "google-genai"
+    ],
+    "installCommand": "pip install flyteplugins-gemini",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/gemini",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-gemini/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Agent",
+        "type": "agent",
+        "importPath": "flyteplugins.gemini",
+        "description": "A Gemini agent configuration.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "function_tool",
+        "type": "task",
+        "importPath": "flyteplugins.gemini",
+        "description": "Task for Google Gemini."
+      },
+      {
+        "name": "run_agent",
+        "type": "agent",
+        "importPath": "flyteplugins.gemini",
+        "description": "Backend connector for Google Gemini."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      },
+      {
+        "login": "andreahlert",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/180008227?v=4"
+      }
+    ]
   },
   {
     "slug": "identity-aware-proxy",
@@ -821,12 +1332,27 @@
     ],
     "installCommand": "pip install flytekitplugins-identity_aware_proxy",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-identity-aware-proxy",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/identity_aware_proxy_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/identity-aware-proxy/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-identity_aware_proxy/",
     "minFlytekitVersion": "1.10",
     "modules": [],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-09-20",
+    "maintainers": [
+      {
+        "login": "fg91",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/36511035?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "thomasjpfan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
+      }
+    ]
   },
   {
     "slug": "greatexpectations",
@@ -847,7 +1373,7 @@
     ],
     "installCommand": "pip install flytekitplugins-great_expectations",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-greatexpectations",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/greatexpectations_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/greatexpectations-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-great_expectations/",
     "minFlytekitVersion": "1.5.0",
     "modules": [
@@ -855,29 +1381,49 @@
         "name": "GreatExpectationsFlyteConfig",
         "type": "type",
         "importPath": "flytekitplugins.great_expectations",
-        "description": "GreatExpectationsFlyteConfig from Great Expectations plugin"
+        "description": "Use this configuration to configure GreatExpectations Plugin.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "GreatExpectationsType",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.great_expectations",
-        "description": "GreatExpectationsType from Great Expectations plugin"
+        "description": "Use this class to send the GreatExpectationsFlyteConfig."
       },
       {
         "name": "BatchRequestConfig",
         "type": "type",
         "importPath": "flytekitplugins.great_expectations",
-        "description": "BatchRequestConfig from Great Expectations plugin"
+        "description": "Use this configuration to configure Batch Request.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "GreatExpectationsTask",
         "type": "task",
         "importPath": "flytekitplugins.great_expectations",
-        "description": "GreatExpectationsTask from Great Expectations plugin"
+        "description": "This task can be used to validate your data."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-08-18",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/greatexpectations_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
   },
   {
     "slug": "hive",
@@ -894,7 +1440,7 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-hive",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-hive",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/hive_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/external-service-backend-plugins/hive-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-hive/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -902,23 +1448,43 @@
         "name": "HiveConfig",
         "type": "type",
         "importPath": "flytekitplugins.hive",
-        "description": "HiveConfig from Hive plugin"
+        "description": "HiveConfig should be used to configure a Hive Task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "HiveSelectTask",
         "type": "task",
         "importPath": "flytekitplugins.hive",
-        "description": "HiveSelectTask from Hive plugin"
+        "description": "Task for Hive."
       },
       {
         "name": "HiveTask",
         "type": "task",
         "importPath": "flytekitplugins.hive",
-        "description": "HiveTask from Hive plugin"
+        "description": "This is the simplest form of a Hive Task, that can be used even for tasks that do not produce any output.",
+        "baseClass": "SQLTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/hive_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "huggingface",
@@ -937,7 +1503,7 @@
     ],
     "installCommand": "pip install flytekitplugins-huggingface",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-huggingface",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/huggingface_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/huggingface/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-huggingface/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -945,17 +1511,89 @@
         "name": "HuggingFaceDatasetToParquetEncodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.huggingface",
-        "description": "HuggingFaceDatasetToParquetEncodingHandler from Hugging Face plugin"
+        "description": "Configuration type for Hugging Face."
       },
       {
         "name": "ParquetToHuggingFaceDatasetDecodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.huggingface",
-        "description": "ParquetToHuggingFaceDatasetDecodingHandler from Hugging Face plugin"
+        "description": "Configuration type for Hugging Face."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-09-16",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "esadler-hbo",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/97543480?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-hitl",
+    "name": "Human-in-the-Loop (HITL)",
+    "packageName": "flyteplugins-hitl",
+    "description": "Human-in-the-Loop (HITL) plugin for Flyte. This plugin provides an event-based API for pausing workflows and waiting for human input.",
+    "category": "developer-tools",
+    "tags": [
+      "hitl"
+    ],
+    "dependencies": [
+      "fastapi",
+      "uvicorn",
+      "python-multipart",
+      "aiofiles"
+    ],
+    "installCommand": "pip install flyteplugins-hitl",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/hitl",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-hitl/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Event",
+        "type": "type",
+        "importPath": "flyteplugins.hitl",
+        "description": "An event that waits for human input via an embedded FastAPI app.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "EventScope",
+        "type": "type",
+        "importPath": "flyteplugins.hitl",
+        "description": "Configuration type for Human-in-the-Loop (HITL)."
+      },
+      {
+        "name": "event_task_env",
+        "type": "task",
+        "importPath": "flyteplugins.hitl",
+        "description": "Task for Human-in-the-Loop (HITL)."
+      },
+      {
+        "name": "new_event",
+        "type": "task",
+        "importPath": "flyteplugins.hitl",
+        "description": "Task for Human-in-the-Loop (HITL)."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      }
+    ]
   },
   {
     "slug": "inference",
@@ -975,49 +1613,118 @@
     ],
     "installCommand": "pip install flytekitplugins-inference",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-inference",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/inference_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/inference/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-inference/",
     "minFlytekitVersion": "1.13.0",
     "modules": [
       {
         "name": "NIM",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.inference",
-        "description": "NIM from Inference plugin"
+        "description": "Configuration type for Inference.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "NIMSecrets",
         "type": "type",
         "importPath": "flytekitplugins.inference",
-        "description": "NIMSecrets from Inference plugin"
+        "description": "Configuration type for Inference.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Model",
         "type": "type",
         "importPath": "flytekitplugins.inference",
-        "description": "Model from Inference plugin"
+        "description": "Represents the configuration for a model used in a Kubernetes pod template.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Ollama",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.inference",
-        "description": "Ollama from Inference plugin"
+        "description": "Configuration type for Inference."
       },
       {
         "name": "VLLM",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.inference",
-        "description": "VLLM from Inference plugin"
+        "description": "Configuration type for Inference."
       },
       {
         "name": "HFSecret",
         "type": "type",
         "importPath": "flytekitplugins.inference",
-        "description": "HFSecret from Inference plugin"
+        "description": "Configuration type for Inference.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-07-29",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/nim_plugin",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "dansola",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/40698988?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-jsonl",
+    "name": "JSONL (JSON Lines) Type Plugin",
+    "packageName": "flyteplugins-jsonl",
+    "description": "JSONL (JSON Lines) file and directory types for Flyte, backed by orjson for",
+    "category": "developer-tools",
+    "tags": [
+      "jsonl"
+    ],
+    "dependencies": [
+      "orjson",
+      "zstandard"
+    ],
+    "installCommand": "pip install flyteplugins-jsonl",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/jsonl",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-jsonl/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "JsonlDir",
+        "type": "type",
+        "importPath": "flyteplugins.jsonl",
+        "description": "Async sharded JSONL writer."
+      },
+      {
+        "name": "JsonlFile",
+        "type": "type",
+        "importPath": "flyteplugins.jsonl",
+        "description": "A file type for JSONL (JSON Lines) files, backed by ``orjson`` for fast serialisation."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
   },
   {
     "slug": "kf-mpi",
@@ -1034,7 +1741,7 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-kfmpi",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-mpi",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/kf_mpi_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/kfmpi-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-kfmpi/",
     "minFlytekitVersion": "1.6.1",
     "modules": [
@@ -1042,47 +1749,77 @@
         "name": "CleanPodPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kfmpi",
-        "description": "CleanPodPolicy from Kubeflow MPI plugin"
+        "description": "CleanPodPolicy describes how to deal with pods when the job is finished.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "HorovodJob",
         "type": "task",
         "importPath": "flytekitplugins.kfmpi",
-        "description": "HorovodJob from Kubeflow MPI plugin"
+        "description": "Configuration for an executable [`Horovod Job using MPI operator`](https://github.com/kubeflow/mpi-operator).",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Launcher",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kfmpi",
-        "description": "Launcher from Kubeflow MPI plugin"
+        "description": "Launcher replica configuration.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "MPIJob",
         "type": "task",
         "importPath": "flytekitplugins.kfmpi",
-        "description": "MPIJob from Kubeflow MPI plugin"
+        "description": "Configuration for an executable [`MPI Job`](https://github.com/kubeflow/mpi-operator).",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "RestartPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kfmpi",
-        "description": "RestartPolicy from Kubeflow MPI plugin"
+        "description": "RestartPolicy describes how the replicas should be restarted.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "RunPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kfmpi",
-        "description": "RunPolicy from Kubeflow MPI plugin"
+        "description": "RunPolicy describes some policy to apply to the execution of a kubeflow job.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Worker",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kfmpi",
-        "description": "Worker from Kubeflow MPI plugin"
+        "description": "Worker replica configuration.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-10-27",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/kfmpi_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "yindia",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10830562?v=4"
+      }
+    ]
   },
   {
     "slug": "kf-pytorch",
@@ -1102,7 +1839,7 @@
     ],
     "installCommand": "pip install flytekitplugins-kfpytorch",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-pytorch",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/kf_pytorch_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/kfpytorch-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-kfpytorch/",
     "minFlytekitVersion": "1.6.1",
     "modules": [
@@ -1110,47 +1847,77 @@
         "name": "CleanPodPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kfpytorch",
-        "description": "CleanPodPolicy from Kubeflow PyTorch plugin"
+        "description": "CleanPodPolicy describes how to deal with pods when the job is finished.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "Elastic",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kfpytorch",
-        "description": "Elastic from Kubeflow PyTorch plugin"
+        "description": "Configuration for [`torch elastic training`](https://pytorch.org/docs/stable/elastic/run.html).",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Master",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kfpytorch",
-        "description": "Master from Kubeflow PyTorch plugin"
+        "description": "Configuration for master replica group.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "PyTorch",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kfpytorch",
-        "description": "PyTorch from Kubeflow PyTorch plugin"
+        "description": "Configuration for an executable [`PyTorch Job`](https://github.com/kubeflow/pytorch-operator).",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "RestartPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kfpytorch",
-        "description": "RestartPolicy from Kubeflow PyTorch plugin"
+        "description": "RestartPolicy describes how the replicas should be restarted.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "RunPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kfpytorch",
-        "description": "RunPolicy from Kubeflow PyTorch plugin"
+        "description": "RunPolicy describes some policy to apply to the execution of a kubeflow job.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Worker",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kfpytorch",
-        "description": "Worker from Kubeflow PyTorch plugin"
+        "description": "Configuration type for Kubeflow PyTorch.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/kfpytorch_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "fg91",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/36511035?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "kf-tensorflow",
@@ -1166,67 +1933,99 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-kftensorflow",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-tensorflow",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/kf_tensorflow_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/kftensorflow-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-kftensorflow/",
     "minFlytekitVersion": "1.6.1",
     "modules": [
       {
         "name": "PS",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "PS from Kubeflow TensorFlow plugin"
+        "description": "Configuration type for Kubeflow TensorFlow.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Chief",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "Chief from Kubeflow TensorFlow plugin"
+        "description": "Configuration type for Kubeflow TensorFlow.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "CleanPodPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "CleanPodPolicy from Kubeflow TensorFlow plugin"
+        "description": "CleanPodPolicy describes how to deal with pods when the job is finished.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "Evaluator",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "Evaluator from Kubeflow TensorFlow plugin"
+        "description": "Configuration type for Kubeflow TensorFlow.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "RestartPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "RestartPolicy from Kubeflow TensorFlow plugin"
+        "description": "RestartPolicy describes how the replicas should be restarted.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "RunPolicy",
         "type": "type",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "RunPolicy from Kubeflow TensorFlow plugin"
+        "description": "RunPolicy describes a set of policies to apply to the execution of a Kubeflow job.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "TfJob",
         "type": "task",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "TfJob from Kubeflow TensorFlow plugin"
+        "description": "Configuration for an executable [`TensorFlow Job`](https://github.com/kubeflow/tf-operator).",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Worker",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.kftensorflow",
-        "description": "Worker from Kubeflow TensorFlow plugin"
+        "description": "Configuration type for Kubeflow TensorFlow.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/kftensorflow_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "k8s-pod",
     "name": "Kubernetes Pod",
     "packageName": "flytekitplugins-pod",
-    "description": "> [!IMPORTANT]",
+    "description": "By default, Flyte tasks decorated with @task are essentially single functions that are loaded in one container. But often, there is a need to run a job with more than one container.",
     "category": "cloud-infrastructure",
     "tags": [
       "kubernetes",
@@ -1239,19 +2038,37 @@
     ],
     "installCommand": "pip install flytekitplugins-pod",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8s-pod",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/k8s_pod_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/k8s-pod/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-pod/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
       {
         "name": "Pod",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.pod",
-        "description": "Pod from Kubernetes Pod plugin"
+        "description": "Pod is a platform-wide configuration that uses pod templates.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/k8s_pod_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "k8sdataservice",
@@ -1269,7 +2086,7 @@
     ],
     "installCommand": "pip install flytekitplugins-k8sdataservice",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8sdataservice",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/k8sdataservice_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-k8sdataservice/",
     "minFlytekitVersion": "1.11.0",
     "modules": [
@@ -1277,29 +2094,91 @@
         "name": "DataServiceConnector",
         "type": "agent",
         "importPath": "flytekitplugins.k8sdataservice",
-        "description": "DataServiceConnector from Kubernetes Stateful plugin"
+        "description": "Backend connector for Kubernetes Stateful."
       },
       {
         "name": "CleanupSensor",
         "type": "sensor",
         "importPath": "flytekitplugins.k8sdataservice",
-        "description": "CleanupSensor from Kubernetes Stateful plugin"
+        "description": "Sensor for Kubernetes Stateful.",
+        "baseClass": "BaseSensor",
+        "subtype": "sensor"
       },
       {
         "name": "DataServiceConfig",
         "type": "type",
         "importPath": "flytekitplugins.k8sdataservice",
-        "description": "DataServiceConfig from Kubernetes Stateful plugin"
+        "description": "DataServiceConfig should be used to configure a DataServiceTask.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DataServiceTask",
         "type": "task",
         "importPath": "flytekitplugins.k8sdataservice",
-        "description": "DataServiceTask from Kubernetes Stateful plugin"
+        "description": "Task for Kubernetes Stateful.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2025-01-23",
+    "maintainers": [
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "shuyingliang",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/33474827?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-codegen",
+    "name": "LLM-powered code generation and evaluation",
+    "packageName": "flyteplugins-codegen",
+    "description": "Generate code from natural language prompts and validate it by running tests in an isolated sandbox. Works with any model that supports structured outputs (GPT-4, Claude, Gemini, etc. via LiteLLM) or directly with the Agent SDK (Claude-only).",
+    "category": "developer-tools",
+    "tags": [
+      "codegen"
+    ],
+    "dependencies": [
+      "litellm",
+      "pandas"
+    ],
+    "installCommand": "pip install flyteplugins-codegen",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/codegen",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-codegen/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "AutoCoderAgent",
+        "type": "agent",
+        "importPath": "flyteplugins.codegen",
+        "description": "Agent for single-file Python code generation with automatic testing and iteration.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
   },
   {
     "slug": "mmcloud",
@@ -1317,7 +2196,7 @@
     ],
     "installCommand": "pip install flytekitplugins-mmcloud",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-mmcloud",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/mmcloud_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/mmcloud-connector",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-mmcloud/",
     "minFlytekitVersion": "1.9.1",
     "modules": [
@@ -1325,23 +2204,43 @@
         "name": "MMCloudConnector",
         "type": "agent",
         "importPath": "flytekitplugins.mmcloud",
-        "description": "MMCloudConnector from Memory Machine Cloud plugin"
+        "description": "Backend connector for Memory Machine Cloud."
       },
       {
         "name": "MMCloudConfig",
         "type": "type",
         "importPath": "flytekitplugins.mmcloud",
-        "description": "MMCloudConfig from Memory Machine Cloud plugin"
+        "description": "Configures MMCloudTask.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "MMCloudTask",
         "type": "task",
         "importPath": "flytekitplugins.mmcloud",
-        "description": "MMCloudTask from Memory Machine Cloud plugin"
+        "description": "Task for Memory Machine Cloud.",
+        "baseClass": "PythonFunctionTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-09-15",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/mmcloud_agent",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "Future-Outlier",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/76461262?v=4"
+      },
+      {
+        "login": "edwinyyyu",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/92917168?v=4"
+      }
+    ]
   },
   {
     "slug": "memray",
@@ -1359,7 +2258,7 @@
     ],
     "installCommand": "pip install flytekitplugins-memray",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-memray",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/memray_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/memray-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-memray/",
     "minFlytekitVersion": "1.12.0",
     "modules": [
@@ -1367,11 +2266,23 @@
         "name": "memray_profiling",
         "type": "task",
         "importPath": "flytekitplugins.memray",
-        "description": "memray_profiling from Memray Profiling plugin"
+        "description": "Task for Memray Profiling."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-11-12",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/memray_plugin",
+    "maintainers": [
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "fiedlerNr9",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/89976021?v=4"
+      }
+    ]
   },
   {
     "slug": "mlflow",
@@ -1391,7 +2302,7 @@
     ],
     "installCommand": "pip install flytekitplugins-mlflow",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-mlflow",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/mlflow_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/mlflow-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-mlflow/",
     "minFlytekitVersion": "1.1.0",
     "modules": [
@@ -1399,11 +2310,27 @@
         "name": "mlflow_autolog",
         "type": "task",
         "importPath": "flytekitplugins.mlflow",
-        "description": "mlflow_autolog from MLflow plugin"
+        "description": "Task for MLflow."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2023-01-06",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/mlflow_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "modin",
@@ -1422,7 +2349,7 @@
     ],
     "installCommand": "pip install flytekitplugins-modin",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-modin",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/modin_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/modin-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-modin/",
     "minFlytekitVersion": "1.0.0",
     "modules": [
@@ -1430,11 +2357,29 @@
         "name": "ModinPandasDataFrameTransformer",
         "type": "type",
         "importPath": "flytekitplugins.modin",
-        "description": "ModinPandasDataFrameTransformer from Modin plugin"
+        "description": "Transforms ModinPandas DataFrame's to and from a Schema (typed/untyped).",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-10-12",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/modin_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "Tat-V",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/61228633?v=4"
+      }
+    ]
   },
   {
     "slug": "neptune",
@@ -1452,25 +2397,41 @@
     ],
     "installCommand": "pip install flytekitplugins-neptune",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-neptune",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/neptune_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/neptune-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-neptune/",
     "minFlytekitVersion": "1.16.0",
     "modules": [
       {
         "name": "neptune_scale_run",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.neptune",
-        "description": "neptune_scale_run from Neptune plugin"
+        "description": "Task for Neptune."
       },
       {
         "name": "neptune_init_run",
         "type": "task",
         "importPath": "flytekitplugins.neptune",
-        "description": "neptune_init_run from Neptune plugin"
+        "description": "Task for Neptune."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-08-26",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/neptune_plugin",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "thomasjpfan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
+      }
+    ]
   },
   {
     "slug": "omegaconf",
@@ -1489,7 +2450,7 @@
     ],
     "installCommand": "pip install flytekitplugins-omegaconf",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-omegaconf",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/omegaconf_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/omegaconf/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-omegaconf/",
     "minFlytekitVersion": "1.10.0",
     "modules": [
@@ -1497,23 +2458,44 @@
         "name": "OmegaConfTransformerMode",
         "type": "type",
         "importPath": "flytekitplugins.omegaconf",
-        "description": "OmegaConfTransformerMode from OmegaConf plugin"
+        "description": "Operation Mode indicating whether a (potentially unannotated) DictConfig object or a structured config using the underlying dataclass is returned.",
+        "baseClass": "Enum",
+        "subtype": "enum"
       },
       {
         "name": "DictConfigTransformer",
         "type": "type",
         "importPath": "flytekitplugins.omegaconf",
-        "description": "DictConfigTransformer from OmegaConf plugin"
+        "description": "Configuration type for OmegaConf.",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       },
       {
         "name": "ListConfigTransformer",
         "type": "type",
         "importPath": "flytekitplugins.omegaconf",
-        "description": "ListConfigTransformer from OmegaConf plugin"
+        "description": "Configuration type for OmegaConf.",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-08-01",
+    "maintainers": [
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "adrianloy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/19349042?v=4"
+      },
+      {
+        "login": "mg515",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/12913704?v=4"
+      }
+    ]
   },
   {
     "slug": "onnx-pytorch",
@@ -1535,25 +2517,45 @@
     ],
     "installCommand": "pip install flytekitplugins-onnxpytorch",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-pytorch",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/onnx_pytorch_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/onnx-pytorch/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxpytorch/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
       {
         "name": "PyTorch2ONNX",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.onnxpytorch",
-        "description": "PyTorch2ONNX from ONNX PyTorch plugin"
+        "description": "PyTorch2ONNXConfig is the config used during the pytorch to ONNX conversion.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "PyTorch2ONNXConfig",
         "type": "type",
         "importPath": "flytekitplugins.onnxpytorch",
-        "description": "PyTorch2ONNXConfig from ONNX PyTorch plugin"
+        "description": "PyTorch2ONNXConfig is the config used during the pytorch to ONNX conversion.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-07-13",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/onnx_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "machichima",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/60069744?v=4"
+      }
+    ]
   },
   {
     "slug": "onnx-scikitlearn",
@@ -1573,25 +2575,45 @@
     ],
     "installCommand": "pip install flytekitplugins-onnxscikitlearn",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-scikitlearn",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/onnx_scikitlearn_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/onnx-scikitlearn/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxscikitlearn/",
     "minFlytekitVersion": "1.0.0",
     "modules": [
       {
         "name": "ScikitLearn2ONNX",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.onnxscikitlearn",
-        "description": "ScikitLearn2ONNX from ONNX ScikitLearn plugin"
+        "description": "ScikitLearn2ONNXConfig is the config used during the scikitlearn to ONNX conversion.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "ScikitLearn2ONNXConfig",
         "type": "type",
         "importPath": "flytekitplugins.onnxscikitlearn",
-        "description": "ScikitLearn2ONNXConfig from ONNX ScikitLearn plugin"
+        "description": "ScikitLearn2ONNXConfig is the config used during the scikitlearn to ONNX conversion.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-07-13",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/onnx_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
   },
   {
     "slug": "onnx-tensorflow",
@@ -1610,25 +2632,45 @@
     ],
     "installCommand": "pip install flytekitplugins-onnxtensorflow",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-tensorflow",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/onnx_tensorflow_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/onnx-tensorflow/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxtensorflow/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
       {
         "name": "TensorFlow2ONNX",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.onnxtensorflow",
-        "description": "TensorFlow2ONNX from ONNX TensorFlow plugin"
+        "description": "TensorFlow2ONNXConfig is the config used during the tensorflow to ONNX conversion.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "TensorFlow2ONNXConfig",
         "type": "type",
         "importPath": "flytekitplugins.onnxtensorflow",
-        "description": "TensorFlow2ONNXConfig from ONNX TensorFlow plugin"
+        "description": "TensorFlow2ONNXConfig is the config used during the tensorflow to ONNX conversion.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-07-13",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/onnx_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      }
+    ]
   },
   {
     "slug": "openai",
@@ -1647,7 +2689,7 @@
     ],
     "installCommand": "pip install flytekitplugins-openai",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-openai",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/openai_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/openai-batch-connector",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-openai/",
     "minFlytekitVersion": "1.10.7",
     "modules": [
@@ -1655,59 +2697,87 @@
         "name": "BatchEndpointConnector",
         "type": "agent",
         "importPath": "flytekitplugins.openai",
-        "description": "BatchEndpointConnector from OpenAI plugin"
+        "description": "Backend connector for OpenAI."
       },
       {
         "name": "BatchEndpointTask",
         "type": "task",
         "importPath": "flytekitplugins.openai",
-        "description": "BatchEndpointTask from OpenAI plugin"
+        "description": "Task for OpenAI.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       },
       {
         "name": "BatchResult",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.openai",
-        "description": "BatchResult from OpenAI plugin"
+        "description": "Configuration type for OpenAI.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DownloadJSONFilesTask",
         "type": "task",
         "importPath": "flytekitplugins.openai",
-        "description": "DownloadJSONFilesTask from OpenAI plugin"
+        "description": "Task for OpenAI.",
+        "baseClass": "PythonCustomizedContainerTask",
+        "subtype": "task"
       },
       {
         "name": "OpenAIFileConfig",
         "type": "type",
         "importPath": "flytekitplugins.openai",
-        "description": "OpenAIFileConfig from OpenAI plugin"
+        "description": "Configuration type for OpenAI.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "UploadJSONLFileTask",
         "type": "task",
         "importPath": "flytekitplugins.openai",
-        "description": "UploadJSONLFileTask from OpenAI plugin"
+        "description": "Task for OpenAI.",
+        "baseClass": "PythonCustomizedContainerTask",
+        "subtype": "task"
       },
       {
         "name": "create_batch",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.openai",
-        "description": "create_batch from OpenAI plugin"
+        "description": "Task for OpenAI."
       },
       {
         "name": "ChatGPTConnector",
         "type": "agent",
         "importPath": "flytekitplugins.openai",
-        "description": "ChatGPTConnector from OpenAI plugin"
+        "description": "Backend connector for OpenAI."
       },
       {
         "name": "ChatGPTTask",
         "type": "task",
         "importPath": "flytekitplugins.openai",
-        "description": "ChatGPTTask from OpenAI plugin"
+        "description": "This is the simplest form of a ChatGPT Task, you can define the model and the input you want.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-03-02",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/chatgpt_agent",
+    "maintainers": [
+      {
+        "login": "Future-Outlier",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/76461262?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-openai",
@@ -1726,19 +2796,35 @@
     ],
     "installCommand": "pip install flyteplugins-openai",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/openai",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/openai-batch-connector",
     "pypiUrl": "https://pypi.org/project/flyteplugins-openai/",
     "minFlytekitVersion": "",
     "modules": [
       {
         "name": "function_tool",
-        "type": "other",
+        "type": "task",
         "importPath": "flyteplugins.openai.agents",
-        "description": "function_tool from openai plugin"
+        "description": "Task for OpenAI."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2025-08-12",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/chatgpt_agent",
+    "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "optuna",
@@ -1757,31 +2843,44 @@
     ],
     "installCommand": "pip install flytekitplugins-optuna",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-optuna",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/optuna_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/optuna/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-optuna/",
     "minFlytekitVersion": "1.15.0",
     "modules": [
       {
         "name": "Optimizer",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.optuna",
-        "description": "Optimizer from Optuna (wrapper) plugin"
+        "description": "Configuration type for Optuna (wrapper).",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "optimize",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.optuna",
-        "description": "optimize from Optuna (wrapper) plugin"
+        "description": "Task for Optuna (wrapper)."
       },
       {
         "name": "suggest",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.optuna",
-        "description": "suggest from Optuna (wrapper) plugin"
+        "description": "Task for Optuna (wrapper)."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2025-01-06",
+    "maintainers": [
+      {
+        "login": "granthamtaylor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/54340816?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      }
+    ]
   },
   {
     "slug": "pandera",
@@ -1802,7 +2901,7 @@
     ],
     "installCommand": "pip install flytekitplugins-pandera",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-pandera",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/pandera_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/pandera-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-pandera/",
     "minFlytekitVersion": "1.15.0",
     "modules": [
@@ -1810,23 +2909,45 @@
         "name": "ValidationConfig",
         "type": "type",
         "importPath": "flytekitplugins.pandera",
-        "description": "ValidationConfig from Pandera plugin"
+        "description": "Configuration type for Pandera.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "PandasReportRenderer",
         "type": "type",
         "importPath": "flytekitplugins.pandera",
-        "description": "PandasReportRenderer from Pandera plugin"
+        "description": "Configuration type for Pandera.",
+        "baseClass": "class",
+        "subtype": "config"
       },
       {
         "name": "PanderaPandasTransformer",
         "type": "type",
         "importPath": "flytekitplugins.pandera",
-        "description": "PanderaPandasTransformer from Pandera plugin"
+        "description": "Configuration type for Pandera.",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/pandera_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "papermill",
@@ -1846,7 +2967,7 @@
     ],
     "installCommand": "pip install flytekitplugins-papermill",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-papermill",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/papermill_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/papermill-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-papermill/",
     "minFlytekitVersion": "1.0.0",
     "modules": [
@@ -1854,35 +2975,51 @@
         "name": "NotebookTask",
         "type": "task",
         "importPath": "flytekitplugins.papermill",
-        "description": "NotebookTask from Papermill plugin"
+        "description": "Simple Papermill based input output handling for a Python Jupyter notebook."
       },
       {
         "name": "load_flytedirectory",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.papermill",
-        "description": "load_flytedirectory from Papermill plugin"
+        "description": "Task for Papermill."
       },
       {
         "name": "load_flytefile",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.papermill",
-        "description": "load_flytefile from Papermill plugin"
+        "description": "Task for Papermill."
       },
       {
         "name": "load_structureddataset",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.papermill",
-        "description": "load_structureddataset from Papermill plugin"
+        "description": "Task for Papermill."
       },
       {
         "name": "record_outputs",
-        "type": "other",
+        "type": "task",
         "importPath": "flytekitplugins.papermill",
-        "description": "record_outputs from Papermill plugin"
+        "description": "Use this method to record outputs from a notebook."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/papermill_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
   },
   {
     "slug": "perian",
@@ -1900,7 +3037,7 @@
     ],
     "installCommand": "pip install flytekitplugins-perian_job",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-perian",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/perian_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/perian-connector",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-perian_job/",
     "minFlytekitVersion": "1.12.0",
     "modules": [
@@ -1908,35 +3045,57 @@
         "name": "PerianConnector",
         "type": "agent",
         "importPath": "flytekitplugins.perian_job",
-        "description": "PerianConnector from Perian Job Platform plugin"
+        "description": "Flyte Connector for executing tasks on PERIAN Job Platform."
       },
       {
         "name": "PerianConfig",
         "type": "type",
         "importPath": "flytekitplugins.perian_job",
-        "description": "PerianConfig from Perian Job Platform plugin"
+        "description": "Used to configure a Perian Task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "PerianContainerTask",
         "type": "task",
         "importPath": "flytekitplugins.perian_job",
-        "description": "PerianContainerTask from Perian Job Platform plugin"
+        "description": "A special task type for running Python container (not function) tasks on PERIAN Job Platform (perian.io).",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       },
       {
         "name": "PerianTask",
         "type": "task",
         "importPath": "flytekitplugins.perian_job",
-        "description": "PerianTask from Perian Job Platform plugin"
+        "description": "A special task type for running Python function tasks on PERIAN Job Platform (perian.io).",
+        "baseClass": "PythonFunctionTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-08-29",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/perian_agent",
+    "maintainers": [
+      {
+        "login": "otarabai",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/4406268?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-polars",
     "name": "polars",
     "packageName": "flyteplugins-polars",
-    "description": "This plugin provides native support for **Polars DataFrames and LazyFrames** in Flyte, enabling efficient data processing with Polars' high-performance DataFrame library.",
+    "description": "This plugin provides native support for Polars DataFrames and LazyFrames in Flyte, enabling efficient data processing with Polars' high-performance DataFrame library.",
     "category": "data-dataframe",
     "tags": [
       "polars",
@@ -1944,16 +3103,32 @@
       "type"
     ],
     "dependencies": [
-      "polars"
+      "polars",
+      "numpy"
     ],
     "installCommand": "pip install flyteplugins-polars",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/polars",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/polars/",
     "pypiUrl": "https://pypi.org/project/flyteplugins-polars/",
     "minFlytekitVersion": "",
     "modules": [],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2026-01-24",
+    "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      }
+    ]
   },
   {
     "slug": "polars",
@@ -1973,7 +3148,7 @@
     ],
     "installCommand": "pip install flytekitplugins-polars",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-polars",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/polars_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/polars/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-polars/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -1981,23 +3156,38 @@
         "name": "ParquetToPolarsDataFrameDecodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.polars",
-        "description": "ParquetToPolarsDataFrameDecodingHandler from Polars plugin"
+        "description": "Configuration type for Polars."
       },
       {
         "name": "PolarsDataFrameToParquetEncodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.polars",
-        "description": "PolarsDataFrameToParquetEncodingHandler from Polars plugin"
+        "description": "Configuration type for Polars."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-06-15",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "RobinKa",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2614101?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-pytorch",
     "name": "pytorch",
     "packageName": "flyteplugins-pytorch",
-    "description": "Union can execute **PyTorch distributed training jobs** natively on a Kubernetes Cluster, which manages the lifecycle of worker pods, rendezvous coordination, spin-up, and tear down. It leverages the open-sourced **TorchElastic (torch.distributed.elastic)** launcher and the **Kubeflow PyTorch Operator**, enabling fault-tolerant and elastic training across multiple nodes.",
+    "description": "Union can execute PyTorch distributed training jobs natively on a Kubernetes Cluster, which manages the lifecycle of worker pods, rendezvous coordination, spin-up, and tear down. It leverages the open-sourced TorchElastic (torch.distributed.elastic) launcher and the Kubeflow PyTorch Operator, enabling fault-tolerant and elastic training across multiple nodes.",
     "category": "ml-training",
     "tags": [
       "pytorch",
@@ -2010,19 +3200,37 @@
     ],
     "installCommand": "pip install flyteplugins-pytorch",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/pytorch",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/kfpytorch-plugin",
     "pypiUrl": "https://pypi.org/project/flyteplugins-pytorch/",
     "minFlytekitVersion": "",
     "modules": [
       {
         "name": "Elastic",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.pytorch",
-        "description": "Elastic from pytorch plugin"
+        "description": "Elastic defines the configuration for running a PyTorch elastic job using torch.distributed.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2025-09-30",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/kfpytorch_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "kevinliao852",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/71365298?v=4"
+      }
+    ]
   },
   {
     "slug": "ray",
@@ -2039,7 +3247,7 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-ray",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-ray",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/ray_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/ray-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-ray/",
     "minFlytekitVersion": "1.0.0",
     "modules": [
@@ -2047,23 +3255,45 @@
         "name": "HeadNodeConfig",
         "type": "type",
         "importPath": "flytekitplugins.ray",
-        "description": "HeadNodeConfig from Ray plugin"
+        "description": "Configuration type for Ray.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "RayJobConfig",
         "type": "task",
         "importPath": "flytekitplugins.ray",
-        "description": "RayJobConfig from Ray plugin"
+        "description": "Task for Ray.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "WorkerNodeConfig",
         "type": "type",
         "importPath": "flytekitplugins.ray",
-        "description": "WorkerNodeConfig from Ray plugin"
+        "description": "Configuration type for Ray.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-08-10",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/ray_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "Sovietaced",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1274471?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-ray",
@@ -2079,7 +3309,7 @@
     "dependencies": [],
     "installCommand": "pip install flyteplugins-ray",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/ray",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/ray-plugin",
     "pypiUrl": "https://pypi.org/project/flyteplugins-ray/",
     "minFlytekitVersion": "",
     "modules": [
@@ -2087,23 +3317,45 @@
         "name": "HeadNodeConfig",
         "type": "type",
         "importPath": "flyteplugins.ray",
-        "description": "HeadNodeConfig from ray plugin"
+        "description": "Configuration type for Ray.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "RayJobConfig",
         "type": "task",
         "importPath": "flyteplugins.ray",
-        "description": "RayJobConfig from ray plugin"
+        "description": "Task for Ray.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "WorkerNodeConfig",
         "type": "type",
         "importPath": "flyteplugins.ray",
-        "description": "WorkerNodeConfig from ray plugin"
+        "description": "Configuration type for Ray.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2025-07-29",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/ray_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-sglang",
@@ -2121,25 +3373,42 @@
     "dependencies": [],
     "installCommand": "pip install flyteplugins-sglang",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/sglang",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
     "pypiUrl": "https://pypi.org/project/flyteplugins-sglang/",
     "minFlytekitVersion": "",
     "modules": [
       {
         "name": "DEFAULT_SGLANG_IMAGE",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.sglang",
-        "description": "DEFAULT_SGLANG_IMAGE from sglang plugin"
+        "description": "Configuration type for SGLang."
       },
       {
         "name": "SGLangAppEnvironment",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.sglang",
-        "description": "SGLangAppEnvironment from sglang plugin"
+        "description": "App environment backed by SGLang for serving large language models.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2025-12-11",
+    "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      }
+    ]
   },
   {
     "slug": "slurm",
@@ -2158,7 +3427,7 @@
     ],
     "installCommand": "pip install flytekitplugins-slurm",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-slurm",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/slurm_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/slurm-connector",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-slurm/",
     "minFlytekitVersion": "1.15.0",
     "modules": [
@@ -2166,53 +3435,81 @@
         "name": "SlurmFunctionConnector",
         "type": "agent",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmFunctionConnector from Slurm plugin"
+        "description": "Backend connector for Slurm."
       },
       {
         "name": "SlurmFunctionConfig",
         "type": "type",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmFunctionConfig from Slurm plugin"
+        "description": "Configure Slurm settings.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "SlurmFunctionTask",
         "type": "task",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmFunctionTask from Slurm plugin"
+        "description": "Actual Plugin that transforms the local python code for execution within a slurm context...",
+        "baseClass": "PythonFunctionTask",
+        "subtype": "task"
       },
       {
         "name": "SlurmScriptConnector",
         "type": "agent",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmScriptConnector from Slurm plugin"
+        "description": "Backend connector for Slurm."
       },
       {
         "name": "SlurmConfig",
         "type": "type",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmConfig from Slurm plugin"
+        "description": "Configure Slurm settings.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "SlurmScriptConfig",
         "type": "type",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmScriptConfig from Slurm plugin"
+        "description": "Encounter collision if Slurm is shared btw SlurmTask and SlurmShellTask.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "SlurmShellTask",
         "type": "task",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmShellTask from Slurm plugin"
+        "description": "Task for Slurm.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       },
       {
         "name": "SlurmTask",
         "type": "task",
         "importPath": "flytekitplugins.slurm",
-        "description": "SlurmTask from Slurm plugin"
+        "description": "Task for Slurm.",
+        "baseClass": "PythonTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2025-02-22",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/slurm_agent",
+    "maintainers": [
+      {
+        "login": "JiangJiaWei1103",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/36886416?v=4"
+      },
+      {
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      }
+    ]
   },
   {
     "slug": "snowflake",
@@ -2231,7 +3528,7 @@
     ],
     "installCommand": "pip install flytekitplugins-snowflake",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-snowflake",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/snowflake_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/snowflake-connector",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-snowflake/",
     "minFlytekitVersion": "1.13.1",
     "modules": [
@@ -2239,29 +3536,49 @@
         "name": "SnowflakeConnector",
         "type": "agent",
         "importPath": "flytekitplugins.snowflake",
-        "description": "SnowflakeConnector from Snowflake plugin"
+        "description": "Backend connector for Snowflake."
       },
       {
         "name": "SnowflakeConfig",
         "type": "type",
         "importPath": "flytekitplugins.snowflake",
-        "description": "SnowflakeConfig from Snowflake plugin"
+        "description": "SnowflakeConfig should be used to configure a Snowflake Task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "SnowflakeTask",
         "type": "task",
         "importPath": "flytekitplugins.snowflake",
-        "description": "SnowflakeTask from Snowflake plugin"
+        "description": "This is the simplest form of a Snowflake Task, that can be used even for tasks that do not produce any output.",
+        "baseClass": "SQLTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-09-13",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/snowflake_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "Future-Outlier",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/76461262?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-snowflake",
     "name": "Snowflake",
     "packageName": "flyteplugins-snowflake",
-    "description": "This plugin provides Snowflake integration for Flyte, enabling you to run Snowflake queries as Flyte tasks.",
+    "description": "Run Snowflake SQL queries as Flyte tasks with parameterized inputs, key-pair authentication, batch inserts, and DataFrame support.",
     "category": "databases-warehouses",
     "tags": [
       "snowflake",
@@ -2272,31 +3589,51 @@
     "dependencies": [],
     "installCommand": "pip install flyteplugins-snowflake",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/snowflake",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/snowflake-connector",
     "pypiUrl": "https://pypi.org/project/flyteplugins-snowflake/",
     "minFlytekitVersion": "",
     "modules": [
       {
-        "name": "SnowflakeConnector",
-        "type": "agent",
-        "importPath": "flyteplugins.snowflake",
-        "description": "SnowflakeConnector from snowflake plugin"
-      },
-      {
         "name": "Snowflake",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.snowflake",
-        "description": "Snowflake from snowflake plugin"
+        "description": "Metadata for a Snowflake query job.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "SnowflakeConfig",
         "type": "type",
         "importPath": "flyteplugins.snowflake",
-        "description": "SnowflakeConfig from snowflake plugin"
+        "description": "Configure a Snowflake Task using a `SnowflakeConfig` object.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "SnowflakeConnector",
+        "type": "agent",
+        "importPath": "flyteplugins.snowflake",
+        "description": "Backend connector for Snowflake."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2026-02-03",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/snowflake_agent",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
   },
   {
     "slug": "spark",
@@ -2317,85 +3654,113 @@
     ],
     "installCommand": "pip install flytekitplugins-spark",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-spark",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/spark_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/k8s-spark-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-spark/",
     "minFlytekitVersion": "1.15.1",
     "modules": [
       {
         "name": "DatabricksConnector",
-        "type": "task",
+        "type": "agent",
         "importPath": "flytekitplugins.spark",
-        "description": "DatabricksConnector from Spark plugin"
+        "description": "Add DatabricksConnectorV2 to support running the k8s spark and databricks spark together in the same workflow."
       },
       {
         "name": "GenericSparkConf",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "GenericSparkConf from Spark plugin"
+        "description": "Configuration type for Spark.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "PySparkPipelineModelTransformer",
         "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "PySparkPipelineModelTransformer from Spark plugin"
+        "description": "Configuration type for Spark.",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       },
       {
         "name": "SparkDataFrameSchemaReader",
         "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "SparkDataFrameSchemaReader from Spark plugin"
+        "description": "Implements how SparkDataFrame should be read using the ``open`` method of FlyteSchema."
       },
       {
         "name": "SparkDataFrameSchemaWriter",
         "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "SparkDataFrameSchemaWriter from Spark plugin"
+        "description": "Implements how SparkDataFrame should be written to using ``open`` method of FlyteSchema."
       },
       {
         "name": "SparkDataFrameTransformer",
         "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "SparkDataFrameTransformer from Spark plugin"
+        "description": "Transforms Spark DataFrame's to and from a Schema (typed/untyped).",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       },
       {
         "name": "ParquetToSparkDecodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "ParquetToSparkDecodingHandler from Spark plugin"
+        "description": "Configuration type for Spark."
       },
       {
         "name": "SparkToParquetEncodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "SparkToParquetEncodingHandler from Spark plugin"
+        "description": "Configuration type for Spark."
       },
       {
         "name": "Databricks",
-        "type": "task",
+        "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "Databricks from Spark plugin"
+        "description": "Add DatabricksConnectorV2 to support running the k8s spark and databricks spark together in the same workflow.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "DatabricksV2",
-        "type": "task",
+        "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "DatabricksV2 from Spark plugin"
+        "description": "Use this to configure a Databricks task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "Spark",
-        "type": "task",
+        "type": "type",
         "importPath": "flytekitplugins.spark",
-        "description": "Spark from Spark plugin"
+        "description": "Implements how SparkDataFrame should be read using the ``open`` method of FlyteSchema.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "new_spark_session",
         "type": "task",
         "importPath": "flytekitplugins.spark",
-        "description": "new_spark_session from Spark plugin"
+        "description": "Task for Spark."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-23",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/k8s_spark_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "kennyworkman",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/31255434?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-spark",
@@ -2414,19 +3779,37 @@
     ],
     "installCommand": "pip install flyteplugins-spark",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/spark",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/k8s-spark-plugin",
     "pypiUrl": "https://pypi.org/project/flyteplugins-spark/",
     "minFlytekitVersion": "",
     "modules": [
       {
         "name": "Spark",
-        "type": "task",
+        "type": "type",
         "importPath": "flyteplugins.spark",
-        "description": "Spark from spark plugin"
+        "description": "Use this to configure a SparkContext for a your task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2025-07-29",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/k8s_spark_plugin",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      }
+    ]
   },
   {
     "slug": "sqlalchemy",
@@ -2446,7 +3829,7 @@
     ],
     "installCommand": "pip install flytekitplugins-sqlalchemy",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-sqlalchemy",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/sqlalchemy_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/sql-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-sqlalchemy/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -2454,23 +3837,43 @@
         "name": "SQLAlchemyConfig",
         "type": "type",
         "importPath": "flytekitplugins.sqlalchemy",
-        "description": "SQLAlchemyConfig from SQLAlchemy plugin"
+        "description": "Use this configuration to configure task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "SQLAlchemyDefaultImages",
-        "type": "other",
+        "type": "type",
         "importPath": "flytekitplugins.sqlalchemy",
-        "description": "SQLAlchemyDefaultImages from SQLAlchemy plugin"
+        "description": "Default images for the sqlalchemy flytekit plugin."
       },
       {
         "name": "SQLAlchemyTask",
         "type": "task",
         "importPath": "flytekitplugins.sqlalchemy",
-        "description": "SQLAlchemyTask from SQLAlchemy plugin"
+        "description": "Makes it possible to run client side SQLAlchemy queries that optionally return a FlyteSchema object.",
+        "baseClass": "PythonCustomizedContainerTask",
+        "subtype": "task"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2021-07-07",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/sql_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
   },
   {
     "slug": "vaex",
@@ -2491,7 +3894,7 @@
     ],
     "installCommand": "pip install flytekitplugins-vaex",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-vaex",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/vaex_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/vaex/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-vaex/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -2499,17 +3902,32 @@
         "name": "ParquetToVaexDataFrameDecodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.vaex",
-        "description": "ParquetToVaexDataFrameDecodingHandler from Vaex plugin"
+        "description": "Configuration type for Vaex."
       },
       {
         "name": "VaexDataFrameToParquetEncodingHandler",
         "type": "type",
         "importPath": "flytekitplugins.vaex",
-        "description": "VaexDataFrameToParquetEncodingHandler from Vaex plugin"
+        "description": "Configuration type for Vaex."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-10-28",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "ryankarlos",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16509490?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-vllm",
@@ -2527,25 +3945,34 @@
     "dependencies": [],
     "installCommand": "pip install flyteplugins-vllm",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/vllm",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
     "pypiUrl": "https://pypi.org/project/flyteplugins-vllm/",
     "minFlytekitVersion": "",
     "modules": [
       {
         "name": "DEFAULT_VLLM_IMAGE",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.vllm",
-        "description": "DEFAULT_VLLM_IMAGE from vllm plugin"
+        "description": "Configuration type for vLLM."
       },
       {
         "name": "VLLMAppEnvironment",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.vllm",
-        "description": "VLLMAppEnvironment from vllm plugin"
+        "description": "App environment backed by vLLM for serving large language models.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2025-12-09",
+    "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      }
+    ]
   },
   {
     "slug": "wandb",
@@ -2564,7 +3991,7 @@
     ],
     "installCommand": "pip install flytekitplugins-wandb",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-wandb",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/wandb_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/wandb-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-wandb/",
     "minFlytekitVersion": "1.12.0",
     "modules": [
@@ -2572,11 +3999,27 @@
         "name": "wandb_init",
         "type": "task",
         "importPath": "flytekitplugins.wandb",
-        "description": "wandb_init from Weights & Biases plugin"
+        "description": "Task for Weights & Biases."
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2024-05-16",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/wandb_plugin",
+    "maintainers": [
+      {
+        "login": "thomasjpfan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "nelsonjr",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+      }
+    ]
   },
   {
     "slug": "v2-wandb",
@@ -2595,7 +4038,7 @@
     ],
     "installCommand": "pip install flyteplugins-wandb",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/wandb",
-    "docsUrl": "https://docs.flyte.org",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/wandb-plugin",
     "pypiUrl": "https://pypi.org/project/flyteplugins-wandb/",
     "minFlytekitVersion": "",
     "modules": [
@@ -2603,59 +4046,79 @@
         "name": "wandb_init",
         "type": "task",
         "importPath": "flyteplugins.wandb",
-        "description": "wandb_init from wandb plugin"
+        "description": "Task for Weights & Biases."
       },
       {
         "name": "get_wandb_run",
-        "type": "other",
+        "type": "task",
         "importPath": "flyteplugins.wandb",
-        "description": "get_wandb_run from wandb plugin"
+        "description": "Get the current wandb run if within a `@wandb_init` decorated task or trace."
       },
       {
         "name": "wandb_config",
         "type": "type",
         "importPath": "flyteplugins.wandb",
-        "description": "wandb_config from wandb plugin"
+        "description": "Configuration type for Weights & Biases."
       },
       {
         "name": "wandb_sweep",
-        "type": "other",
+        "type": "task",
         "importPath": "flyteplugins.wandb",
-        "description": "wandb_sweep from wandb plugin"
+        "description": "Task for Weights & Biases."
       },
       {
         "name": "get_wandb_sweep_id",
-        "type": "other",
+        "type": "task",
         "importPath": "flyteplugins.wandb",
-        "description": "get_wandb_sweep_id from wandb plugin"
+        "description": "Get the current wandb `sweep_id` if within a `@wandb_sweep` decorated task."
       },
       {
         "name": "get_wandb_context",
-        "type": "other",
+        "type": "task",
         "importPath": "flyteplugins.wandb",
-        "description": "get_wandb_context from wandb plugin"
+        "description": "Get wandb config from current Flyte context."
       },
       {
         "name": "Elastic",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.wandb",
-        "description": "Elastic from wandb plugin"
+        "description": "Configuration type for Weights & Biases."
       },
       {
         "name": "Wandb",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.wandb",
-        "description": "Wandb from wandb plugin"
+        "description": "Generates a Weights & Biases run link.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       },
       {
         "name": "WandbSweep",
-        "type": "other",
+        "type": "type",
         "importPath": "flyteplugins.wandb",
-        "description": "WandbSweep from wandb plugin"
+        "description": "Generates a Weights & Biases Sweep link.",
+        "baseClass": "dataclass",
+        "subtype": "config"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flyte-sdk"
+    "sdk": "flyte-sdk",
+    "addedDate": "2026-01-16",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/wandb_plugin",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      }
+    ]
   },
   {
     "slug": "whylogs",
@@ -2671,7 +4134,7 @@
     "dependencies": [],
     "installCommand": "pip install flytekitplugins-whylogs",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-whylogs",
-    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/whylogs_plugin/index.html",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/flytekit-plugins/whylogs-plugin",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-whylogs/",
     "minFlytekitVersion": "1.3.0",
     "modules": [
@@ -2679,22 +4142,44 @@
         "name": "WhylogsConstraintsRenderer",
         "type": "type",
         "importPath": "flytekitplugins.whylogs",
-        "description": "WhylogsConstraintsRenderer from whylogs plugin"
+        "description": "Creates a whylogs' Constraints report from a `Constraints` object.",
+        "baseClass": "class",
+        "subtype": "config"
       },
       {
         "name": "WhylogsSummaryDriftRenderer",
         "type": "type",
         "importPath": "flytekitplugins.whylogs",
-        "description": "WhylogsSummaryDriftRenderer from whylogs plugin"
+        "description": "Creates a whylogs' Summary Drift report from two pandas DataFrames.",
+        "baseClass": "class",
+        "subtype": "config"
       },
       {
         "name": "WhylogsDatasetProfileTransformer",
         "type": "type",
         "importPath": "flytekitplugins.whylogs",
-        "description": "WhylogsDatasetProfileTransformer from whylogs plugin"
+        "description": "Transforms whylogs Dataset Profile Views to and from a Schema (typed/untyped).",
+        "baseClass": "TypeTransformer",
+        "subtype": "transformer"
       }
     ],
     "isDeprecated": false,
-    "sdk": "flytekit"
+    "sdk": "flytekit",
+    "addedDate": "2022-07-18",
+    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/whylogs_plugin",
+    "maintainers": [
+      {
+        "login": "eapolinario",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "murilommen",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/48736656?v=4"
+      }
+    ]
   }
 ]
