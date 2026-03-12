@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const pluginsPath = join(__dirname, "../src/data/plugins.json");
 const outputPath = join(__dirname, "../src/data/pypi-stats.json");
+const historyPath = join(__dirname, "../src/data/pypi-history.json");
 
 const plugins = JSON.parse(readFileSync(pluginsPath, "utf-8"));
 const packageNames = plugins.map((p) => p.packageName);
@@ -26,22 +27,55 @@ async function fetchStats(packageName) {
   }
 }
 
+async function fetchHistory(packageName) {
+  try {
+    const res = await fetch(
+      `https://pypistats.org/api/packages/${packageName}/overall?mirrors=false`
+    );
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (!json.data || !Array.isArray(json.data)) return null;
+
+    // Aggregate categories per date, keep last 90 days
+    const byDate = {};
+    for (const row of json.data) {
+      if (!row.date) continue;
+      byDate[row.date] = (byDate[row.date] || 0) + row.downloads;
+    }
+
+    const entries = Object.entries(byDate)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .slice(-90);
+
+    return entries.map(([date, downloads]) => ({ date, downloads }));
+  } catch {
+    return null;
+  }
+}
+
 async function main() {
   console.log(`Fetching PyPI stats for ${packageNames.length} packages...`);
   const stats = {};
+  const history = {};
 
-  // Fetch in batches of 5 to avoid rate limiting
-  for (let i = 0; i < packageNames.length; i += 5) {
-    const batch = packageNames.slice(i, i + 5);
-    const results = await Promise.all(batch.map(fetchStats));
+  // Fetch in batches of 3 to avoid rate limiting (2 requests per package now)
+  for (let i = 0; i < packageNames.length; i += 3) {
+    const batch = packageNames.slice(i, i + 3);
+    const [recentResults, historyResults] = await Promise.all([
+      Promise.all(batch.map(fetchStats)),
+      Promise.all(batch.map(fetchHistory)),
+    ]);
     batch.forEach((name, idx) => {
-      if (results[idx]) {
-        stats[name] = results[idx];
+      if (recentResults[idx]) {
+        stats[name] = recentResults[idx];
+      }
+      if (historyResults[idx]) {
+        history[name] = historyResults[idx];
       }
     });
-    console.log(`  ${Math.min(i + 5, packageNames.length)}/${packageNames.length}`);
-    if (i + 5 < packageNames.length) {
-      await new Promise((r) => setTimeout(r, 500));
+    console.log(`  ${Math.min(i + 3, packageNames.length)}/${packageNames.length}`);
+    if (i + 3 < packageNames.length) {
+      await new Promise((r) => setTimeout(r, 600));
     }
   }
 
@@ -52,6 +86,14 @@ async function main() {
 
   writeFileSync(outputPath, JSON.stringify(output, null, 2));
   console.log(`Saved stats to ${outputPath}`);
+
+  const historyOutput = {
+    fetchedAt: new Date().toISOString(),
+    history,
+  };
+
+  writeFileSync(historyPath, JSON.stringify(historyOutput));
+  console.log(`Saved download history to ${historyPath} (${Object.keys(history).length} packages)`);
 }
 
 main();

@@ -9,6 +9,8 @@ import { ModuleList } from "@/components/plugins/ModuleList";
 import { PluginIcon } from "@/components/ui/PluginIcon";
 import { usePyPIStats } from "@/hooks/usePyPIStats";
 import { usePyPIMetadata } from "@/hooks/usePyPIMetadata";
+import { useDownloadHistory } from "@/hooks/useDownloadHistory";
+import { DownloadChart } from "@/components/ui/DownloadChart";
 import { RelatedPlugins } from "@/components/plugins/RelatedPlugins";
 
 import { CopyButton } from "@/components/ui/CopyButton";
@@ -179,6 +181,7 @@ function AlternativeVersionBanner({ plugin, allPlugins }: { plugin: Plugin; allP
 export function PluginDetailClient({ plugin, allPlugins = [] }: { plugin: Plugin; allPlugins?: Plugin[] }) {
   const { stats, loading } = usePyPIStats(plugin.packageName);
   const { metadata, loading: metaLoading } = usePyPIMetadata(plugin.packageName);
+  const { history } = useDownloadHistory(plugin.packageName);
 
   return (
     <div className="px-6 sm:px-10 lg:px-16 py-10">
@@ -360,6 +363,20 @@ export function PluginDetailClient({ plugin, allPlugins = [] }: { plugin: Plugin
                 </div>
               ) : (
                 <p className="text-sm text-[var(--muted)]">Stats unavailable</p>
+              )}
+
+              {history && history.length > 7 && (
+                <div className="mt-3">
+                  <DownloadChart
+                    series={[
+                      { label: plugin.name, data: history, color: "#7c3aed" },
+                    ]}
+                    height={120}
+                  />
+                  <p className="text-[10px] text-[var(--muted)] mt-1 text-center">
+                    Daily downloads (last 90 days)
+                  </p>
+                </div>
               )}
             </div>
 

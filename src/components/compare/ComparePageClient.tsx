@@ -5,6 +5,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Plugin } from "@/lib/types";
 import plugins from "@/data/plugins.json";
 import { usePyPIStats } from "@/hooks/usePyPIStats";
+import { useDownloadHistory } from "@/hooks/useDownloadHistory";
+import { DownloadChart } from "@/components/ui/DownloadChart";
 import { Badge, TagBadge, SDKBadge } from "@/components/ui/Badge";
 import { PluginIcon } from "@/components/ui/PluginIcon";
 import { ModuleBar } from "@/components/plugins/PluginCard";
@@ -51,6 +53,30 @@ function MaintainerAvatars({ maintainers }: { maintainers?: Plugin["maintainers"
           +{maintainers.length - 6}
         </span>
       )}
+    </div>
+  );
+}
+
+function CompareDownloadChart({ pluginA, pluginB }: { pluginA: Plugin; pluginB: Plugin }) {
+  const { history: histA } = useDownloadHistory(pluginA.packageName);
+  const { history: histB } = useDownloadHistory(pluginB.packageName);
+
+  if ((!histA || histA.length < 7) && (!histB || histB.length < 7)) return null;
+
+  const series = [];
+  if (histA && histA.length > 7) {
+    series.push({ label: pluginA.name, data: histA, color: "#7c3aed" });
+  }
+  if (histB && histB.length > 7) {
+    series.push({ label: pluginB.name, data: histB, color: "#3b82f6" });
+  }
+
+  if (series.length === 0) return null;
+
+  return (
+    <div className="mt-8 rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-5">
+      <h3 className="text-sm font-medium text-[var(--muted)] mb-3">Download History (last 90 days)</h3>
+      <DownloadChart series={series} height={200} />
     </div>
   );
 }
@@ -278,6 +304,9 @@ function CompareContent() {
               </tbody>
             </table>
           </div>
+
+          {/* Download History Chart */}
+          <CompareDownloadChart pluginA={pluginA} pluginB={pluginB} />
 
           {/* Mobile stacked view */}
           <div className="md:hidden space-y-6">

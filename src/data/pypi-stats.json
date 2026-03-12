@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-03-12T10:36:50.942Z",
+  "fetchedAt": "2026-03-12T11:41:11.694Z",
   "stats": {
     "flyteplugins-anthropic": {
       "lastDay": 53,
@@ -286,11 +286,6 @@
       "lastWeek": 579,
       "lastMonth": 2433
     },
-    "flyteplugins-snowflake": {
-      "lastDay": 71,
-      "lastWeek": 191,
-      "lastMonth": 822
-    },
     "flytekitplugins-spark": {
       "lastDay": 3541,
       "lastWeek": 19150,
@@ -301,6 +296,11 @@
       "lastWeek": 683,
       "lastMonth": 4276
     },
+    "flytekitplugins-sqlalchemy": {
+      "lastDay": 95,
+      "lastWeek": 771,
+      "lastMonth": 3425
+    },
     "flytekitplugins-vaex": {
       "lastDay": 80,
       "lastWeek": 277,
@@ -310,6 +310,11 @@
       "lastDay": 73,
       "lastWeek": 219,
       "lastMonth": 832
+    },
+    "flytekitplugins-wandb": {
+      "lastDay": 127,
+      "lastWeek": 588,
+      "lastMonth": 2583
     },
     "flyteplugins-wandb": {
       "lastDay": 50,
