@@ -1,0 +1,240 @@
+{
+  "fetchedAt": "2026-03-12T03:08:43.083Z",
+  "stats": {
+    "flytekitplugins-airflow": {
+      "lastDay": 74,
+      "lastWeek": 212,
+      "lastMonth": 1181
+    },
+    "flytekitplugins-async-fsspec": {
+      "lastDay": 69,
+      "lastWeek": 206,
+      "lastMonth": 1385
+    },
+    "flytekitplugins-athena": {
+      "lastDay": 61,
+      "lastWeek": 395,
+      "lastMonth": 2238
+    },
+    "flytekitplugins-awsbatch": {
+      "lastDay": 62,
+      "lastWeek": 317,
+      "lastMonth": 1768
+    },
+    "flytekitplugins-bigquery": {
+      "lastDay": 140,
+      "lastWeek": 774,
+      "lastMonth": 3309
+    },
+    "flytekitplugins-comet-ml": {
+      "lastDay": 139,
+      "lastWeek": 174,
+      "lastMonth": 827
+    },
+    "flytekitplugins-dask": {
+      "lastDay": 94,
+      "lastWeek": 425,
+      "lastMonth": 2145
+    },
+    "flytekitplugins-dbt": {
+      "lastDay": 84,
+      "lastWeek": 433,
+      "lastMonth": 2130
+    },
+    "flytekitplugins-deck-standard": {
+      "lastDay": 1414,
+      "lastWeek": 14618,
+      "lastMonth": 64431
+    },
+    "flytekitplugins-dgxc-lepton": {
+      "lastDay": 71,
+      "lastWeek": 100,
+      "lastMonth": 372
+    },
+    "flytekitplugins-dolt": {
+      "lastDay": 82,
+      "lastWeek": 439,
+      "lastMonth": 2355
+    },
+    "flytekitplugins-duckdb": {
+      "lastDay": 116,
+      "lastWeek": 544,
+      "lastMonth": 2557
+    },
+    "flytekitplugins-envd": {
+      "lastDay": 2192,
+      "lastWeek": 5493,
+      "lastMonth": 16058
+    },
+    "flytekitplugins-flyteinteractive": {
+      "lastDay": 314,
+      "lastWeek": 1316,
+      "lastMonth": 6782
+    },
+    "flytekitplugins-geopandas": {
+      "lastDay": 97,
+      "lastWeek": 114,
+      "lastMonth": 479
+    },
+    "flytekitplugins-identity_aware_proxy": {
+      "lastDay": 145,
+      "lastWeek": 496,
+      "lastMonth": 2254
+    },
+    "flytekitplugins-great_expectations": {
+      "lastDay": 74,
+      "lastWeek": 642,
+      "lastMonth": 2416
+    },
+    "flytekitplugins-huggingface": {
+      "lastDay": 120,
+      "lastWeek": 563,
+      "lastMonth": 2558
+    },
+    "flytekitplugins-inference": {
+      "lastDay": 94,
+      "lastWeek": 452,
+      "lastMonth": 1232
+    },
+    "flytekitplugins-kfmpi": {
+      "lastDay": 622,
+      "lastWeek": 6269,
+      "lastMonth": 33624
+    },
+    "flytekitplugins-kfpytorch": {
+      "lastDay": 1418,
+      "lastWeek": 6766,
+      "lastMonth": 29561
+    },
+    "flytekitplugins-kftensorflow": {
+      "lastDay": 105,
+      "lastWeek": 584,
+      "lastMonth": 3524
+    },
+    "flytekitplugins-pod": {
+      "lastDay": 3186,
+      "lastWeek": 18068,
+      "lastMonth": 80924
+    },
+    "flytekitplugins-k8sdataservice": {
+      "lastDay": 85,
+      "lastWeek": 135,
+      "lastMonth": 749
+    },
+    "flytekitplugins-mmcloud": {
+      "lastDay": 85,
+      "lastWeek": 404,
+      "lastMonth": 1319
+    },
+    "flytekitplugins-memray": {
+      "lastDay": 72,
+      "lastWeek": 145,
+      "lastMonth": 642
+    },
+    "flytekitplugins-mlflow": {
+      "lastDay": 284,
+      "lastWeek": 614,
+      "lastMonth": 2528
+    },
+    "flytekitplugins-modin": {
+      "lastDay": 76,
+      "lastWeek": 926,
+      "lastMonth": 3204
+    },
+    "flytekitplugins-neptune": {
+      "lastDay": 77,
+      "lastWeek": 193,
+      "lastMonth": 804
+    },
+    "flytekitplugins-omegaconf": {
+      "lastDay": 153,
+      "lastWeek": 736,
+      "lastMonth": 4452
+    },
+    "flytekitplugins-onnxpytorch": {
+      "lastDay": 75,
+      "lastWeek": 289,
+      "lastMonth": 1929
+    },
+    "flytekitplugins-onnxscikitlearn": {
+      "lastDay": 71,
+      "lastWeek": 291,
+      "lastMonth": 1545
+    },
+    "flytekitplugins-onnxtensorflow": {
+      "lastDay": 77,
+      "lastWeek": 534,
+      "lastMonth": 1523
+    },
+    "flytekitplugins-openai": {
+      "lastDay": 102,
+      "lastWeek": 295,
+      "lastMonth": 1413
+    },
+    "flytekitplugins-optuna": {
+      "lastDay": 119,
+      "lastWeek": 348,
+      "lastMonth": 985
+    },
+    "flytekitplugins-pandera": {
+      "lastDay": 187,
+      "lastWeek": 800,
+      "lastMonth": 5644
+    },
+    "flytekitplugins-papermill": {
+      "lastDay": 243,
+      "lastWeek": 1465,
+      "lastMonth": 4975
+    },
+    "flytekitplugins-perian_job": {
+      "lastDay": 129,
+      "lastWeek": 219,
+      "lastMonth": 954
+    },
+    "flytekitplugins-polars": {
+      "lastDay": 190,
+      "lastWeek": 806,
+      "lastMonth": 3284
+    },
+    "flytekitplugins-ray": {
+      "lastDay": 1519,
+      "lastWeek": 19930,
+      "lastMonth": 138937
+    },
+    "flytekitplugins-slurm": {
+      "lastDay": 88,
+      "lastWeek": 135,
+      "lastMonth": 708
+    },
+    "flytekitplugins-snowflake": {
+      "lastDay": 123,
+      "lastWeek": 579,
+      "lastMonth": 2433
+    },
+    "flytekitplugins-spark": {
+      "lastDay": 3541,
+      "lastWeek": 19150,
+      "lastMonth": 76071
+    },
+    "flytekitplugins-sqlalchemy": {
+      "lastDay": 95,
+      "lastWeek": 771,
+      "lastMonth": 3425
+    },
+    "flytekitplugins-vaex": {
+      "lastDay": 80,
+      "lastWeek": 277,
+      "lastMonth": 1795
+    },
+    "flytekitplugins-wandb": {
+      "lastDay": 127,
+      "lastWeek": 588,
+      "lastMonth": 2583
+    },
+    "flytekitplugins-whylogs": {
+      "lastDay": 177,
+      "lastWeek": 754,
+      "lastMonth": 3187
+    }
+  }
+}

@@ -1,0 +1,71 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: flyteorg/flytekit
+          path: flytekit
+          sparse-checkout: plugins
+
+      - uses: actions/checkout@v4
+        with:
+          repository: flyteorg/flyte-sdk
+          path: flyte-sdk
+          sparse-checkout: plugins
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generate plugin data
+        run: node scripts/generate-plugin-data.mjs
+        env:
+          FLYTEKIT_PATH: ${{ github.workspace }}/flytekit/plugins
+          FLYTE_SDK_PATH: ${{ github.workspace }}/flyte-sdk/plugins
+
+      - name: Fetch PyPI stats
+        run: node scripts/fetch-pypi-stats.mjs
+
+      - name: Generate icons
+        run: node scripts/generate-icons.mjs
+
+      - name: Build
+        run: npx next build
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,56 @@
+export interface PluginModule {
+  name: string;
+  type: "task" | "type" | "agent" | "sensor" | "workflow" | "other";
+  importPath: string;
+  description?: string;
+}
+
+export type SDK = "flytekit" | "flyte-sdk";
+
+export interface Plugin {
+  slug: string;
+  name: string;
+  packageName: string;
+  description: string;
+  category: Category;
+  tags: string[];
+  dependencies: string[];
+  installCommand: string;
+  githubUrl: string;
+  docsUrl: string;
+  pypiUrl: string;
+  minFlytekitVersion: string;
+  modules: PluginModule[];
+  isDeprecated: boolean;
+  addedDate?: string;
+  sdk?: SDK;
+}
+
+export type Category =
+  | "data-dataframe"
+  | "databases-warehouses"
+  | "cloud-infrastructure"
+  | "ml-training"
+  | "model-serving"
+  | "experiment-tracking"
+  | "data-validation"
+  | "workflow"
+  | "developer-tools";
+
+export interface CategoryInfo {
+  slug: Category;
+  name: string;
+  description: string;
+  icon: string;
+}
+
+export interface PyPIStats {
+  lastDay: number;
+  lastWeek: number;
+  lastMonth: number;
+}
+
+export interface SearchResult {
+  item: Plugin;
+  score: number;
+}

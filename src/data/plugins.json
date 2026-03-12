@@ -1,0 +1,2600 @@
+[
+  {
+    "slug": "airflow",
+    "name": "Apache Airflow",
+    "packageName": "flytekitplugins-airflow",
+    "description": "Airflow plugin allows you to seamlessly run Airflow tasks in the Flyte workflow without changing any code.",
+    "category": "workflow",
+    "tags": [
+      "airflow",
+      "orchestration",
+      "operators"
+    ],
+    "dependencies": [
+      "apache-airflow",
+      "apache-airflow-providers-google",
+      "sqlalchemy-spanner",
+      "google-re2"
+    ],
+    "installCommand": "pip install flytekitplugins-airflow",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-airflow",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/airflow_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-airflow/",
+    "minFlytekitVersion": "1.10.7",
+    "modules": [
+      {
+        "name": "AirflowConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.airflow",
+        "description": "AirflowConnector from Apache Airflow plugin"
+      },
+      {
+        "name": "AirflowObj",
+        "type": "other",
+        "importPath": "flytekitplugins.airflow",
+        "description": "AirflowObj from Apache Airflow plugin"
+      },
+      {
+        "name": "AirflowTask",
+        "type": "task",
+        "importPath": "flytekitplugins.airflow",
+        "description": "AirflowTask from Apache Airflow plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "async-fsspec",
+    "name": "Async FSSpec",
+    "packageName": "flytekitplugins-async-fsspec",
+    "description": "The Flyte async fsspec plugin is a powerful addition to the Flyte ecosystem designed to optimize the performance of object transmission. This plugin focuses on overriding key methods of the file systems in fsspec to introduce efficiency improvements, resulting in accelerated data transfers between Flyte workflows and object storage.",
+    "category": "data-dataframe",
+    "tags": [
+      "fsspec",
+      "async",
+      "filesystem"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-async-fsspec",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-async-fsspec",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/async_fsspec_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-async-fsspec/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "aws-athena",
+    "name": "AWS Athena",
+    "packageName": "flytekitplugins-athena",
+    "description": "Flyte backend can be connected with Athena. Once enabled, it allows you to query AWS Athena service (Presto + ANSI SQL Support) and retrieve typed schema (optionally).",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "aws",
+      "athena",
+      "sql",
+      "serverless"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-athena",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-athena",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/aws_athena_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-athena/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "AthenaConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.athena",
+        "description": "AthenaConfig from AWS Athena plugin"
+      },
+      {
+        "name": "AthenaTask",
+        "type": "task",
+        "importPath": "flytekitplugins.athena",
+        "description": "AthenaTask from AWS Athena plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "aws-batch",
+    "name": "AWS Batch",
+    "packageName": "flytekitplugins-awsbatch",
+    "description": "Flyte backend can be connected with AWS batch. Once enabled, it allows you to run flyte task on AWS batch service",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "aws",
+      "batch",
+      "cloud",
+      "compute"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-awsbatch",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-batch",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/aws_batch_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-awsbatch/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "AWSBatchConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.awsbatch",
+        "description": "AWSBatchConfig from AWS Batch plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "aws-sagemaker",
+    "name": "AWS SageMaker",
+    "packageName": "flytekitplugins-awssagemaker",
+    "description": "The plugin currently features a SageMaker deployment connector.",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "aws",
+      "sagemaker",
+      "ml",
+      "training"
+    ],
+    "dependencies": [
+      "aioboto3",
+      "xxhash"
+    ],
+    "installCommand": "pip install flytekitplugins-awssagemaker",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-sagemaker",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/aws_sagemaker_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-awssagemaker/",
+    "minFlytekitVersion": "1.14.6",
+    "modules": [
+      {
+        "name": "SageMakerEndpointConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.awssagemaker_inference",
+        "description": "SageMakerEndpointConnector from AWS SageMaker plugin"
+      },
+      {
+        "name": "create_sagemaker_deployment",
+        "type": "other",
+        "importPath": "flytekitplugins.awssagemaker_inference",
+        "description": "create_sagemaker_deployment from AWS SageMaker plugin"
+      },
+      {
+        "name": "delete_sagemaker_deployment",
+        "type": "other",
+        "importPath": "flytekitplugins.awssagemaker_inference",
+        "description": "delete_sagemaker_deployment from AWS SageMaker plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "bigquery",
+    "name": "Bigquery",
+    "packageName": "flytekitplugins-bigquery",
+    "description": "BigQuery enables us to build data-intensive applications without operational burden. Flyte backend can be connected with the BigQuery service. Once enabled, it can allow you to query a BigQuery table.",
+    "category": "databases-warehouses",
+    "tags": [
+      "bigquery",
+      "google",
+      "sql",
+      "warehouse"
+    ],
+    "dependencies": [
+      "google-cloud-bigquery",
+      "google-cloud-bigquery-storage"
+    ],
+    "installCommand": "pip install flytekitplugins-bigquery",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-bigquery",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/bigquery_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-bigquery/",
+    "minFlytekitVersion": "1.10.7",
+    "modules": [
+      {
+        "name": "BigQueryConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.bigquery",
+        "description": "BigQueryConnector from Bigquery plugin"
+      },
+      {
+        "name": "BigQueryConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.bigquery",
+        "description": "BigQueryConfig from Bigquery plugin"
+      },
+      {
+        "name": "BigQueryTask",
+        "type": "task",
+        "importPath": "flytekitplugins.bigquery",
+        "description": "BigQueryTask from Bigquery plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "comet-ml",
+    "name": "Comet ML",
+    "packageName": "flytekitplugins-comet-ml",
+    "description": "Comet’s machine learning platform integrates with your existing infrastructure and tools so you can manage, visualize, and optimize models—from training runs to production monitoring. This plugin integrates Flyte with Comet.ml by configuring links between the two platforms.",
+    "category": "experiment-tracking",
+    "tags": [
+      "comet",
+      "experiment-tracking",
+      "visualization"
+    ],
+    "dependencies": [
+      "comet-ml"
+    ],
+    "installCommand": "pip install flytekitplugins-comet-ml",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-comet-ml",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/comet_ml_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-comet-ml/",
+    "minFlytekitVersion": "1.12.3",
+    "modules": [
+      {
+        "name": "comet_ml_login",
+        "type": "other",
+        "importPath": "flytekitplugins.comet_ml",
+        "description": "comet_ml_login from Comet ML plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "dask",
+    "name": "Dask",
+    "packageName": "flytekitplugins-dask",
+    "description": "Flyte can execute dask jobs natively on a Kubernetes Cluster, which manages the virtual dask cluster's lifecycle",
+    "category": "ml-training",
+    "tags": [
+      "dask",
+      "distributed",
+      "parallel",
+      "compute"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-dask",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dask",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dask_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-dask/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "dbt",
+    "name": "DBT",
+    "packageName": "flytekitplugins-dbt",
+    "description": "Flytekit plugin for performing DBT tasks. Currently it supports  dbt run , dbt test, dbt source freshness tasks.",
+    "category": "workflow",
+    "tags": [
+      "dbt",
+      "data-transformation",
+      "sql"
+    ],
+    "dependencies": [
+      "dbt-core",
+      "networkx"
+    ],
+    "installCommand": "pip install flytekitplugins-dbt",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dbt",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dbt_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-dbt/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "BaseDBTInput",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "BaseDBTInput from DBT plugin"
+      },
+      {
+        "name": "BaseDBTOutput",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "BaseDBTOutput from DBT plugin"
+      },
+      {
+        "name": "DBTRunInput",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "DBTRunInput from DBT plugin"
+      },
+      {
+        "name": "DBTRunOutput",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "DBTRunOutput from DBT plugin"
+      },
+      {
+        "name": "DBTTestInput",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "DBTTestInput from DBT plugin"
+      },
+      {
+        "name": "DBTTestOutput",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "DBTTestOutput from DBT plugin"
+      },
+      {
+        "name": "DBTRun",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "DBTRun from DBT plugin"
+      },
+      {
+        "name": "DBTTest",
+        "type": "other",
+        "importPath": "flytekitplugins.dbt",
+        "description": "DBTTest from DBT plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "deck-standard",
+    "name": "Deck",
+    "packageName": "flytekitplugins-deck-standard",
+    "description": "This plugin provides additional renderers to improve task visibility within Flytekit.",
+    "category": "developer-tools",
+    "tags": [
+      "deck",
+      "visualization",
+      "rendering"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-deck-standard",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-deck-standard",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/deck_standard_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-deck-standard/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "dgxc-lepton",
+    "name": "Dgxc-lepton",
+    "packageName": "flytekitplugins-dgxc-lepton",
+    "description": "A professional Flytekit plugin that enables seamless deployment and management of AI inference endpoints using Lepton AI infrastructure within Flyte workflows.",
+    "category": "model-serving",
+    "tags": [
+      "nvidia",
+      "dgx",
+      "lepton",
+      "gpu"
+    ],
+    "dependencies": [
+      "leptonai"
+    ],
+    "installCommand": "pip install flytekitplugins-dgxc-lepton",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dgxc-lepton",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dgxc_lepton_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-dgxc-lepton/",
+    "minFlytekitVersion": "1.9.1",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "dolt",
+    "name": "Dolt",
+    "packageName": "flytekitplugins-dolt",
+    "description": "The DoltTable plugin is a wrapper that uses Dolt to move data between pandas.DataFrame’s at execution time and database tables at rest.",
+    "category": "databases-warehouses",
+    "tags": [
+      "dolt",
+      "versioned-database",
+      "sql"
+    ],
+    "dependencies": [
+      "dolt_integrations",
+      "networkx"
+    ],
+    "installCommand": "pip install flytekitplugins-dolt",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dolt",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/dolt_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-dolt/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "DoltConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.dolt",
+        "description": "DoltConfig from Dolt plugin"
+      },
+      {
+        "name": "DoltTable",
+        "type": "other",
+        "importPath": "flytekitplugins.dolt",
+        "description": "DoltTable from Dolt plugin"
+      },
+      {
+        "name": "DoltTableNameTransformer",
+        "type": "type",
+        "importPath": "flytekitplugins.dolt",
+        "description": "DoltTableNameTransformer from Dolt plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "duckdb",
+    "name": "DuckDB",
+    "packageName": "flytekitplugins-duckdb",
+    "description": "Run analytical workloads with ease using DuckDB.",
+    "category": "databases-warehouses",
+    "tags": [
+      "duckdb",
+      "sql",
+      "analytics",
+      "olap"
+    ],
+    "dependencies": [
+      "duckdb",
+      "pandas"
+    ],
+    "installCommand": "pip install flytekitplugins-duckdb",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-duckdb",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/duckdb_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-duckdb/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "DuckDBProvider",
+        "type": "other",
+        "importPath": "flytekitplugins.duckdb",
+        "description": "DuckDBProvider from DuckDB plugin"
+      },
+      {
+        "name": "DuckDBQuery",
+        "type": "other",
+        "importPath": "flytekitplugins.duckdb",
+        "description": "DuckDBQuery from DuckDB plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "envd",
+    "name": "Envd",
+    "packageName": "flytekitplugins-envd",
+    "description": "envd is a command-line tool that helps you create the container-based development environment for AI/ML.",
+    "category": "developer-tools",
+    "tags": [
+      "envd",
+      "container",
+      "image-builder"
+    ],
+    "dependencies": [
+      "envd"
+    ],
+    "installCommand": "pip install flytekitplugins-envd",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-envd",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/envd_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-envd/",
+    "minFlytekitVersion": "1.12.0",
+    "modules": [
+      {
+        "name": "EnvdImageSpecBuilder",
+        "type": "other",
+        "importPath": "flytekitplugins.envd",
+        "description": "EnvdImageSpecBuilder from Envd plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "flyteinteractive",
+    "name": "Flyte Interactive",
+    "packageName": "flytekitplugins-flyteinteractive",
+    "description": "> FlyteInteractive = Develop Flyte with the speed of flying",
+    "category": "developer-tools",
+    "tags": [
+      "interactive",
+      "vscode",
+      "jupyter"
+    ],
+    "dependencies": [
+      "jupyter"
+    ],
+    "installCommand": "pip install flytekitplugins-flyteinteractive",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-flyteinteractive",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/flyteinteractive_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-flyteinteractive/",
+    "minFlytekitVersion": "1.1.0",
+    "modules": [
+      {
+        "name": "jupyter",
+        "type": "task",
+        "importPath": "flytekitplugins.flyteinteractive",
+        "description": "jupyter from Flyte Interactive plugin"
+      },
+      {
+        "name": "get_task_inputs",
+        "type": "task",
+        "importPath": "flytekitplugins.flyteinteractive",
+        "description": "get_task_inputs from Flyte Interactive plugin"
+      },
+      {
+        "name": "vscode",
+        "type": "task",
+        "importPath": "flytekitplugins.flyteinteractive",
+        "description": "vscode from Flyte Interactive plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "data-fsspec",
+    "name": "FSSpec",
+    "packageName": "flytekitplugins-data-fsspec",
+    "description": "This plugin provides an implementation of the data persistence layer in Flytekit that uses fsspec. Once this plugin",
+    "category": "data-dataframe",
+    "tags": [
+      "fsspec",
+      "filesystem",
+      "storage"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-data-fsspec",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-data-fsspec",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/data_fsspec_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-data-fsspec/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "geopandas",
+    "name": "Geopandas",
+    "packageName": "flytekitplugins-geopandas",
+    "description": "GeoPandas GeoPandas is an open source project to make working with geospatial data in python easier.",
+    "category": "data-dataframe",
+    "tags": [
+      "geopandas",
+      "geospatial",
+      "gis"
+    ],
+    "dependencies": [
+      "geopandas",
+      "pandas"
+    ],
+    "installCommand": "pip install flytekitplugins-geopandas",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-geopandas",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/geopandas_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-geopandas/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "GeoPandasDecodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.geopandas",
+        "description": "GeoPandasDecodingHandler from geopandas plugin"
+      },
+      {
+        "name": "GeoPandasEncodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.geopandas",
+        "description": "GeoPandasEncodingHandler from geopandas plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "identity-aware-proxy",
+    "name": "Google IAP",
+    "packageName": "flytekitplugins-identity_aware_proxy",
+    "description": "GCP Identity Aware Proxy (IAP) is a managed Google Cloud Platform (GCP) service that makes it easy to protect applications deployed on GCP by verifying user identity and using context to determine whether a user should be granted access. Because requests to applications protected with IAP first have to pass IAP before they can reach the protected backends, IAP provides a convenient way to implement a zero-trust access model.",
+    "category": "developer-tools",
+    "tags": [
+      "gcp",
+      "iap",
+      "authentication"
+    ],
+    "dependencies": [
+      "click",
+      "google-cloud-secret-manager",
+      "google-auth",
+      "grpcio"
+    ],
+    "installCommand": "pip install flytekitplugins-identity_aware_proxy",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-identity-aware-proxy",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/identity_aware_proxy_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-identity_aware_proxy/",
+    "minFlytekitVersion": "1.10",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "greatexpectations",
+    "name": "Great Expectations",
+    "packageName": "flytekitplugins-great_expectations",
+    "description": "Great Expectations helps enforce data quality. The plugin supports the usage of Great Expectations as task and type.",
+    "category": "data-validation",
+    "tags": [
+      "great-expectations",
+      "data-quality",
+      "validation"
+    ],
+    "dependencies": [
+      "great-expectations",
+      "sqlalchemy",
+      "pyspark",
+      "s3fs"
+    ],
+    "installCommand": "pip install flytekitplugins-great_expectations",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-greatexpectations",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/greatexpectations_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-great_expectations/",
+    "minFlytekitVersion": "1.5.0",
+    "modules": [
+      {
+        "name": "GreatExpectationsFlyteConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.great_expectations",
+        "description": "GreatExpectationsFlyteConfig from Great Expectations plugin"
+      },
+      {
+        "name": "GreatExpectationsType",
+        "type": "other",
+        "importPath": "flytekitplugins.great_expectations",
+        "description": "GreatExpectationsType from Great Expectations plugin"
+      },
+      {
+        "name": "BatchRequestConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.great_expectations",
+        "description": "BatchRequestConfig from Great Expectations plugin"
+      },
+      {
+        "name": "GreatExpectationsTask",
+        "type": "task",
+        "importPath": "flytekitplugins.great_expectations",
+        "description": "GreatExpectationsTask from Great Expectations plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "hive",
+    "name": "Hive",
+    "packageName": "flytekitplugins-hive",
+    "description": "Flyte backend can be connected with various Hive services. Once enabled, it allows you to query a Hive service (e.g., Qubole) and retrieve typed schema (optionally).",
+    "category": "databases-warehouses",
+    "tags": [
+      "hive",
+      "hadoop",
+      "sql",
+      "big-data"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-hive",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-hive",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/hive_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-hive/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "HiveConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.hive",
+        "description": "HiveConfig from Hive plugin"
+      },
+      {
+        "name": "HiveSelectTask",
+        "type": "task",
+        "importPath": "flytekitplugins.hive",
+        "description": "HiveSelectTask from Hive plugin"
+      },
+      {
+        "name": "HiveTask",
+        "type": "task",
+        "importPath": "flytekitplugins.hive",
+        "description": "HiveTask from Hive plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "huggingface",
+    "name": "Hugging Face",
+    "packageName": "flytekitplugins-huggingface",
+    "description": "Hugging Face is a community and data science platform that provides: Tools that enable users to build, train and deploy ML models based on open source (OS) code and technologies",
+    "category": "data-dataframe",
+    "tags": [
+      "huggingface",
+      "datasets",
+      "nlp",
+      "ml"
+    ],
+    "dependencies": [
+      "datasets"
+    ],
+    "installCommand": "pip install flytekitplugins-huggingface",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-huggingface",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/huggingface_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-huggingface/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "HuggingFaceDatasetToParquetEncodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.huggingface",
+        "description": "HuggingFaceDatasetToParquetEncodingHandler from Hugging Face plugin"
+      },
+      {
+        "name": "ParquetToHuggingFaceDatasetDecodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.huggingface",
+        "description": "ParquetToHuggingFaceDatasetDecodingHandler from Hugging Face plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "inference",
+    "name": "Inference",
+    "packageName": "flytekitplugins-inference",
+    "description": "Serve models natively in Flyte tasks using inference providers like NIM, Ollama, and others.",
+    "category": "model-serving",
+    "tags": [
+      "inference",
+      "serving",
+      "nim",
+      "ollama"
+    ],
+    "dependencies": [
+      "kubernetes",
+      "openai"
+    ],
+    "installCommand": "pip install flytekitplugins-inference",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-inference",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/inference_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-inference/",
+    "minFlytekitVersion": "1.13.0",
+    "modules": [
+      {
+        "name": "NIM",
+        "type": "other",
+        "importPath": "flytekitplugins.inference",
+        "description": "NIM from Inference plugin"
+      },
+      {
+        "name": "NIMSecrets",
+        "type": "type",
+        "importPath": "flytekitplugins.inference",
+        "description": "NIMSecrets from Inference plugin"
+      },
+      {
+        "name": "Model",
+        "type": "type",
+        "importPath": "flytekitplugins.inference",
+        "description": "Model from Inference plugin"
+      },
+      {
+        "name": "Ollama",
+        "type": "other",
+        "importPath": "flytekitplugins.inference",
+        "description": "Ollama from Inference plugin"
+      },
+      {
+        "name": "VLLM",
+        "type": "other",
+        "importPath": "flytekitplugins.inference",
+        "description": "VLLM from Inference plugin"
+      },
+      {
+        "name": "HFSecret",
+        "type": "type",
+        "importPath": "flytekitplugins.inference",
+        "description": "HFSecret from Inference plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "kf-mpi",
+    "name": "Kubeflow MPI",
+    "packageName": "flytekitplugins-kfmpi",
+    "description": "This plugin uses the Kubeflow MPI Operator and provides an extremely simplified interface for executing distributed training.",
+    "category": "ml-training",
+    "tags": [
+      "mpi",
+      "kubeflow",
+      "distributed",
+      "horovod"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-kfmpi",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-mpi",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/kf_mpi_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-kfmpi/",
+    "minFlytekitVersion": "1.6.1",
+    "modules": [
+      {
+        "name": "CleanPodPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kfmpi",
+        "description": "CleanPodPolicy from Kubeflow MPI plugin"
+      },
+      {
+        "name": "HorovodJob",
+        "type": "task",
+        "importPath": "flytekitplugins.kfmpi",
+        "description": "HorovodJob from Kubeflow MPI plugin"
+      },
+      {
+        "name": "Launcher",
+        "type": "other",
+        "importPath": "flytekitplugins.kfmpi",
+        "description": "Launcher from Kubeflow MPI plugin"
+      },
+      {
+        "name": "MPIJob",
+        "type": "task",
+        "importPath": "flytekitplugins.kfmpi",
+        "description": "MPIJob from Kubeflow MPI plugin"
+      },
+      {
+        "name": "RestartPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kfmpi",
+        "description": "RestartPolicy from Kubeflow MPI plugin"
+      },
+      {
+        "name": "RunPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kfmpi",
+        "description": "RunPolicy from Kubeflow MPI plugin"
+      },
+      {
+        "name": "Worker",
+        "type": "other",
+        "importPath": "flytekitplugins.kfmpi",
+        "description": "Worker from Kubeflow MPI plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "kf-pytorch",
+    "name": "Kubeflow PyTorch",
+    "packageName": "flytekitplugins-kfpytorch",
+    "description": "This plugin uses the Kubeflow PyTorch Operator and provides an extremely simplified interface for executing distributed training using various PyTorch backends.",
+    "category": "ml-training",
+    "tags": [
+      "pytorch",
+      "kubeflow",
+      "distributed-training",
+      "deep-learning"
+    ],
+    "dependencies": [
+      "cloudpickle",
+      "kubernetes"
+    ],
+    "installCommand": "pip install flytekitplugins-kfpytorch",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-pytorch",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/kf_pytorch_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-kfpytorch/",
+    "minFlytekitVersion": "1.6.1",
+    "modules": [
+      {
+        "name": "CleanPodPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kfpytorch",
+        "description": "CleanPodPolicy from Kubeflow PyTorch plugin"
+      },
+      {
+        "name": "Elastic",
+        "type": "other",
+        "importPath": "flytekitplugins.kfpytorch",
+        "description": "Elastic from Kubeflow PyTorch plugin"
+      },
+      {
+        "name": "Master",
+        "type": "other",
+        "importPath": "flytekitplugins.kfpytorch",
+        "description": "Master from Kubeflow PyTorch plugin"
+      },
+      {
+        "name": "PyTorch",
+        "type": "other",
+        "importPath": "flytekitplugins.kfpytorch",
+        "description": "PyTorch from Kubeflow PyTorch plugin"
+      },
+      {
+        "name": "RestartPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kfpytorch",
+        "description": "RestartPolicy from Kubeflow PyTorch plugin"
+      },
+      {
+        "name": "RunPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kfpytorch",
+        "description": "RunPolicy from Kubeflow PyTorch plugin"
+      },
+      {
+        "name": "Worker",
+        "type": "other",
+        "importPath": "flytekitplugins.kfpytorch",
+        "description": "Worker from Kubeflow PyTorch plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "kf-tensorflow",
+    "name": "Kubeflow TensorFlow",
+    "packageName": "flytekitplugins-kftensorflow",
+    "description": "This plugin uses the Kubeflow TensorFlow Operator and provides an extremely simplified interface for executing distributed training using various TensorFlow backends.",
+    "category": "ml-training",
+    "tags": [
+      "tensorflow",
+      "kubeflow",
+      "distributed-training"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-kftensorflow",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-tensorflow",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/kf_tensorflow_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-kftensorflow/",
+    "minFlytekitVersion": "1.6.1",
+    "modules": [
+      {
+        "name": "PS",
+        "type": "other",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "PS from Kubeflow TensorFlow plugin"
+      },
+      {
+        "name": "Chief",
+        "type": "other",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "Chief from Kubeflow TensorFlow plugin"
+      },
+      {
+        "name": "CleanPodPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "CleanPodPolicy from Kubeflow TensorFlow plugin"
+      },
+      {
+        "name": "Evaluator",
+        "type": "other",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "Evaluator from Kubeflow TensorFlow plugin"
+      },
+      {
+        "name": "RestartPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "RestartPolicy from Kubeflow TensorFlow plugin"
+      },
+      {
+        "name": "RunPolicy",
+        "type": "type",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "RunPolicy from Kubeflow TensorFlow plugin"
+      },
+      {
+        "name": "TfJob",
+        "type": "task",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "TfJob from Kubeflow TensorFlow plugin"
+      },
+      {
+        "name": "Worker",
+        "type": "other",
+        "importPath": "flytekitplugins.kftensorflow",
+        "description": "Worker from Kubeflow TensorFlow plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "k8s-pod",
+    "name": "Kubernetes Pod",
+    "packageName": "flytekitplugins-pod",
+    "description": "> [!IMPORTANT]",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "kubernetes",
+      "k8s",
+      "pod",
+      "container"
+    ],
+    "dependencies": [
+      "kubernetes"
+    ],
+    "installCommand": "pip install flytekitplugins-pod",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8s-pod",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/k8s_pod_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-pod/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "Pod",
+        "type": "other",
+        "importPath": "flytekitplugins.pod",
+        "description": "Pod from Kubernetes Pod plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "k8sdataservice",
+    "name": "Kubernetes Stateful",
+    "packageName": "flytekitplugins-k8sdataservice",
+    "description": "This plugin provides support for Kubernetes StatefulSet and Service integration, enabling seamless provisioning and coordination with any Kubernetes services or Flyte tasks. It is especially suited for deep learning use cases at scale, where distributed and parallelized data loading and caching across nodes are required.",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "kubernetes",
+      "k8s",
+      "data-service"
+    ],
+    "dependencies": [
+      "kubernetes"
+    ],
+    "installCommand": "pip install flytekitplugins-k8sdataservice",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8sdataservice",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/k8sdataservice_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-k8sdataservice/",
+    "minFlytekitVersion": "1.11.0",
+    "modules": [
+      {
+        "name": "DataServiceConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.k8sdataservice",
+        "description": "DataServiceConnector from Kubernetes Stateful plugin"
+      },
+      {
+        "name": "CleanupSensor",
+        "type": "sensor",
+        "importPath": "flytekitplugins.k8sdataservice",
+        "description": "CleanupSensor from Kubernetes Stateful plugin"
+      },
+      {
+        "name": "DataServiceConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.k8sdataservice",
+        "description": "DataServiceConfig from Kubernetes Stateful plugin"
+      },
+      {
+        "name": "DataServiceTask",
+        "type": "task",
+        "importPath": "flytekitplugins.k8sdataservice",
+        "description": "DataServiceTask from Kubernetes Stateful plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "mmcloud",
+    "name": "Memory Machine Cloud",
+    "packageName": "flytekitplugins-mmcloud",
+    "description": "Flyte Connector plugin to allow executing Flyte tasks using MemVerge Memory Machine Cloud.",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "mmcloud",
+      "memverge",
+      "cloud"
+    ],
+    "dependencies": [
+      "kubernetes"
+    ],
+    "installCommand": "pip install flytekitplugins-mmcloud",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-mmcloud",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/mmcloud_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-mmcloud/",
+    "minFlytekitVersion": "1.9.1",
+    "modules": [
+      {
+        "name": "MMCloudConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.mmcloud",
+        "description": "MMCloudConnector from Memory Machine Cloud plugin"
+      },
+      {
+        "name": "MMCloudConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.mmcloud",
+        "description": "MMCloudConfig from Memory Machine Cloud plugin"
+      },
+      {
+        "name": "MMCloudTask",
+        "type": "task",
+        "importPath": "flytekitplugins.mmcloud",
+        "description": "MMCloudTask from Memory Machine Cloud plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "memray",
+    "name": "Memray Profiling",
+    "packageName": "flytekitplugins-memray",
+    "description": "Memray tracks and reports memory allocations, both in python code and in compiled extension modules.",
+    "category": "developer-tools",
+    "tags": [
+      "memray",
+      "memory",
+      "profiling"
+    ],
+    "dependencies": [
+      "memray"
+    ],
+    "installCommand": "pip install flytekitplugins-memray",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-memray",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/memray_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-memray/",
+    "minFlytekitVersion": "1.12.0",
+    "modules": [
+      {
+        "name": "memray_profiling",
+        "type": "task",
+        "importPath": "flytekitplugins.memray",
+        "description": "memray_profiling from Memray Profiling plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "mlflow",
+    "name": "MLflow",
+    "packageName": "flytekitplugins-mlflow",
+    "description": "MLflow enables us to log parameters, code, and results in machine learning experiments and compare them using an interactive UI.",
+    "category": "experiment-tracking",
+    "tags": [
+      "mlflow",
+      "experiment-tracking",
+      "model-registry"
+    ],
+    "dependencies": [
+      "plotly",
+      "mlflow",
+      "pandas"
+    ],
+    "installCommand": "pip install flytekitplugins-mlflow",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-mlflow",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/mlflow_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-mlflow/",
+    "minFlytekitVersion": "1.1.0",
+    "modules": [
+      {
+        "name": "mlflow_autolog",
+        "type": "task",
+        "importPath": "flytekitplugins.mlflow",
+        "description": "mlflow_autolog from MLflow plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "modin",
+    "name": "Modin",
+    "packageName": "flytekitplugins-modin",
+    "description": "Modin is a pandas-accelerator that helps handle large datasets. It is a light-weight extension that is similar to the pandas API. It uses the concept of parallelism to reduce overhead, and improve the performance of pandas operations by leveraging the compute resources available.",
+    "category": "data-dataframe",
+    "tags": [
+      "modin",
+      "dataframe",
+      "pandas",
+      "parallel"
+    ],
+    "dependencies": [
+      "fsspec"
+    ],
+    "installCommand": "pip install flytekitplugins-modin",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-modin",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/modin_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-modin/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [
+      {
+        "name": "ModinPandasDataFrameTransformer",
+        "type": "type",
+        "importPath": "flytekitplugins.modin",
+        "description": "ModinPandasDataFrameTransformer from Modin plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "neptune",
+    "name": "Neptune",
+    "packageName": "flytekitplugins-neptune",
+    "description": "Neptune is the MLOps stack component for experiment tracking. It offers a single place to log, compare, store, and collaborate on experiments and models. This plugin integrates Flyte with Neptune by configuring links between the two platforms.",
+    "category": "experiment-tracking",
+    "tags": [
+      "neptune",
+      "experiment-tracking",
+      "metadata"
+    ],
+    "dependencies": [
+      "neptune-scale"
+    ],
+    "installCommand": "pip install flytekitplugins-neptune",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-neptune",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/neptune_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-neptune/",
+    "minFlytekitVersion": "1.16.0",
+    "modules": [
+      {
+        "name": "neptune_scale_run",
+        "type": "other",
+        "importPath": "flytekitplugins.neptune",
+        "description": "neptune_scale_run from Neptune plugin"
+      },
+      {
+        "name": "neptune_init_run",
+        "type": "task",
+        "importPath": "flytekitplugins.neptune",
+        "description": "neptune_init_run from Neptune plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "omegaconf",
+    "name": "OmegaConf",
+    "packageName": "flytekitplugins-omegaconf",
+    "description": "Flytekit python natively supports serialization of many data types for exchanging information between tasks.",
+    "category": "developer-tools",
+    "tags": [
+      "omegaconf",
+      "config",
+      "hydra"
+    ],
+    "dependencies": [
+      "flatten-dict",
+      "omegaconf"
+    ],
+    "installCommand": "pip install flytekitplugins-omegaconf",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-omegaconf",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/omegaconf_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-omegaconf/",
+    "minFlytekitVersion": "1.10.0",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "onnx-pytorch",
+    "name": "ONNX PyTorch",
+    "packageName": "flytekitplugins-onnxpytorch",
+    "description": "This plugin allows you to generate ONNX models from your PyTorch models.",
+    "category": "model-serving",
+    "tags": [
+      "onnx",
+      "pytorch",
+      "model"
+    ],
+    "dependencies": [
+      "torch",
+      "onnx-pytorch",
+      "networkx",
+      "onnxscript",
+      "numpy"
+    ],
+    "installCommand": "pip install flytekitplugins-onnxpytorch",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-pytorch",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/onnx_pytorch_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxpytorch/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "PyTorch2ONNX",
+        "type": "other",
+        "importPath": "flytekitplugins.onnxpytorch",
+        "description": "PyTorch2ONNX from ONNX PyTorch plugin"
+      },
+      {
+        "name": "PyTorch2ONNXConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.onnxpytorch",
+        "description": "PyTorch2ONNXConfig from ONNX PyTorch plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "onnx-scikitlearn",
+    "name": "ONNX ScikitLearn",
+    "packageName": "flytekitplugins-onnxscikitlearn",
+    "description": "This plugin allows you to generate ONNX models from your ScikitLearn models.",
+    "category": "model-serving",
+    "tags": [
+      "onnx",
+      "scikit-learn",
+      "sklearn"
+    ],
+    "dependencies": [
+      "skl2onnx",
+      "networkx",
+      "onnx"
+    ],
+    "installCommand": "pip install flytekitplugins-onnxscikitlearn",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-scikitlearn",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/onnx_scikitlearn_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxscikitlearn/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [
+      {
+        "name": "ScikitLearn2ONNX",
+        "type": "other",
+        "importPath": "flytekitplugins.onnxscikitlearn",
+        "description": "ScikitLearn2ONNX from ONNX ScikitLearn plugin"
+      },
+      {
+        "name": "ScikitLearn2ONNXConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.onnxscikitlearn",
+        "description": "ScikitLearn2ONNXConfig from ONNX ScikitLearn plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "onnx-tensorflow",
+    "name": "ONNX TensorFlow",
+    "packageName": "flytekitplugins-onnxtensorflow",
+    "description": "This plugin allows you to generate ONNX models from your TensorFlow Keras models.",
+    "category": "model-serving",
+    "tags": [
+      "onnx",
+      "tensorflow",
+      "model"
+    ],
+    "dependencies": [
+      "tf2onnx",
+      "tensorflow"
+    ],
+    "installCommand": "pip install flytekitplugins-onnxtensorflow",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-tensorflow",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/onnx_tensorflow_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxtensorflow/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "TensorFlow2ONNX",
+        "type": "other",
+        "importPath": "flytekitplugins.onnxtensorflow",
+        "description": "TensorFlow2ONNX from ONNX TensorFlow plugin"
+      },
+      {
+        "name": "TensorFlow2ONNXConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.onnxtensorflow",
+        "description": "TensorFlow2ONNXConfig from ONNX TensorFlow plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "openai",
+    "name": "OpenAI",
+    "packageName": "flytekitplugins-openai",
+    "description": "The plugin currently features ChatGPT and Batch API connectors.",
+    "category": "model-serving",
+    "tags": [
+      "openai",
+      "gpt",
+      "llm",
+      "ai"
+    ],
+    "dependencies": [
+      "openai"
+    ],
+    "installCommand": "pip install flytekitplugins-openai",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-openai",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/openai_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-openai/",
+    "minFlytekitVersion": "1.10.7",
+    "modules": [
+      {
+        "name": "BatchEndpointConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.openai",
+        "description": "BatchEndpointConnector from OpenAI plugin"
+      },
+      {
+        "name": "BatchEndpointTask",
+        "type": "task",
+        "importPath": "flytekitplugins.openai",
+        "description": "BatchEndpointTask from OpenAI plugin"
+      },
+      {
+        "name": "BatchResult",
+        "type": "other",
+        "importPath": "flytekitplugins.openai",
+        "description": "BatchResult from OpenAI plugin"
+      },
+      {
+        "name": "DownloadJSONFilesTask",
+        "type": "task",
+        "importPath": "flytekitplugins.openai",
+        "description": "DownloadJSONFilesTask from OpenAI plugin"
+      },
+      {
+        "name": "OpenAIFileConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.openai",
+        "description": "OpenAIFileConfig from OpenAI plugin"
+      },
+      {
+        "name": "UploadJSONLFileTask",
+        "type": "task",
+        "importPath": "flytekitplugins.openai",
+        "description": "UploadJSONLFileTask from OpenAI plugin"
+      },
+      {
+        "name": "create_batch",
+        "type": "other",
+        "importPath": "flytekitplugins.openai",
+        "description": "create_batch from OpenAI plugin"
+      },
+      {
+        "name": "ChatGPTConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.openai",
+        "description": "ChatGPTConnector from OpenAI plugin"
+      },
+      {
+        "name": "ChatGPTTask",
+        "type": "task",
+        "importPath": "flytekitplugins.openai",
+        "description": "ChatGPTTask from OpenAI plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "optuna",
+    "name": "Optuna (wrapper)",
+    "packageName": "flytekitplugins-optuna",
+    "description": "This documentation provides a guide to a fully parallelized Flyte plugin for Optuna. This wrapper leverages Flyte's scalable and distributed workflow orchestration capabilities to parallelize Optuna's hyperparameter optimization across multiple trials efficiently.",
+    "category": "developer-tools",
+    "tags": [
+      "optuna",
+      "hyperparameter",
+      "optimization"
+    ],
+    "dependencies": [
+      "optuna",
+      "typing-extensions"
+    ],
+    "installCommand": "pip install flytekitplugins-optuna",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-optuna",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/optuna_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-optuna/",
+    "minFlytekitVersion": "1.15.0",
+    "modules": [
+      {
+        "name": "Optimizer",
+        "type": "other",
+        "importPath": "flytekitplugins.optuna",
+        "description": "Optimizer from Optuna (wrapper) plugin"
+      },
+      {
+        "name": "optimize",
+        "type": "other",
+        "importPath": "flytekitplugins.optuna",
+        "description": "optimize from Optuna (wrapper) plugin"
+      },
+      {
+        "name": "suggest",
+        "type": "other",
+        "importPath": "flytekitplugins.optuna",
+        "description": "suggest from Optuna (wrapper) plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "pandera",
+    "name": "Pandera",
+    "packageName": "flytekitplugins-pandera",
+    "description": "Flytekit python natively supports many data types, including a FlyteSchema type for type-annotating pandas DataFrames. The Flytekit Pandera plugin provides an alternative for defining DataFrame schemas by integrating with Pandera, a runtime data validation tool for pandas DataFrames.",
+    "category": "data-validation",
+    "tags": [
+      "pandera",
+      "validation",
+      "schema",
+      "dataframe"
+    ],
+    "dependencies": [
+      "pandera",
+      "pandas",
+      "great_tables"
+    ],
+    "installCommand": "pip install flytekitplugins-pandera",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-pandera",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/pandera_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-pandera/",
+    "minFlytekitVersion": "1.15.0",
+    "modules": [
+      {
+        "name": "ValidationConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.pandera",
+        "description": "ValidationConfig from Pandera plugin"
+      },
+      {
+        "name": "PandasReportRenderer",
+        "type": "type",
+        "importPath": "flytekitplugins.pandera",
+        "description": "PandasReportRenderer from Pandera plugin"
+      },
+      {
+        "name": "PanderaPandasTransformer",
+        "type": "type",
+        "importPath": "flytekitplugins.pandera",
+        "description": "PanderaPandasTransformer from Pandera plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "papermill",
+    "name": "Papermill",
+    "packageName": "flytekitplugins-papermill",
+    "description": "It is possible to run a Jupyter notebook as a Flyte task using Papermill. Papermill executes the notebook as a whole, so before using this plugin, it is essential to construct your notebook as recommended by Papermill.",
+    "category": "workflow",
+    "tags": [
+      "papermill",
+      "jupyter",
+      "notebook"
+    ],
+    "dependencies": [
+      "papermill",
+      "nbconvert",
+      "ipykernel"
+    ],
+    "installCommand": "pip install flytekitplugins-papermill",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-papermill",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/papermill_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-papermill/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [
+      {
+        "name": "NotebookTask",
+        "type": "task",
+        "importPath": "flytekitplugins.papermill",
+        "description": "NotebookTask from Papermill plugin"
+      },
+      {
+        "name": "load_flytedirectory",
+        "type": "other",
+        "importPath": "flytekitplugins.papermill",
+        "description": "load_flytedirectory from Papermill plugin"
+      },
+      {
+        "name": "load_flytefile",
+        "type": "other",
+        "importPath": "flytekitplugins.papermill",
+        "description": "load_flytefile from Papermill plugin"
+      },
+      {
+        "name": "load_structureddataset",
+        "type": "other",
+        "importPath": "flytekitplugins.papermill",
+        "description": "load_structureddataset from Papermill plugin"
+      },
+      {
+        "name": "record_outputs",
+        "type": "other",
+        "importPath": "flytekitplugins.papermill",
+        "description": "record_outputs from Papermill plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "perian",
+    "name": "Perian Job Platform",
+    "packageName": "flytekitplugins-perian_job",
+    "description": "Flyte Connector plugin for executing Flyte tasks on Perian Job Platform (perian.io).",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "perian",
+      "gpu",
+      "infrastructure"
+    ],
+    "dependencies": [
+      "perian"
+    ],
+    "installCommand": "pip install flytekitplugins-perian_job",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-perian",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/perian_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-perian_job/",
+    "minFlytekitVersion": "1.12.0",
+    "modules": [
+      {
+        "name": "PerianConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.perian_job",
+        "description": "PerianConnector from Perian Job Platform plugin"
+      },
+      {
+        "name": "PerianConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.perian_job",
+        "description": "PerianConfig from Perian Job Platform plugin"
+      },
+      {
+        "name": "PerianContainerTask",
+        "type": "task",
+        "importPath": "flytekitplugins.perian_job",
+        "description": "PerianContainerTask from Perian Job Platform plugin"
+      },
+      {
+        "name": "PerianTask",
+        "type": "task",
+        "importPath": "flytekitplugins.perian_job",
+        "description": "PerianTask from Perian Job Platform plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "polars",
+    "name": "Polars",
+    "packageName": "flytekitplugins-polars",
+    "description": "Polars is a blazingly fast DataFrames library implemented in Rust using Apache Arrow Columnar Format as memory model.",
+    "category": "data-dataframe",
+    "tags": [
+      "polars",
+      "dataframe",
+      "rust",
+      "fast"
+    ],
+    "dependencies": [
+      "polars",
+      "pandas"
+    ],
+    "installCommand": "pip install flytekitplugins-polars",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-polars",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/polars_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-polars/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "ParquetToPolarsDataFrameDecodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.polars",
+        "description": "ParquetToPolarsDataFrameDecodingHandler from Polars plugin"
+      },
+      {
+        "name": "PolarsDataFrameToParquetEncodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.polars",
+        "description": "PolarsDataFrameToParquetEncodingHandler from Polars plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "ray",
+    "name": "Ray",
+    "packageName": "flytekitplugins-ray",
+    "description": "Flyte backend can be connected with Ray. Once enabled, it allows you to run flyte task on Ray cluster",
+    "category": "ml-training",
+    "tags": [
+      "ray",
+      "distributed",
+      "ml",
+      "compute"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-ray",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-ray",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/ray_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-ray/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [
+      {
+        "name": "HeadNodeConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.ray",
+        "description": "HeadNodeConfig from Ray plugin"
+      },
+      {
+        "name": "RayJobConfig",
+        "type": "task",
+        "importPath": "flytekitplugins.ray",
+        "description": "RayJobConfig from Ray plugin"
+      },
+      {
+        "name": "WorkerNodeConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.ray",
+        "description": "WorkerNodeConfig from Ray plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "slurm",
+    "name": "Slurm",
+    "packageName": "flytekitplugins-slurm",
+    "description": "The Slurm connector is designed to integrate Flyte workflows with Slurm-managed high-performance computing (HPC) clusters, enabling users to leverage Slurm's capability of compute resource allocation, scheduling, and monitoring.",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "slurm",
+      "hpc",
+      "cluster",
+      "batch"
+    ],
+    "dependencies": [
+      "asyncssh"
+    ],
+    "installCommand": "pip install flytekitplugins-slurm",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-slurm",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/slurm_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-slurm/",
+    "minFlytekitVersion": "1.15.0",
+    "modules": [
+      {
+        "name": "SlurmFunctionConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmFunctionConnector from Slurm plugin"
+      },
+      {
+        "name": "SlurmFunctionConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmFunctionConfig from Slurm plugin"
+      },
+      {
+        "name": "SlurmFunctionTask",
+        "type": "task",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmFunctionTask from Slurm plugin"
+      },
+      {
+        "name": "SlurmScriptConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmScriptConnector from Slurm plugin"
+      },
+      {
+        "name": "SlurmConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmConfig from Slurm plugin"
+      },
+      {
+        "name": "SlurmScriptConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmScriptConfig from Slurm plugin"
+      },
+      {
+        "name": "SlurmShellTask",
+        "type": "task",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmShellTask from Slurm plugin"
+      },
+      {
+        "name": "SlurmTask",
+        "type": "task",
+        "importPath": "flytekitplugins.slurm",
+        "description": "SlurmTask from Slurm plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "snowflake",
+    "name": "Snowflake",
+    "packageName": "flytekitplugins-snowflake",
+    "description": "Snowflake enables us to build data-intensive applications without operational burden. Flyte backend can be connected with the Snowflake service. Once enabled, it can allow you to query a Snowflake service.",
+    "category": "databases-warehouses",
+    "tags": [
+      "snowflake",
+      "sql",
+      "warehouse",
+      "analytics"
+    ],
+    "dependencies": [
+      "snowflake-connector-python"
+    ],
+    "installCommand": "pip install flytekitplugins-snowflake",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-snowflake",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/snowflake_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-snowflake/",
+    "minFlytekitVersion": "1.13.1",
+    "modules": [
+      {
+        "name": "SnowflakeConnector",
+        "type": "agent",
+        "importPath": "flytekitplugins.snowflake",
+        "description": "SnowflakeConnector from Snowflake plugin"
+      },
+      {
+        "name": "SnowflakeConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.snowflake",
+        "description": "SnowflakeConfig from Snowflake plugin"
+      },
+      {
+        "name": "SnowflakeTask",
+        "type": "task",
+        "importPath": "flytekitplugins.snowflake",
+        "description": "SnowflakeTask from Snowflake plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "spark",
+    "name": "Spark",
+    "packageName": "flytekitplugins-spark",
+    "description": "Flyte can execute Spark jobs natively on a Kubernetes Cluster, which manages a virtual cluster’s lifecycle, spin-up, and tear down. It leverages the open-sourced Spark On K8s Operator and can be enabled without signing up for any service. This is like running a transient spark cluster — a type of cluster spun up for a specific Spark job and torn down after completion.",
+    "category": "ml-training",
+    "tags": [
+      "spark",
+      "pyspark",
+      "distributed",
+      "big-data"
+    ],
+    "dependencies": [
+      "pyspark",
+      "aiohttp",
+      "pandas"
+    ],
+    "installCommand": "pip install flytekitplugins-spark",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-spark",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/spark_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-spark/",
+    "minFlytekitVersion": "1.15.1",
+    "modules": [
+      {
+        "name": "DatabricksConnector",
+        "type": "task",
+        "importPath": "flytekitplugins.spark",
+        "description": "DatabricksConnector from Spark plugin"
+      },
+      {
+        "name": "GenericSparkConf",
+        "type": "other",
+        "importPath": "flytekitplugins.spark",
+        "description": "GenericSparkConf from Spark plugin"
+      },
+      {
+        "name": "PySparkPipelineModelTransformer",
+        "type": "type",
+        "importPath": "flytekitplugins.spark",
+        "description": "PySparkPipelineModelTransformer from Spark plugin"
+      },
+      {
+        "name": "SparkDataFrameSchemaReader",
+        "type": "type",
+        "importPath": "flytekitplugins.spark",
+        "description": "SparkDataFrameSchemaReader from Spark plugin"
+      },
+      {
+        "name": "SparkDataFrameSchemaWriter",
+        "type": "type",
+        "importPath": "flytekitplugins.spark",
+        "description": "SparkDataFrameSchemaWriter from Spark plugin"
+      },
+      {
+        "name": "SparkDataFrameTransformer",
+        "type": "type",
+        "importPath": "flytekitplugins.spark",
+        "description": "SparkDataFrameTransformer from Spark plugin"
+      },
+      {
+        "name": "ParquetToSparkDecodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.spark",
+        "description": "ParquetToSparkDecodingHandler from Spark plugin"
+      },
+      {
+        "name": "SparkToParquetEncodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.spark",
+        "description": "SparkToParquetEncodingHandler from Spark plugin"
+      },
+      {
+        "name": "Databricks",
+        "type": "task",
+        "importPath": "flytekitplugins.spark",
+        "description": "Databricks from Spark plugin"
+      },
+      {
+        "name": "DatabricksV2",
+        "type": "task",
+        "importPath": "flytekitplugins.spark",
+        "description": "DatabricksV2 from Spark plugin"
+      },
+      {
+        "name": "Spark",
+        "type": "task",
+        "importPath": "flytekitplugins.spark",
+        "description": "Spark from Spark plugin"
+      },
+      {
+        "name": "new_spark_session",
+        "type": "task",
+        "importPath": "flytekitplugins.spark",
+        "description": "new_spark_session from Spark plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "sqlalchemy",
+    "name": "SQLAlchemy",
+    "packageName": "flytekitplugins-sqlalchemy",
+    "description": "SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL. Flyte provides an easy-to-use interface to utilize SQLAlchemy to connect to various SQL Databases.",
+    "category": "databases-warehouses",
+    "tags": [
+      "sqlalchemy",
+      "sql",
+      "orm",
+      "database"
+    ],
+    "dependencies": [
+      "sqlalchemy",
+      "pandas"
+    ],
+    "installCommand": "pip install flytekitplugins-sqlalchemy",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-sqlalchemy",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/sqlalchemy_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-sqlalchemy/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "SQLAlchemyConfig",
+        "type": "type",
+        "importPath": "flytekitplugins.sqlalchemy",
+        "description": "SQLAlchemyConfig from SQLAlchemy plugin"
+      },
+      {
+        "name": "SQLAlchemyDefaultImages",
+        "type": "other",
+        "importPath": "flytekitplugins.sqlalchemy",
+        "description": "SQLAlchemyDefaultImages from SQLAlchemy plugin"
+      },
+      {
+        "name": "SQLAlchemyTask",
+        "type": "task",
+        "importPath": "flytekitplugins.sqlalchemy",
+        "description": "SQLAlchemyTask from SQLAlchemy plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "vaex",
+    "name": "Vaex",
+    "packageName": "flytekitplugins-vaex",
+    "description": "Vaex is a high-performance Python library for lazy out-of-core DataFrames",
+    "category": "data-dataframe",
+    "tags": [
+      "vaex",
+      "dataframe",
+      "out-of-core"
+    ],
+    "dependencies": [
+      "vaex-core",
+      "vaex-core",
+      "pandas",
+      "pydantic"
+    ],
+    "installCommand": "pip install flytekitplugins-vaex",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-vaex",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/vaex_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-vaex/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "ParquetToVaexDataFrameDecodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.vaex",
+        "description": "ParquetToVaexDataFrameDecodingHandler from Vaex plugin"
+      },
+      {
+        "name": "VaexDataFrameToParquetEncodingHandler",
+        "type": "type",
+        "importPath": "flytekitplugins.vaex",
+        "description": "VaexDataFrameToParquetEncodingHandler from Vaex plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "wandb",
+    "name": "Weights & Biases",
+    "packageName": "flytekitplugins-wandb",
+    "description": "The Weights and Biases MLOps platform helps AI developers streamline their ML workflow from end-to-end. This plugin",
+    "category": "experiment-tracking",
+    "tags": [
+      "wandb",
+      "experiment-tracking",
+      "ml",
+      "logging"
+    ],
+    "dependencies": [
+      "wandb"
+    ],
+    "installCommand": "pip install flytekitplugins-wandb",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-wandb",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/wandb_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-wandb/",
+    "minFlytekitVersion": "1.12.0",
+    "modules": [
+      {
+        "name": "wandb_init",
+        "type": "task",
+        "importPath": "flytekitplugins.wandb",
+        "description": "wandb_init from Weights & Biases plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "whylogs",
+    "name": "whylogs",
+    "packageName": "flytekitplugins-whylogs",
+    "description": "whylogs is an open source library for logging any kind of data. With whylogs,",
+    "category": "data-validation",
+    "tags": [
+      "whylogs",
+      "data-profiling",
+      "monitoring"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-whylogs",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-whylogs",
+    "docsUrl": "https://docs.flyte.org/en/latest/flytesnacks/examples/whylogs_plugin/index.html",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-whylogs/",
+    "minFlytekitVersion": "1.3.0",
+    "modules": [
+      {
+        "name": "WhylogsConstraintsRenderer",
+        "type": "type",
+        "importPath": "flytekitplugins.whylogs",
+        "description": "WhylogsConstraintsRenderer from whylogs plugin"
+      },
+      {
+        "name": "WhylogsSummaryDriftRenderer",
+        "type": "type",
+        "importPath": "flytekitplugins.whylogs",
+        "description": "WhylogsSummaryDriftRenderer from whylogs plugin"
+      },
+      {
+        "name": "WhylogsDatasetProfileTransformer",
+        "type": "type",
+        "importPath": "flytekitplugins.whylogs",
+        "description": "WhylogsDatasetProfileTransformer from whylogs plugin"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit"
+  },
+  {
+    "slug": "v2-bigquery",
+    "name": "BigQuery",
+    "packageName": "flyteplugins-bigquery",
+    "description": "BigQuery plugin for Flyte SDK. Provides BigQueryTask and BigQueryConnector for querying Google BigQuery directly from Flyte workflows.",
+    "category": "databases-warehouses",
+    "tags": [
+      "bigquery",
+      "google",
+      "sql",
+      "warehouse",
+      "connector"
+    ],
+    "dependencies": [
+      "google-cloud-bigquery",
+      "google-cloud-bigquery-storage"
+    ],
+    "installCommand": "pip install flyteplugins-bigquery",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/bigquery",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-bigquery/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "BigQueryConfig",
+        "type": "other",
+        "importPath": "flyteplugins.bigquery",
+        "description": "Configuration for BigQuery tasks"
+      },
+      {
+        "name": "BigQueryConnector",
+        "type": "agent",
+        "importPath": "flyteplugins.bigquery",
+        "description": "Connector for BigQuery service"
+      },
+      {
+        "name": "BigQueryTask",
+        "type": "task",
+        "importPath": "flyteplugins.bigquery",
+        "description": "Task for running BigQuery queries"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-dask",
+    "name": "Dask",
+    "packageName": "flyteplugins-dask",
+    "description": "Dask plugin for Flyte SDK. Run distributed Dask computations as Flyte tasks with configurable scheduler and worker groups.",
+    "category": "ml-training",
+    "tags": [
+      "dask",
+      "distributed",
+      "parallel",
+      "dataframe"
+    ],
+    "dependencies": [
+      "dask[distributed]>=2022.10.2",
+      "bokeh"
+    ],
+    "installCommand": "pip install flyteplugins-dask",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/dask",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-dask/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Dask",
+        "type": "task",
+        "importPath": "flyteplugins.dask",
+        "description": "Dask distributed task"
+      },
+      {
+        "name": "Scheduler",
+        "type": "other",
+        "importPath": "flyteplugins.dask",
+        "description": "Dask scheduler configuration"
+      },
+      {
+        "name": "WorkerGroup",
+        "type": "other",
+        "importPath": "flyteplugins.dask",
+        "description": "Dask worker group configuration"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-databricks",
+    "name": "Databricks",
+    "packageName": "flyteplugins-databricks",
+    "description": "Databricks plugin for Flyte SDK. Submit and monitor Databricks jobs as Flyte tasks with built-in connector support.",
+    "category": "cloud-infrastructure",
+    "tags": [
+      "databricks",
+      "spark",
+      "cloud",
+      "connector"
+    ],
+    "dependencies": [
+      "aiohttp",
+      "nest-asyncio",
+      "flyteplugins-spark"
+    ],
+    "installCommand": "pip install flyteplugins-databricks",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/databricks",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-databricks/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Databricks",
+        "type": "task",
+        "importPath": "flyteplugins.databricks",
+        "description": "Databricks task"
+      },
+      {
+        "name": "DatabricksConnector",
+        "type": "agent",
+        "importPath": "flyteplugins.databricks",
+        "description": "Connector for Databricks service"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-openai",
+    "name": "OpenAI Agents",
+    "packageName": "flyteplugins-openai",
+    "description": "OpenAI plugin for Flyte SDK. Integrate OpenAI Agents SDK with Flyte workflows using function tools and async execution.",
+    "category": "model-serving",
+    "tags": [
+      "openai",
+      "llm",
+      "agents",
+      "ai"
+    ],
+    "dependencies": [
+      "openai-agents>=0.2.4"
+    ],
+    "installCommand": "pip install flyteplugins-openai",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/openai",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-openai/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "function_tool",
+        "type": "other",
+        "importPath": "flyteplugins.openai.agents",
+        "description": "OpenAI Agents function tool decorator"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-polars",
+    "name": "Polars",
+    "packageName": "flyteplugins-polars",
+    "description": "Polars plugin for Flyte SDK. Provides native Polars DataFrame type support as a first-class Flyte type.",
+    "category": "data-dataframe",
+    "tags": [
+      "polars",
+      "dataframe",
+      "type"
+    ],
+    "dependencies": [
+      "polars"
+    ],
+    "installCommand": "pip install flyteplugins-polars",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/polars",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-polars/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "register_polars_df_transformers",
+        "type": "type",
+        "importPath": "flyteplugins.polars",
+        "description": "Registers Polars DataFrame type transformers"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-pytorch",
+    "name": "PyTorch",
+    "packageName": "flyteplugins-pytorch",
+    "description": "PyTorch plugin for Flyte SDK. Run distributed PyTorch training with elastic scaling support in Flyte workflows.",
+    "category": "ml-training",
+    "tags": [
+      "pytorch",
+      "deep-learning",
+      "distributed",
+      "elastic"
+    ],
+    "dependencies": [
+      "torch"
+    ],
+    "installCommand": "pip install flyteplugins-pytorch",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/pytorch",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-pytorch/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Elastic",
+        "type": "task",
+        "importPath": "flyteplugins.pytorch",
+        "description": "Elastic PyTorch distributed training task"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-ray",
+    "name": "Ray",
+    "packageName": "flyteplugins-ray",
+    "description": "Ray plugin for Flyte SDK. Execute Ray jobs with configurable head and worker node configurations in Flyte workflows.",
+    "category": "ml-training",
+    "tags": [
+      "ray",
+      "distributed",
+      "parallel"
+    ],
+    "dependencies": [
+      "ray[default]"
+    ],
+    "installCommand": "pip install flyteplugins-ray",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/ray",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-ray/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "HeadNodeConfig",
+        "type": "other",
+        "importPath": "flyteplugins.ray",
+        "description": "Ray head node configuration"
+      },
+      {
+        "name": "RayJobConfig",
+        "type": "other",
+        "importPath": "flyteplugins.ray",
+        "description": "Ray job configuration"
+      },
+      {
+        "name": "WorkerNodeConfig",
+        "type": "other",
+        "importPath": "flyteplugins.ray",
+        "description": "Ray worker node configuration"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-sglang",
+    "name": "SGLang",
+    "packageName": "flyteplugins-sglang",
+    "description": "SGLang plugin for Flyte SDK. Deploy and serve LLM models using the SGLang inference engine with GPU support.",
+    "category": "model-serving",
+    "tags": [
+      "sglang",
+      "inference",
+      "llm",
+      "serving",
+      "gpu"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-sglang",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/sglang",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-sglang/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "SGLangAppEnvironment",
+        "type": "other",
+        "importPath": "flyteplugins.sglang",
+        "description": "SGLang application environment for model serving"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-snowflake",
+    "name": "Snowflake",
+    "packageName": "flyteplugins-snowflake",
+    "description": "Snowflake plugin for Flyte SDK. Query Snowflake data warehouse from Flyte workflows with built-in connector support.",
+    "category": "databases-warehouses",
+    "tags": [
+      "snowflake",
+      "sql",
+      "warehouse",
+      "connector"
+    ],
+    "dependencies": [
+      "snowflake-connector-python",
+      "cryptography"
+    ],
+    "installCommand": "pip install flyteplugins-snowflake",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/snowflake",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-snowflake/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Snowflake",
+        "type": "task",
+        "importPath": "flyteplugins.snowflake",
+        "description": "Snowflake query task"
+      },
+      {
+        "name": "SnowflakeConfig",
+        "type": "other",
+        "importPath": "flyteplugins.snowflake",
+        "description": "Snowflake configuration"
+      },
+      {
+        "name": "SnowflakeConnector",
+        "type": "agent",
+        "importPath": "flyteplugins.snowflake",
+        "description": "Connector for Snowflake service"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-spark",
+    "name": "Apache Spark",
+    "packageName": "flyteplugins-spark",
+    "description": "Spark plugin for Flyte SDK. Run PySpark jobs as Flyte tasks with native DataFrame type support and Parquet encoding.",
+    "category": "ml-training",
+    "tags": [
+      "spark",
+      "pyspark",
+      "distributed",
+      "big-data"
+    ],
+    "dependencies": [
+      "pyspark"
+    ],
+    "installCommand": "pip install flyteplugins-spark",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/spark",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-spark/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Spark",
+        "type": "task",
+        "importPath": "flyteplugins.spark",
+        "description": "Spark distributed task"
+      },
+      {
+        "name": "ParquetToSparkDecoder",
+        "type": "type",
+        "importPath": "flyteplugins.spark",
+        "description": "Parquet to Spark DataFrame decoder"
+      },
+      {
+        "name": "SparkToParquetEncoder",
+        "type": "type",
+        "importPath": "flyteplugins.spark",
+        "description": "Spark DataFrame to Parquet encoder"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-vllm",
+    "name": "vLLM",
+    "packageName": "flyteplugins-vllm",
+    "description": "vLLM plugin for Flyte SDK. Deploy and serve LLM models using the high-throughput vLLM inference engine.",
+    "category": "model-serving",
+    "tags": [
+      "vllm",
+      "inference",
+      "llm",
+      "serving",
+      "gpu"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-vllm",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/vllm",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-vllm/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "VLLMAppEnvironment",
+        "type": "other",
+        "importPath": "flyteplugins.vllm",
+        "description": "vLLM application environment for model serving"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  },
+  {
+    "slug": "v2-wandb",
+    "name": "Weights & Biases",
+    "packageName": "flyteplugins-wandb",
+    "description": "Weights & Biases plugin for Flyte SDK. Full W&B integration with decorators, context managers, sweeps, and distributed training support.",
+    "category": "experiment-tracking",
+    "tags": [
+      "wandb",
+      "experiment-tracking",
+      "logging",
+      "sweeps",
+      "distributed"
+    ],
+    "dependencies": [
+      "wandb"
+    ],
+    "installCommand": "pip install flyteplugins-wandb",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/wandb",
+    "docsUrl": "https://docs.flyte.org",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-wandb/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Wandb",
+        "type": "other",
+        "importPath": "flyteplugins.wandb",
+        "description": "Wandb integration"
+      },
+      {
+        "name": "WandbSweep",
+        "type": "other",
+        "importPath": "flyteplugins.wandb",
+        "description": "Wandb sweep support"
+      },
+      {
+        "name": "wandb_init",
+        "type": "other",
+        "importPath": "flyteplugins.wandb",
+        "description": "Initialize W&B run"
+      },
+      {
+        "name": "wandb_config",
+        "type": "other",
+        "importPath": "flyteplugins.wandb",
+        "description": "W&B configuration decorator"
+      },
+      {
+        "name": "wandb_sweep",
+        "type": "other",
+        "importPath": "flyteplugins.wandb",
+        "description": "W&B sweep decorator"
+      },
+      {
+        "name": "get_wandb_context",
+        "type": "other",
+        "importPath": "flyteplugins.wandb",
+        "description": "Get W&B context"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk"
+  }
+]

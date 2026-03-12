@@ -4,14 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "generate": "node scripts/generate-plugin-data.mjs",
+    "fetch-stats": "node scripts/fetch-pypi-stats.mjs",
+    "generate-icons": "node scripts/generate-icons.mjs",
+    "build": "node scripts/generate-plugin-data.mjs && node scripts/fetch-pypi-stats.mjs && node scripts/generate-icons.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "fuse.js": "^7.1.0",
+    "lucide-react": "^0.577.0",
     "next": "16.1.6",
+    "next-themes": "^0.4.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "simple-icons": "^16.11.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
