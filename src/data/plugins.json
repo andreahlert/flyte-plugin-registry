@@ -361,7 +361,8 @@
     ],
     "dependencies": [
       "google-cloud-bigquery",
-      "google-cloud-bigquery-storage"
+      "google-cloud-bigquery-storage",
+      "numpy"
     ],
     "installCommand": "pip install flytekitplugins-bigquery",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-bigquery",
@@ -2171,12 +2172,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -2329,6 +2330,66 @@
       {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-mlflow",
+    "name": "MLflow tracking",
+    "packageName": "flyteplugins-mlflow",
+    "description": "MLflow tracking plugin for Flyte",
+    "category": "developer-tools",
+    "tags": [
+      "mlflow"
+    ],
+    "dependencies": [
+      "mlflow"
+    ],
+    "installCommand": "pip install flyteplugins-mlflow",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/mlflow",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-mlflow/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "mlflow_run",
+        "type": "task",
+        "importPath": "flyteplugins.mlflow",
+        "description": "Task for MLflow tracking."
+      },
+      {
+        "name": "get_mlflow_run",
+        "type": "task",
+        "importPath": "flyteplugins.mlflow",
+        "description": "Get the current MLflow run if within a `@mlflow_run` decorated task or trace."
+      },
+      {
+        "name": "mlflow_config",
+        "type": "type",
+        "importPath": "flyteplugins.mlflow",
+        "description": "Configuration type for MLflow tracking."
+      },
+      {
+        "name": "Mlflow",
+        "type": "type",
+        "importPath": "flyteplugins.mlflow",
+        "description": "MLflow UI link for Flyte tasks.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "get_mlflow_context",
+        "type": "task",
+        "importPath": "flyteplugins.mlflow",
+        "description": "Retrieve current MLflow configuration from Flyte context."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       }
     ]
   },
