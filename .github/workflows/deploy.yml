@@ -48,6 +48,9 @@ jobs:
       - name: Fetch PyPI stats
         run: node scripts/fetch-pypi-stats.mjs
 
+      - name: Fetch wishlist data
+        run: node scripts/fetch-wishlist.mjs
+
       - name: Generate icons
         run: node scripts/generate-icons.mjs
 
