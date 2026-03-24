@@ -1,4 +1,4 @@
-import { Category, SDK } from "@/lib/types";
+import { Category, SDK, GapType } from "@/lib/types";
 import { CATEGORIES } from "@/lib/constants";
 
 const categoryColors: Record<Category, string> = {
@@ -43,6 +43,21 @@ export function SDKBadge({ sdk }: { sdk?: SDK }) {
       }`}
     >
       {isV2 ? "Flyte SDK (v2)" : "Flytekit"}
+    </span>
+  );
+}
+
+export function GapTypeBadge({ gapType }: { gapType: GapType }) {
+  const isNew = gapType === "no-plugin";
+  return (
+    <span
+      className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+        isNew
+          ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300"
+          : "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300"
+      }`}
+    >
+      {isNew ? "New Opportunity" : "Needs V2 Port"}
     </span>
   );
 }

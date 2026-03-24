@@ -6,8 +6,9 @@
     "dev": "next dev",
     "generate": "node scripts/generate-plugin-data.mjs",
     "fetch-stats": "node scripts/fetch-pypi-stats.mjs",
+    "fetch-wishlist": "node scripts/fetch-wishlist.mjs",
     "generate-icons": "node scripts/generate-icons.mjs",
-    "build": "node scripts/generate-plugin-data.mjs && node scripts/fetch-pypi-stats.mjs && node scripts/generate-icons.mjs && next build",
+    "build": "node scripts/generate-plugin-data.mjs && node scripts/fetch-pypi-stats.mjs && node scripts/fetch-wishlist.mjs && node scripts/generate-icons.mjs && next build",
     "start": "next start",
     "lint": "eslint"
   },

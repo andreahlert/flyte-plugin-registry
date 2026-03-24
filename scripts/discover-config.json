@@ -1,0 +1,192 @@
+{
+  "seed_packages": {
+    "ml-training": [
+      "scikit-learn", "xgboost", "lightgbm", "catboost", "transformers",
+      "keras", "jax", "spacy", "stable-baselines3", "sentence-transformers",
+      "openai", "anthropic", "langchain", "llamaindex", "vllm",
+      "ultralytics", "timm", "torchvision", "torchaudio", "fairseq",
+      "allennlp", "flair", "gensim", "prophet", "neuralprophet",
+      "statsmodels", "optuna", "hyperopt", "nni", "sktime"
+    ],
+    "model-serving": [
+      "fastapi", "bentoml", "tritonclient", "litserve", "ray-serve",
+      "seldon-core", "kserve", "gradio", "streamlit"
+    ],
+    "experiment-tracking": [
+      "dvc", "clearml", "aim", "dvclive", "guild-ai",
+      "sacred", "tensorboardx", "wandb", "mlflow", "neptune"
+    ],
+    "data-validation": [
+      "pydantic", "evidently", "deepchecks", "soda-core", "cerberus",
+      "marshmallow", "voluptuous", "schema", "ydata-profiling"
+    ],
+    "data-dataframe": [
+      "great-tables", "daft", "ibis-framework", "vaex", "modin",
+      "cudf", "koalas", "fugue", "hamilton", "narwhals"
+    ],
+    "databases-warehouses": [
+      "deltalake", "clickhouse-connect", "trino", "dbt-core", "redis",
+      "pymongo", "cassandra-driver", "neo4j", "elasticsearch",
+      "sqlmodel", "databases", "asyncpg", "psycopg", "mysql-connector-python",
+      "snowflake-connector-python", "google-cloud-bigquery", "databricks-sql-connector",
+      "pyiceberg", "lance", "lancedb", "weaviate-client", "pinecone-client",
+      "chromadb", "qdrant-client", "milvus", "pgvector"
+    ],
+    "cloud-infrastructure": [
+      "google-cloud-storage", "azure-storage-blob", "minio",
+      "google-cloud-aiplatform", "sagemaker", "azureml-core",
+      "modal", "runpod", "coreweave"
+    ],
+    "workflow": [
+      "prefect", "dagster", "luigi", "metaflow", "zenml",
+      "kedro", "ploomber", "hamilton", "burr"
+    ],
+    "developer-tools": [
+      "great-expectations", "pytest", "hypothesis", "locust"
+    ]
+  },
+
+  "github_topics": [
+    "machine-learning", "deep-learning", "mlops", "data-engineering",
+    "data-science", "natural-language-processing", "computer-vision",
+    "reinforcement-learning", "model-serving", "feature-store",
+    "experiment-tracking", "data-validation", "workflow-orchestration",
+    "vector-database", "llm"
+  ],
+
+  "classification_signals": {
+    "connector": {
+      "dependencies": [
+        "pymongo", "psycopg", "asyncpg", "mysql-connector", "cx-oracle",
+        "redis", "elasticsearch", "cassandra-driver", "neo4j",
+        "snowflake-connector", "databricks-", "clickhouse-", "trino"
+      ],
+      "classifiers_keywords": [
+        "database"
+      ],
+      "description_keywords": [
+        "connector", "driver", "database client", "database adapter",
+        "query engine", "sql client", "storage client", "cloud storage",
+        "data warehouse", "object store", "key-value store",
+        "vector search", "vector database"
+      ]
+    },
+    "type_handler": {
+      "dependencies": [
+        "pyarrow", "polars"
+      ],
+      "classifiers_keywords": [
+        "data structures"
+      ],
+      "description_keywords": [
+        "dataframe", "data frame", "tabular data", "table format",
+        "parquet", "arrow", "delta lake", "iceberg",
+        "serialization", "data type"
+      ]
+    },
+    "deck_renderer": {
+      "dependencies": [
+        "plotly", "bokeh", "altair"
+      ],
+      "classifiers_keywords": [
+        "visualization"
+      ],
+      "description_keywords": [
+        "visualization", "plotting", "chart", "dashboard",
+        "data profiling", "data quality report", "monitoring report",
+        "model monitoring", "html report"
+      ]
+    },
+    "task_type": {
+      "dependencies": [
+        "kubernetes", "docker", "mpi4py", "submitit"
+      ],
+      "classifiers_keywords": [
+        "clustering", "parallel"
+      ],
+      "description_keywords": [
+        "distributed training", "multi-gpu", "model parallel",
+        "inference server", "serving framework",
+        "hpc cluster", "batch processing", "job scheduler"
+      ]
+    },
+    "no_plugin": {
+      "dependencies": [],
+      "classifiers_keywords": [],
+      "description_keywords": []
+    }
+  },
+
+  "overrides": {
+    "connector": [
+      "redis", "pymongo", "neo4j", "elasticsearch", "cassandra-driver",
+      "clickhouse-connect", "trino", "asyncpg", "psycopg", "mysql-connector-python",
+      "snowflake-connector-python", "google-cloud-bigquery", "databricks-sql-connector",
+      "databases", "sqlmodel",
+      "google-cloud-storage", "azure-storage-blob", "minio",
+      "google-cloud-aiplatform", "azureml-core",
+      "weaviate-client", "pinecone-client", "chromadb", "qdrant-client", "pgvector",
+      "prefect", "dagster", "metaflow"
+    ],
+    "type_handler": [
+      "deltalake", "pyiceberg", "lance", "lancedb",
+      "ibis-framework", "narwhals", "daft", "koalas", "fugue",
+      "great-tables", "modin", "cudf", "vaex",
+      "transformers", "sentence-transformers",
+      "pyarrow"
+    ],
+    "deck_renderer": [
+      "matplotlib", "seaborn", "plotly", "altair", "bokeh",
+      "streamlit", "gradio", "dash",
+      "evidently", "deepchecks", "ydata-profiling",
+      "great-tables", "fiftyone"
+    ],
+    "task_type": [
+      "deepspeed", "bentoml", "kserve", "seldon-core", "tritonclient", "litserve",
+      "fastapi", "modal", "runpod",
+      "vllm"
+    ],
+    "no_plugin": [
+      "pytest", "hypothesis", "locust",
+      "scikit-learn", "xgboost", "lightgbm", "catboost",
+      "keras", "jax", "spacy", "stable-baselines3",
+      "openai", "anthropic", "langchain",
+      "ultralytics", "timm", "torchvision", "torchaudio",
+      "fairseq", "allennlp", "flair", "gensim",
+      "prophet", "neuralprophet", "statsmodels", "optuna", "hyperopt", "nni", "sktime",
+      "pydantic", "cerberus", "marshmallow", "voluptuous", "schema",
+      "luigi", "kedro", "ploomber", "zenml", "burr", "hamilton",
+      "dvc", "clearml", "aim", "dvclive", "sacred", "tensorboardx", "wandb", "mlflow", "neptune",
+      "sagemaker",
+      "ipython", "rich",
+      "kornia", "supervision", "gymnasium", "face-recognition", "gfpgan",
+      "easyocr", "tts", "stanza", "autogluon",
+      "browser-use", "akshare",
+      "pytorch-lightning",
+      "soda-core"
+    ]
+  },
+
+  "scoring": {
+    "monthly_downloads_weight": 0.40,
+    "github_stars_weight": 0.30,
+    "growth_rate_weight": 0.15,
+    "ecosystem_relevance_weight": 0.15
+  },
+
+  "thresholds": {
+    "min_monthly_downloads": 5000,
+    "min_github_stars": 50
+  },
+
+  "cache": {
+    "dir": ".cache/discover",
+    "ttl_hours": 24
+  },
+
+  "rate_limits": {
+    "pypi_interval_ms": 200,
+    "pypistats_interval_ms": 2100,
+    "github_interval_ms": 100
+  }
+}

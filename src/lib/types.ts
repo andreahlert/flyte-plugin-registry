@@ -63,3 +63,19 @@ export interface SearchResult {
   item: Plugin;
   score: number;
 }
+
+export type GapType = "no-plugin" | "needs-v2-port";
+
+export interface WishlistItem {
+  packageName: string;
+  name: string;
+  description: string;
+  category: Category;
+  gapType: GapType;
+  pypiUrl: string;
+  githubUrl?: string;
+  discussionUrl?: string;
+  downloads: PyPIStats | null;
+  voteCount: number;
+  existingPluginSlug?: string;
+}
