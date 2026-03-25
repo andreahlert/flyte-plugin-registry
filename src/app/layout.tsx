@@ -19,7 +19,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Flyte Plugin Registry",
   description:
-    "Discover and explore 60+ plugins for the Flyte ecosystem. Search, filter, and find the right integrations for your ML workflows.",
+    "Discover Flyte plugins for ML workflows, vote on new integrations, and track what the community wants built next.",
 };
 
 export default function RootLayout({
