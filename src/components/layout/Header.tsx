@@ -134,7 +134,7 @@ export function Header({ onSearchOpen }: HeaderProps) {
             >
               <Search className="w-4 h-4" />
               <span className="hidden sm:inline">Search...</span>
-              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-[var(--surface)] border border-[var(--border)] ml-1">
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-[var(--surface)] border border-[var(--border)] ml-1">
                 ⌘K
               </kbd>
             </button>

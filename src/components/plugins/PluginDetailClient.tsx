@@ -373,7 +373,7 @@ export function PluginDetailClient({ plugin, allPlugins = [] }: { plugin: Plugin
                     ]}
                     height={120}
                   />
-                  <p className="text-[10px] text-[var(--muted)] mt-1 text-center">
+                  <p className="text-xs text-[var(--muted)] mt-1 text-center">
                     Weekly downloads (last 90 days)
                   </p>
                 </div>

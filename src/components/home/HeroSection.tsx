@@ -61,7 +61,7 @@ export function HeroSection({ plugins, onSearchOpen }: HeroSectionProps) {
               >
                 <Search className="w-4 h-4" />
                 <span>Search plugins...</span>
-                <kbd className="ml-auto hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-medium bg-[var(--surface)] border border-[var(--border)]">
+                <kbd className="ml-auto hidden sm:inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-[var(--surface)] border border-[var(--border)]">
                   ⌘K
                 </kbd>
               </button>

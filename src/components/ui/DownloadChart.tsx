@@ -317,7 +317,7 @@ export function DownloadChart({ series, height = 180 }: DownloadChartProps) {
               <span className="w-3 h-0.5 rounded-full inline-block" style={{ backgroundColor: s.color }} />
               {s.label}
               {s.isV2 && (
-                <span className="text-[8px] font-bold px-1 py-px rounded bg-[#7c3aed] text-white leading-none">v2</span>
+                <span className="text-xs font-bold px-1 py-px rounded bg-[#7c3aed] text-white leading-none">v2</span>
               )}
             </div>
           ))}
@@ -349,7 +349,7 @@ export function DownloadChart({ series, height = 180 }: DownloadChartProps) {
                 <span className="text-[var(--muted)] flex items-center gap-1">
                   {validSeries.length > 1 ? v.label : "Downloads"}
                   {v.isV2 && (
-                    <span className="text-[8px] font-bold px-1 py-px rounded bg-[#7c3aed] text-white leading-none">v2</span>
+                    <span className="text-xs font-bold px-1 py-px rounded bg-[#7c3aed] text-white leading-none">v2</span>
                   )}
                 </span>
               </span>

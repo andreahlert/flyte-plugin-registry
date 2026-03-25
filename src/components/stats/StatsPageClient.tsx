@@ -66,7 +66,7 @@ export function StatsPageClient() {
             <span className="text-xs sm:text-sm text-[var(--muted)]">Total Plugins</span>
           </div>
           <p className="text-xl sm:text-2xl font-semibold text-[var(--heading)]">{typedPlugins.length}</p>
-          <p className="text-[10px] sm:text-xs text-[var(--muted)] mt-1">{flytekitCount} flytekit, {flyteSdkCount} flyte-sdk</p>
+          <p className="text-xs sm:text-sm text-[var(--muted)] mt-1">{flytekitCount} flytekit, {flyteSdkCount} flyte-sdk</p>
         </div>
         <div className="rounded-2xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-4 sm:p-5">
           <div className="flex items-center gap-2 sm:gap-3 mb-2">

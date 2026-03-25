@@ -120,7 +120,7 @@ export function SearchModal({ open, onClose, plugins }: SearchModalProps) {
             ) : (
               <>
                 {!query.trim() && (
-                  <div className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-medium text-[var(--muted)] uppercase tracking-wider">
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-[var(--muted)] uppercase tracking-wider">
                     <TrendingUp className="w-3 h-3" />
                     Popular
                   </div>
@@ -140,7 +140,7 @@ export function SearchModal({ open, onClose, plugins }: SearchModalProps) {
                       <p className="text-sm font-medium text-[var(--heading)] truncate flex items-center gap-1.5">
                         {plugin.name}
                         {plugin.sdk === "flyte-sdk" && (
-                          <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
+                          <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
                             v2
                           </span>
                         )}

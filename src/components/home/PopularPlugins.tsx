@@ -29,7 +29,7 @@ function PluginMarqueeCard({ plugin }: { plugin: Plugin }) {
           <p className="text-sm font-semibold text-[var(--heading)] group-hover/card:text-[var(--accent-interactive)] transition-colors truncate">
             {plugin.name}
           </p>
-          <p className="text-[10px] text-[var(--muted)] truncate" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>
+          <p className="text-xs text-[var(--muted)] truncate" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>
             {plugin.packageName}
           </p>
         </div>
@@ -43,7 +43,7 @@ function PluginMarqueeCard({ plugin }: { plugin: Plugin }) {
         <ModuleBar modules={plugin.modules} />
       </div>
 
-      <div className="flex items-center justify-between text-[10px] text-[var(--muted)]">
+      <div className="flex items-center justify-between text-xs text-[var(--muted)]">
         <span className="font-medium">{plugin.modules.length} module{plugin.modules.length !== 1 ? "s" : ""}</span>
         <div className="flex items-center gap-1">
           <Download className="w-2.5 h-2.5" />

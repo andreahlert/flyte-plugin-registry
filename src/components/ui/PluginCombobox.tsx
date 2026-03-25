@@ -79,7 +79,7 @@ export function PluginCombobox({
             <span className="flex-1 flex items-center gap-1.5 truncate">
               <span className="text-[var(--heading)] font-medium truncate">{selected.name}</span>
               {selected.sdk === "flyte-sdk" && (
-                <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-[#7c3aed]/15 text-[#7c3aed] flex-shrink-0">
+                <span className="text-xs font-semibold px-1.5 py-0.5 rounded bg-[#7c3aed]/15 text-[#7c3aed] flex-shrink-0">
                   v2
                 </span>
               )}
@@ -150,7 +150,7 @@ export function PluginCombobox({
                     <span className="flex-1 flex items-center gap-1.5 truncate">
                       <span className="truncate">{p.name}</span>
                       {p.sdk === "flyte-sdk" && (
-                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-[#7c3aed] text-white flex-shrink-0 leading-none">
+                        <span className="text-xs font-bold px-1.5 py-0.5 rounded-md bg-[#7c3aed] text-white flex-shrink-0 leading-none">
                           v2
                         </span>
                       )}

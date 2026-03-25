@@ -146,7 +146,7 @@ export function ExplorePageClient() {
             }`}
           >
             All
-            <span className={`text-[10px] ${!selectedCategory ? "opacity-60" : "opacity-40"}`}>{typedPlugins.length}</span>
+            <span className={`text-xs ${!selectedCategory ? "opacity-60" : "opacity-40"}`}>{typedPlugins.length}</span>
           </button>
           {CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.slug;
@@ -170,7 +170,7 @@ export function ExplorePageClient() {
                 />
                 <CategoryIcon category={cat.slug} className="w-3.5 h-3.5" style={!isSelected ? { color: "var(--muted)" } : undefined} />
                 <span>{cat.name}</span>
-                <span className={`text-[10px] ${isSelected ? "opacity-60" : "opacity-40"}`}>{categoryCounts[cat.slug]}</span>
+                <span className={`text-xs ${isSelected ? "opacity-60" : "opacity-40"}`}>{categoryCounts[cat.slug]}</span>
               </button>
             );
           })}
@@ -188,7 +188,7 @@ export function ExplorePageClient() {
               <button
                 key={type}
                 onClick={() => toggleType(type)}
-                className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md text-[11px] font-medium capitalize transition-all duration-150 ${
+                className={`inline-flex items-center gap-1 px-2.5 py-1.5 rounded-md text-xs font-medium capitalize transition-all duration-150 ${
                   isSelected
                     ? "text-white"
                     : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
@@ -210,7 +210,7 @@ export function ExplorePageClient() {
             <button
               key={sdk}
               onClick={() => setSelectedSdk(selectedSdk === sdk ? null : sdk)}
-              className={`px-2.5 py-1.5 rounded-md text-[11px] font-medium transition-all duration-150 ${
+              className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all duration-150 ${
                 selectedSdk === sdk
                   ? "bg-[var(--brand)] text-white shadow-sm shadow-[var(--brand)]/20"
                   : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
@@ -228,7 +228,7 @@ export function ExplorePageClient() {
                 animate={{ opacity: 1, width: "auto" }}
                 exit={{ opacity: 0, width: 0 }}
                 onClick={clearAll}
-                className="text-[11px] font-medium text-[var(--brand)] hover:underline whitespace-nowrap overflow-hidden ml-1"
+                className="text-xs font-medium text-[var(--brand)] hover:underline whitespace-nowrap overflow-hidden ml-1"
               >
                 Clear all
               </motion.button>
@@ -241,7 +241,7 @@ export function ExplorePageClient() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortOption)}
-            className="text-[11px] font-medium bg-transparent text-[var(--muted)] cursor-pointer focus:outline-none border-none"
+            className="text-xs font-medium bg-transparent text-[var(--muted)] cursor-pointer focus:outline-none border-none"
           >
             <option value="name">A-Z</option>
             <option value="modules">Modules</option>
@@ -306,20 +306,20 @@ export function ExplorePageClient() {
                       <PluginIcon slug={plugin.slug} name={plugin.name} className="w-8 h-8 flex-shrink-0" />
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-1.5">
-                          <p className="text-[13px] font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate leading-tight">
+                          <p className="text-sm font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate leading-tight">
                             {plugin.name}
                           </p>
                           {plugin.sdk === "flyte-sdk" && (
-                            <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
+                            <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
                               v2
                             </span>
                           )}
                         </div>
-                        <p className="text-[10px] text-[var(--muted)] font-mono truncate">{plugin.packageName}</p>
+                        <p className="text-xs text-[var(--muted)] font-mono truncate">{plugin.packageName}</p>
                       </div>
                     </div>
 
-                    <p className="text-[11px] text-[var(--muted)] line-clamp-2 mb-2.5 leading-relaxed min-h-[2.5em]">
+                    <p className="text-sm text-[var(--muted)] line-clamp-2 mb-2.5 leading-relaxed min-h-[2.5em]">
                       {plugin.description}
                     </p>
 
@@ -327,9 +327,9 @@ export function ExplorePageClient() {
                       <ModuleBar modules={plugin.modules} />
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] text-[var(--muted)] font-medium">{plugin.modules.length} module{plugin.modules.length !== 1 ? "s" : ""}</span>
+                      <span className="text-xs text-[var(--muted)] font-medium">{plugin.modules.length} module{plugin.modules.length !== 1 ? "s" : ""}</span>
                       {stats && stats.lastMonth > 0 && (
-                        <span className="flex items-center gap-0.5 text-[10px] text-[var(--muted)]">
+                        <span className="flex items-center gap-0.5 text-xs text-[var(--muted)]">
                           <Download className="w-2.5 h-2.5" />
                           {fmt(stats.lastMonth)}
                         </span>
@@ -367,23 +367,23 @@ export function ExplorePageClient() {
                     <PluginIcon slug={plugin.slug} name={plugin.name} className="w-7 h-7 flex-shrink-0" />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
-                        <p className="text-[13px] font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
+                        <p className="text-sm font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
                           {plugin.name}
                         </p>
                         {plugin.sdk === "flyte-sdk" && (
-                          <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
+                          <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
                             v2
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] text-[var(--muted)] truncate leading-tight">{plugin.description}</p>
+                      <p className="text-sm text-[var(--muted)] truncate leading-tight">{plugin.description}</p>
                     </div>
                     <div className="w-20 flex-shrink-0 overflow-visible relative hidden sm:block">
                       <ModuleBar modules={plugin.modules} />
                     </div>
-                    <span className="text-[10px] text-[var(--muted)] w-8 text-right tabular-nums flex-shrink-0">{plugin.modules.length}m</span>
+                    <span className="text-xs text-[var(--muted)] w-8 text-right tabular-nums flex-shrink-0">{plugin.modules.length}m</span>
                     {stats && stats.lastMonth > 0 ? (
-                      <span className="hidden sm:flex items-center gap-0.5 text-[10px] text-[var(--muted)] w-14 justify-end tabular-nums">
+                      <span className="hidden sm:flex items-center gap-0.5 text-xs text-[var(--muted)] w-14 justify-end tabular-nums">
                         <Download className="w-2.5 h-2.5" />
                         {fmt(stats.lastMonth)}
                       </span>
@@ -401,7 +401,7 @@ export function ExplorePageClient() {
       {viewMode === "list" && (
         <div className="rounded-xl border border-[var(--border)] overflow-hidden overflow-x-auto">
           {/* Table header */}
-          <div className="grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] min-w-[40rem] gap-2 px-4 py-2 bg-[var(--surface)] text-[10px] font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
+          <div className="grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] min-w-[40rem] gap-2 px-4 py-2 bg-[var(--surface)] text-xs font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
             <span>Plugin</span>
             <span>Description</span>
             <span>Category</span>
@@ -432,20 +432,20 @@ export function ExplorePageClient() {
                       <PluginIcon slug={plugin.slug} name={plugin.name} className="w-6 h-6 flex-shrink-0" />
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5">
-                          <p className="text-[12px] font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
+                          <p className="text-sm font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
                             {plugin.name}
                           </p>
                           {plugin.sdk === "flyte-sdk" && (
-                            <span className="flex-shrink-0 px-1 py-px rounded text-[8px] font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
+                            <span className="flex-shrink-0 px-1 py-px rounded text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
                               v2
                             </span>
                           )}
                         </div>
-                        <p className="text-[10px] text-[var(--muted)] font-mono truncate">{plugin.packageName}</p>
+                        <p className="text-xs text-[var(--muted)] font-mono truncate">{plugin.packageName}</p>
                       </div>
                     </div>
-                    <p className="text-[11px] text-[var(--muted)] truncate">{plugin.description}</p>
-                    <span className="inline-flex items-center gap-1 text-[10px] font-medium" style={{ color: accent }}>
+                    <p className="text-sm text-[var(--muted)] truncate">{plugin.description}</p>
+                    <span className="inline-flex items-center gap-1 text-xs font-medium" style={{ color: accent }}>
                       <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
                       {catInfo?.name}
                     </span>
@@ -453,9 +453,9 @@ export function ExplorePageClient() {
                       <div className="w-14 flex-shrink-0 overflow-visible relative">
                         <ModuleBar modules={plugin.modules} />
                       </div>
-                      <span className="text-[11px] text-[var(--muted)] tabular-nums">{plugin.modules.length}</span>
+                      <span className="text-xs text-[var(--muted)] tabular-nums">{plugin.modules.length}</span>
                     </div>
-                    <span className="text-[11px] text-[var(--muted)] text-right tabular-nums">
+                    <span className="text-xs text-[var(--muted)] text-right tabular-nums">
                       {stats && stats.lastMonth > 0 ? fmt(stats.lastMonth) : "\u2014"}
                     </span>
                   </Link>

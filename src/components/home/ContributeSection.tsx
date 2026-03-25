@@ -28,7 +28,7 @@ function DocsBackground() {
           className="relative w-40 cursor-pointer overflow-hidden rounded-xl border-2 border-[var(--border)] bg-[var(--card-bg)] p-3 transform-gpu blur-[0.5px] transition-all duration-300 ease-out hover:blur-none"
         >
           <p className="text-xs font-semibold text-[var(--heading)]">{s.name}</p>
-          <p className="mt-1 text-[10px] text-[var(--muted)] leading-relaxed" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>
+          <p className="mt-1 text-sm text-[var(--muted)] leading-relaxed" style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>
             {s.body}
           </p>
         </figure>
@@ -55,12 +55,12 @@ function SlackMessage({ user, channel, text }: { user: string; channel: string; 
       </div>
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5">
-          <span className="text-[10px] font-semibold text-[var(--heading)]">{user}</span>
-          <span className="text-[9px] text-[var(--muted)] flex items-center gap-0.5">
+          <span className="text-xs font-semibold text-[var(--heading)]">{user}</span>
+          <span className="text-xs text-[var(--muted)] flex items-center gap-0.5">
             <Hash className="w-2 h-2" />{channel.replace("#", "")}
           </span>
         </div>
-        <p className="text-[10px] text-[var(--muted)] leading-snug truncate">{text}</p>
+        <p className="text-sm text-[var(--muted)] leading-snug truncate">{text}</p>
       </div>
     </div>
   );

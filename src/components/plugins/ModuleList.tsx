@@ -57,7 +57,7 @@ export function ModuleList({ modules }: { modules: PluginModule[] }) {
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2 mb-1">
                   <span
-                    className={`inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium flex-shrink-0 ${
+                    className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium flex-shrink-0 ${
                       typeColors[mod.type] || typeColors.other
                     }`}
                     title={getTypeHint(mod)}
@@ -67,12 +67,12 @@ export function ModuleList({ modules }: { modules: PluginModule[] }) {
                   <span className="text-sm font-semibold text-[var(--heading)] truncate">{mod.name}</span>
                 </div>
                 {mod.description && (
-                  <p className="text-xs text-[var(--muted)] mb-2 leading-relaxed">
+                  <p className="text-sm text-[var(--muted)] mb-2 leading-relaxed">
                     {mod.description}
                   </p>
                 )}
                 {mod.baseClass && (
-                  <p className="text-[10px] text-[var(--muted)]/50 mb-1.5">
+                  <p className="text-xs text-[var(--muted)]/50 mb-1.5">
                     extends <span style={{ fontFamily: "var(--font-ibm-plex-mono), monospace" }}>{mod.baseClass}</span>
                     {getTypeHint(mod) ? ` \u2014 ${getTypeHint(mod).toLowerCase()}` : ""}
                   </p>

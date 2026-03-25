@@ -25,7 +25,7 @@ function AvatarCircles({ plugins, max = 4 }: { plugins: Plugin[]; max?: number }
       ))}
       {remaining > 0 && (
         <div className="w-7 h-7 rounded-full border-2 border-[var(--card-bg)] bg-[var(--surface)] flex items-center justify-center flex-shrink-0">
-          <span className="text-[9px] font-semibold text-[var(--muted)]">+{remaining}</span>
+          <span className="text-xs font-semibold text-[var(--muted)]">+{remaining}</span>
         </div>
       )}
     </div>

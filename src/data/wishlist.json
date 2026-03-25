@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-03-16T13:38:14.555Z",
+  "fetchedAt": "2026-03-24T20:44:23.180Z",
   "items": [
     {
       "packageName": "transformers",
@@ -9,11 +9,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/transformers/",
       "githubUrl": "https://github.com/huggingface/transformers",
-      "downloads": {
-        "lastDay": 3424288,
-        "lastWeek": 28574439,
-        "lastMonth": 111264186
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -24,11 +20,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/matplotlib/",
       "githubUrl": "https://github.com/matplotlib/matplotlib",
-      "downloads": {
-        "lastDay": 4573258,
-        "lastWeek": 44784523,
-        "lastMonth": 169770466
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -39,11 +31,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/redis/",
       "githubUrl": "https://github.com/redis/redis-py",
-      "downloads": {
-        "lastDay": 4367422,
-        "lastWeek": 43341567,
-        "lastMonth": 167418418
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -54,11 +42,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/seaborn/",
       "githubUrl": "https://github.com/mwaskom/seaborn",
-      "downloads": {
-        "lastDay": 1024045,
-        "lastWeek": 10818229,
-        "lastMonth": 39701566
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -69,11 +53,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/streamlit/",
       "githubUrl": "https://github.com/streamlit/streamlit",
-      "downloads": {
-        "lastDay": 648521,
-        "lastWeek": 7098902,
-        "lastMonth": 30493680
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -84,11 +64,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/prefect/",
       "githubUrl": "https://github.com/PrefectHQ/prefect",
-      "downloads": {
-        "lastDay": 242531,
-        "lastWeek": 2367594,
-        "lastMonth": 10291238
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -99,11 +75,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/google-cloud-aiplatform/",
       "githubUrl": "https://github.com/googleapis/python-aiplatform",
-      "downloads": {
-        "lastDay": 7380669,
-        "lastWeek": 58354714,
-        "lastMonth": 177961456
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -114,11 +86,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/narwhals/",
       "githubUrl": "https://github.com/narwhals-dev/narwhals",
-      "downloads": {
-        "lastDay": 1618263,
-        "lastWeek": 16842155,
-        "lastMonth": 63112649
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -129,11 +97,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/deepspeed/",
       "githubUrl": "https://github.com/deepspeedai/DeepSpeed",
-      "downloads": {
-        "lastDay": 21951,
-        "lastWeek": 275315,
-        "lastMonth": 1095035
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -144,11 +108,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/dash/",
       "githubUrl": "https://github.com/plotly/dash",
-      "downloads": {
-        "lastDay": 177588,
-        "lastWeek": 1882798,
-        "lastMonth": 7761086
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -159,11 +119,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/deltalake/",
       "githubUrl": "https://github.com/delta-io/delta-rs",
-      "downloads": {
-        "lastDay": 694257,
-        "lastWeek": 5600618,
-        "lastMonth": 21728275
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -174,11 +130,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/weaviate-client/",
       "githubUrl": "https://github.com/weaviate/weaviate-python-client",
-      "downloads": {
-        "lastDay": 2095038,
-        "lastWeek": 16176667,
-        "lastMonth": 43250557
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -189,11 +141,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/google-cloud-storage/",
       "githubUrl": "https://github.com/googleapis/python-storage",
-      "downloads": {
-        "lastDay": 5508601,
-        "lastWeek": 52573958,
-        "lastMonth": 209383489
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -226,11 +174,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/rasa/",
       "githubUrl": "https://github.com/rasahq/rasa",
-      "downloads": {
-        "lastDay": 6599,
-        "lastWeek": 48741,
-        "lastMonth": 139848
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -242,9 +186,9 @@
       "pypiUrl": "https://pypi.org/project/fiftyone/",
       "githubUrl": "https://github.com/voxel51/fiftyone",
       "downloads": {
-        "lastDay": 4471,
-        "lastWeek": 68312,
-        "lastMonth": 205038
+        "lastDay": 26611,
+        "lastWeek": 161808,
+        "lastMonth": 349925
       },
       "voteCount": 0
     },
@@ -267,11 +211,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/koalas/",
       "githubUrl": "https://github.com/databricks/koalas",
-      "downloads": {
-        "lastDay": 42783,
-        "lastWeek": 476888,
-        "lastMonth": 1927988
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -282,11 +222,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/metaflow/",
       "githubUrl": "https://github.com/Netflix/metaflow",
-      "downloads": {
-        "lastDay": 7336,
-        "lastWeek": 126822,
-        "lastMonth": 526254
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -298,9 +234,9 @@
       "pypiUrl": "https://pypi.org/project/qdrant-client/",
       "githubUrl": "https://github.com/qdrant/qdrant-client",
       "downloads": {
-        "lastDay": 424576,
-        "lastWeek": 3832695,
-        "lastMonth": 15086125
+        "lastDay": 504823,
+        "lastWeek": 3234285,
+        "lastMonth": 15665207
       },
       "voteCount": 0
     },
@@ -312,11 +248,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/databricks-sql-connector/",
       "githubUrl": "https://github.com/databricks/databricks-sql-python",
-      "downloads": {
-        "lastDay": 2257699,
-        "lastWeek": 18670908,
-        "lastMonth": 70716610
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -328,9 +260,9 @@
       "pypiUrl": "https://pypi.org/project/modal/",
       "githubUrl": "https://github.com/modal-labs/modal-client",
       "downloads": {
-        "lastDay": 459998,
-        "lastWeek": 3966606,
-        "lastMonth": 13445197
+        "lastDay": 840154,
+        "lastWeek": 5575221,
+        "lastMonth": 16684088
       },
       "voteCount": 0
     },
@@ -342,11 +274,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/bentoml/",
       "githubUrl": "https://github.com/bentoml/bentoml",
-      "downloads": {
-        "lastDay": 2972,
-        "lastWeek": 44678,
-        "lastMonth": 176504
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -357,11 +285,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/neo4j/",
       "githubUrl": "https://github.com/neo4j/neo4j-python-driver",
-      "downloads": {
-        "lastDay": 276634,
-        "lastWeek": 2354855,
-        "lastMonth": 8993121
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -372,11 +296,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/minio/",
       "githubUrl": "https://github.com/minio/minio-py",
-      "downloads": {
-        "lastDay": 180746,
-        "lastWeek": 2033771,
-        "lastMonth": 8231300
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -387,11 +307,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/fedml/",
       "githubUrl": "https://github.com/FedML-AI/FedML",
-      "downloads": {
-        "lastDay": 37,
-        "lastWeek": 1714,
-        "lastMonth": 3240
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -402,11 +318,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/databases/",
       "githubUrl": "https://github.com/encode/databases",
-      "downloads": {
-        "lastDay": 24426,
-        "lastWeek": 416125,
-        "lastMonth": 1960614
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -417,11 +329,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/deepchecks/",
       "githubUrl": "https://github.com/deepchecks/deepchecks",
-      "downloads": {
-        "lastDay": 814,
-        "lastWeek": 9235,
-        "lastMonth": 41062
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -431,11 +339,7 @@
       "category": "model-serving",
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/tritonclient/",
-      "downloads": {
-        "lastDay": 433562,
-        "lastWeek": 3732384,
-        "lastMonth": 17026901
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -446,11 +350,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/pyjanitor/",
       "githubUrl": "https://github.com/pyjanitor-devs/pyjanitor",
-      "downloads": {
-        "lastDay": 3694,
-        "lastWeek": 51012,
-        "lastMonth": 196380
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -461,11 +361,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/litserve/",
       "githubUrl": "https://github.com/Lightning-AI/litserve",
-      "downloads": {
-        "lastDay": 312,
-        "lastWeek": 8701,
-        "lastMonth": 35583
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -476,11 +372,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/ludwig/",
       "githubUrl": "https://github.com/ludwig-ai/ludwig",
-      "downloads": {
-        "lastDay": 196,
-        "lastWeek": 557,
-        "lastMonth": 2092
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -491,11 +383,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/gradio/",
       "githubUrl": "https://github.com/gradio-app/gradio",
-      "downloads": {
-        "lastDay": 411692,
-        "lastWeek": 3077057,
-        "lastMonth": 12505380
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -506,11 +394,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/sentence-transformers/",
       "githubUrl": "https://github.com/huggingface/sentence-transformers",
-      "downloads": {
-        "lastDay": 875064,
-        "lastWeek": 6042160,
-        "lastMonth": 21032042
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -520,11 +404,7 @@
       "category": "developer-tools",
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/pymilvus/",
-      "downloads": {
-        "lastDay": 424747,
-        "lastWeek": 3368001,
-        "lastMonth": 17295159
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -535,11 +415,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/dagster/",
       "githubUrl": "https://github.com/dagster-io/dagster",
-      "downloads": {
-        "lastDay": 91000,
-        "lastWeek": 1398225,
-        "lastMonth": 5215823
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -550,11 +426,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/fugue/",
       "githubUrl": "http://github.com/fugue-project/fugue",
-      "downloads": {
-        "lastDay": 80917,
-        "lastWeek": 851640,
-        "lastMonth": 3393308
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -565,11 +437,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/recommenders/",
       "githubUrl": "https://github.com/recommenders-team/recommenders",
-      "downloads": {
-        "lastDay": 537,
-        "lastWeek": 4747,
-        "lastMonth": 19056
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -580,11 +448,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/seldon-core/",
       "githubUrl": "https://github.com/SeldonIO/seldon-core",
-      "downloads": {
-        "lastDay": 206,
-        "lastWeek": 4321,
-        "lastMonth": 16481
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -595,11 +459,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/runpod/",
       "githubUrl": "https://github.com/runpod/runpod-python",
-      "downloads": {
-        "lastDay": 13512,
-        "lastWeek": 166569,
-        "lastMonth": 685891
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -610,11 +470,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/data-diff/",
       "githubUrl": "https://github.com/datafold/data-diff",
-      "downloads": {
-        "lastDay": 586,
-        "lastWeek": 11114,
-        "lastMonth": 44093
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -624,11 +480,7 @@
       "category": "cloud-infrastructure",
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/azureml-core/",
-      "downloads": {
-        "lastDay": 33848,
-        "lastWeek": 401581,
-        "lastMonth": 1593917
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -639,11 +491,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/mage-ai/",
       "githubUrl": "https://github.com/mage-ai/mage-ai",
-      "downloads": {
-        "lastDay": 66,
-        "lastWeek": 6103,
-        "lastMonth": 24876
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -664,11 +512,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/sqlmodel/",
       "githubUrl": "https://github.com/fastapi/sqlmodel",
-      "downloads": {
-        "lastDay": 240360,
-        "lastWeek": 2974007,
-        "lastMonth": 11499846
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -679,11 +523,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/chromadb/",
       "githubUrl": "https://github.com/chroma-core/chroma",
-      "downloads": {
-        "lastDay": 274269,
-        "lastWeek": 3249637,
-        "lastMonth": 14099199
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -695,9 +535,9 @@
       "pypiUrl": "https://pypi.org/project/ibis-framework/",
       "githubUrl": "https://github.com/ibis-project/ibis",
       "downloads": {
-        "lastDay": 33943,
-        "lastWeek": 434016,
-        "lastMonth": 1647137
+        "lastDay": 64009,
+        "lastWeek": 377735,
+        "lastMonth": 1658568
       },
       "voteCount": 0
     },
@@ -710,9 +550,9 @@
       "pypiUrl": "https://pypi.org/project/feast/",
       "githubUrl": "https://github.com/feast-dev/feast",
       "downloads": {
-        "lastDay": 10757,
-        "lastWeek": 218431,
-        "lastMonth": 1242333
+        "lastDay": 47824,
+        "lastWeek": 206559,
+        "lastMonth": 1175767
       },
       "voteCount": 0
     },
@@ -724,11 +564,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/mlrun/",
       "githubUrl": "https://github.com/mlrun/mlrun",
-      "downloads": {
-        "lastDay": 720,
-        "lastWeek": 8231,
-        "lastMonth": 38245
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -739,11 +575,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/cognee/",
       "githubUrl": "https://github.com/topoteretes/cognee",
-      "downloads": {
-        "lastDay": 1708,
-        "lastWeek": 16348,
-        "lastMonth": 73547
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -763,11 +595,7 @@
       "category": "developer-tools",
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/open-webui/",
-      "downloads": {
-        "lastDay": 29452,
-        "lastWeek": 231264,
-        "lastMonth": 1284720
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -778,9 +606,9 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/great-tables/",
       "downloads": {
-        "lastDay": 5169,
-        "lastWeek": 114845,
-        "lastMonth": 463653
+        "lastDay": 14986,
+        "lastWeek": 105051,
+        "lastMonth": 474668
       },
       "voteCount": 0
     },
@@ -824,11 +652,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/dlt/",
       "githubUrl": "https://github.com/dlt-hub/dlt",
-      "downloads": {
-        "lastDay": 250048,
-        "lastWeek": 2695745,
-        "lastMonth": 8525536
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -839,11 +663,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/elasticsearch/",
       "githubUrl": "https://github.com/elastic/elasticsearch-py",
-      "downloads": {
-        "lastDay": 1382749,
-        "lastWeek": 12393510,
-        "lastMonth": 51656746
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -855,9 +675,9 @@
       "pypiUrl": "https://pypi.org/project/pymongo/",
       "githubUrl": "https://github.com/mongodb/mongo-python-driver",
       "downloads": {
-        "lastDay": 2291864,
-        "lastWeek": 21967049,
-        "lastMonth": 87359383
+        "lastDay": 3325663,
+        "lastWeek": 20516307,
+        "lastMonth": 89716076
       },
       "voteCount": 0
     },
@@ -879,11 +699,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/psycopg/",
       "githubUrl": "https://github.com/psycopg/psycopg",
-      "downloads": {
-        "lastDay": 1029650,
-        "lastWeek": 12576800,
-        "lastMonth": 46486313
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -894,11 +710,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/pgvector/",
       "githubUrl": "https://github.com/pgvector/pgvector-python",
-      "downloads": {
-        "lastDay": 384289,
-        "lastWeek": 4568528,
-        "lastMonth": 16947888
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -909,11 +721,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/cassandra-driver/",
       "githubUrl": "https://github.com/datastax/python-driver",
-      "downloads": {
-        "lastDay": 277314,
-        "lastWeek": 2136936,
-        "lastMonth": 7804210
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -925,9 +733,9 @@
       "pypiUrl": "https://pypi.org/project/mysql-connector-python/",
       "githubUrl": "https://github.com/mysql/mysql-connector-python",
       "downloads": {
-        "lastDay": 1330802,
-        "lastWeek": 11085885,
-        "lastMonth": 45855452
+        "lastDay": 1572845,
+        "lastWeek": 10254495,
+        "lastMonth": 45804251
       },
       "voteCount": 0
     },
@@ -939,11 +747,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/clickhouse-connect/",
       "githubUrl": "https://github.com/ClickHouse/clickhouse-connect",
-      "downloads": {
-        "lastDay": 410579,
-        "lastWeek": 4871632,
-        "lastMonth": 17774545
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -954,9 +758,9 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/lamindb/",
       "downloads": {
-        "lastDay": 1010,
-        "lastWeek": 9846,
-        "lastMonth": 43899
+        "lastDay": 882,
+        "lastWeek": 9786,
+        "lastMonth": 40964
       },
       "voteCount": 0
     },
@@ -980,9 +784,9 @@
       "pypiUrl": "https://pypi.org/project/cudf/",
       "githubUrl": "https://github.com/rapidsai/dask-cuda",
       "downloads": {
-        "lastDay": 355,
-        "lastWeek": 1201,
-        "lastMonth": 19873
+        "lastDay": 159,
+        "lastWeek": 944,
+        "lastMonth": 14047
       },
       "voteCount": 0
     },
@@ -994,11 +798,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/dcs-core/",
       "githubUrl": "https://github.com/datachecks/dcs-core",
-      "downloads": {
-        "lastDay": 1,
-        "lastWeek": 42,
-        "lastMonth": 206
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -1009,11 +809,7 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/aligned/",
       "githubUrl": "https://github.com/MatsMoll/aligned",
-      "downloads": {
-        "lastDay": 4,
-        "lastWeek": 102,
-        "lastMonth": 1851
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
@@ -1024,11 +820,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-airflow/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-airflow",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 99,
-        "lastMonth": 545
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "airflow"
     },
@@ -1040,11 +832,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-async-fsspec/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-async-fsspec",
-      "downloads": {
-        "lastDay": 4,
-        "lastWeek": 207,
-        "lastMonth": 710
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "async-fsspec"
     },
@@ -1056,11 +844,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-athena/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-athena",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 398,
-        "lastMonth": 841
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "aws-athena"
     },
@@ -1084,11 +868,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-awssagemaker/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-sagemaker",
-      "downloads": {
-        "lastDay": 12,
-        "lastWeek": 244,
-        "lastMonth": 1314
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "aws-sagemaker"
     },
@@ -1100,11 +880,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-comet-ml/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-comet-ml",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 170,
-        "lastMonth": 357
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "comet-ml"
     },
@@ -1116,11 +892,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-dbt/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dbt",
-      "downloads": {
-        "lastDay": 3,
-        "lastWeek": 437,
-        "lastMonth": 1117
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "dbt"
     },
@@ -1133,9 +905,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-deck-standard/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-deck-standard",
       "downloads": {
-        "lastDay": 240,
-        "lastWeek": 6537,
-        "lastMonth": 62474
+        "lastDay": 695,
+        "lastWeek": 4319,
+        "lastMonth": 58651
       },
       "voteCount": 0,
       "existingPluginSlug": "deck-standard"
@@ -1148,7 +920,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-dgxc-lepton/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dgxc-lepton",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 0,
+        "lastWeek": 15,
+        "lastMonth": 187
+      },
       "voteCount": 0,
       "existingPluginSlug": "dgxc-lepton"
     },
@@ -1161,9 +937,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-dolt/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-dolt",
       "downloads": {
-        "lastDay": 4,
-        "lastWeek": 447,
-        "lastMonth": 905
+        "lastDay": 1,
+        "lastWeek": 176,
+        "lastMonth": 1022
       },
       "voteCount": 0,
       "existingPluginSlug": "dolt"
@@ -1176,11 +952,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-duckdb/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-duckdb",
-      "downloads": {
-        "lastDay": 87,
-        "lastWeek": 391,
-        "lastMonth": 1790
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "duckdb"
     },
@@ -1192,11 +964,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-envd/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-envd",
-      "downloads": {
-        "lastDay": 23,
-        "lastWeek": 6984,
-        "lastMonth": 15703
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "envd"
     },
@@ -1209,9 +977,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-flyteinteractive/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-flyteinteractive",
       "downloads": {
-        "lastDay": 45,
-        "lastWeek": 1543,
-        "lastMonth": 5200
+        "lastDay": 364,
+        "lastWeek": 1448,
+        "lastMonth": 5422
       },
       "voteCount": 0,
       "existingPluginSlug": "flyteinteractive"
@@ -1224,11 +992,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-data-fsspec/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-data-fsspec",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 90,
-        "lastMonth": 941
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "data-fsspec"
     },
@@ -1241,9 +1005,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-geopandas/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-geopandas",
       "downloads": {
-        "lastDay": 2,
-        "lastWeek": 119,
-        "lastMonth": 238
+        "lastDay": 0,
+        "lastWeek": 16,
+        "lastMonth": 219
       },
       "voteCount": 0,
       "existingPluginSlug": "geopandas"
@@ -1257,9 +1021,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-identity_aware_proxy/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-identity-aware-proxy",
       "downloads": {
-        "lastDay": 10,
-        "lastWeek": 522,
-        "lastMonth": 1541
+        "lastDay": 51,
+        "lastWeek": 284,
+        "lastMonth": 1582
       },
       "voteCount": 0,
       "existingPluginSlug": "identity-aware-proxy"
@@ -1272,11 +1036,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-great_expectations/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-greatexpectations",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 646,
-        "lastMonth": 1079
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "greatexpectations"
     },
@@ -1288,11 +1048,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-hive/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-hive",
-      "downloads": {
-        "lastDay": 3,
-        "lastWeek": 500,
-        "lastMonth": 1378
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "hive"
     },
@@ -1304,11 +1060,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-huggingface/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-huggingface",
-      "downloads": {
-        "lastDay": 3,
-        "lastWeek": 466,
-        "lastMonth": 1357
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "huggingface"
     },
@@ -1320,11 +1072,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-inference/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-inference",
-      "downloads": {
-        "lastDay": 19,
-        "lastWeek": 258,
-        "lastMonth": 769
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "inference"
     },
@@ -1336,7 +1084,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-kfmpi/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-mpi",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 1356,
+        "lastWeek": 5509,
+        "lastMonth": 27741
+      },
       "voteCount": 0,
       "existingPluginSlug": "kf-mpi"
     },
@@ -1349,9 +1101,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-kfpytorch/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-pytorch",
       "downloads": {
-        "lastDay": 51,
-        "lastWeek": 7371,
-        "lastMonth": 25155
+        "lastDay": 608,
+        "lastWeek": 5078,
+        "lastMonth": 25265
       },
       "voteCount": 0,
       "existingPluginSlug": "kf-pytorch"
@@ -1364,11 +1116,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-kftensorflow/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-kf-tensorflow",
-      "downloads": {
-        "lastDay": 11,
-        "lastWeek": 617,
-        "lastMonth": 1339
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "kf-tensorflow"
     },
@@ -1380,11 +1128,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-pod/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8s-pod",
-      "downloads": {
-        "lastDay": 260,
-        "lastWeek": 17522,
-        "lastMonth": 72689
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "k8s-pod"
     },
@@ -1396,11 +1140,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-k8sdataservice/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8sdataservice",
-      "downloads": {
-        "lastDay": 3,
-        "lastWeek": 113,
-        "lastMonth": 379
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "k8sdataservice"
     },
@@ -1412,11 +1152,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-mmcloud/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-mmcloud",
-      "downloads": {
-        "lastDay": 12,
-        "lastWeek": 353,
-        "lastMonth": 699
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "mmcloud"
     },
@@ -1428,11 +1164,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-memray/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-memray",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 145,
-        "lastMonth": 298
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "memray"
     },
@@ -1444,11 +1176,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-mlflow/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-mlflow",
-      "downloads": {
-        "lastDay": 4,
-        "lastWeek": 604,
-        "lastMonth": 1638
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "mlflow"
     },
@@ -1460,11 +1188,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-modin/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-modin",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 930,
-        "lastMonth": 1852
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "modin"
     },
@@ -1476,11 +1200,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-neptune/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-neptune",
-      "downloads": {
-        "lastDay": 6,
-        "lastWeek": 119,
-        "lastMonth": 389
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "neptune"
     },
@@ -1504,11 +1224,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxpytorch/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-pytorch",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 296,
-        "lastMonth": 615
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "onnx-pytorch"
     },
@@ -1520,11 +1236,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxscikitlearn/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-scikitlearn",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 296,
-        "lastMonth": 618
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "onnx-scikitlearn"
     },
@@ -1536,11 +1248,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxtensorflow/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-tensorflow",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 391,
-        "lastMonth": 774
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "onnx-tensorflow"
     },
@@ -1552,11 +1260,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-optuna/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-optuna",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 289,
-        "lastMonth": 669
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "optuna"
     },
@@ -1569,9 +1273,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-pandera/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-pandera",
       "downloads": {
-        "lastDay": 33,
-        "lastWeek": 829,
-        "lastMonth": 3635
+        "lastDay": 24,
+        "lastWeek": 371,
+        "lastMonth": 3168
       },
       "voteCount": 0,
       "existingPluginSlug": "pandera"
@@ -1585,9 +1289,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-papermill/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-papermill",
       "downloads": {
-        "lastDay": 22,
-        "lastWeek": 1502,
-        "lastMonth": 3431
+        "lastDay": 41,
+        "lastWeek": 279,
+        "lastMonth": 3402
       },
       "voteCount": 0,
       "existingPluginSlug": "papermill"
@@ -1600,11 +1304,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-perian_job/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-perian",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 218,
-        "lastMonth": 375
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "perian"
     },
@@ -1616,11 +1316,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-slurm/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-slurm",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 114,
-        "lastMonth": 362
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "slurm"
     },
@@ -1632,11 +1328,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-sqlalchemy/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-sqlalchemy",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 553,
-        "lastMonth": 1947
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "sqlalchemy"
     },
@@ -1648,11 +1340,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-vaex/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-vaex",
-      "downloads": {
-        "lastDay": 2,
-        "lastWeek": 284,
-        "lastMonth": 919
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "vaex"
     },
@@ -1664,11 +1352,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-whylogs/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-whylogs",
-      "downloads": {
-        "lastDay": 19,
-        "lastWeek": 738,
-        "lastMonth": 2123
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "whylogs"
     }

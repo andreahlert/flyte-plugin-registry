@@ -50,7 +50,7 @@ function MaintainerAvatars({ maintainers }: { maintainers?: Plugin["maintainers"
         />
       ))}
       {maintainers.length > 6 && (
-        <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[var(--surface)] border border-[var(--border)] text-[10px] text-[var(--muted)] font-medium">
+        <span className="flex items-center justify-center w-7 h-7 rounded-full bg-[var(--surface)] border border-[var(--border)] text-xs text-[var(--muted)] font-medium">
           +{maintainers.length - 6}
         </span>
       )}
@@ -158,7 +158,7 @@ function CompareContent() {
           <div className="w-full overflow-visible relative">
             <ModuleBar modules={p.modules} />
           </div>
-          <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-[10px] text-[var(--muted)]">
+          <div className="flex flex-wrap gap-x-3 gap-y-0.5 text-xs text-[var(--muted)]">
             {Object.entries(
               p.modules.reduce<Record<string, number>>((acc, m) => {
                 acc[m.type] = (acc[m.type] || 0) + 1;
@@ -195,7 +195,7 @@ function CompareContent() {
           >
             {p.minFlytekitVersion}+
           </span>
-          <p className="text-[10px] text-[var(--muted)]">
+          <p className="text-xs text-[var(--muted)]">
             {p.sdk === "flyte-sdk" ? "Flyte SDK" : "Flytekit"}
           </p>
         </div>
@@ -329,7 +329,7 @@ function CompareContent() {
                 <div className="divide-y divide-[var(--border)]">
                   {rows.slice(1).map((row) => (
                     <div key={row.label} className="px-5 py-3">
-                      <div className="text-[10px] font-medium text-[var(--muted)] uppercase tracking-wider mb-1">
+                      <div className="text-xs font-medium text-[var(--muted)] uppercase tracking-wider mb-1">
                         {row.label}
                       </div>
                       {row.render(plugin)}

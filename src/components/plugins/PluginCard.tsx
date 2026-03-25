@@ -68,7 +68,7 @@ export function PluginCard({ plugin }: { plugin: Plugin }) {
             {plugin.name}
           </h3>
           {plugin.sdk === "flyte-sdk" && (
-            <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-[9px] font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
+            <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
               v2
             </span>
           )}
@@ -100,7 +100,7 @@ export function PluginCard({ plugin }: { plugin: Plugin }) {
             ) : null}
           </div>
           {plugin.minFlytekitVersion && plugin.minFlytekitVersion !== "1.0.0" && (
-            <span className="px-1.5 py-0.5 rounded text-[10px] font-medium bg-[var(--surface)] border border-[var(--border)]">
+            <span className="px-1.5 py-0.5 rounded text-xs font-medium bg-[var(--surface)] border border-[var(--border)]">
               {plugin.minFlytekitVersion}+
             </span>
           )}
