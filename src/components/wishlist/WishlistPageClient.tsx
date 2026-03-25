@@ -503,14 +503,14 @@ export function WishlistPageClient() {
                       className={`px-5 py-3.5 text-sm font-semibold text-[var(--muted)] uppercase tracking-wider text-left ${
                         header.column.getCanSort() ? "cursor-pointer select-none hover:text-[var(--heading)] transition-colors" : ""
                       } ${header.id === "votes" || header.id === "type" ? "text-center" : ""} ${
-                        header.id === "downloads" ? "text-right" : ""
+                        header.id === "downloads" ? "text-center" : ""
                       }`}
                       style={{ width: header.getSize() }}
                       onClick={header.column.getToggleSortingHandler()}
                     >
                       <div className={`inline-flex items-center gap-1.5 ${
                         header.id === "votes" || header.id === "type" ? "justify-center w-full" : ""
-                      } ${header.id === "downloads" ? "justify-end w-full" : ""}`}>
+                      } ${header.id === "downloads" ? "justify-center w-full" : ""}`}>
                         {flexRender(header.column.columnDef.header, header.getContext())}
                         {header.column.getCanSort() && (
                           <SortIcon isSorted={header.column.getIsSorted()} />
@@ -533,7 +533,7 @@ export function WishlistPageClient() {
                     <td
                       key={cell.id}
                       className={`px-5 py-4 ${
-                        cell.column.id === "downloads" ? "text-right" : ""
+                        cell.column.id === "downloads" ? "text-center" : ""
                       }`}
                     >
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
