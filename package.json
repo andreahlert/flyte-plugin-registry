@@ -13,6 +13,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.21.3",
     "fuse.js": "^7.1.0",
     "lucide-react": "^0.577.0",
     "motion": "^12.35.2",

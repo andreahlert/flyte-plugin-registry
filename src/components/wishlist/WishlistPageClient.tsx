@@ -11,9 +11,24 @@ import {
   Lightbulb,
   RefreshCw,
   ChevronUp,
+  ChevronDown,
+  ChevronsUpDown,
+  ChevronLeft,
+  ChevronRight,
   TrendingUp,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getSortedRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  useReactTable,
+  type SortingState,
+  type ColumnDef,
+} from "@tanstack/react-table";
 import { useWishlist } from "@/hooks/useWishlist";
 import { useUpvotes } from "@/hooks/useUpvote";
 import { WishlistItem } from "@/lib/types";
@@ -34,10 +49,20 @@ const CAT_ACCENT: Record<string, string> = {
   "developer-tools": "#64748b",
 };
 
-type SortOption = "downloads" | "votes" | "name";
 type GapFilter = "all" | "no-plugin" | "needs-v2-port";
 
 const fmt = formatDownloads;
+
+type WishlistRowData = WishlistItem & {
+  voteCount: number;
+  hasVoted: boolean;
+};
+
+function SortIcon({ isSorted }: { isSorted: false | "asc" | "desc" }) {
+  if (isSorted === "asc") return <ChevronUp className="w-4 h-4" />;
+  if (isSorted === "desc") return <ChevronDown className="w-4 h-4" />;
+  return <ChevronsUpDown className="w-4 h-4 opacity-30" />;
+}
 
 export function WishlistPageClient() {
   const { items } = useWishlist();
@@ -46,9 +71,9 @@ export function WishlistPageClient() {
 
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [gapFilter, setGapFilter] = useState<GapFilter>("all");
-  const [sortBy, setSortBy] = useState<SortOption>("downloads");
   const [searchQuery, setSearchQuery] = useState("");
   const [searchFocused, setSearchFocused] = useState(false);
+  const [sorting, setSorting] = useState<SortingState>([{ id: "downloads", desc: true }]);
   const searchRef = useRef<HTMLInputElement>(null);
 
   const hasActiveFilters = selectedCategory || gapFilter !== "all" || searchQuery;
@@ -67,33 +92,171 @@ export function WishlistPageClient() {
     return c;
   }, [items]);
 
-  const filtered = useMemo(() => {
-    let result = [...items];
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      result = result.filter(
-        (i) =>
-          i.name.toLowerCase().includes(q) ||
-          i.packageName.toLowerCase().includes(q) ||
-          i.description.toLowerCase().includes(q)
-      );
-    }
+  // Enrich data with vote info
+  const data = useMemo<WishlistRowData[]>(() => {
+    let result = items.map((item) => ({
+      ...item,
+      voteCount: counts[item.packageName] || 0,
+      hasVoted: voted.has(item.packageName),
+    }));
     if (selectedCategory) result = result.filter((i) => i.category === selectedCategory);
     if (gapFilter !== "all") result = result.filter((i) => i.gapType === gapFilter);
-    result.sort((a, b) => {
-      switch (sortBy) {
-        case "downloads":
-          return (b.downloads?.lastMonth ?? 0) - (a.downloads?.lastMonth ?? 0);
-        case "votes":
-          return (counts[b.packageName] || 0) - (counts[a.packageName] || 0);
-        case "name":
-          return a.name.localeCompare(b.name);
-        default:
-          return 0;
-      }
-    });
     return result;
-  }, [items, searchQuery, selectedCategory, gapFilter, sortBy, counts]);
+  }, [items, counts, voted, selectedCategory, gapFilter]);
+
+  const columns = useMemo<ColumnDef<WishlistRowData, unknown>[]>(
+    () => [
+      {
+        id: "votes",
+        header: "Vote",
+        accessorFn: (row) => row.voteCount,
+        size: 70,
+        cell: ({ row }) => {
+          const item = row.original;
+          return (
+            <div className="flex justify-center">
+              <button
+                onClick={() => toggle(item.packageName)}
+                disabled={votesLoading}
+                className={`group flex flex-col items-center gap-1 px-2 py-1.5 rounded-xl transition-all duration-200 ${
+                  item.hasVoted
+                    ? "bg-[var(--brand)]/10 text-[var(--brand)]"
+                    : "text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--heading)]"
+                }`}
+                title={item.hasVoted ? "Remove vote" : "Upvote this plugin"}
+              >
+                <ChevronUp
+                  className={`w-5 h-5 transition-transform duration-200 ${
+                    item.hasVoted ? "text-[var(--brand)]" : "group-hover:-translate-y-0.5"
+                  }`}
+                />
+                <span
+                  className={`text-sm font-semibold tabular-nums leading-none ${
+                    item.hasVoted ? "text-[var(--brand)]" : ""
+                  }`}
+                >
+                  {votesLoading ? (
+                    <span className="inline-block w-4 h-4 bg-[var(--surface)] rounded animate-pulse" />
+                  ) : (
+                    item.voteCount
+                  )}
+                </span>
+              </button>
+            </div>
+          );
+        },
+        enableGlobalFilter: false,
+      },
+      {
+        id: "package",
+        header: "Package",
+        accessorFn: (row) => `${row.name} ${row.packageName}`,
+        size: 220,
+        cell: ({ row }) => {
+          const item = row.original;
+          return (
+            <div className="min-w-0">
+              <a
+                href={item.pypiUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1.5"
+              >
+                <p className="text-base font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
+                  {item.name}
+                </p>
+                <ExternalLink className="w-4 h-4 text-[var(--muted)] opacity-0 group-hover:opacity-60 flex-shrink-0 transition-opacity" />
+              </a>
+              <p className="text-sm text-[var(--muted)] font-mono truncate">
+                {item.packageName}
+              </p>
+            </div>
+          );
+        },
+      },
+      {
+        id: "description",
+        header: "Description",
+        accessorKey: "description",
+        size: 350,
+        enableSorting: false,
+        cell: ({ getValue }) => (
+          <p className="text-sm text-[var(--muted)] leading-relaxed line-clamp-2">
+            {getValue() as string}
+          </p>
+        ),
+      },
+      {
+        id: "category",
+        header: "Category",
+        accessorKey: "category",
+        size: 140,
+        cell: ({ row }) => {
+          const accent = CAT_ACCENT[row.original.category] || "#7c3aed";
+          const catInfo = CATEGORIES.find((c) => c.slug === row.original.category);
+          return (
+            <span
+              className="inline-flex items-center gap-1.5 text-sm font-medium"
+              style={{ color: accent }}
+            >
+              <span
+                className="w-2 h-2 rounded-full flex-shrink-0"
+                style={{ backgroundColor: accent }}
+              />
+              {catInfo?.name}
+            </span>
+          );
+        },
+      },
+      {
+        id: "downloads",
+        header: "Downloads/mo",
+        accessorFn: (row) => row.downloads?.lastMonth ?? 0,
+        size: 130,
+        cell: ({ getValue }) => {
+          const dl = getValue() as number;
+          return (
+            <span className="text-base font-medium text-[var(--muted)] tabular-nums">
+              {dl > 0 ? fmt(dl) : "\u2014"}
+            </span>
+          );
+        },
+      },
+      {
+        id: "type",
+        header: "Type",
+        accessorKey: "gapType",
+        size: 120,
+        cell: ({ row }) => (
+          <div className="flex justify-center">
+            <GapTypeBadge
+              gapType={row.original.gapType}
+              belowThreshold={row.original.belowThreshold}
+            />
+          </div>
+        ),
+      },
+    ],
+    [votesLoading, toggle],
+  );
+
+  const table = useReactTable({
+    data,
+    columns,
+    state: {
+      sorting,
+      globalFilter: searchQuery,
+    },
+    onSortingChange: setSorting,
+    onGlobalFilterChange: setSearchQuery,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    initialState: {
+      pagination: { pageSize: 25 },
+    },
+  });
 
   const clearAll = () => {
     setSelectedCategory(null);
@@ -167,7 +330,7 @@ export function WishlistPageClient() {
         </div>
       </motion.div>
 
-      {/* Search + filters row */}
+      {/* Search */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -181,7 +344,7 @@ export function WishlistPageClient() {
           }`}
         >
           <Search
-            className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 transition-colors ${
+            className={`absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 transition-colors ${
               searchFocused ? "text-[var(--brand)]" : "text-[var(--muted)]"
             }`}
           />
@@ -193,7 +356,7 @@ export function WishlistPageClient() {
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setSearchFocused(true)}
             onBlur={() => setSearchFocused(false)}
-            className={`w-full pl-9 pr-9 py-2 rounded-xl border-2 bg-[var(--card-bg)] text-sm text-[var(--heading)] placeholder:text-[var(--muted)] focus:outline-none transition-all duration-200 ${
+            className={`w-full pl-10 pr-10 py-2.5 rounded-xl border-2 bg-[var(--card-bg)] text-sm text-[var(--heading)] placeholder:text-[var(--muted)] focus:outline-none transition-all duration-200 ${
               searchFocused
                 ? "border-[var(--brand)]/50 shadow-md shadow-[var(--brand)]/8"
                 : "border-[var(--border)]"
@@ -205,9 +368,9 @@ export function WishlistPageClient() {
                 setSearchQuery("");
                 searchRef.current?.focus();
               }}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)] hover:text-[var(--heading)]"
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[var(--muted)] hover:text-[var(--heading)]"
             >
-              <X className="w-3.5 h-3.5" />
+              <X className="w-4 h-4" />
             </button>
           )}
         </div>
@@ -220,17 +383,17 @@ export function WishlistPageClient() {
         transition={{ delay: 0.15 }}
         className="mb-5"
       >
-        <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-150 ${
+            className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
               !selectedCategory
                 ? "bg-[var(--heading)] text-[var(--background)] shadow-sm"
                 : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
             }`}
           >
             All
-            <span className={`text-[10px] ${!selectedCategory ? "opacity-60" : "opacity-40"}`}>
+            <span className={`text-xs ${!selectedCategory ? "opacity-60" : "opacity-40"}`}>
               {items.length}
             </span>
           </button>
@@ -241,7 +404,7 @@ export function WishlistPageClient() {
               <button
                 key={cat.slug}
                 onClick={() => setSelectedCategory(isSelected ? null : cat.slug)}
-                className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-150 ${
+                className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                   !isSelected
                     ? "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
                     : ""
@@ -257,16 +420,16 @@ export function WishlistPageClient() {
                 }
               >
                 <span
-                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  className="w-2 h-2 rounded-full flex-shrink-0"
                   style={{ backgroundColor: accent }}
                 />
                 <CategoryIcon
                   category={cat.slug}
-                  className="w-3.5 h-3.5"
+                  className="w-4 h-4"
                   style={!isSelected ? { color: "var(--muted)" } : undefined}
                 />
                 <span>{cat.name}</span>
-                <span className={`text-[10px] ${isSelected ? "opacity-60" : "opacity-40"}`}>
+                <span className={`text-xs ${isSelected ? "opacity-60" : "opacity-40"}`}>
                   {categoryCounts[cat.slug]}
                 </span>
               </button>
@@ -275,7 +438,7 @@ export function WishlistPageClient() {
         </div>
       </motion.div>
 
-      {/* Gap type + sort bar */}
+      {/* Gap type filter bar */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -303,18 +466,6 @@ export function WishlistPageClient() {
             </button>
           ))}
 
-          <div className="h-5 w-px bg-[var(--border)]" />
-
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as SortOption)}
-            className="text-sm font-medium bg-transparent text-[var(--muted)] cursor-pointer focus:outline-none border-none"
-          >
-            <option value="downloads">Downloads</option>
-            <option value="votes">Most Voted</option>
-            <option value="name">A-Z</option>
-          </select>
-
           <AnimatePresence>
             {hasActiveFilters && (
               <motion.button
@@ -333,157 +484,118 @@ export function WishlistPageClient() {
 
       {/* Results count */}
       <p className="text-sm text-[var(--muted)] mb-5">
-        <span className="font-semibold text-[var(--heading)]">{filtered.length}</span> result
-        {filtered.length !== 1 ? "s" : ""}
+        <span className="font-semibold text-[var(--heading)]">
+          {table.getFilteredRowModel().rows.length}
+        </span>{" "}
+        result{table.getFilteredRowModel().rows.length !== 1 ? "s" : ""}
       </p>
 
-      {/* Table */}
-      <div className="rounded-2xl border-2 border-[var(--border)] overflow-hidden overflow-x-auto">
-        <div className="grid grid-cols-[4rem_minmax(14rem,1.3fr)_2.5fr_9rem_8rem_7rem] min-w-[56rem] gap-4 px-6 py-3.5 bg-[var(--surface)] text-sm font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
-          <span className="text-center">Vote</span>
-          <span>Package</span>
-          <span>Description</span>
-          <span>Category</span>
-          <span className="text-right">Downloads/mo</span>
-          <span className="text-center">Type</span>
+      {/* Data Table */}
+      <div className="rounded-2xl border-2 border-[var(--border)] overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <tr key={headerGroup.id} className="bg-[var(--surface)] border-b border-[var(--border)]">
+                  {headerGroup.headers.map((header) => (
+                    <th
+                      key={header.id}
+                      className={`px-5 py-3.5 text-sm font-semibold text-[var(--muted)] uppercase tracking-wider text-left ${
+                        header.column.getCanSort() ? "cursor-pointer select-none hover:text-[var(--heading)] transition-colors" : ""
+                      } ${header.id === "votes" || header.id === "type" ? "text-center" : ""} ${
+                        header.id === "downloads" ? "text-right" : ""
+                      }`}
+                      style={{ width: header.getSize() }}
+                      onClick={header.column.getToggleSortingHandler()}
+                    >
+                      <div className={`inline-flex items-center gap-1.5 ${
+                        header.id === "votes" || header.id === "type" ? "justify-center w-full" : ""
+                      } ${header.id === "downloads" ? "justify-end w-full" : ""}`}>
+                        {flexRender(header.column.columnDef.header, header.getContext())}
+                        {header.column.getCanSort() && (
+                          <SortIcon isSorted={header.column.getIsSorted()} />
+                        )}
+                      </div>
+                    </th>
+                  ))}
+                </tr>
+              ))}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.map((row, i) => (
+                <tr
+                  key={row.id}
+                  className={`hover:bg-[var(--surface)] transition-colors duration-100 ${
+                    i < table.getRowModel().rows.length - 1 ? "border-b border-[var(--border)]" : ""
+                  }`}
+                >
+                  {row.getVisibleCells().map((cell) => (
+                    <td
+                      key={cell.id}
+                      className={`px-5 py-4 ${
+                        cell.column.id === "downloads" ? "text-right" : ""
+                      }`}
+                    >
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        <AnimatePresence mode="popLayout">
-          {filtered.map((item, i) => (
-            <WishlistRow
-              key={item.packageName}
-              item={item}
-              index={i}
-              isLast={i === filtered.length - 1}
-              voteCount={counts[item.packageName] || 0}
-              hasVoted={voted.has(item.packageName)}
-              onVote={() => toggle(item.packageName)}
-              votesLoading={votesLoading}
-            />
-          ))}
-        </AnimatePresence>
+
+        {/* Pagination */}
+        {table.getPageCount() > 1 && (
+          <div className="flex items-center justify-between px-5 py-3.5 border-t border-[var(--border)] bg-[var(--surface)]">
+            <p className="text-sm text-[var(--muted)]">
+              Page{" "}
+              <span className="font-semibold text-[var(--heading)]">
+                {table.getState().pagination.pageIndex + 1}
+              </span>{" "}
+              of{" "}
+              <span className="font-semibold text-[var(--heading)]">
+                {table.getPageCount()}
+              </span>
+            </p>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => table.previousPage()}
+                disabled={!table.getCanPreviousPage()}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-[var(--card-bg)] border border-[var(--border)] text-[var(--muted)] hover:text-[var(--heading)] hover:border-[var(--accent-interactive)] disabled:opacity-30 disabled:pointer-events-none transition-all"
+              >
+                <ChevronLeft className="w-4 h-4" />
+                Previous
+              </button>
+              <button
+                onClick={() => table.nextPage()}
+                disabled={!table.getCanNextPage()}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-[var(--card-bg)] border border-[var(--border)] text-[var(--muted)] hover:text-[var(--heading)] hover:border-[var(--accent-interactive)] disabled:opacity-30 disabled:pointer-events-none transition-all"
+              >
+                Next
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Empty state */}
-      <AnimatePresence>
-        {filtered.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="text-center py-16"
-          >
-            <Search className="w-6 h-6 text-[var(--muted)] mx-auto mb-3" />
-            <p className="text-sm text-[var(--heading)] font-medium mb-1">No items found</p>
-            <p className="text-xs text-[var(--muted)] mb-3">Try different filters or search terms.</p>
-            <button
-              onClick={clearAll}
-              className="text-xs font-medium text-[var(--brand)] hover:underline"
-            >
-              Clear all filters
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
-
-function WishlistRow({
-  item,
-  index,
-  isLast,
-  voteCount,
-  hasVoted,
-  onVote,
-  votesLoading,
-}: {
-  item: WishlistItem;
-  index: number;
-  isLast: boolean;
-  voteCount: number;
-  hasVoted: boolean;
-  onVote: () => void;
-  votesLoading: boolean;
-}) {
-  const accent = CAT_ACCENT[item.category] || "#7c3aed";
-  const catInfo = CATEGORIES.find((c) => c.slug === item.category);
-
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.12, delay: Math.min(index * 0.01, 0.2) }}
-      className={`grid grid-cols-[4rem_minmax(14rem,1.3fr)_2.5fr_9rem_8rem_7rem] min-w-[56rem] gap-4 items-center px-6 py-4 hover:bg-[var(--surface)] transition-colors duration-100 ${
-        !isLast ? "border-b border-[var(--border)]" : ""
-      }`}
-    >
-      {/* Vote button */}
-      <div className="flex justify-center">
-        <button
-          onClick={onVote}
-          disabled={votesLoading}
-          className={`group flex flex-col items-center gap-1 px-2 py-1.5 rounded-xl transition-all duration-200 ${
-            hasVoted
-              ? "bg-[var(--brand)]/10 text-[var(--brand)]"
-              : "text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--heading)]"
-          }`}
-          title={hasVoted ? "Remove vote" : "Upvote this plugin"}
-        >
-          <ChevronUp
-            className={`w-5 h-5 transition-transform duration-200 ${
-              hasVoted ? "text-[var(--brand)]" : "group-hover:-translate-y-0.5"
-            }`}
-          />
-          <span className={`text-sm font-semibold tabular-nums leading-none ${
-            hasVoted ? "text-[var(--brand)]" : ""
-          }`}>
-            {votesLoading ? (
-              <span className="inline-block w-4 h-4 bg-[var(--surface)] rounded animate-pulse" />
-            ) : (
-              voteCount
-            )}
-          </span>
-        </button>
-      </div>
-
-      {/* Package */}
-      <div className="min-w-0">
-        <a
-          href={item.pypiUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center gap-1.5"
-        >
-          <p className="text-base font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
-            {item.name}
+      {table.getFilteredRowModel().rows.length === 0 && (
+        <div className="text-center py-16">
+          <Search className="w-6 h-6 text-[var(--muted)] mx-auto mb-3" />
+          <p className="text-sm text-[var(--heading)] font-medium mb-1">No items found</p>
+          <p className="text-sm text-[var(--muted)] mb-3">
+            Try different filters or search terms.
           </p>
-          <ExternalLink className="w-4 h-4 text-[var(--muted)] opacity-0 group-hover:opacity-60 flex-shrink-0 transition-opacity" />
-        </a>
-        <p className="text-sm text-[var(--muted)] font-mono truncate">{item.packageName}</p>
-      </div>
-
-      {/* Description */}
-      <p className="text-sm text-[var(--muted)] leading-relaxed line-clamp-2">{item.description}</p>
-
-      {/* Category */}
-      <span className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: accent }}>
-        <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
-        {catInfo?.name}
-      </span>
-
-      {/* Downloads */}
-      <span className="text-base font-medium text-[var(--muted)] text-right tabular-nums">
-        {item.downloads && item.downloads.lastMonth > 0
-          ? fmt(item.downloads.lastMonth)
-          : "\u2014"}
-      </span>
-
-      {/* Gap type */}
-      <div className="flex justify-center">
-        <GapTypeBadge gapType={item.gapType} belowThreshold={item.belowThreshold} />
-      </div>
-    </motion.div>
+          <button
+            onClick={clearAll}
+            className="text-sm font-medium text-[var(--brand)] hover:underline"
+          >
+            Clear all filters
+          </button>
+        </div>
+      )}
+    </div>
   );
 }
