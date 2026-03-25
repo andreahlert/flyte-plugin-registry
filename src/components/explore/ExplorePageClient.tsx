@@ -8,11 +8,25 @@ import {
   X,
   Download,
   ChevronRight,
+  ChevronUp,
+  ChevronDown,
+  ChevronsUpDown,
+  ChevronLeft,
   LayoutGrid,
   List,
   Rows3,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getSortedRowModel,
+  getPaginationRowModel,
+  useReactTable,
+  type SortingState,
+  type ColumnDef,
+} from "@tanstack/react-table";
 import plugins from "@/data/plugins.json";
 import { Plugin } from "@/lib/types";
 import { PluginIcon } from "@/components/ui/PluginIcon";
@@ -22,6 +36,12 @@ import { CategoryIcon } from "@/components/ui/CategoryIcon";
 import { searchPlugins } from "@/lib/search";
 import { useMultiplePyPIStats } from "@/hooks/usePyPIStats";
 import { ModuleBar } from "@/components/plugins/PluginCard";
+
+function SortIcon({ isSorted }: { isSorted: false | "asc" | "desc" }) {
+  if (isSorted === "asc") return <ChevronUp className="w-4 h-4" />;
+  if (isSorted === "desc") return <ChevronDown className="w-4 h-4" />;
+  return <ChevronsUpDown className="w-4 h-4 opacity-30" />;
+}
 
 const typedPlugins = plugins as Plugin[];
 const MODULE_TYPES = ["task", "agent", "type", "sensor", "workflow", "other"] as const;
@@ -397,73 +417,9 @@ export function ExplorePageClient() {
         </div>
       )}
 
-      {/* Results - Table/List */}
+      {/* Results - Table/List (TanStack Table) */}
       {viewMode === "list" && (
-        <div className="rounded-xl border border-[var(--border)] overflow-hidden overflow-x-auto">
-          {/* Table header */}
-          <div className="grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] min-w-[40rem] gap-2 px-4 py-2 bg-[var(--surface)] text-xs font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
-            <span>Plugin</span>
-            <span>Description</span>
-            <span>Category</span>
-            <span className="text-right">Modules</span>
-            <span className="text-right">Downloads</span>
-          </div>
-          <AnimatePresence mode="popLayout">
-            {filtered.map((plugin, i) => {
-              const stats = statsMap.get(plugin.packageName);
-              const catInfo = CATEGORIES.find((c) => c.slug === plugin.category);
-              const accent = CAT_ACCENT[plugin.category] || "#7c3aed";
-              return (
-                <motion.div
-                  key={plugin.slug}
-                  layout
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.12, delay: Math.min(i * 0.01, 0.2) }}
-                >
-                  <Link
-                    href={`/plugins/${plugin.slug}`}
-                    className={`group grid grid-cols-[minmax(10rem,1fr)_2fr_7rem_5rem_5rem] min-w-[40rem] gap-2 items-center px-4 py-2 hover:bg-[var(--surface)] transition-colors duration-100 ${
-                      i < filtered.length - 1 ? "border-b border-[var(--border)]" : ""
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <PluginIcon slug={plugin.slug} name={plugin.name} className="w-6 h-6 flex-shrink-0" />
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <p className="text-sm font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
-                            {plugin.name}
-                          </p>
-                          {plugin.sdk === "flyte-sdk" && (
-                            <span className="flex-shrink-0 px-1 py-px rounded text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
-                              v2
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-xs text-[var(--muted)] font-mono truncate">{plugin.packageName}</p>
-                      </div>
-                    </div>
-                    <p className="text-sm text-[var(--muted)] truncate">{plugin.description}</p>
-                    <span className="inline-flex items-center gap-1 text-xs font-medium" style={{ color: accent }}>
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: accent }} />
-                      {catInfo?.name}
-                    </span>
-                    <div className="flex items-center gap-1.5 justify-end overflow-visible relative">
-                      <div className="w-14 flex-shrink-0 overflow-visible relative">
-                        <ModuleBar modules={plugin.modules} />
-                      </div>
-                      <span className="text-xs text-[var(--muted)] tabular-nums">{plugin.modules.length}</span>
-                    </div>
-                    <span className="text-xs text-[var(--muted)] text-right tabular-nums">
-                      {stats && stats.lastMonth > 0 ? fmt(stats.lastMonth) : "\u2014"}
-                    </span>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </div>
+        <ExploreTable plugins={filtered} statsMap={statsMap} />
       )}
 
       {/* Empty state */}
@@ -477,13 +433,228 @@ export function ExplorePageClient() {
           >
             <Search className="w-6 h-6 text-[var(--muted)] mx-auto mb-3" />
             <p className="text-sm text-[var(--heading)] font-medium mb-1">No plugins found</p>
-            <p className="text-xs text-[var(--muted)] mb-3">Try different filters or search terms.</p>
-            <button onClick={clearAll} className="text-xs font-medium text-[var(--brand)] hover:underline">
+            <p className="text-sm text-[var(--muted)] mb-3">Try different filters or search terms.</p>
+            <button onClick={clearAll} className="text-sm font-medium text-[var(--brand)] hover:underline">
               Clear all filters
             </button>
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+}
+
+/* ── TanStack Table for list view ── */
+
+interface PluginRow extends Plugin {
+  monthlyDownloads: number;
+}
+
+function ExploreTable({
+  plugins,
+  statsMap,
+}: {
+  plugins: Plugin[];
+  statsMap: Map<string, { lastDay: number; lastWeek: number; lastMonth: number }>;
+}) {
+  const [sorting, setSorting] = useState<SortingState>([{ id: "name", desc: false }]);
+
+  const data = useMemo<PluginRow[]>(
+    () =>
+      plugins.map((p) => ({
+        ...p,
+        monthlyDownloads: statsMap.get(p.packageName)?.lastMonth ?? 0,
+      })),
+    [plugins, statsMap],
+  );
+
+  const columns = useMemo<ColumnDef<PluginRow, unknown>[]>(
+    () => [
+      {
+        id: "name",
+        header: "Plugin",
+        accessorFn: (row) => row.name,
+        size: 240,
+        cell: ({ row }) => {
+          const plugin = row.original;
+          return (
+            <Link href={`/plugins/${plugin.slug}`} className="group flex items-center gap-2.5 min-w-0">
+              <PluginIcon slug={plugin.slug} name={plugin.name} className="w-8 h-8 flex-shrink-0" />
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <p className="text-base font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
+                    {plugin.name}
+                  </p>
+                  {plugin.sdk === "flyte-sdk" && (
+                    <span className="flex-shrink-0 px-1.5 py-0.5 rounded-md text-xs font-bold uppercase tracking-wide bg-gradient-to-r from-[var(--accent)] to-[var(--brand)] text-white leading-none">
+                      v2
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-[var(--muted)] font-mono truncate">{plugin.packageName}</p>
+              </div>
+            </Link>
+          );
+        },
+      },
+      {
+        id: "description",
+        header: "Description",
+        accessorKey: "description",
+        size: 400,
+        enableSorting: false,
+        cell: ({ getValue }) => (
+          <p className="text-sm text-[var(--muted)] leading-relaxed line-clamp-2">
+            {getValue() as string}
+          </p>
+        ),
+      },
+      {
+        id: "category",
+        header: "Category",
+        accessorKey: "category",
+        size: 150,
+        cell: ({ row }) => {
+          const accent = CAT_ACCENT[row.original.category] || "#7c3aed";
+          const catInfo = CATEGORIES.find((c) => c.slug === row.original.category);
+          return (
+            <span className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: accent }}>
+              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
+              {catInfo?.name}
+            </span>
+          );
+        },
+      },
+      {
+        id: "modules",
+        header: "Modules",
+        accessorFn: (row) => row.modules.length,
+        size: 120,
+        cell: ({ row }) => (
+          <div className="flex items-center gap-2 justify-center">
+            <div className="w-16 flex-shrink-0 overflow-visible relative">
+              <ModuleBar modules={row.original.modules} />
+            </div>
+            <span className="text-sm text-[var(--muted)] tabular-nums">{row.original.modules.length}</span>
+          </div>
+        ),
+      },
+      {
+        id: "downloads",
+        header: "Downloads/mo",
+        accessorFn: (row) => row.monthlyDownloads,
+        size: 130,
+        cell: ({ getValue }) => {
+          const dl = getValue() as number;
+          return (
+            <span className="text-base font-medium text-[var(--muted)] tabular-nums">
+              {dl > 0 ? fmt(dl) : "\u2014"}
+            </span>
+          );
+        },
+      },
+    ],
+    [],
+  );
+
+  const table = useReactTable({
+    data,
+    columns,
+    state: { sorting },
+    onSortingChange: setSorting,
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    initialState: {
+      pagination: { pageSize: 25 },
+    },
+  });
+
+  return (
+    <div className="rounded-2xl border-2 border-[var(--border)] overflow-hidden">
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id} className="bg-[var(--surface)] border-b border-[var(--border)]">
+                {headerGroup.headers.map((header) => (
+                  <th
+                    key={header.id}
+                    className={`px-5 py-3.5 text-sm font-semibold text-[var(--muted)] uppercase tracking-wider text-left ${
+                      header.column.getCanSort()
+                        ? "cursor-pointer select-none hover:text-[var(--heading)] transition-colors"
+                        : ""
+                    } ${header.id === "modules" || header.id === "downloads" ? "text-center" : ""}`}
+                    style={{ width: header.getSize() }}
+                    onClick={header.column.getToggleSortingHandler()}
+                  >
+                    <div
+                      className={`inline-flex items-center gap-1.5 ${
+                        header.id === "modules" || header.id === "downloads" ? "justify-center w-full" : ""
+                      }`}
+                    >
+                      {flexRender(header.column.columnDef.header, header.getContext())}
+                      {header.column.getCanSort() && <SortIcon isSorted={header.column.getIsSorted()} />}
+                    </div>
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row, i) => (
+              <tr
+                key={row.id}
+                className={`hover:bg-[var(--surface)] transition-colors duration-100 ${
+                  i < table.getRowModel().rows.length - 1 ? "border-b border-[var(--border)]" : ""
+                }`}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <td
+                    key={cell.id}
+                    className={`px-5 py-4 ${
+                      cell.column.id === "modules" || cell.column.id === "downloads" ? "text-center" : ""
+                    }`}
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {table.getPageCount() > 1 && (
+        <div className="flex items-center justify-between px-5 py-3.5 border-t border-[var(--border)] bg-[var(--surface)]">
+          <p className="text-sm text-[var(--muted)]">
+            Page{" "}
+            <span className="font-semibold text-[var(--heading)]">
+              {table.getState().pagination.pageIndex + 1}
+            </span>{" "}
+            of{" "}
+            <span className="font-semibold text-[var(--heading)]">{table.getPageCount()}</span>
+          </p>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-[var(--card-bg)] border border-[var(--border)] text-[var(--muted)] hover:text-[var(--heading)] hover:border-[var(--accent-interactive)] disabled:opacity-30 disabled:pointer-events-none transition-all"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              Previous
+            </button>
+            <button
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-[var(--card-bg)] border border-[var(--border)] text-[var(--muted)] hover:text-[var(--heading)] hover:border-[var(--accent-interactive)] disabled:opacity-30 disabled:pointer-events-none transition-all"
+            >
+              Next
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
