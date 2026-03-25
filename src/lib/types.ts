@@ -78,4 +78,5 @@ export interface WishlistItem {
   downloads: PyPIStats | null;
   voteCount: number;
   existingPluginSlug?: string;
+  belowThreshold?: boolean;
 }

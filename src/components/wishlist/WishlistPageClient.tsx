@@ -7,6 +7,7 @@ import {
   Search,
   X,
   Download,
+  ExternalLink,
   Lightbulb,
   RefreshCw,
   ChevronUp,
@@ -481,7 +482,7 @@ function WishlistRow({
 
       {/* Gap type */}
       <div className="flex justify-center">
-        <GapTypeBadge gapType={item.gapType} />
+        <GapTypeBadge gapType={item.gapType} belowThreshold={item.belowThreshold} />
       </div>
     </motion.div>
   );

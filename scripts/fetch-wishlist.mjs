@@ -68,7 +68,7 @@ async function main() {
 
   // New candidates (no-plugin)
   for (const c of filteredCandidates) {
-    items.push({
+    const item = {
       packageName: c.packageName,
       name: c.name,
       description: c.description,
@@ -79,7 +79,11 @@ async function main() {
       discussionUrl: undefined,
       downloads: null,
       voteCount: 0,
-    });
+    };
+    if (c.belowThreshold) {
+      item.belowThreshold = true;
+    }
+    items.push(item);
   }
 
   // V1-only (needs-v2-port)

@@ -47,7 +47,18 @@ export function SDKBadge({ sdk }: { sdk?: SDK }) {
   );
 }
 
-export function GapTypeBadge({ gapType }: { gapType: GapType }) {
+export function GapTypeBadge({ gapType, belowThreshold }: { gapType: GapType; belowThreshold?: boolean }) {
+  if (belowThreshold) {
+    return (
+      <span
+        className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[var(--brand)]/10 text-[var(--brand)]"
+        title="Below discovery threshold but kept by community votes"
+      >
+        Community Pick
+      </span>
+    );
+  }
+
   const isNew = gapType === "no-plugin";
   return (
     <span
