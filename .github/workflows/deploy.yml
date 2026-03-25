@@ -58,6 +58,8 @@ jobs:
         run: npx next build
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
+          NEXT_PUBLIC_UPSTASH_REDIS_REST_URL: ${{ secrets.NEXT_PUBLIC_UPSTASH_REDIS_REST_URL }}
+          NEXT_PUBLIC_UPSTASH_REDIS_REST_TOKEN: ${{ secrets.NEXT_PUBLIC_UPSTASH_REDIS_REST_TOKEN }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
