@@ -228,13 +228,13 @@ function CompareContent() {
   ];
 
   return (
-    <div className="px-6 sm:px-10 lg:px-16 py-10 max-w-6xl mx-auto">
+    <div className="px-6 sm:px-10 lg:px-16 py-10">
       <Link
         href="/"
         className="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-[var(--accent)] mb-6 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
-        Back to all plugins
+        Back to registry
       </Link>
 
       <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[var(--heading)] mb-2">
@@ -357,7 +357,7 @@ export function ComparePageClient() {
   return (
     <Suspense
       fallback={
-        <div className="px-6 sm:px-10 lg:px-16 py-10 max-w-6xl mx-auto">
+        <div className="px-6 sm:px-10 lg:px-16 py-10">
           <div className="h-8 w-48 bg-[var(--surface)] rounded animate-pulse mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
             <div className="h-12 bg-[var(--surface)] rounded-xl animate-pulse" />

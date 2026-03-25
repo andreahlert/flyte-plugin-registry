@@ -265,7 +265,7 @@ export function WishlistPageClient() {
   };
 
   return (
-    <div className="px-6 sm:px-10 lg:px-16 py-8 max-w-[1600px] mx-auto">
+    <div className="px-6 sm:px-10 lg:px-16 py-8">
       <Link
         href="/"
         className="inline-flex items-center gap-1.5 text-sm text-[var(--muted)] hover:text-[var(--accent)] mb-6 transition-colors"
