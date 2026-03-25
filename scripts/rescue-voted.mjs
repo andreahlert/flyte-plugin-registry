@@ -70,9 +70,21 @@ async function fetchPyPIInfo(packageName) {
   }
 }
 
+async function scanKeys(pattern) {
+  const keys = [];
+  let cursor = "0";
+  do {
+    const result = await redis(["SCAN", cursor, "MATCH", pattern, "COUNT", "100"]);
+    if (!result) break;
+    cursor = result[0];
+    keys.push(...result[1]);
+  } while (cursor !== "0");
+  return keys;
+}
+
 async function main() {
-  // 1. Get all voted package names from Upstash
-  const keys = await redis(["KEYS", "votes:*"]);
+  // 1. Get all voted package names from Upstash (SCAN instead of KEYS)
+  const keys = await scanKeys("votes:*");
   if (!keys || keys.length === 0) {
     console.log("No votes found in Upstash, nothing to rescue.");
     return;

@@ -18,15 +18,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout registry
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
+      - name: Checkout flytekit plugins
+        uses: actions/checkout@v4
         with:
           repository: flyteorg/flytekit
           path: flytekit
           sparse-checkout: plugins
 
-      - uses: actions/checkout@v4
+      - name: Checkout flyte-sdk plugins
+        uses: actions/checkout@v4
         with:
           repository: flyteorg/flyte-sdk
           path: flyte-sdk
