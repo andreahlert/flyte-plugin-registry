@@ -376,17 +376,18 @@ export function WishlistPageClient() {
         </div>
       </motion.div>
 
-      {/* Category strip */}
+      {/* Filters */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15 }}
-        className="mb-5"
+        className="mb-6 pb-5 border-b-2 border-[var(--border)]"
       >
-        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+        {/* Category row */}
+        <div className="flex flex-wrap gap-2 mb-4">
           <button
             onClick={() => setSelectedCategory(null)}
-            className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+            className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
               !selectedCategory
                 ? "bg-[var(--heading)] text-[var(--background)] shadow-sm"
                 : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
@@ -404,7 +405,7 @@ export function WishlistPageClient() {
               <button
                 key={cat.slug}
                 onClick={() => setSelectedCategory(isSelected ? null : cat.slug)}
-                className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+                className={`inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                   !isSelected
                     ? "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
                     : ""
@@ -436,15 +437,8 @@ export function WishlistPageClient() {
             );
           })}
         </div>
-      </motion.div>
 
-      {/* Gap type filter bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="mb-6 pb-5 border-b-2 border-[var(--border)]"
-      >
+        {/* Gap type row */}
         <div className="flex flex-wrap items-center gap-2.5">
           {(
             [
