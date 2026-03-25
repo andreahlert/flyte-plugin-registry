@@ -51,7 +51,7 @@ export function GapTypeBadge({ gapType, belowThreshold }: { gapType: GapType; be
   if (belowThreshold) {
     return (
       <span
-        className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[var(--brand)]/10 text-[var(--brand)]"
+        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-[var(--brand)]/10 text-[var(--brand)]"
         title="Below discovery threshold but kept by community votes"
       >
         Community Pick
@@ -62,7 +62,7 @@ export function GapTypeBadge({ gapType, belowThreshold }: { gapType: GapType; be
   const isNew = gapType === "no-plugin";
   return (
     <span
-      className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${
         isNew
           ? "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300"
           : "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300"

@@ -280,9 +280,9 @@ export function WishlistPageClient() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="mb-5 pb-4 border-b-2 border-[var(--border)]"
+        className="mb-6 pb-5 border-b-2 border-[var(--border)]"
       >
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2.5">
           {(
             [
               { value: "all", label: "All" },
@@ -293,7 +293,7 @@ export function WishlistPageClient() {
             <button
               key={value}
               onClick={() => setGapFilter(value)}
-              className={`px-2.5 py-1.5 rounded-md text-[11px] font-medium transition-all duration-150 ${
+              className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                 gapFilter === value
                   ? "bg-[var(--brand)] text-white shadow-sm shadow-[var(--brand)]/20"
                   : "bg-[var(--surface)] text-[var(--muted)] hover:bg-[var(--surface-hover)]"
@@ -303,12 +303,12 @@ export function WishlistPageClient() {
             </button>
           ))}
 
-          <div className="h-4 w-px bg-[var(--border)]" />
+          <div className="h-5 w-px bg-[var(--border)]" />
 
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortOption)}
-            className="text-[11px] font-medium bg-transparent text-[var(--muted)] cursor-pointer focus:outline-none border-none"
+            className="text-sm font-medium bg-transparent text-[var(--muted)] cursor-pointer focus:outline-none border-none"
           >
             <option value="downloads">Downloads</option>
             <option value="votes">Most Voted</option>
@@ -322,7 +322,7 @@ export function WishlistPageClient() {
                 animate={{ opacity: 1, width: "auto" }}
                 exit={{ opacity: 0, width: 0 }}
                 onClick={clearAll}
-                className="text-[11px] font-medium text-[var(--brand)] hover:underline whitespace-nowrap overflow-hidden ml-1"
+                className="text-sm font-medium text-[var(--brand)] hover:underline whitespace-nowrap overflow-hidden ml-1"
               >
                 Clear all
               </motion.button>
@@ -332,14 +332,14 @@ export function WishlistPageClient() {
       </motion.div>
 
       {/* Results count */}
-      <p className="text-xs text-[var(--muted)] mb-4">
+      <p className="text-sm text-[var(--muted)] mb-5">
         <span className="font-semibold text-[var(--heading)]">{filtered.length}</span> result
         {filtered.length !== 1 ? "s" : ""}
       </p>
 
       {/* Table */}
-      <div className="rounded-xl border border-[var(--border)] overflow-hidden overflow-x-auto">
-        <div className="grid grid-cols-[3.5rem_minmax(12rem,1.2fr)_2fr_8rem_7rem_5.5rem] min-w-[48rem] gap-3 px-5 py-3 bg-[var(--surface)] text-xs font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
+      <div className="rounded-2xl border-2 border-[var(--border)] overflow-hidden overflow-x-auto">
+        <div className="grid grid-cols-[4rem_minmax(14rem,1.3fr)_2.5fr_9rem_8rem_7rem] min-w-[56rem] gap-4 px-6 py-3.5 bg-[var(--surface)] text-sm font-semibold text-[var(--muted)] uppercase tracking-wider border-b border-[var(--border)]">
           <span className="text-center">Vote</span>
           <span>Package</span>
           <span>Description</span>
@@ -415,7 +415,7 @@ function WishlistRow({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.12, delay: Math.min(index * 0.01, 0.2) }}
-      className={`grid grid-cols-[3.5rem_minmax(12rem,1.2fr)_2fr_8rem_7rem_5.5rem] min-w-[48rem] gap-3 items-center px-5 py-3 hover:bg-[var(--surface)] transition-colors duration-100 ${
+      className={`grid grid-cols-[4rem_minmax(14rem,1.3fr)_2.5fr_9rem_8rem_7rem] min-w-[56rem] gap-4 items-center px-6 py-4 hover:bg-[var(--surface)] transition-colors duration-100 ${
         !isLast ? "border-b border-[var(--border)]" : ""
       }`}
     >
@@ -424,7 +424,7 @@ function WishlistRow({
         <button
           onClick={onVote}
           disabled={votesLoading}
-          className={`group flex flex-col items-center gap-0.5 px-1.5 py-1 rounded-lg transition-all duration-200 ${
+          className={`group flex flex-col items-center gap-1 px-2 py-1.5 rounded-xl transition-all duration-200 ${
             hasVoted
               ? "bg-[var(--brand)]/10 text-[var(--brand)]"
               : "text-[var(--muted)] hover:bg-[var(--surface-hover)] hover:text-[var(--heading)]"
@@ -436,11 +436,11 @@ function WishlistRow({
               hasVoted ? "text-[var(--brand)]" : "group-hover:-translate-y-0.5"
             }`}
           />
-          <span className={`text-xs font-semibold tabular-nums leading-none ${
+          <span className={`text-sm font-semibold tabular-nums leading-none ${
             hasVoted ? "text-[var(--brand)]" : ""
           }`}>
             {votesLoading ? (
-              <span className="inline-block w-3 h-3 bg-[var(--surface)] rounded animate-pulse" />
+              <span className="inline-block w-4 h-4 bg-[var(--surface)] rounded animate-pulse" />
             ) : (
               voteCount
             )}
@@ -454,27 +454,27 @@ function WishlistRow({
           href={item.pypiUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex items-center gap-1"
+          className="group flex items-center gap-1.5"
         >
-          <p className="text-sm font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
+          <p className="text-base font-semibold text-[var(--heading)] group-hover:text-[var(--brand)] transition-colors truncate">
             {item.name}
           </p>
-          <ExternalLink className="w-3.5 h-3.5 text-[var(--muted)] opacity-0 group-hover:opacity-60 flex-shrink-0 transition-opacity" />
+          <ExternalLink className="w-4 h-4 text-[var(--muted)] opacity-0 group-hover:opacity-60 flex-shrink-0 transition-opacity" />
         </a>
-        <p className="text-xs text-[var(--muted)] font-mono truncate">{item.packageName}</p>
+        <p className="text-sm text-[var(--muted)] font-mono truncate">{item.packageName}</p>
       </div>
 
       {/* Description */}
-      <p className="text-sm text-[var(--muted)] truncate">{item.description}</p>
+      <p className="text-sm text-[var(--muted)] leading-relaxed line-clamp-2">{item.description}</p>
 
       {/* Category */}
-      <span className="inline-flex items-center gap-1.5 text-xs font-medium" style={{ color: accent }}>
-        <span className="w-2 h-2 rounded-full" style={{ backgroundColor: accent }} />
+      <span className="inline-flex items-center gap-1.5 text-sm font-medium" style={{ color: accent }}>
+        <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: accent }} />
         {catInfo?.name}
       </span>
 
       {/* Downloads */}
-      <span className="text-sm text-[var(--muted)] text-right tabular-nums">
+      <span className="text-base font-medium text-[var(--muted)] text-right tabular-nums">
         {item.downloads && item.downloads.lastMonth > 0
           ? fmt(item.downloads.lastMonth)
           : "\u2014"}
