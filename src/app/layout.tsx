@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Instrument_Sans, IBM_Plex_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
@@ -29,6 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="23149829-a1fd-4d22-80e7-cbf03e0abcc7"
+          strategy="afterInteractive"
+        />
+      </head>
       <body
         className={`${instrumentSans.variable} ${ibmPlexMono.variable} antialiased`}
         style={{ fontFamily: "var(--font-instrument-sans), system-ui, sans-serif" }}
