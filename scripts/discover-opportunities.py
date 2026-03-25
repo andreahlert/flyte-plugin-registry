@@ -576,22 +576,30 @@ class GapAnalyzer:
     def analyze(self, pkg_name: str) -> tuple[bool, Optional[str], str]:
         """Returns (has_existing, existing_slug, gap_type)."""
         name_lower = pkg_name.lower()
+        # Normalize variants: flytekit-plugins-X, flytekitplugins-X -> X
+        normalized = name_lower
+        for strip_prefix in ["flytekit-plugins-", "flytekitplugins-", "flyteplugins-"]:
+            if normalized.startswith(strip_prefix):
+                normalized = normalized[len(strip_prefix):]
+                break
 
-        # Direct package match
-        for prefix in ["flytekitplugins-", "flyteplugins-", ""]:
-            candidate = f"{prefix}{name_lower}"
-            if candidate in self.plugin_packages:
-                slug = name_lower
-                if slug in self.v2_bases:
+        # Direct package match (try both original and normalized)
+        for name_variant in [name_lower, normalized]:
+            for prefix in ["flytekitplugins-", "flyteplugins-", ""]:
+                candidate = f"{prefix}{name_variant}"
+                if candidate in self.plugin_packages:
+                    slug = name_variant
+                    if slug in self.v2_bases:
+                        return True, slug, "already-covered"
+                    elif slug in self.v1_slugs:
+                        return True, slug, "needs-v2-port"
                     return True, slug, "already-covered"
-                elif slug in self.v1_slugs:
-                    return True, slug, "needs-v2-port"
-                return True, slug, "already-covered"
 
-        # Dependency match
-        if name_lower in self.plugin_deps:
-            slug = self.plugin_deps[name_lower]
-            return True, slug, "already-covered"
+        # Dependency match (try both original and normalized)
+        for name_variant in [name_lower, normalized]:
+            if name_variant in self.plugin_deps:
+                slug = self.plugin_deps[name_variant]
+                return True, slug, "already-covered"
 
         return False, None, "no-plugin"
 
