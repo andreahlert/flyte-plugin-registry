@@ -22,11 +22,11 @@
       "githubUrl": "https://github.com/gradio-app/gradio"
     },
     {
-      "packageName": "redis",
-      "name": "Redis",
-      "description": "Python client for Redis database and key-value store",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/redis/redis-py"
+      "packageName": "sentence-transformers",
+      "name": "Sentence Transformers",
+      "description": "Embeddings, Retrieval, and Reranking",
+      "category": "ml-training",
+      "githubUrl": "https://github.com/huggingface/sentence-transformers"
     },
     {
       "packageName": "streamlit",
@@ -36,74 +36,11 @@
       "githubUrl": "https://github.com/streamlit/streamlit"
     },
     {
-      "packageName": "sentence-transformers",
-      "name": "Sentence Transformers",
-      "description": "Embeddings, Retrieval, and Reranking",
-      "category": "ml-training",
-      "githubUrl": "https://github.com/huggingface/sentence-transformers"
-    },
-    {
-      "packageName": "metaflow",
-      "name": "Metaflow",
-      "description": "Metaflow: More AI and ML, Less Engineering",
-      "category": "workflow",
-      "githubUrl": "https://github.com/Netflix/metaflow"
-    },
-    {
       "packageName": "seaborn",
       "name": "Seaborn",
       "description": "Statistical data visualization",
       "category": "developer-tools",
       "githubUrl": "https://github.com/mwaskom/seaborn"
-    },
-    {
-      "packageName": "dagster",
-      "name": "Dagster",
-      "description": "Dagster is an orchestration platform for the development, production, and observation of data assets.",
-      "category": "workflow",
-      "githubUrl": "https://github.com/dagster-io/dagster"
-    },
-    {
-      "packageName": "prefect",
-      "name": "Prefect",
-      "description": "Workflow orchestration and management.",
-      "category": "workflow",
-      "githubUrl": "https://github.com/PrefectHQ/prefect"
-    },
-    {
-      "packageName": "narwhals",
-      "name": "Narwhals",
-      "description": "Extremely lightweight compatibility layer between dataframe libraries",
-      "category": "data-dataframe",
-      "githubUrl": "https://github.com/narwhals-dev/narwhals"
-    },
-    {
-      "packageName": "azure-storage-blob",
-      "name": "Azure Storage Blob",
-      "description": "Microsoft Azure Blob Storage Client Library for Python",
-      "category": "cloud-infrastructure",
-      "githubUrl": "https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob"
-    },
-    {
-      "packageName": "deepspeed",
-      "name": "Deepspeed",
-      "description": "DeepSpeed library",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/deepspeedai/DeepSpeed"
-    },
-    {
-      "packageName": "dash",
-      "name": "Dash",
-      "description": "A Python framework for building reactive web-apps. Developed by Plotly.",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/plotly/dash"
-    },
-    {
-      "packageName": "skypilot",
-      "name": "Skypilot",
-      "description": "SkyPilot: Run AI on Any Infra \u2014 Unified, Faster, Cheaper.",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/skypilot-org/skypilot"
     },
     {
       "packageName": "sqlmodel",
@@ -113,18 +50,18 @@
       "githubUrl": "https://github.com/fastapi/sqlmodel"
     },
     {
-      "packageName": "pymongo",
-      "name": "Pymongo",
-      "description": "PyMongo - the Official MongoDB Python driver",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/mongodb/mongo-python-driver"
+      "packageName": "dagster",
+      "name": "Dagster",
+      "description": "Dagster is an orchestration platform for the development, production, and observation of data assets.",
+      "category": "workflow",
+      "githubUrl": "https://github.com/dagster-io/dagster"
     },
     {
-      "packageName": "elasticsearch",
-      "name": "Elasticsearch",
-      "description": "Python client for Elasticsearch",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/elastic/elasticsearch-py"
+      "packageName": "azure-storage-blob",
+      "name": "Azure Storage Blob",
+      "description": "Microsoft Azure Blob Storage Client Library for Python",
+      "category": "cloud-infrastructure",
+      "githubUrl": "https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob"
     },
     {
       "packageName": "chromadb",
@@ -134,11 +71,25 @@
       "githubUrl": "https://github.com/chroma-core/chroma"
     },
     {
-      "packageName": "psycopg",
-      "name": "Psycopg",
-      "description": "PostgreSQL database adapter for Python",
+      "packageName": "narwhals",
+      "name": "Narwhals",
+      "description": "Extremely lightweight compatibility layer between dataframe libraries",
+      "category": "data-dataframe",
+      "githubUrl": "https://github.com/narwhals-dev/narwhals"
+    },
+    {
+      "packageName": "pymongo",
+      "name": "Pymongo",
+      "description": "PyMongo - the Official MongoDB Python driver",
       "category": "databases-warehouses",
-      "githubUrl": "https://github.com/psycopg/psycopg"
+      "githubUrl": "https://github.com/mongodb/mongo-python-driver"
+    },
+    {
+      "packageName": "dash",
+      "name": "Dash",
+      "description": "A Python framework for building reactive web-apps. Developed by Plotly.",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/plotly/dash"
     },
     {
       "packageName": "deltalake",
@@ -148,11 +99,18 @@
       "githubUrl": "https://github.com/delta-io/delta-rs"
     },
     {
-      "packageName": "google-cloud-storage",
-      "name": "Google Cloud Storage",
-      "description": "Google Cloud Storage API client library",
-      "category": "cloud-infrastructure",
-      "githubUrl": "https://github.com/googleapis/python-storage"
+      "packageName": "psycopg",
+      "name": "Psycopg",
+      "description": "PostgreSQL database adapter for Python",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/psycopg/psycopg"
+    },
+    {
+      "packageName": "skypilot",
+      "name": "Skypilot",
+      "description": "SkyPilot: Run AI on Any Infra \u2014 Unified, Faster, Cheaper.",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/skypilot-org/skypilot"
     },
     {
       "packageName": "evidently",
@@ -162,11 +120,39 @@
       "githubUrl": "https://github.com/evidentlyai/evidently"
     },
     {
+      "packageName": "google-cloud-storage",
+      "name": "Google Cloud Storage",
+      "description": "Google Cloud Storage API client library",
+      "category": "cloud-infrastructure",
+      "githubUrl": "https://github.com/googleapis/python-storage"
+    },
+    {
       "packageName": "google-cloud-aiplatform",
       "name": "Google Cloud Aiplatform",
       "description": "Vertex AI API client library",
       "category": "cloud-infrastructure",
       "githubUrl": "https://github.com/googleapis/python-aiplatform"
+    },
+    {
+      "packageName": "modal",
+      "name": "Modal",
+      "description": "Python client library for Modal",
+      "category": "cloud-infrastructure",
+      "githubUrl": "https://github.com/modal-labs/modal-client"
+    },
+    {
+      "packageName": "weaviate-client",
+      "name": "Weaviate Client",
+      "description": "A python native Weaviate client",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/weaviate/weaviate-python-client"
+    },
+    {
+      "packageName": "ydata-profiling",
+      "name": "Ydata Profiling",
+      "description": "Generate profile report for pandas DataFrame",
+      "category": "data-validation",
+      "githubUrl": "https://github.com/ydataai/ydata-profiling"
     },
     {
       "packageName": "ibis-framework",
@@ -183,53 +169,11 @@
       "githubUrl": "https://github.com/dlt-hub/dlt"
     },
     {
-      "packageName": "clickhouse-connect",
-      "name": "Clickhouse Connect",
-      "description": "ClickHouse Database Core Driver for Python, Pandas, and Superset",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/ClickHouse/clickhouse-connect"
-    },
-    {
-      "packageName": "ydata-profiling",
-      "name": "Ydata Profiling",
-      "description": "Generate profile report for pandas DataFrame",
-      "category": "data-validation",
-      "githubUrl": "https://github.com/ydataai/ydata-profiling"
-    },
-    {
-      "packageName": "modal",
-      "name": "Modal",
-      "description": "Python client library for Modal",
-      "category": "cloud-infrastructure",
-      "githubUrl": "https://github.com/modal-labs/modal-client"
-    },
-    {
       "packageName": "mysql-connector-python",
       "name": "Mysql Connector Python",
       "description": "A self-contained Python driver for communicating with MySQL servers, using an API that is compliant with the Python Database API Specification v2.0 (PEP 249).",
       "category": "databases-warehouses",
       "githubUrl": "https://github.com/mysql/mysql-connector-python"
-    },
-    {
-      "packageName": "rasa",
-      "name": "Rasa",
-      "description": "Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/rasahq/rasa"
-    },
-    {
-      "packageName": "koalas",
-      "name": "Koalas",
-      "description": "Koalas: pandas API on Apache Spark",
-      "category": "data-dataframe",
-      "githubUrl": "https://github.com/databricks/koalas"
-    },
-    {
-      "packageName": "pgvector",
-      "name": "Pgvector",
-      "description": "pgvector support for Python",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/pgvector/pgvector-python"
     },
     {
       "packageName": "pyiceberg",
@@ -246,6 +190,27 @@
       "githubUrl": "https://github.com/qdrant/qdrant-client"
     },
     {
+      "packageName": "metaflow",
+      "name": "Metaflow",
+      "description": "Metaflow: More AI and ML, Less Engineering",
+      "category": "workflow",
+      "githubUrl": "https://github.com/Netflix/metaflow"
+    },
+    {
+      "packageName": "rasa",
+      "name": "Rasa",
+      "description": "Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/rasahq/rasa"
+    },
+    {
+      "packageName": "pgvector",
+      "name": "Pgvector",
+      "description": "pgvector support for Python",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/pgvector/pgvector-python"
+    },
+    {
       "packageName": "databricks-sql-connector",
       "name": "Databricks Sql Connector",
       "description": "Databricks SQL Connector for Python",
@@ -253,18 +218,25 @@
       "githubUrl": "https://github.com/databricks/databricks-sql-python"
     },
     {
-      "packageName": "feast",
-      "name": "Feast",
-      "description": "Python SDK for Feast",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/feast-dev/feast"
+      "packageName": "koalas",
+      "name": "Koalas",
+      "description": "Koalas: pandas API on Apache Spark",
+      "category": "data-dataframe",
+      "githubUrl": "https://github.com/databricks/koalas"
     },
     {
-      "packageName": "weaviate-client",
-      "name": "Weaviate Client",
-      "description": "A python native Weaviate client",
+      "packageName": "clickhouse-connect",
+      "name": "Clickhouse Connect",
+      "description": "ClickHouse Database Core Driver for Python, Pandas, and Superset",
       "category": "databases-warehouses",
-      "githubUrl": "https://github.com/weaviate/weaviate-python-client"
+      "githubUrl": "https://github.com/ClickHouse/clickhouse-connect"
+    },
+    {
+      "packageName": "cassandra-driver",
+      "name": "Cassandra Driver",
+      "description": "DataStax Driver for Apache Cassandra",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/datastax/python-driver"
     },
     {
       "packageName": "minio",
@@ -281,20 +253,6 @@
       "githubUrl": "https://github.com/voxel51/fiftyone"
     },
     {
-      "packageName": "neo4j",
-      "name": "Neo4J",
-      "description": "Neo4j Bolt driver for Python",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/neo4j/neo4j-python-driver"
-    },
-    {
-      "packageName": "cassandra-driver",
-      "name": "Cassandra Driver",
-      "description": "DataStax Driver for Apache Cassandra",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/datastax/python-driver"
-    },
-    {
       "packageName": "bentoml",
       "name": "Bentoml",
       "description": "BentoML: The easiest way to serve AI apps and models",
@@ -309,20 +267,6 @@
       "githubUrl": "https://github.com/trinodb/trino-python-client"
     },
     {
-      "packageName": "databases",
-      "name": "Databases",
-      "description": "Async database support for Python.",
-      "category": "databases-warehouses",
-      "githubUrl": "https://github.com/encode/databases"
-    },
-    {
-      "packageName": "asyncpg",
-      "name": "Asyncpg",
-      "description": "An asyncio PostgreSQL driver",
-      "category": "databases-warehouses",
-      "githubUrl": null
-    },
-    {
       "packageName": "deepchecks",
       "name": "Deepchecks",
       "description": "Package for validating your machine learning model and data",
@@ -330,25 +274,11 @@
       "githubUrl": "https://github.com/deepchecks/deepchecks"
     },
     {
-      "packageName": "recommenders",
-      "name": "Recommenders",
-      "description": "Recommenders - Python utilities for building recommendation systems",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/recommenders-team/recommenders"
-    },
-    {
-      "packageName": "litserve",
-      "name": "Litserve",
-      "description": "Lightweight AI server.",
-      "category": "model-serving",
-      "githubUrl": "https://github.com/Lightning-AI/litserve"
-    },
-    {
-      "packageName": "ludwig",
-      "name": "Ludwig",
-      "description": "Declarative machine learning: End-to-end machine learning pipelines using data-driven configurations.",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/ludwig-ai/ludwig"
+      "packageName": "databases",
+      "name": "Databases",
+      "description": "Async database support for Python.",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/encode/databases"
     },
     {
       "packageName": "tritonclient",
@@ -358,6 +288,41 @@
       "githubUrl": null
     },
     {
+      "packageName": "asyncpg",
+      "name": "Asyncpg",
+      "description": "An asyncio PostgreSQL driver",
+      "category": "databases-warehouses",
+      "githubUrl": null
+    },
+    {
+      "packageName": "recommenders",
+      "name": "Recommenders",
+      "description": "Recommenders - Python utilities for building recommendation systems",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/recommenders-team/recommenders"
+    },
+    {
+      "packageName": "ludwig",
+      "name": "Ludwig",
+      "description": "Declarative machine learning: End-to-end machine learning pipelines using data-driven configurations.",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/ludwig-ai/ludwig"
+    },
+    {
+      "packageName": "deepspeed",
+      "name": "Deepspeed",
+      "description": "DeepSpeed library",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/deepspeedai/DeepSpeed"
+    },
+    {
+      "packageName": "litserve",
+      "name": "Litserve",
+      "description": "Lightweight AI server.",
+      "category": "model-serving",
+      "githubUrl": "https://github.com/Lightning-AI/litserve"
+    },
+    {
       "packageName": "cognee",
       "name": "Cognee",
       "description": "Cognee - is a library for enriching LLM context with a semantic layer for better understanding and reasoning.",
@@ -365,81 +330,11 @@
       "githubUrl": "https://github.com/topoteretes/cognee"
     },
     {
-      "packageName": "pyjanitor",
-      "name": "Pyjanitor",
-      "description": "Tools for cleaning pandas DataFrames",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/pyjanitor-devs/pyjanitor"
-    },
-    {
-      "packageName": "open-webui",
-      "name": "Open Webui",
-      "description": "Open WebUI",
-      "category": "developer-tools",
-      "githubUrl": null
-    },
-    {
-      "packageName": "fedml",
-      "name": "Fedml",
-      "description": "A research and production integrated edge-cloud library for federated/distributed machine learning at anywhere at any scale.",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/FedML-AI/FedML"
-    },
-    {
-      "packageName": "pymilvus",
-      "name": "Pymilvus",
-      "description": "Python Sdk for Milvus",
-      "category": "developer-tools",
-      "githubUrl": null
-    },
-    {
-      "packageName": "lancedb",
-      "name": "Lancedb",
-      "description": "lancedb",
-      "category": "databases-warehouses",
-      "githubUrl": null
-    },
-    {
       "packageName": "mlrun",
       "name": "Mlrun",
       "description": "Tracking and config of machine learning runs",
       "category": "developer-tools",
       "githubUrl": "https://github.com/mlrun/mlrun"
-    },
-    {
-      "packageName": "runpod",
-      "name": "Runpod",
-      "description": "\ud83d\udc0d | Python library for Runpod API and serverless worker SDK.",
-      "category": "cloud-infrastructure",
-      "githubUrl": "https://github.com/runpod/runpod-python"
-    },
-    {
-      "packageName": "fugue",
-      "name": "Fugue",
-      "description": "An abstraction layer for distributed computing",
-      "category": "data-dataframe",
-      "githubUrl": "http://github.com/fugue-project/fugue"
-    },
-    {
-      "packageName": "data-diff",
-      "name": "Data Diff",
-      "description": "Command-line tool and Python library to efficiently diff rows across two different databases.",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/datafold/data-diff"
-    },
-    {
-      "packageName": "mage-ai",
-      "name": "Mage Ai",
-      "description": "Mage is a tool for building and deploying data pipelines.",
-      "category": "developer-tools",
-      "githubUrl": "https://github.com/mage-ai/mage-ai"
-    },
-    {
-      "packageName": "azureml-core",
-      "name": "Azureml Core",
-      "description": "Azure Machine Learning core packages, modules, and classes",
-      "category": "cloud-infrastructure",
-      "githubUrl": null
     },
     {
       "packageName": "seldon-core",
@@ -456,11 +351,67 @@
       "githubUrl": null
     },
     {
-      "packageName": "daft",
-      "name": "Daft",
-      "description": "Distributed Dataframes for Multimodal Data",
+      "packageName": "prefect",
+      "name": "Prefect",
+      "description": "Workflow orchestration and management.",
+      "category": "workflow",
+      "githubUrl": "https://github.com/PrefectHQ/prefect"
+    },
+    {
+      "packageName": "fugue",
+      "name": "Fugue",
+      "description": "An abstraction layer for distributed computing",
       "category": "data-dataframe",
+      "githubUrl": "http://github.com/fugue-project/fugue"
+    },
+    {
+      "packageName": "pymilvus",
+      "name": "Pymilvus",
+      "description": "Python Sdk for Milvus",
+      "category": "developer-tools",
       "githubUrl": null
+    },
+    {
+      "packageName": "lancedb",
+      "name": "Lancedb",
+      "description": "lancedb",
+      "category": "databases-warehouses",
+      "githubUrl": null
+    },
+    {
+      "packageName": "fedml",
+      "name": "Fedml",
+      "description": "A research and production integrated edge-cloud library for federated/distributed machine learning at anywhere at any scale.",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/FedML-AI/FedML"
+    },
+    {
+      "packageName": "runpod",
+      "name": "Runpod",
+      "description": "\ud83d\udc0d | Python library for Runpod API and serverless worker SDK.",
+      "category": "cloud-infrastructure",
+      "githubUrl": "https://github.com/runpod/runpod-python"
+    },
+    {
+      "packageName": "azureml-core",
+      "name": "Azureml Core",
+      "description": "Azure Machine Learning core packages, modules, and classes",
+      "category": "cloud-infrastructure",
+      "githubUrl": null
+    },
+    {
+      "packageName": "data-diff",
+      "name": "Data Diff",
+      "description": "Command-line tool and Python library to efficiently diff rows across two different databases.",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/datafold/data-diff"
+    },
+    {
+      "packageName": "mage-ai",
+      "name": "Mage Ai",
+      "description": "Mage is a tool for building and deploying data pipelines.",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/mage-ai/mage-ai"
     },
     {
       "packageName": "pinecone-client",
@@ -470,11 +421,39 @@
       "githubUrl": null
     },
     {
+      "packageName": "feast",
+      "name": "Feast",
+      "description": "Python SDK for Feast",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/feast-dev/feast"
+    },
+    {
+      "packageName": "daft",
+      "name": "Daft",
+      "description": "Distributed Dataframes for Multimodal Data",
+      "category": "data-dataframe",
+      "githubUrl": null
+    },
+    {
+      "packageName": "redis",
+      "name": "Redis",
+      "description": "Python client for Redis database and key-value store",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/redis/redis-py"
+    },
+    {
       "packageName": "great-tables",
       "name": "Great Tables",
       "description": "Easily generate information-rich, publication-quality tables from Python.",
       "category": "data-dataframe",
       "githubUrl": null
+    },
+    {
+      "packageName": "elasticsearch",
+      "name": "Elasticsearch",
+      "description": "Python client for Elasticsearch",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/elastic/elasticsearch-py"
     },
     {
       "packageName": "aligned",
@@ -484,11 +463,25 @@
       "githubUrl": "https://github.com/MatsMoll/aligned"
     },
     {
+      "packageName": "pyjanitor",
+      "name": "Pyjanitor",
+      "description": "Tools for cleaning pandas DataFrames",
+      "category": "developer-tools",
+      "githubUrl": "https://github.com/pyjanitor-devs/pyjanitor"
+    },
+    {
       "packageName": "pointblank",
       "name": "Pointblank",
       "description": "Find out if your data is what you think it is.",
       "category": "developer-tools",
       "githubUrl": null
+    },
+    {
+      "packageName": "neo4j",
+      "name": "Neo4J",
+      "description": "Neo4j Bolt driver for Python",
+      "category": "databases-warehouses",
+      "githubUrl": "https://github.com/neo4j/neo4j-python-driver"
     },
     {
       "packageName": "cudf",
