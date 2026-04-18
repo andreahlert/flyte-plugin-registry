@@ -9,6 +9,7 @@ import { PopularPlugins } from "@/components/home/PopularPlugins";
 import { NewPlugins } from "@/components/home/NewPlugins";
 import { BrowseByCategory } from "@/components/home/BrowseByCategory";
 import { ContributeSection } from "@/components/home/ContributeSection";
+import { MCPSection } from "@/components/home/MCPSection";
 
 const typedPlugins = plugins as Plugin[];
 
@@ -26,6 +27,7 @@ export default function HomePage() {
       <PopularPlugins plugins={typedPlugins} />
       <NewPlugins plugins={typedPlugins} />
       <BrowseByCategory plugins={typedPlugins} />
+      <MCPSection />
       <ContributeSection />
     </>
   );
