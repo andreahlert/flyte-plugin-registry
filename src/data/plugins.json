@@ -1309,6 +1309,10 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
       },
       {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
         "login": "andreahlert",
         "avatarUrl": "https://avatars.githubusercontent.com/u/180008227?v=4"
       }
@@ -2579,6 +2583,56 @@
     ]
   },
   {
+    "slug": "v2-omegaconf",
+    "name": "OmegaConf DictConfig/ListConfig support for Flyte",
+    "packageName": "flyteplugins-omegaconf",
+    "description": "Enables OmegaConf DictConfig and ListConfig as typed inputs and outputs for Flyte tasks.",
+    "category": "developer-tools",
+    "tags": [
+      "omegaconf"
+    ],
+    "dependencies": [
+      "omegaconf"
+    ],
+    "installCommand": "pip install flyteplugins-omegaconf",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/omegaconf",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-omegaconf/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "DictConfigTransformer",
+        "type": "type",
+        "importPath": "flyteplugins.omegaconf",
+        "description": "Configuration type for OmegaConf DictConfig/ListConfig support for Flyte."
+      },
+      {
+        "name": "ListConfigTransformer",
+        "type": "type",
+        "importPath": "flyteplugins.omegaconf",
+        "description": "Configuration type for OmegaConf DictConfig/ListConfig support for Flyte."
+      },
+      {
+        "name": "log_yaml",
+        "type": "task",
+        "importPath": "flyteplugins.omegaconf",
+        "description": "Task for OmegaConf DictConfig/ListConfig support for Flyte."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      }
+    ]
+  },
+  {
     "slug": "onnx-pytorch",
     "name": "ONNX PyTorch",
     "packageName": "flytekitplugins-onnxpytorch",
@@ -3012,8 +3066,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -3153,6 +3207,45 @@
       {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-papermill",
+    "name": "Papermill",
+    "packageName": "flyteplugins-papermill",
+    "description": "Run Jupyter notebooks as Flyte tasks using papermill.",
+    "category": "developer-tools",
+    "tags": [
+      "papermill"
+    ],
+    "dependencies": [
+      "papermill",
+      "nbconvert",
+      "nbformat",
+      "ipykernel"
+    ],
+    "installCommand": "pip install flyteplugins-papermill",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/papermill",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-papermill/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "NotebookTask",
+        "type": "task",
+        "importPath": "flyteplugins.papermill",
+        "description": "Resolver for NotebookTask instances.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       }
     ]
   },
@@ -4112,8 +4205,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
