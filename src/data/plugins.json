@@ -1076,6 +1076,48 @@
     ]
   },
   {
+    "slug": "v2-echo",
+    "name": "Echo task",
+    "packageName": "flyteplugins-echo",
+    "description": "flyteplugins-echo lets you author Flyte tasks with TaskTemplate.type = \"echo\".",
+    "category": "developer-tools",
+    "tags": [
+      "echo"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-echo",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/echo",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-echo/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Echo",
+        "type": "type",
+        "importPath": "flyteplugins.echo",
+        "description": "Route a task to the backend `echo` plugin.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "EchoTask",
+        "type": "task",
+        "importPath": "flyteplugins.echo",
+        "description": "Task for Echo task.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "pmahindrakar-oss",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/77798312?v=4"
+      }
+    ]
+  },
+  {
     "slug": "envd",
     "name": "Envd",
     "packageName": "flytekitplugins-envd",
@@ -1309,8 +1351,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "andreahlert",
@@ -1599,12 +1641,59 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
-      },
-      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "jeevb",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-hydra",
+    "name": "Hydra launcher",
+    "packageName": "flyteplugins-hydra",
+    "description": "Hydra support for Flyte tasks.",
+    "category": "developer-tools",
+    "tags": [
+      "hydra"
+    ],
+    "dependencies": [
+      "hydra-core",
+      "kubernetes"
+    ],
+    "installCommand": "pip install flyteplugins-hydra",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/hydra",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-hydra/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "hydra_run",
+        "type": "task",
+        "importPath": "flyteplugins.hydra",
+        "description": "Task for Hydra launcher."
+      },
+      {
+        "name": "hydra_sweep",
+        "type": "task",
+        "importPath": "flyteplugins.hydra",
+        "description": "Task for Hydra launcher."
+      },
+      {
+        "name": "apply_task_env",
+        "type": "task",
+        "importPath": "flyteplugins.hydra",
+        "description": "Task for Hydra launcher."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       }
     ]
   },
@@ -1734,8 +1823,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2188,16 +2277,16 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
-      },
-      {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "jeevb",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
       }
     ]
   },
@@ -2625,6 +2714,10 @@
       {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "katrogan",
@@ -3058,16 +3151,16 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
         "login": "jeevb",
         "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
       },
       {
         "login": "cosmicBboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -3349,12 +3442,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
-      },
-      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "jeevb",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
       }
     ]
   },
@@ -3629,12 +3722,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
-      },
-      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "jeevb",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
       }
     ]
   },
@@ -4201,12 +4294,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "jeevb",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
       }
     ]
   },
@@ -4351,8 +4444,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
