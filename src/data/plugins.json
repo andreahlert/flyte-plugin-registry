@@ -467,8 +467,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -639,8 +639,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -692,8 +692,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -1351,8 +1351,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "andreahlert",
@@ -1586,6 +1586,54 @@
     ]
   },
   {
+    "slug": "v2-huggingface",
+    "name": "Hugging Face Plugin for Flyte",
+    "packageName": "flyteplugins-huggingface",
+    "description": "Native Flyte support for Hugging Face integrations in Flyte.",
+    "category": "developer-tools",
+    "tags": [
+      "huggingface"
+    ],
+    "dependencies": [
+      "datasets",
+      "huggingface-hub",
+      "pyarrow"
+    ],
+    "installCommand": "pip install flyteplugins-huggingface",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/huggingface",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-huggingface/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "HFSource",
+        "type": "type",
+        "importPath": "flyteplugins.huggingface.datasets",
+        "description": "HuggingFace dataset source for task parameter defaults.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "from_hf",
+        "type": "task",
+        "importPath": "flyteplugins.huggingface.datasets",
+        "description": "Task for Hugging Face Plugin for Flyte."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
+  },
+  {
     "slug": "v2-hitl",
     "name": "Human-in-the-Loop (HITL)",
     "packageName": "flyteplugins-hitl",
@@ -1645,8 +1693,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -1823,8 +1871,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2281,12 +2329,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -2716,12 +2764,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -3049,8 +3097,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -3446,8 +3494,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -3544,8 +3592,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "kevinliao852",
@@ -3726,8 +3774,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -3951,8 +3999,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -4294,12 +4342,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -4444,8 +4492,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
