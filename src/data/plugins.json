@@ -42,12 +42,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
         "login": "andreahlert",
@@ -463,12 +463,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -515,44 +515,6 @@
       {
         "login": "thomasjpfan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/5402633?v=4"
-      }
-    ]
-  },
-  {
-    "slug": "v2-bio",
-    "name": "Curated bioinformatics CLI tool wrappers for flyte (bedtools, samtools, bcftools, GATK, ...)",
-    "packageName": "flyteplugins-bio",
-    "description": "Curated bioinformatics CLI tool wrappers for Flyte.",
-    "category": "developer-tools",
-    "tags": [
-      "bio"
-    ],
-    "dependencies": [],
-    "installCommand": "pip install flyteplugins-bio",
-    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/bio",
-    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
-    "pypiUrl": "https://pypi.org/project/flyteplugins-bio/",
-    "minFlytekitVersion": "",
-    "modules": [
-      {
-        "name": "env as bio_env",
-        "type": "task",
-        "importPath": "flyteplugins.bio",
-        "description": "Task for Curated bioinformatics CLI tool wrappers for flyte (bedtools, samtools, bcftools, GATK, ...)."
-      },
-      {
-        "name": "env as bedtools_env",
-        "type": "task",
-        "importPath": "flyteplugins.bio",
-        "description": "Task for Curated bioinformatics CLI tool wrappers for flyte (bedtools, samtools, bcftools, GATK, ...)."
-      }
-    ],
-    "isDeprecated": false,
-    "sdk": "flyte-sdk",
-    "maintainers": [
-      {
-        "login": "samhita-alla",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       }
     ]
   },
@@ -673,12 +635,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -726,12 +688,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -1150,8 +1112,8 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "kumare3",
@@ -1393,8 +1355,8 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "kumare3",
@@ -1670,12 +1632,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
-        "login": "machichima",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/60069744?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "samhita-alla",
@@ -1739,12 +1701,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -1790,8 +1752,8 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "kumare3",
@@ -1925,12 +1887,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2387,12 +2349,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -2822,8 +2784,8 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "kumare3",
@@ -3155,12 +3117,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -3261,16 +3223,16 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -3560,12 +3522,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -3805,6 +3767,50 @@
     ]
   },
   {
+    "slug": "v2-redis",
+    "name": "Redis-backed metadata storage (redis:// paths) for flyte",
+    "packageName": "flyteplugins-redis",
+    "description": "Redis-backed metadata storage for flyte, selected purely by path: any redis:// path used with",
+    "category": "developer-tools",
+    "tags": [
+      "redis"
+    ],
+    "dependencies": [
+      "redis"
+    ],
+    "installCommand": "pip install flyteplugins-redis",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/redis",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-redis/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "RedisFileSystem",
+        "type": "type",
+        "importPath": "flyteplugins.redis",
+        "description": "Maps fsspec file semantics onto Redis string keys."
+      },
+      {
+        "name": "RedisStreamedFile",
+        "type": "type",
+        "importPath": "flyteplugins.redis",
+        "description": "Streamed reads via GETRANGE; streamed writes accumulate with APPEND so a value larger than one flush buffer never needs to be held in memory at once."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "EngHabu",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27159?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      }
+    ]
+  },
+  {
     "slug": "v2-sglang",
     "name": "SGLang",
     "packageName": "flyteplugins-sglang",
@@ -3848,12 +3854,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -4073,12 +4079,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -4420,12 +4426,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -4566,12 +4572,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
