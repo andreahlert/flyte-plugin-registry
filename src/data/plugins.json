@@ -1,61 +1,5 @@
 [
   {
-    "slug": "v2-anthropic",
-    "name": "Anthropic Claude",
-    "packageName": "flyteplugins-anthropic",
-    "description": "This plugin provides integration between Flyte and Anthropic's Claude API, enabling you to use Flyte tasks as tools for Claude agents.",
-    "category": "developer-tools",
-    "tags": [
-      "anthropic"
-    ],
-    "dependencies": [
-      "anthropic"
-    ],
-    "installCommand": "pip install flyteplugins-anthropic",
-    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/anthropic",
-    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
-    "pypiUrl": "https://pypi.org/project/flyteplugins-anthropic/",
-    "minFlytekitVersion": "",
-    "modules": [
-      {
-        "name": "Agent",
-        "type": "agent",
-        "importPath": "flyteplugins.anthropic",
-        "description": "A Claude agent configuration.",
-        "baseClass": "dataclass",
-        "subtype": "config"
-      },
-      {
-        "name": "function_tool",
-        "type": "task",
-        "importPath": "flyteplugins.anthropic",
-        "description": "Task for Anthropic Claude."
-      },
-      {
-        "name": "run_agent",
-        "type": "agent",
-        "importPath": "flyteplugins.anthropic",
-        "description": "Backend connector for Anthropic Claude."
-      }
-    ],
-    "isDeprecated": false,
-    "sdk": "flyte-sdk",
-    "maintainers": [
-      {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
-        "login": "andreahlert",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/180008227?v=4"
-      }
-    ]
-  },
-  {
     "slug": "airflow",
     "name": "Apache Airflow",
     "packageName": "flytekitplugins-airflow",
@@ -266,6 +210,34 @@
     ]
   },
   {
+    "slug": "aws-emr-serverless",
+    "name": "AWS EMR Serverless",
+    "packageName": "flytekitplugins-awsemrserverless",
+    "description": "A Flyte connector for AWS EMR Serverless that submits Spark and Hive jobs to an EMR Serverless application and tracks them through to completion.",
+    "category": "developer-tools",
+    "tags": [
+      "aws-emr-serverless"
+    ],
+    "dependencies": [
+      "aioboto3",
+      "boto3"
+    ],
+    "installCommand": "pip install flytekitplugins-awsemrserverless",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-emr-serverless",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-awsemrserverless/",
+    "minFlytekitVersion": "1.14.6",
+    "modules": [],
+    "isDeprecated": false,
+    "sdk": "flytekit",
+    "maintainers": [
+      {
+        "login": "rohitrsh",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/17526588?v=4"
+      }
+    ]
+  },
+  {
     "slug": "aws-sagemaker",
     "name": "AWS SageMaker",
     "packageName": "flytekitplugins-awssagemaker",
@@ -463,12 +435,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -635,12 +607,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -688,12 +660,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -1313,62 +1285,6 @@
     ]
   },
   {
-    "slug": "v2-gemini",
-    "name": "Google Gemini",
-    "packageName": "flyteplugins-gemini",
-    "description": "This plugin provides integration between Flyte and Google's Gemini API, enabling you to use Flyte tasks as tools for Gemini agents.",
-    "category": "developer-tools",
-    "tags": [
-      "gemini"
-    ],
-    "dependencies": [
-      "google-genai"
-    ],
-    "installCommand": "pip install flyteplugins-gemini",
-    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/gemini",
-    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
-    "pypiUrl": "https://pypi.org/project/flyteplugins-gemini/",
-    "minFlytekitVersion": "",
-    "modules": [
-      {
-        "name": "Agent",
-        "type": "agent",
-        "importPath": "flyteplugins.gemini",
-        "description": "A Gemini agent configuration.",
-        "baseClass": "dataclass",
-        "subtype": "config"
-      },
-      {
-        "name": "function_tool",
-        "type": "task",
-        "importPath": "flyteplugins.gemini",
-        "description": "Task for Google Gemini."
-      },
-      {
-        "name": "run_agent",
-        "type": "agent",
-        "importPath": "flyteplugins.gemini",
-        "description": "Backend connector for Google Gemini."
-      }
-    ],
-    "isDeprecated": false,
-    "sdk": "flyte-sdk",
-    "maintainers": [
-      {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
-        "login": "andreahlert",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/180008227?v=4"
-      }
-    ]
-  },
-  {
     "slug": "identity-aware-proxy",
     "name": "Google IAP",
     "packageName": "flytekitplugins-identity_aware_proxy",
@@ -1701,12 +1617,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -1887,12 +1803,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2345,12 +2261,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2565,12 +2481,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -3080,53 +2996,6 @@
     ]
   },
   {
-    "slug": "v2-openai",
-    "name": "OpenAI",
-    "packageName": "flyteplugins-openai",
-    "description": "This plugin provides a drop-in replacement for OpenAI packages. It provides",
-    "category": "model-serving",
-    "tags": [
-      "openai",
-      "llm",
-      "agents",
-      "ai"
-    ],
-    "dependencies": [
-      "openai-agents"
-    ],
-    "installCommand": "pip install flyteplugins-openai",
-    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/openai",
-    "docsUrl": "https://www.union.ai/docs/flyte/integrations/connectors/openai-batch-connector",
-    "pypiUrl": "https://pypi.org/project/flyteplugins-openai/",
-    "minFlytekitVersion": "",
-    "modules": [
-      {
-        "name": "function_tool",
-        "type": "task",
-        "importPath": "flyteplugins.openai.agents",
-        "description": "Task for OpenAI."
-      }
-    ],
-    "isDeprecated": false,
-    "sdk": "flyte-sdk",
-    "addedDate": "2025-08-12",
-    "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/chatgpt_agent",
-    "maintainers": [
-      {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      }
-    ]
-  },
-  {
     "slug": "optuna",
     "name": "Optuna (wrapper)",
     "packageName": "flytekitplugins-optuna",
@@ -3409,12 +3278,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -3522,12 +3391,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -3620,12 +3489,12 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/kfpytorch_plugin",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "kevinliao852",
@@ -3757,8 +3626,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "wild-endeavor",
@@ -3801,12 +3670,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "EngHabu",
@@ -3858,12 +3727,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -4083,12 +3952,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -4333,6 +4202,42 @@
     ]
   },
   {
+    "slug": "v2-trackio",
+    "name": "Trackio",
+    "packageName": "flyteplugins-trackio",
+    "description": "Native Flyte support for Trackio experiment tracking.",
+    "category": "developer-tools",
+    "tags": [
+      "trackio"
+    ],
+    "dependencies": [
+      "trackio"
+    ],
+    "installCommand": "pip install flyteplugins-trackio",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/trackio",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-trackio/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Trackio",
+        "type": "type",
+        "importPath": "flyteplugins.trackio",
+        "description": "Generates a Trackio dashboard link for Flyte.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "ParagEkbote",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/69567729?v=4"
+      }
+    ]
+  },
+  {
     "slug": "vaex",
     "name": "Vaex",
     "packageName": "flytekitplugins-vaex",
@@ -4430,12 +4335,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -4572,12 +4477,12 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/wandb_plugin",
     "maintainers": [
       {
-        "login": "samhita-alla",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
         "login": "katrogan",
