@@ -2596,6 +2596,80 @@
     ]
   },
   {
+    "slug": "v2-nsight",
+    "name": "NVIDIA Nsight Systems GPU profiling",
+    "packageName": "flyteplugins-nsight",
+    "description": "Profile a Flyte task with NVIDIA Nsight Systems by adding one decorator. The task runs under",
+    "category": "developer-tools",
+    "tags": [
+      "nsight"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-nsight",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/nsight",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-nsight/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "nsys_profile",
+        "type": "task",
+        "importPath": "flyteplugins.nsight",
+        "description": "Task for NVIDIA Nsight Systems GPU profiling."
+      },
+      {
+        "name": "nsys",
+        "type": "task",
+        "importPath": "flyteplugins.nsight",
+        "description": "True if the `nsys` binary is on PATH in this container."
+      },
+      {
+        "name": "nvtx",
+        "type": "task",
+        "importPath": "flyteplugins.nsight",
+        "description": "Task for NVIDIA Nsight Systems GPU profiling."
+      },
+      {
+        "name": "capture_report_file",
+        "type": "task",
+        "importPath": "flyteplugins.nsight",
+        "description": "Task for NVIDIA Nsight Systems GPU profiling."
+      },
+      {
+        "name": "nsys_available",
+        "type": "task",
+        "importPath": "flyteplugins.nsight",
+        "description": "True if the `nsys` binary is on PATH in this container."
+      },
+      {
+        "name": "session_name",
+        "type": "task",
+        "importPath": "flyteplugins.nsight",
+        "description": "Task for NVIDIA Nsight Systems GPU profiling."
+      },
+      {
+        "name": "under_nsys",
+        "type": "task",
+        "importPath": "flyteplugins.nsight",
+        "description": "True only when the runtime actually re-exec'd this process under `nsys launch`."
+      },
+      {
+        "name": "DEFAULT_REPORTS",
+        "type": "type",
+        "importPath": "flyteplugins.nsight",
+        "description": "Configuration type for NVIDIA Nsight Systems GPU profiling."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
+  },
+  {
     "slug": "omegaconf",
     "name": "OmegaConf",
     "packageName": "flytekitplugins-omegaconf",
