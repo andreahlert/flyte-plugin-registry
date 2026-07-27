@@ -565,7 +565,9 @@
       "parallel",
       "dataframe"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "dask-scheduler: executable file not found"
+    ],
     "installCommand": "pip install flyteplugins-dask",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/dask",
     "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/k8s-dask-plugin",
@@ -607,12 +609,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -2230,6 +2232,41 @@
     ]
   },
   {
+    "slug": "v2-lance",
+    "name": "Lance Plugin for Flyte",
+    "packageName": "flyteplugins-lance",
+    "description": "This plugin adds a \"lance\" format to the Flyte DataFrame, so a Lance dataset can",
+    "category": "developer-tools",
+    "tags": [
+      "lance"
+    ],
+    "dependencies": [
+      "pylance",
+      "pyarrow"
+    ],
+    "installCommand": "pip install flyteplugins-lance",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/lance",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-lance/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "register_lance_df_transformers",
+        "type": "type",
+        "importPath": "flyteplugins.lance",
+        "description": "Register Lance DataFrame encoders and decoders with the DataFrameTransformerEngine."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      }
+    ]
+  },
+  {
     "slug": "v2-codegen",
     "name": "LLM-powered code generation and evaluation",
     "packageName": "flyteplugins-codegen",
@@ -2663,6 +2700,14 @@
     "isDeprecated": false,
     "sdk": "flyte-sdk",
     "maintainers": [
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "jeevb",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+      },
       {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
@@ -3700,8 +3745,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
         "login": "wild-endeavor",
@@ -3807,6 +3852,40 @@
       {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "sleep",
+    "name": "Sleep",
+    "packageName": "flytekitplugins-sleep",
+    "description": "This package holds the core-sleep plugin for flytekit",
+    "category": "developer-tools",
+    "tags": [
+      "sleep"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flytekitplugins-sleep",
+    "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-sleep",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flytekitplugins-sleep/",
+    "minFlytekitVersion": "1.0.0",
+    "modules": [
+      {
+        "name": "Sleep",
+        "type": "type",
+        "importPath": "flytekitplugins.sleep",
+        "description": "Route a task to the backend ``core-sleep`` plugin.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flytekit",
+    "maintainers": [
+      {
+        "login": "machichima",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/60069744?v=4"
       }
     ]
   },
@@ -4306,6 +4385,14 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "jeevb",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+      },
+      {
         "login": "ParagEkbote",
         "avatarUrl": "https://avatars.githubusercontent.com/u/69567729?v=4"
       }
@@ -4559,8 +4646,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
