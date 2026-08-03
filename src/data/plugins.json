@@ -431,16 +431,16 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/bigquery_agent",
     "maintainers": [
       {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -565,9 +565,7 @@
       "parallel",
       "dataframe"
     ],
-    "dependencies": [
-      "dask-scheduler: executable file not found"
-    ],
+    "dependencies": [],
     "installCommand": "pip install flyteplugins-dask",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/dask",
     "docsUrl": "https://www.union.ai/docs/flyte/integrations/native-backend-plugins/k8s-dask-plugin",
@@ -658,16 +656,16 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/databricks_plugin",
     "maintainers": [
       {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -1619,12 +1617,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -1805,12 +1803,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2261,6 +2259,14 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       }
@@ -2298,12 +2304,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2701,12 +2707,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
         "login": "samhita-alla",
@@ -3510,12 +3516,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -3608,12 +3614,12 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/kfpytorch_plugin",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "kevinliao852",
@@ -3745,8 +3751,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "wild-endeavor",
@@ -3789,12 +3795,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "EngHabu",
@@ -3846,12 +3852,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -4105,12 +4111,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -4385,12 +4391,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
-        "login": "jeevb",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/10869815?v=4"
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
         "login": "ParagEkbote",
@@ -4496,12 +4502,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -4638,16 +4644,16 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/wandb_plugin",
     "maintainers": [
       {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+      },
+      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
-      },
-      {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
