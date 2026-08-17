@@ -1,6 +1,36 @@
 {
-  "fetchedAt": "2026-08-10T09:27:09.689Z",
+  "fetchedAt": "2026-08-17T08:49:57.312Z",
   "items": [
+    {
+      "packageName": "transformers",
+      "name": "Transformers",
+      "description": "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
+      "category": "ml-training",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/transformers/",
+      "githubUrl": "https://github.com/huggingface/transformers",
+      "downloads": {
+        "lastDay": 5048491,
+        "lastWeek": 46523236,
+        "lastMonth": 189164934
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "gradio",
+      "name": "Gradio",
+      "description": "Python library for easily interacting with trained machine learning models",
+      "category": "model-serving",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/gradio/",
+      "githubUrl": "https://github.com/gradio-app/gradio",
+      "downloads": {
+        "lastDay": 444225,
+        "lastWeek": 3965167,
+        "lastMonth": 15510873
+      },
+      "voteCount": 0
+    },
     {
       "packageName": "matplotlib",
       "name": "Matplotlib",
@@ -10,9 +40,9 @@
       "pypiUrl": "https://pypi.org/project/matplotlib/",
       "githubUrl": "https://github.com/matplotlib/matplotlib",
       "downloads": {
-        "lastDay": 5982710,
-        "lastWeek": 67096911,
-        "lastMonth": 235273185
+        "lastDay": 5243186,
+        "lastWeek": 52529970,
+        "lastMonth": 238740980
       },
       "voteCount": 0
     },
@@ -24,18 +54,26 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/prefect/",
       "githubUrl": "https://github.com/PrefectHQ/prefect",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 384260,
+        "lastWeek": 3557583,
+        "lastMonth": 13880556
+      },
       "voteCount": 0
     },
     {
-      "packageName": "dagster",
-      "name": "Dagster",
-      "description": "Dagster is an orchestration platform for the development, production, and observation of data assets.",
-      "category": "workflow",
+      "packageName": "streamlit",
+      "name": "Streamlit",
+      "description": "A faster way to build and share data apps",
+      "category": "model-serving",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/dagster/",
-      "githubUrl": "https://github.com/dagster-io/dagster",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/streamlit/",
+      "githubUrl": "https://github.com/streamlit/streamlit",
+      "downloads": {
+        "lastDay": 728991,
+        "lastWeek": 7281586,
+        "lastMonth": 29569016
+      },
       "voteCount": 0
     },
     {
@@ -47,9 +85,69 @@
       "pypiUrl": "https://pypi.org/project/narwhals/",
       "githubUrl": "https://github.com/narwhals-dev/narwhals",
       "downloads": {
-        "lastDay": 4065462,
-        "lastWeek": 38472764,
-        "lastMonth": 151090083
+        "lastDay": 4117647,
+        "lastWeek": 39044954,
+        "lastMonth": 155374100
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "google-cloud-storage",
+      "name": "Google Cloud Storage",
+      "description": "Google Cloud Storage API client library",
+      "category": "cloud-infrastructure",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/google-cloud-storage/",
+      "githubUrl": "https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-storage",
+      "downloads": {
+        "lastDay": 6219858,
+        "lastWeek": 58879995,
+        "lastMonth": 251880053
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "azure-storage-blob",
+      "name": "Azure Storage Blob",
+      "description": "Microsoft Azure Blob Storage Client Library for Python",
+      "category": "cloud-infrastructure",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/azure-storage-blob/",
+      "githubUrl": "https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob",
+      "downloads": {
+        "lastDay": 3451852,
+        "lastWeek": 32530212,
+        "lastMonth": 136515474
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "seaborn",
+      "name": "Seaborn",
+      "description": "Statistical data visualization",
+      "category": "developer-tools",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/seaborn/",
+      "githubUrl": "https://github.com/mwaskom/seaborn",
+      "downloads": {
+        "lastDay": 812264,
+        "lastWeek": 8342647,
+        "lastMonth": 36539306
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "psycopg",
+      "name": "Psycopg",
+      "description": "PostgreSQL database adapter for Python",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/psycopg/",
+      "githubUrl": "https://github.com/psycopg/psycopg",
+      "downloads": {
+        "lastDay": 3274631,
+        "lastWeek": 33443032,
+        "lastMonth": 126882657
       },
       "voteCount": 0
     },
@@ -61,66 +159,11 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/pymongo/",
       "githubUrl": "https://github.com/mongodb/mongo-python-driver",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "chromadb",
-      "name": "Chromadb",
-      "description": "Chroma.",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/chromadb/",
-      "githubUrl": "https://github.com/chroma-core/chroma",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "deepspeed",
-      "name": "Deepspeed",
-      "description": "DeepSpeed library",
-      "category": "developer-tools",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/deepspeed/",
-      "githubUrl": "https://github.com/deepspeedai/DeepSpeed",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "elasticsearch",
-      "name": "Elasticsearch",
-      "description": "Python client for Elasticsearch",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/elasticsearch/",
-      "githubUrl": "https://github.com/elastic/elasticsearch-py",
       "downloads": {
-        "lastDay": 1488949,
-        "lastWeek": 12258414,
-        "lastMonth": 52844724
+        "lastDay": 2631431,
+        "lastWeek": 25885734,
+        "lastMonth": 111942544
       },
-      "voteCount": 0
-    },
-    {
-      "packageName": "modal",
-      "name": "Modal",
-      "description": "Python client library for Modal",
-      "category": "cloud-infrastructure",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/modal/",
-      "githubUrl": "https://github.com/modal-labs/modal-client",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "dash",
-      "name": "Dash",
-      "description": "A Python framework for building reactive web-apps. Developed by Plotly.",
-      "category": "developer-tools",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/dash/",
-      "githubUrl": "https://github.com/plotly/dash",
-      "downloads": null,
       "voteCount": 0
     },
     {
@@ -131,51 +174,71 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/ibis-framework/",
       "githubUrl": "https://github.com/ibis-project/ibis",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 78066,
+        "lastWeek": 1005167,
+        "lastMonth": 3437091
+      },
       "voteCount": 0
     },
     {
-      "packageName": "google-cloud-aiplatform",
-      "name": "Google Cloud Aiplatform",
-      "description": "Vertex AI API client library",
-      "category": "cloud-infrastructure",
+      "packageName": "deepspeed",
+      "name": "Deepspeed",
+      "description": "DeepSpeed library",
+      "category": "developer-tools",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/google-cloud-aiplatform/",
-      "githubUrl": "https://github.com/googleapis/python-aiplatform",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/deepspeed/",
+      "githubUrl": "https://github.com/deepspeedai/DeepSpeed",
+      "downloads": {
+        "lastDay": 24578,
+        "lastWeek": 234528,
+        "lastMonth": 1028685
+      },
       "voteCount": 0
     },
     {
-      "packageName": "ydata-profiling",
-      "name": "Ydata Profiling",
-      "description": "Generate profile report for pandas DataFrame",
+      "packageName": "evidently",
+      "name": "Evidently",
+      "description": "Open-source tools to analyze, monitor, and debug machine learning model in production.",
       "category": "data-validation",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/ydata-profiling/",
-      "githubUrl": "https://github.com/ydataai/ydata-profiling",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/evidently/",
+      "githubUrl": "https://github.com/evidentlyai/evidently",
+      "downloads": {
+        "lastDay": 39314,
+        "lastWeek": 334689,
+        "lastMonth": 1255532
+      },
       "voteCount": 0
     },
     {
-      "packageName": "metaflow",
-      "name": "Metaflow",
-      "description": "Metaflow: More AI and ML, Less Engineering",
-      "category": "workflow",
+      "packageName": "dash",
+      "name": "Dash",
+      "description": "A Python framework for building reactive web-apps. Developed by Plotly.",
+      "category": "developer-tools",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/metaflow/",
-      "githubUrl": "https://github.com/Netflix/metaflow",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/dash/",
+      "githubUrl": "https://github.com/plotly/dash",
+      "downloads": {
+        "lastDay": 172840,
+        "lastWeek": 2107214,
+        "lastMonth": 9412332
+      },
       "voteCount": 0
     },
     {
-      "packageName": "mysql-connector-python",
-      "name": "Mysql Connector Python",
-      "description": "A self-contained Python driver for communicating with MySQL servers, using an API that is compliant with the Python Database API Specification v2.0 (PEP 249).",
+      "packageName": "deltalake",
+      "name": "Deltalake",
+      "description": "Native Delta Lake Python binding based on delta-rs with Pandas integration",
       "category": "databases-warehouses",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/mysql-connector-python/",
-      "githubUrl": "https://github.com/mysql/mysql-connector-python",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/deltalake/",
+      "githubUrl": "https://github.com/delta-io/delta-rs",
+      "downloads": {
+        "lastDay": 722435,
+        "lastWeek": 6141734,
+        "lastMonth": 27299892
+      },
       "voteCount": 0
     },
     {
@@ -186,7 +249,101 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/skypilot/",
       "githubUrl": "https://github.com/skypilot-org/skypilot",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 49592,
+        "lastWeek": 565472,
+        "lastMonth": 1936064
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "ydata-profiling",
+      "name": "Ydata Profiling",
+      "description": "Generate profile report for pandas DataFrame",
+      "category": "data-validation",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/ydata-profiling/",
+      "githubUrl": "https://github.com/ydataai/ydata-profiling",
+      "downloads": {
+        "lastDay": 33336,
+        "lastWeek": 383570,
+        "lastMonth": 1698749
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "cognee",
+      "name": "Cognee",
+      "description": "Cognee - is a library for enriching LLM context with a semantic layer for better understanding and reasoning.",
+      "category": "developer-tools",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/cognee/",
+      "githubUrl": "https://github.com/topoteretes/cognee",
+      "downloads": {
+        "lastDay": 5029,
+        "lastWeek": 65932,
+        "lastMonth": 206808
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "mysql-connector-python",
+      "name": "Mysql Connector Python",
+      "description": "A self-contained Python driver for communicating with MySQL servers, using an API that is compliant with the Python Database API Specification v2.0 (PEP 249).",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/mysql-connector-python/",
+      "githubUrl": "https://github.com/mysql/mysql-connector-python",
+      "downloads": {
+        "lastDay": 1352292,
+        "lastWeek": 10875955,
+        "lastMonth": 46877741
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "dlt",
+      "name": "Dlt",
+      "description": "dlt is an open-source python-first scalable data loading library that does not require any backend to run.",
+      "category": "developer-tools",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/dlt/",
+      "githubUrl": "https://github.com/dlt-hub/dlt",
+      "downloads": {
+        "lastDay": 117018,
+        "lastWeek": 1702438,
+        "lastMonth": 7587729
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "pyiceberg",
+      "name": "Pyiceberg",
+      "description": "Apache Iceberg is an open table format for huge analytic datasets",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/pyiceberg/",
+      "githubUrl": "https://github.com/apache/iceberg-python",
+      "downloads": {
+        "lastDay": 985987,
+        "lastWeek": 8418537,
+        "lastMonth": 36580413
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "metaflow",
+      "name": "Metaflow",
+      "description": "Metaflow: More AI and ML, Less Engineering",
+      "category": "workflow",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/metaflow/",
+      "githubUrl": "https://github.com/Netflix/metaflow",
+      "downloads": {
+        "lastDay": 9079,
+        "lastWeek": 196074,
+        "lastMonth": 894584
+      },
       "voteCount": 0
     },
     {
@@ -198,36 +355,10 @@
       "pypiUrl": "https://pypi.org/project/feast/",
       "githubUrl": "https://github.com/feast-dev/feast",
       "downloads": {
-        "lastDay": 14167,
-        "lastWeek": 183779,
-        "lastMonth": 656241
+        "lastDay": 22259,
+        "lastWeek": 186987,
+        "lastMonth": 702800
       },
-      "voteCount": 0
-    },
-    {
-      "packageName": "clickhouse-connect",
-      "name": "Clickhouse Connect",
-      "description": "ClickHouse Database Core Driver for Python, Pandas, and Superset",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/clickhouse-connect/",
-      "githubUrl": "https://github.com/ClickHouse/clickhouse-connect",
-      "downloads": {
-        "lastDay": 757104,
-        "lastWeek": 7351493,
-        "lastMonth": 29825009
-      },
-      "voteCount": 0
-    },
-    {
-      "packageName": "rasa",
-      "name": "Rasa",
-      "description": "Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants",
-      "category": "developer-tools",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/rasa/",
-      "githubUrl": "https://github.com/rasahq/rasa",
-      "downloads": null,
       "voteCount": 0
     },
     {
@@ -238,21 +369,10 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/qdrant-client/",
       "githubUrl": "https://github.com/qdrant/qdrant-client",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "databases",
-      "name": "Databases",
-      "description": "Async database support for Python.",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/databases/",
-      "githubUrl": "https://github.com/encode/databases",
       "downloads": {
-        "lastDay": 26472,
-        "lastWeek": 300012,
-        "lastMonth": 997490
+        "lastDay": 489186,
+        "lastWeek": 4377264,
+        "lastMonth": 18494312
       },
       "voteCount": 0
     },
@@ -265,69 +385,70 @@
       "pypiUrl": "https://pypi.org/project/bentoml/",
       "githubUrl": "https://github.com/bentoml/bentoml",
       "downloads": {
-        "lastDay": 5637,
-        "lastWeek": 56473,
-        "lastMonth": 252046
+        "lastDay": 5835,
+        "lastWeek": 61949,
+        "lastMonth": 240942
       },
       "voteCount": 0
     },
     {
-      "packageName": "databricks-sql-connector",
-      "name": "Databricks Sql Connector",
-      "description": "Databricks SQL Connector for Python",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/databricks-sql-connector/",
-      "githubUrl": "https://github.com/databricks/databricks-sql-python",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "trino",
-      "name": "Trino",
-      "description": "Client for the Trino distributed SQL Engine",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/trino/",
-      "githubUrl": "https://github.com/trinodb/trino-python-client",
-      "downloads": {
-        "lastDay": 527412,
-        "lastWeek": 5319837,
-        "lastMonth": 22230424
-      },
-      "voteCount": 0
-    },
-    {
-      "packageName": "minio",
-      "name": "Minio",
-      "description": "MinIO Python SDK for Amazon S3 Compatible Cloud Storage",
+      "packageName": "modal",
+      "name": "Modal",
+      "description": "Python client library for Modal",
       "category": "cloud-infrastructure",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/minio/",
-      "githubUrl": "https://github.com/minio/minio-py",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/modal/",
+      "githubUrl": "https://github.com/modal-labs/modal-client",
+      "downloads": {
+        "lastDay": 1564093,
+        "lastWeek": 15190899,
+        "lastMonth": 77471827
+      },
       "voteCount": 0
     },
     {
-      "packageName": "transformers",
-      "name": "Transformers",
-      "description": "Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
-      "category": "ml-training",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/transformers/",
-      "githubUrl": "https://github.com/huggingface/transformers",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "fedml",
-      "name": "Fedml",
-      "description": "A research and production integrated edge-cloud library for federated/distributed machine learning at anywhere at any scale.",
+      "packageName": "rasa",
+      "name": "Rasa",
+      "description": "Open source machine learning framework to automate text- and voice-based conversations: NLU, dialogue management, connect to Slack, Facebook, and more - Create chatbots and voice assistants",
       "category": "developer-tools",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/fedml/",
-      "githubUrl": "https://github.com/FedML-AI/FedML",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/rasa/",
+      "githubUrl": "https://github.com/rasahq/rasa",
+      "downloads": {
+        "lastDay": 10466,
+        "lastWeek": 61972,
+        "lastMonth": 263035
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "neo4j",
+      "name": "Neo4J",
+      "description": "Neo4j Bolt driver for Python",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/neo4j/",
+      "githubUrl": "https://github.com/neo4j/neo4j-python-driver",
+      "downloads": {
+        "lastDay": 358494,
+        "lastWeek": 3470095,
+        "lastMonth": 14543702
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "weaviate-client",
+      "name": "Weaviate Client",
+      "description": "A python native Weaviate client",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/weaviate-client/",
+      "githubUrl": "https://github.com/weaviate/weaviate-python-client",
+      "downloads": {
+        "lastDay": 3255931,
+        "lastWeek": 25338812,
+        "lastMonth": 152636451
+      },
       "voteCount": 0
     },
     {
@@ -339,36 +460,82 @@
       "pypiUrl": "https://pypi.org/project/litserve/",
       "githubUrl": "https://github.com/Lightning-AI/litserve",
       "downloads": {
-        "lastDay": 3833,
-        "lastWeek": 20689,
-        "lastMonth": 80958
+        "lastDay": 6202,
+        "lastWeek": 31971,
+        "lastMonth": 93387
       },
       "voteCount": 0
     },
     {
-      "packageName": "mage-ai",
-      "name": "Mage Ai",
-      "description": "Mage is a tool for building and deploying data pipelines.",
-      "category": "developer-tools",
+      "packageName": "databases",
+      "name": "Databases",
+      "description": "Async database support for Python.",
+      "category": "databases-warehouses",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/mage-ai/",
-      "githubUrl": "https://github.com/mage-ai/mage-ai",
+      "pypiUrl": "https://pypi.org/project/databases/",
+      "githubUrl": "https://github.com/encode/databases",
+      "downloads": {
+        "lastDay": 29377,
+        "lastWeek": 314301,
+        "lastMonth": 1103935
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "asyncpg",
+      "name": "Asyncpg",
+      "description": "An asyncio PostgreSQL driver",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/asyncpg/",
+      "downloads": {
+        "lastDay": 2826474,
+        "lastWeek": 29949410,
+        "lastMonth": 117830918
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "lancedb",
+      "name": "Lancedb",
+      "description": "lancedb",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/lancedb/",
+      "downloads": {
+        "lastDay": 351078,
+        "lastWeek": 2809075,
+        "lastMonth": 9514991
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "tritonclient",
+      "name": "Tritonclient",
+      "description": "Python client library and utilities for communicating with Triton Inference Server",
+      "category": "model-serving",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/tritonclient/",
+      "downloads": {
+        "lastDay": 384091,
+        "lastWeek": 3041011,
+        "lastMonth": 13322500
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "deepchecks",
+      "name": "Deepchecks",
+      "description": "Package for validating your machine learning model and data",
+      "category": "data-validation",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/deepchecks/",
+      "githubUrl": "https://github.com/deepchecks/deepchecks",
       "downloads": {
         "lastDay": 401,
-        "lastWeek": 9262,
-        "lastMonth": 40095
+        "lastWeek": 5155,
+        "lastMonth": 28172
       },
-      "voteCount": 0
-    },
-    {
-      "packageName": "semantica",
-      "name": "Semantica",
-      "description": "Accountability and context layer for AI agents. Context graphs, decision intelligence, full provenance tracking, and explainable reasoning engines — every AI decision traceable, every output auditable",
-      "category": "developer-tools",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/semantica/",
-      "githubUrl": "https://github.com/semantica-agi/semantica",
-      "downloads": null,
       "voteCount": 0
     },
     {
@@ -380,9 +547,9 @@
       "pypiUrl": "https://pypi.org/project/recommenders/",
       "githubUrl": "https://github.com/recommenders-team/recommenders",
       "downloads": {
-        "lastDay": 458,
-        "lastWeek": 4134,
-        "lastMonth": 19995
+        "lastDay": 393,
+        "lastWeek": 3343,
+        "lastMonth": 17079
       },
       "voteCount": 0
     },
@@ -394,7 +561,11 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/ludwig/",
       "githubUrl": "https://github.com/ludwig-ai/ludwig",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 111,
+        "lastWeek": 608,
+        "lastMonth": 2767
+      },
       "voteCount": 0
     },
     {
@@ -405,21 +576,10 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/pyjanitor/",
       "githubUrl": "https://github.com/pyjanitor-devs/pyjanitor",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "gradio",
-      "name": "Gradio",
-      "description": "Python library for easily interacting with trained machine learning models",
-      "category": "model-serving",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/gradio/",
-      "githubUrl": "https://github.com/gradio-app/gradio",
       "downloads": {
-        "lastDay": 445828,
-        "lastWeek": 3855367,
-        "lastMonth": 14877430
+        "lastDay": 5656,
+        "lastWeek": 61162,
+        "lastMonth": 304072
       },
       "voteCount": 0
     },
@@ -432,9 +592,24 @@
       "pypiUrl": "https://pypi.org/project/mlrun/",
       "githubUrl": "https://github.com/mlrun/mlrun",
       "downloads": {
-        "lastDay": 750,
-        "lastWeek": 6311,
-        "lastMonth": 26876
+        "lastDay": 1707,
+        "lastWeek": 6722,
+        "lastMonth": 27845
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "data-diff",
+      "name": "Data Diff",
+      "description": "Command-line tool and Python library to efficiently diff rows across two different databases.",
+      "category": "developer-tools",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/data-diff/",
+      "githubUrl": "https://github.com/datafold/data-diff",
+      "downloads": {
+        "lastDay": 608,
+        "lastWeek": 12646,
+        "lastMonth": 41129
       },
       "voteCount": 0
     },
@@ -450,44 +625,57 @@
       "voteCount": 0
     },
     {
-      "packageName": "evidently",
-      "name": "Evidently",
-      "description": "Open-source tools to analyze, monitor, and debug machine learning model in production.",
-      "category": "data-validation",
+      "packageName": "dagster",
+      "name": "Dagster",
+      "description": "Dagster is an orchestration platform for the development, production, and observation of data assets.",
+      "category": "workflow",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/evidently/",
-      "githubUrl": "https://github.com/evidentlyai/evidently",
+      "pypiUrl": "https://pypi.org/project/dagster/",
+      "githubUrl": "https://github.com/dagster-io/dagster",
       "downloads": {
-        "lastDay": 39109,
-        "lastWeek": 336582,
-        "lastMonth": 1214634
+        "lastDay": 151783,
+        "lastWeek": 2437401,
+        "lastMonth": 9621524
       },
       "voteCount": 0
     },
     {
-      "packageName": "runpod",
-      "name": "Runpod",
-      "description": "🐍 | Python library for Runpod API and serverless worker SDK.",
+      "packageName": "cassandra-driver",
+      "name": "Cassandra Driver",
+      "description": "Apache Cassandra Python Driver",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/cassandra-driver/",
+      "downloads": {
+        "lastDay": 208950,
+        "lastWeek": 1692114,
+        "lastMonth": 7715915
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "fedml",
+      "name": "Fedml",
+      "description": "A research and production integrated edge-cloud library for federated/distributed machine learning at anywhere at any scale.",
+      "category": "developer-tools",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/fedml/",
+      "githubUrl": "https://github.com/FedML-AI/FedML",
+      "downloads": null,
+      "voteCount": 0
+    },
+    {
+      "packageName": "azureml-core",
+      "name": "Azureml Core",
+      "description": "Azure Machine Learning core packages, modules, and classes",
       "category": "cloud-infrastructure",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/runpod/",
-      "githubUrl": "https://github.com/runpod/runpod-python",
+      "pypiUrl": "https://pypi.org/project/azureml-core/",
       "downloads": {
-        "lastDay": 32595,
-        "lastWeek": 302355,
-        "lastMonth": 1437078
+        "lastDay": 29934,
+        "lastWeek": 386405,
+        "lastMonth": 1473248
       },
-      "voteCount": 0
-    },
-    {
-      "packageName": "deepchecks",
-      "name": "Deepchecks",
-      "description": "Package for validating your machine learning model and data",
-      "category": "data-validation",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/deepchecks/",
-      "githubUrl": "https://github.com/deepchecks/deepchecks",
-      "downloads": null,
       "voteCount": 0
     },
     {
@@ -498,39 +686,56 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/fugue/",
       "githubUrl": "http://github.com/fugue-project/fugue",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 50483,
+        "lastWeek": 523118,
+        "lastMonth": 2187467
+      },
       "voteCount": 0
     },
     {
-      "packageName": "streamlit",
-      "name": "Streamlit",
-      "description": "A faster way to build and share data apps",
+      "packageName": "seldon-core",
+      "name": "Seldon Core",
+      "description": "Seldon Core client and microservice wrapper",
       "category": "model-serving",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/streamlit/",
-      "githubUrl": "https://github.com/streamlit/streamlit",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/seldon-core/",
+      "githubUrl": "https://github.com/SeldonIO/seldon-core",
+      "downloads": {
+        "lastDay": 296,
+        "lastWeek": 2193,
+        "lastMonth": 8415
+      },
       "voteCount": 0
     },
     {
-      "packageName": "daft",
-      "name": "Daft",
-      "description": "Distributed Dataframes for Multimodal Data",
-      "category": "data-dataframe",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/daft/",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "cognee",
-      "name": "Cognee",
-      "description": "Cognee - is a library for enriching LLM context with a semantic layer for better understanding and reasoning.",
+      "packageName": "mage-ai",
+      "name": "Mage Ai",
+      "description": "Mage is a tool for building and deploying data pipelines.",
       "category": "developer-tools",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/cognee/",
-      "githubUrl": "https://github.com/topoteretes/cognee",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/mage-ai/",
+      "githubUrl": "https://github.com/mage-ai/mage-ai",
+      "downloads": {
+        "lastDay": 766,
+        "lastWeek": 9637,
+        "lastMonth": 40991
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "chromadb",
+      "name": "Chromadb",
+      "description": "Chroma.",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/chromadb/",
+      "githubUrl": "https://github.com/chroma-core/chroma",
+      "downloads": {
+        "lastDay": 376886,
+        "lastWeek": 3299600,
+        "lastMonth": 12885793
+      },
       "voteCount": 0
     },
     {
@@ -545,23 +750,27 @@
       "voteCount": 0
     },
     {
-      "packageName": "azureml-core",
-      "name": "Azureml Core",
-      "description": "Azure Machine Learning core packages, modules, and classes",
-      "category": "cloud-infrastructure",
+      "packageName": "semantica",
+      "name": "Semantica",
+      "description": "Accountability and context layer for AI agents. Context graphs, decision intelligence, full provenance tracking, and explainable reasoning engines — every AI decision traceable, every output auditable",
+      "category": "developer-tools",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/azureml-core/",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/semantica/",
+      "githubUrl": "https://github.com/semantica-agi/semantica",
+      "downloads": {
+        "lastDay": 489,
+        "lastWeek": 5988,
+        "lastMonth": 9706
+      },
       "voteCount": 0
     },
     {
-      "packageName": "seaborn",
-      "name": "Seaborn",
-      "description": "Statistical data visualization",
-      "category": "developer-tools",
+      "packageName": "pinecone-client",
+      "name": "Pinecone Client",
+      "description": "Pinecone client (DEPRECATED)",
+      "category": "databases-warehouses",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/seaborn/",
-      "githubUrl": "https://github.com/mwaskom/seaborn",
+      "pypiUrl": "https://pypi.org/project/pinecone-client/",
       "downloads": null,
       "voteCount": 0
     },
@@ -574,82 +783,52 @@
       "pypiUrl": "https://pypi.org/project/koalas/",
       "githubUrl": "https://github.com/databricks/koalas",
       "downloads": {
-        "lastDay": 25190,
-        "lastWeek": 220601,
-        "lastMonth": 977077
+        "lastDay": 24681,
+        "lastWeek": 217259,
+        "lastMonth": 949213
       },
       "voteCount": 0
     },
     {
-      "packageName": "seldon-core",
-      "name": "Seldon Core",
-      "description": "Seldon Core client and microservice wrapper",
-      "category": "model-serving",
+      "packageName": "great-tables",
+      "name": "Great Tables",
+      "description": "Easily generate information-rich, publication-quality tables from Python.",
+      "category": "data-dataframe",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/seldon-core/",
-      "githubUrl": "https://github.com/SeldonIO/seldon-core",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "pinecone-client",
-      "name": "Pinecone Client",
-      "description": "Pinecone client (DEPRECATED)",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/pinecone-client/",
+      "pypiUrl": "https://pypi.org/project/great-tables/",
       "downloads": {
-        "lastDay": 24649,
-        "lastWeek": 236981,
-        "lastMonth": 1067905
+        "lastDay": 11219,
+        "lastWeek": 166317,
+        "lastMonth": 659873
       },
       "voteCount": 0
     },
     {
-      "packageName": "deltalake",
-      "name": "Deltalake",
-      "description": "Native Delta Lake Python binding based on delta-rs with Pandas integration",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/deltalake/",
-      "githubUrl": "https://github.com/delta-io/delta-rs",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "dlt",
-      "name": "Dlt",
-      "description": "dlt is an open-source python-first scalable data loading library that does not require any backend to run.",
+      "packageName": "open-webui",
+      "name": "Open Webui",
+      "description": "Open WebUI",
       "category": "developer-tools",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/dlt/",
-      "githubUrl": "https://github.com/dlt-hub/dlt",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "azure-storage-blob",
-      "name": "Azure Storage Blob",
-      "description": "Microsoft Azure Blob Storage Client Library for Python",
-      "category": "cloud-infrastructure",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/azure-storage-blob/",
-      "githubUrl": "https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "google-cloud-storage",
-      "name": "Google Cloud Storage",
-      "description": "Google Cloud Storage API client library",
-      "category": "cloud-infrastructure",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/google-cloud-storage/",
-      "githubUrl": "https://github.com/googleapis/google-cloud-python/tree/main/packages/google-cloud-storage",
+      "pypiUrl": "https://pypi.org/project/open-webui/",
       "downloads": {
-        "lastDay": 6354118,
-        "lastWeek": 59574476,
-        "lastMonth": 252259101
+        "lastDay": 28602,
+        "lastWeek": 144595,
+        "lastMonth": 789524
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "elasticsearch",
+      "name": "Elasticsearch",
+      "description": "Python client for Elasticsearch",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/elasticsearch/",
+      "githubUrl": "https://github.com/elastic/elasticsearch-py",
+      "downloads": {
+        "lastDay": 1389534,
+        "lastWeek": 12317560,
+        "lastMonth": 52339528
       },
       "voteCount": 0
     },
@@ -661,33 +840,11 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/openrath/",
       "githubUrl": "https://github.com/Rath-Team/OpenRath",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
-      "packageName": "data-diff",
-      "name": "Data Diff",
-      "description": "Command-line tool and Python library to efficiently diff rows across two different databases.",
-      "category": "developer-tools",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/data-diff/",
-      "githubUrl": "https://github.com/datafold/data-diff",
       "downloads": {
-        "lastDay": 679,
-        "lastWeek": 9706,
-        "lastMonth": 37480
+        "lastDay": 5,
+        "lastWeek": 19,
+        "lastMonth": 291
       },
-      "voteCount": 0
-    },
-    {
-      "packageName": "psycopg",
-      "name": "Psycopg",
-      "description": "PostgreSQL database adapter for Python",
-      "category": "databases-warehouses",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/psycopg/",
-      "githubUrl": "https://github.com/psycopg/psycopg",
-      "downloads": null,
       "voteCount": 0
     },
     {
@@ -701,17 +858,6 @@
       "voteCount": 0
     },
     {
-      "packageName": "dcs-core",
-      "name": "Dcs Core",
-      "description": "Open Source Data Quality Monitoring",
-      "category": "developer-tools",
-      "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/dcs-core/",
-      "githubUrl": "https://github.com/datachecks/dcs-core",
-      "downloads": null,
-      "voteCount": 0
-    },
-    {
       "packageName": "pgvector",
       "name": "Pgvector",
       "description": "pgvector support for Python",
@@ -719,29 +865,81 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/pgvector/",
       "githubUrl": "https://github.com/pgvector/pgvector-python",
+      "downloads": {
+        "lastDay": 803568,
+        "lastWeek": 9144101,
+        "lastMonth": 36102119
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "minio",
+      "name": "Minio",
+      "description": "MinIO Python SDK for Amazon S3 Compatible Cloud Storage",
+      "category": "cloud-infrastructure",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/minio/",
+      "githubUrl": "https://github.com/minio/minio-py",
       "downloads": null,
       "voteCount": 0
     },
     {
-      "packageName": "pyiceberg",
-      "name": "Pyiceberg",
-      "description": "Apache Iceberg is an open table format for huge analytic datasets",
-      "category": "databases-warehouses",
+      "packageName": "google-cloud-aiplatform",
+      "name": "Google Cloud Aiplatform",
+      "description": "Vertex AI API client library",
+      "category": "cloud-infrastructure",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/pyiceberg/",
-      "githubUrl": "https://github.com/apache/iceberg-python",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/google-cloud-aiplatform/",
+      "githubUrl": "https://github.com/googleapis/python-aiplatform",
+      "downloads": {
+        "lastDay": 3587669,
+        "lastWeek": 33217653,
+        "lastMonth": 160408059
+      },
       "voteCount": 0
     },
     {
-      "packageName": "neo4j",
-      "name": "Neo4J",
-      "description": "Neo4j Bolt driver for Python",
+      "packageName": "clickhouse-connect",
+      "name": "Clickhouse Connect",
+      "description": "ClickHouse Database Core Driver for Python, Pandas, and Superset",
       "category": "databases-warehouses",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/neo4j/",
-      "githubUrl": "https://github.com/neo4j/neo4j-python-driver",
-      "downloads": null,
+      "pypiUrl": "https://pypi.org/project/clickhouse-connect/",
+      "githubUrl": "https://github.com/ClickHouse/clickhouse-connect",
+      "downloads": {
+        "lastDay": 710490,
+        "lastWeek": 7843757,
+        "lastMonth": 30581303
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "pointblank",
+      "name": "Pointblank",
+      "description": "Find out if your data is what you think it is.",
+      "category": "developer-tools",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/pointblank/",
+      "downloads": {
+        "lastDay": 148,
+        "lastWeek": 4685,
+        "lastMonth": 26016
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "trino",
+      "name": "Trino",
+      "description": "Client for the Trino distributed SQL Engine",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/trino/",
+      "githubUrl": "https://github.com/trinodb/trino-python-client",
+      "downloads": {
+        "lastDay": 564801,
+        "lastWeek": 5400044,
+        "lastMonth": 22171392
+      },
       "voteCount": 0
     },
     {
@@ -752,7 +950,52 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/cudf/",
       "githubUrl": "https://github.com/rapidsai/dask-cuda",
+      "downloads": {
+        "lastDay": 61,
+        "lastWeek": 438,
+        "lastMonth": 2716
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "runpod",
+      "name": "Runpod",
+      "description": "🐍 | Python library for Runpod API and serverless worker SDK.",
+      "category": "cloud-infrastructure",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/runpod/",
+      "githubUrl": "https://github.com/runpod/runpod-python",
       "downloads": null,
+      "voteCount": 0
+    },
+    {
+      "packageName": "dcs-core",
+      "name": "Dcs Core",
+      "description": "Open Source Data Quality Monitoring",
+      "category": "developer-tools",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/dcs-core/",
+      "githubUrl": "https://github.com/datachecks/dcs-core",
+      "downloads": {
+        "lastDay": 1,
+        "lastWeek": 5,
+        "lastMonth": 65
+      },
+      "voteCount": 0
+    },
+    {
+      "packageName": "databricks-sql-connector",
+      "name": "Databricks Sql Connector",
+      "description": "Databricks SQL Connector for Python",
+      "category": "databases-warehouses",
+      "gapType": "no-plugin",
+      "pypiUrl": "https://pypi.org/project/databricks-sql-connector/",
+      "githubUrl": "https://github.com/databricks/databricks-sql-python",
+      "downloads": {
+        "lastDay": 2347439,
+        "lastWeek": 19696759,
+        "lastMonth": 95998642
+      },
       "voteCount": 0
     },
     {
@@ -763,23 +1006,23 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/aligned/",
       "githubUrl": "https://github.com/MatsMoll/aligned",
-      "downloads": {
-        "lastDay": 10,
-        "lastWeek": 211,
-        "lastMonth": 1355
-      },
+      "downloads": null,
       "voteCount": 0
     },
     {
-      "packageName": "weaviate-client",
-      "name": "Weaviate Client",
-      "description": "A python native Weaviate client",
-      "category": "databases-warehouses",
+      "packageName": "daft",
+      "name": "Daft",
+      "description": "Distributed Dataframes for Multimodal Data",
+      "category": "developer-tools",
       "gapType": "no-plugin",
-      "pypiUrl": "https://pypi.org/project/weaviate-client/",
-      "githubUrl": "https://github.com/weaviate/weaviate-python-client",
-      "downloads": null,
-      "voteCount": 0
+      "pypiUrl": "https://pypi.org/project/daft/",
+      "downloads": {
+        "lastDay": 86737,
+        "lastWeek": 639176,
+        "lastMonth": 1475198
+      },
+      "voteCount": 0,
+      "belowThreshold": true
     },
     {
       "packageName": "redis",
@@ -789,7 +1032,11 @@
       "gapType": "no-plugin",
       "pypiUrl": "https://pypi.org/project/redis/",
       "githubUrl": "https://github.com/redis/redis-py",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 6080701,
+        "lastWeek": 64210495,
+        "lastMonth": 265984283
+      },
       "voteCount": 0,
       "belowThreshold": true
     },
@@ -801,7 +1048,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-airflow/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-airflow",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 1,
+        "lastWeek": 111,
+        "lastMonth": 323
+      },
       "voteCount": 0,
       "existingPluginSlug": "airflow"
     },
@@ -813,11 +1064,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-async-fsspec/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-async-fsspec",
-      "downloads": {
-        "lastDay": 10,
-        "lastWeek": 30,
-        "lastMonth": 1036
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "async-fsspec"
     },
@@ -829,7 +1076,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-athena/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-aws-athena",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 1,
+        "lastWeek": 92,
+        "lastMonth": 237
+      },
       "voteCount": 0,
       "existingPluginSlug": "aws-athena"
     },
@@ -860,7 +1111,7 @@
     {
       "packageName": "flytekitplugins-awssagemaker",
       "name": "AWS SageMaker",
-      "description": "The plugin currently features a SageMaker deployment connector.",
+      "description": "The plugin features connectors for SageMaker deployment, model training,",
       "category": "cloud-infrastructure",
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-awssagemaker/",
@@ -877,11 +1128,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-comet-ml/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-comet-ml",
-      "downloads": {
-        "lastDay": 8,
-        "lastWeek": 20,
-        "lastMonth": 885
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "comet-ml"
     },
@@ -953,11 +1200,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-envd/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-envd",
-      "downloads": {
-        "lastDay": 47,
-        "lastWeek": 2541,
-        "lastMonth": 9419
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "envd"
     },
@@ -969,11 +1212,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-flyteinteractive/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-flyteinteractive",
-      "downloads": {
-        "lastDay": 45,
-        "lastWeek": 1114,
-        "lastMonth": 6083
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "flyteinteractive"
     },
@@ -985,7 +1224,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-data-fsspec/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-data-fsspec",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 2,
+        "lastWeek": 98,
+        "lastMonth": 278
+      },
       "voteCount": 0,
       "existingPluginSlug": "data-fsspec"
     },
@@ -1022,9 +1265,9 @@
       "pypiUrl": "https://pypi.org/project/flytekitplugins-great_expectations/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-greatexpectations",
       "downloads": {
-        "lastDay": 9,
-        "lastWeek": 33,
-        "lastMonth": 2194
+        "lastDay": 8,
+        "lastWeek": 113,
+        "lastMonth": 257
       },
       "voteCount": 0,
       "existingPluginSlug": "greatexpectations"
@@ -1049,11 +1292,7 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-inference/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-inference",
-      "downloads": {
-        "lastDay": 8,
-        "lastWeek": 24,
-        "lastMonth": 842
-      },
+      "downloads": null,
       "voteCount": 0,
       "existingPluginSlug": "inference"
     },
@@ -1101,7 +1340,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-pod/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8s-pod",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 244,
+        "lastWeek": 7790,
+        "lastMonth": 33544
+      },
       "voteCount": 0,
       "existingPluginSlug": "k8s-pod"
     },
@@ -1113,7 +1356,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-k8sdataservice/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-k8sdataservice",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 0,
+        "lastWeek": 120,
+        "lastMonth": 279
+      },
       "voteCount": 0,
       "existingPluginSlug": "k8sdataservice"
     },
@@ -1221,7 +1468,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-optuna/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-optuna",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 3,
+        "lastWeek": 202,
+        "lastMonth": 762
+      },
       "voteCount": 0,
       "existingPluginSlug": "optuna"
     },
@@ -1293,7 +1544,11 @@
       "gapType": "needs-v2-port",
       "pypiUrl": "https://pypi.org/project/flytekitplugins-whylogs/",
       "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-whylogs",
-      "downloads": null,
+      "downloads": {
+        "lastDay": 1,
+        "lastWeek": 647,
+        "lastMonth": 1843
+      },
       "voteCount": 0,
       "existingPluginSlug": "whylogs"
     }
