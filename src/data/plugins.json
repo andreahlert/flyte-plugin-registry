@@ -241,7 +241,7 @@
     "slug": "aws-sagemaker",
     "name": "AWS SageMaker",
     "packageName": "flytekitplugins-awssagemaker",
-    "description": "The plugin currently features a SageMaker deployment connector.",
+    "description": "The plugin features connectors for SageMaker deployment, model training,",
     "category": "cloud-infrastructure",
     "tags": [
       "aws",
@@ -260,44 +260,18 @@
     "minFlytekitVersion": "1.14.6",
     "modules": [
       {
-        "name": "BotoConnector",
-        "type": "agent",
-        "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "A general purpose boto3 connector that can be used to call any boto3 method."
+        "name": "SageMakerTransformJobConnector",
+        "type": "task",
+        "importPath": "flytekitplugins.awssagemaker_batch_transform",
+        "description": "Long-running connector for SageMaker batch-transform jobs."
       },
       {
-        "name": "BotoConfig",
-        "type": "type",
-        "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "Configuration type for AWS SageMaker.",
+        "name": "SageMakerTransformJobMetadata",
+        "type": "task",
+        "importPath": "flytekitplugins.awssagemaker_batch_transform",
+        "description": "Task for AWS SageMaker.",
         "baseClass": "dataclass",
         "subtype": "config"
-      },
-      {
-        "name": "BotoTask",
-        "type": "task",
-        "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "Task for AWS SageMaker.",
-        "baseClass": "PythonTask",
-        "subtype": "task"
-      },
-      {
-        "name": "SageMakerEndpointConnector",
-        "type": "agent",
-        "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "This connector creates an endpoint."
-      },
-      {
-        "name": "create_sagemaker_deployment",
-        "type": "task",
-        "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "Task for AWS SageMaker."
-      },
-      {
-        "name": "delete_sagemaker_deployment",
-        "type": "task",
-        "importPath": "flytekitplugins.awssagemaker_inference",
-        "description": "Task for AWS SageMaker."
       }
     ],
     "isDeprecated": false,
@@ -435,12 +409,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -660,12 +634,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -1400,8 +1374,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "ppiegaze",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+        "login": "0yukali0",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/45888688?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "samhita-alla",
@@ -1701,12 +1679,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -1887,12 +1865,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2351,8 +2329,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "0yukali0",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/45888688?v=4"
       }
     ]
   },
@@ -2388,16 +2366,16 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
         "login": "katrogan",
         "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -2795,12 +2773,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "ppiegaze",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
-      },
-      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "0yukali0",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/45888688?v=4"
       }
     ]
   },
@@ -3273,8 +3251,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "ppiegaze",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+        "login": "0yukali0",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/45888688?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "samhita-alla",
@@ -3678,12 +3660,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -3780,8 +3762,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "kevinliao852",
@@ -3879,6 +3861,14 @@
     "minFlytekitVersion": "",
     "modules": [
       {
+        "name": "AutoscalerOptionsConfig",
+        "type": "type",
+        "importPath": "flyteplugins.ray",
+        "description": "Configuration for the Ray autoscaler sidecar.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
         "name": "HeadNodeConfig",
         "type": "type",
         "importPath": "flyteplugins.ray",
@@ -3913,8 +3903,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "wild-endeavor",
@@ -3957,12 +3947,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "pingsutw",
@@ -4014,12 +4004,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -4273,12 +4263,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -4553,12 +4543,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "samhita-alla",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "ppiegaze",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
         "login": "ParagEkbote",
@@ -4664,12 +4654,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -4814,8 +4804,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
