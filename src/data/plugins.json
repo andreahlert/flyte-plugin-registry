@@ -581,12 +581,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
@@ -1058,12 +1058,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "pmahindrakar-oss",
@@ -1374,12 +1374,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "AdilFayyaz",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "0yukali0",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/45888688?v=4"
+        "login": "pvditt",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37558497?v=4"
       },
       {
         "login": "samhita-alla",
@@ -1610,12 +1610,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -1679,12 +1679,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       }
     ]
   },
@@ -1730,12 +1730,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2325,12 +2325,62 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "AdilFayyaz",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-llamacpp",
+    "name": "llama.cpp",
+    "packageName": "flyteplugins-llamacpp",
+    "description": "Serve GGUF models with llama.cpp's llama-server behind Flyte Apps.",
+    "category": "developer-tools",
+    "tags": [
+      "llamacpp"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-llamacpp",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/llamacpp",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-llamacpp/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "LlamaCppAppEnvironment",
+        "type": "type",
+        "importPath": "flyteplugins.llamacpp",
+        "description": "App environment backed by llama.cpp (llama-server) for serving GGUF models.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "DEFAULT_LLAMA_CPP_IMAGE",
+        "type": "type",
+        "importPath": "flyteplugins.llamacpp",
+        "description": "Configuration type for llama.cpp."
+      },
+      {
+        "name": "build_llama_cpp_image",
+        "type": "task",
+        "importPath": "flyteplugins.llamacpp",
+        "description": "Task for llama.cpp."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -2773,12 +2823,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
-        "login": "ppiegaze",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
       }
     ]
   },
@@ -2887,12 +2937,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "samhita-alla",
@@ -3251,12 +3301,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "AdilFayyaz",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "0yukali0",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/45888688?v=4"
+        "login": "pvditt",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37558497?v=4"
       },
       {
         "login": "samhita-alla",
@@ -3361,12 +3411,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       },
       {
         "login": "cosmicBboy",
@@ -3656,16 +3706,16 @@
     "addedDate": "2026-01-24",
     "maintainers": [
       {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
         "login": "cosmicBboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -3909,6 +3959,276 @@
       {
         "login": "wild-endeavor",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-clickup",
+    "name": "Receive ClickUp webhooks in Flyte.",
+    "packageName": "flyteplugins-clickup",
+    "description": "Receive ClickUp webhooks in Flyte.",
+    "category": "developer-tools",
+    "tags": [
+      "clickup"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-clickup",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/clickup",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-clickup/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "ClickUpProvider",
+        "type": "type",
+        "importPath": "flyteplugins.clickup",
+        "description": "ClickUp's webhook provider, with its defaults pre-wired."
+      },
+      {
+        "name": "parse",
+        "type": "task",
+        "importPath": "flyteplugins.clickup",
+        "description": "Task for Receive ClickUp webhooks in Flyte.."
+      },
+      {
+        "name": "verify",
+        "type": "task",
+        "importPath": "flyteplugins.clickup",
+        "description": "Task for Receive ClickUp webhooks in Flyte.."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-github",
+    "name": "Receive GitHub webhooks in Flyte.",
+    "packageName": "flyteplugins-github",
+    "description": "Receive GitHub webhooks in Flyte.",
+    "category": "developer-tools",
+    "tags": [
+      "github"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-github",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/github",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-github/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "GitHubProvider",
+        "type": "type",
+        "importPath": "flyteplugins.github",
+        "description": "GitHub's webhook provider, with its defaults pre-wired."
+      },
+      {
+        "name": "events",
+        "type": "task",
+        "importPath": "flyteplugins.github",
+        "description": "Task for Receive GitHub webhooks in Flyte.."
+      },
+      {
+        "name": "review_pr",
+        "type": "task",
+        "importPath": "flyteplugins.github",
+        "description": "Task for Receive GitHub webhooks in Flyte.."
+      },
+      {
+        "name": "handshake",
+        "type": "task",
+        "importPath": "flyteplugins.github",
+        "description": "Task for Receive GitHub webhooks in Flyte.."
+      },
+      {
+        "name": "parse",
+        "type": "task",
+        "importPath": "flyteplugins.github",
+        "description": "Task for Receive GitHub webhooks in Flyte.."
+      },
+      {
+        "name": "verify",
+        "type": "task",
+        "importPath": "flyteplugins.github",
+        "description": "Task for Receive GitHub webhooks in Flyte.."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-jira",
+    "name": "Receive Jira webhooks in Flyte.",
+    "packageName": "flyteplugins-jira",
+    "description": "Receive Jira webhooks in Flyte.",
+    "category": "developer-tools",
+    "tags": [
+      "jira"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-jira",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/jira",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-jira/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "JiraProvider",
+        "type": "type",
+        "importPath": "flyteplugins.jira",
+        "description": "Jira's webhook provider, with its defaults pre-wired."
+      },
+      {
+        "name": "parse",
+        "type": "task",
+        "importPath": "flyteplugins.jira",
+        "description": "Task for Receive Jira webhooks in Flyte.."
+      },
+      {
+        "name": "verify",
+        "type": "task",
+        "importPath": "flyteplugins.jira",
+        "description": "Task for Receive Jira webhooks in Flyte.."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-linear",
+    "name": "Receive Linear webhooks in Flyte.",
+    "packageName": "flyteplugins-linear",
+    "description": "Receive Linear webhooks in Flyte.",
+    "category": "developer-tools",
+    "tags": [
+      "linear"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-linear",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/linear",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-linear/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "LinearProvider",
+        "type": "type",
+        "importPath": "flyteplugins.linear",
+        "description": "Linear's webhook provider, with its defaults pre-wired."
+      },
+      {
+        "name": "parse",
+        "type": "task",
+        "importPath": "flyteplugins.linear",
+        "description": "Task for Receive Linear webhooks in Flyte.."
+      },
+      {
+        "name": "verify",
+        "type": "task",
+        "importPath": "flyteplugins.linear",
+        "description": "Task for Receive Linear webhooks in Flyte.."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      }
+    ]
+  },
+  {
+    "slug": "v2-slack",
+    "name": "Receive Slack webhooks in Flyte.",
+    "packageName": "flyteplugins-slack",
+    "description": "Receive Slack webhooks in Flyte.",
+    "category": "developer-tools",
+    "tags": [
+      "slack"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-slack",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/slack",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-slack/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "MAX_REQUEST_AGE_SECONDS",
+        "type": "type",
+        "importPath": "flyteplugins.slack",
+        "description": "Configuration type for Receive Slack webhooks in Flyte.."
+      },
+      {
+        "name": "SlackProvider",
+        "type": "type",
+        "importPath": "flyteplugins.slack",
+        "description": "Slack's webhook provider, with its defaults pre-wired."
+      },
+      {
+        "name": "handshake",
+        "type": "task",
+        "importPath": "flyteplugins.slack",
+        "description": "Task for Receive Slack webhooks in Flyte.."
+      },
+      {
+        "name": "parse",
+        "type": "task",
+        "importPath": "flyteplugins.slack",
+        "description": "Task for Receive Slack webhooks in Flyte.."
+      },
+      {
+        "name": "verify",
+        "type": "task",
+        "importPath": "flyteplugins.slack",
+        "description": "Task for Receive Slack webhooks in Flyte.."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "cosmicBboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -4439,8 +4759,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
-        "login": "cosmicBboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "wild-endeavor",
@@ -4543,12 +4863,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "samhita-alla",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "ParagEkbote",
@@ -4796,16 +5116,16 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/wandb_plugin",
     "maintainers": [
       {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       },
       {
         "login": "pingsutw",
         "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
