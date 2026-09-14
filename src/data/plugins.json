@@ -4014,7 +4014,7 @@
     "slug": "v2-github",
     "name": "Receive GitHub webhooks in Flyte.",
     "packageName": "flyteplugins-github",
-    "description": "Receive GitHub webhooks in Flyte.",
+    "description": "Receive GitHub webhooks in Flyte — JSON or form-encoded, GitHub signs both the",
     "category": "developer-tools",
     "tags": [
       "github"
@@ -4045,6 +4045,18 @@
         "description": "Task for Receive GitHub webhooks in Flyte.."
       },
       {
+        "name": "clone_url",
+        "type": "task",
+        "importPath": "flyteplugins.github",
+        "description": "Task for Receive GitHub webhooks in Flyte.."
+      },
+      {
+        "name": "mint_installation_token",
+        "type": "task",
+        "importPath": "flyteplugins.github",
+        "description": "Task for Receive GitHub webhooks in Flyte.."
+      },
+      {
         "name": "handshake",
         "type": "task",
         "importPath": "flyteplugins.github",
@@ -4067,12 +4079,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "cosmicBboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
@@ -4176,12 +4188,14 @@
     "slug": "v2-slack",
     "name": "Receive Slack webhooks in Flyte.",
     "packageName": "flyteplugins-slack",
-    "description": "Receive Slack webhooks in Flyte.",
+    "description": "Receive Slack webhooks in Flyte: Events API callbacks, interactivity payloads",
     "category": "developer-tools",
     "tags": [
       "slack"
     ],
-    "dependencies": [],
+    "dependencies": [
+      "httpx"
+    ],
     "installCommand": "pip install flyteplugins-slack",
     "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/slack",
     "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
@@ -4223,12 +4237,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "cosmicBboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       }
     ]
   },
