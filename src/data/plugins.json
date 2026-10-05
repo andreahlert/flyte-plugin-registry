@@ -397,6 +397,12 @@
         "type": "agent",
         "importPath": "flyteplugins.bigquery",
         "description": "Backend connector for BigQuery."
+      },
+      {
+        "name": "BQToPandasDecodingHandler",
+        "type": "type",
+        "importPath": "flyteplugins.bigquery",
+        "description": "Configuration type for BigQuery."
       }
     ],
     "isDeprecated": false,
@@ -4009,12 +4015,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
-      },
-      {
         "login": "cosmicbboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
       }
     ]
   },
@@ -4195,12 +4201,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
-      },
-      {
         "login": "cosmicbboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
       }
     ]
   },
@@ -4344,12 +4350,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "wild-endeavor",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
       }
     ]
   },
@@ -4542,6 +4548,72 @@
     ]
   },
   {
+    "slug": "v2-slurm",
+    "name": "Slurm",
+    "packageName": "flyteplugins-slurm",
+    "description": "Run Flyte 2 tasks on an existing Slurm cluster. Jobs are submitted over SSH to a",
+    "category": "developer-tools",
+    "tags": [
+      "slurm"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-slurm",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/slurm",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-slurm/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "Slurm",
+        "type": "type",
+        "importPath": "flyteplugins.slurm",
+        "description": "Run Flyte tasks as Slurm jobs.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "SlurmConnector",
+        "type": "agent",
+        "importPath": "flyteplugins.slurm",
+        "description": "Run Flyte tasks as Slurm jobs."
+      },
+      {
+        "name": "SlurmJobMetadata",
+        "type": "task",
+        "importPath": "flyteplugins.slurm",
+        "description": "Task for Slurm.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "SlurmScriptConnector",
+        "type": "agent",
+        "importPath": "flyteplugins.slurm",
+        "description": "Backend connector for Slurm."
+      },
+      {
+        "name": "SlurmFunctionTask",
+        "type": "task",
+        "importPath": "flyteplugins.slurm",
+        "description": "A Python task executed as a Slurm job."
+      },
+      {
+        "name": "SlurmScriptTask",
+        "type": "task",
+        "importPath": "flyteplugins.slurm",
+        "description": "An existing sbatch script run as a Flyte task, unmodified."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "davidmirror-ops",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/82604841?v=4"
+      }
+    ]
+  },
+  {
     "slug": "snowflake",
     "name": "Snowflake",
     "packageName": "flytekitplugins-snowflake",
@@ -4652,12 +4724,12 @@
     "snacksUrl": "https://github.com/flyteorg/flytesnacks/tree/master/examples/snowflake_agent",
     "maintainers": [
       {
-        "login": "pingsutw",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "katrogan",
