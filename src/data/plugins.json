@@ -755,6 +755,76 @@
     ]
   },
   {
+    "slug": "v2-dbt",
+    "name": "dbt task",
+    "packageName": "flyteplugins-dbt",
+    "description": "Run dbt CLI invocations as Flyte v2 tasks.",
+    "category": "developer-tools",
+    "tags": [
+      "dbt"
+    ],
+    "dependencies": [
+      "dbt-core"
+    ],
+    "installCommand": "pip install flyteplugins-dbt",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/dbt",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-dbt/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "DbtTaskResolver",
+        "type": "task",
+        "importPath": "flyteplugins.dbt",
+        "description": "Reconstructs a DbtTask in the remote task container.",
+        "baseClass": "class",
+        "subtype": "config"
+      },
+      {
+        "name": "DbtEventCallback",
+        "type": "type",
+        "importPath": "flyteplugins.dbt",
+        "description": "Configuration type for dbt task."
+      },
+      {
+        "name": "DbtInvocationError",
+        "type": "type",
+        "importPath": "flyteplugins.dbt",
+        "description": "Raised when dbt finishes cleanly but reports failed node results."
+      },
+      {
+        "name": "DbtNodeResult",
+        "type": "type",
+        "importPath": "flyteplugins.dbt",
+        "description": "Small serializable summary of one dbt node result.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      },
+      {
+        "name": "invoke_dbt",
+        "type": "task",
+        "importPath": "flyteplugins.dbt",
+        "description": "Task for dbt task."
+      },
+      {
+        "name": "DbtTask",
+        "type": "task",
+        "importPath": "flyteplugins.dbt",
+        "description": "Reconstructs a DbtTask in the remote task container.",
+        "baseClass": "dataclass",
+        "subtype": "config"
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "fiedlerNr9",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/89976021?v=4"
+      }
+    ]
+  },
+  {
     "slug": "deck-standard",
     "name": "Deck",
     "packageName": "flytekitplugins-deck-standard",
@@ -1384,8 +1454,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "ppiegaze",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/1153481?v=4"
       },
       {
         "login": "samhita-alla",
@@ -2829,12 +2899,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "samhita-alla",
         "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "ppiegaze",
@@ -4107,6 +4177,56 @@
     ]
   },
   {
+    "slug": "v2-gitlab",
+    "name": "Receive GitLab webhooks in Flyte.",
+    "packageName": "flyteplugins-gitlab",
+    "description": "Receive GitLab webhooks in Flyte.",
+    "category": "developer-tools",
+    "tags": [
+      "gitlab"
+    ],
+    "dependencies": [],
+    "installCommand": "pip install flyteplugins-gitlab",
+    "githubUrl": "https://github.com/flyteorg/flyte-sdk/tree/main/plugins/gitlab",
+    "docsUrl": "https://www.union.ai/docs/flyte/integrations/",
+    "pypiUrl": "https://pypi.org/project/flyteplugins-gitlab/",
+    "minFlytekitVersion": "",
+    "modules": [
+      {
+        "name": "GitLabProvider",
+        "type": "type",
+        "importPath": "flyteplugins.gitlab",
+        "description": "GitLab's webhook provider, with its defaults pre-wired."
+      },
+      {
+        "name": "events",
+        "type": "task",
+        "importPath": "flyteplugins.gitlab",
+        "description": "Task for Receive GitLab webhooks in Flyte.."
+      },
+      {
+        "name": "parse",
+        "type": "task",
+        "importPath": "flyteplugins.gitlab",
+        "description": "Task for Receive GitLab webhooks in Flyte.."
+      },
+      {
+        "name": "verify",
+        "type": "task",
+        "importPath": "flyteplugins.gitlab",
+        "description": "Task for Receive GitLab webhooks in Flyte.."
+      }
+    ],
+    "isDeprecated": false,
+    "sdk": "flyte-sdk",
+    "maintainers": [
+      {
+        "login": "cosmicbboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      }
+    ]
+  },
+  {
     "slug": "v2-jira",
     "name": "Receive Jira webhooks in Flyte.",
     "packageName": "flyteplugins-jira",
@@ -4607,6 +4727,14 @@
     "isDeprecated": false,
     "sdk": "flyte-sdk",
     "maintainers": [
+      {
+        "login": "fiedlerNr9",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/89976021?v=4"
+      },
+      {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
       {
         "login": "davidmirror-ops",
         "avatarUrl": "https://avatars.githubusercontent.com/u/82604841?v=4"
