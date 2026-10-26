@@ -819,12 +819,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       },
       {
         "login": "fiedlerNr9",
@@ -978,6 +978,10 @@
     "sdk": "flytekit",
     "addedDate": "2025-10-03",
     "maintainers": [
+      {
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
+      },
       {
         "login": "ansjindal",
         "avatarUrl": "https://avatars.githubusercontent.com/u/170848644?v=4"
@@ -2409,12 +2413,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "samhita-alla",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
-      },
-      {
         "login": "AdilFayyaz",
         "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       }
     ]
   },
@@ -2467,8 +2471,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -3075,6 +3079,10 @@
       {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -3151,14 +3159,13 @@
     ],
     "dependencies": [
       "skl2onnx",
-      "networkx",
-      "onnx"
+      "networkx"
     ],
     "installCommand": "pip install flytekitplugins-onnxscikitlearn",
     "githubUrl": "https://github.com/flyteorg/flytekit/tree/master/plugins/flytekit-onnx-scikitlearn",
     "docsUrl": "https://www.union.ai/docs/flyte/api-reference/plugins/onnx-scikitlearn/",
     "pypiUrl": "https://pypi.org/project/flytekitplugins-onnxscikitlearn/",
-    "minFlytekitVersion": "1.0.0",
+    "minFlytekitVersion": "1.16.29",
     "modules": [
       {
         "name": "ScikitLearn2ONNX",
@@ -3433,8 +3440,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       },
       {
         "login": "samhita-alla",
@@ -4137,8 +4144,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4219,8 +4226,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4269,12 +4276,16 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
         "login": "cosmicbboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4325,8 +4336,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4377,8 +4388,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4443,8 +4454,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4574,16 +4585,16 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "wild-endeavor",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2896568?v=4"
+        "login": "cosmicbboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+      },
+      {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4836,12 +4847,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
+      },
+      {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       },
       {
         "login": "davidmirror-ops",
@@ -5248,8 +5259,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       },
       {
         "login": "ParagEkbote",
@@ -5563,8 +5574,8 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/653394?v=4"
       },
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
+        "login": "pingsutw",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/37936015?v=4"
       },
       {
         "login": "murilommen",
