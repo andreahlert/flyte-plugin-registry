@@ -94,12 +94,12 @@
     "addedDate": "2023-12-21",
     "maintainers": [
       {
-        "login": "ggydush",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/35151789?v=4"
+        "login": "1fanwang",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/21269208?v=4"
       },
       {
-        "login": "nelsonjr",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/623839?v=4"
+        "login": "ggydush",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/35151789?v=4"
       },
       {
         "login": "troychiu",
@@ -819,12 +819,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "AdilFayyaz",
         "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "fiedlerNr9",
@@ -2467,12 +2467,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "AdilFayyaz",
         "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "cosmicbboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -2915,12 +2915,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "samhita-alla",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
-      },
-      {
         "login": "AdilFayyaz",
         "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "samhita-alla",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/27777173?v=4"
       }
     ]
   },
@@ -3077,12 +3077,12 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
-        "login": "kumare3",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
         "login": "AdilFayyaz",
         "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "kumare3",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
         "login": "cosmicbboy",
@@ -4280,16 +4280,16 @@
     "sdk": "flyte-sdk",
     "maintainers": [
       {
+        "login": "AdilFayyaz",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
         "login": "cosmicbboy",
         "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       },
       {
         "login": "kumare3",
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
-      },
-      {
-        "login": "AdilFayyaz",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
       }
     ]
   },
@@ -4336,12 +4336,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "cosmicbboy",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
-      },
-      {
         "login": "AdilFayyaz",
         "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "cosmicbboy",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/2816689?v=4"
       }
     ]
   },
@@ -4502,12 +4502,12 @@
         "avatarUrl": "https://avatars.githubusercontent.com/u/16888709?v=4"
       },
       {
-        "login": "katrogan",
-        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
-      },
-      {
         "login": "AdilFayyaz",
         "avatarUrl": "https://avatars.githubusercontent.com/u/62440954?v=4"
+      },
+      {
+        "login": "katrogan",
+        "avatarUrl": "https://avatars.githubusercontent.com/u/953358?v=4"
       }
     ]
   },
